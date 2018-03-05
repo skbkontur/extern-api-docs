@@ -1,15 +1,10 @@
-Есть три способа передачи auth.sid на сервер. Рекомендуется поддерживать все способы.
+Когда пользователь аутентифицируется, API создает на сервере запись о сессии и  ставит куку auth.sid на домен .kontur.ru.   
 
-### Query string  
+Сервис по sid'у из куки получает информацию о сессии и идентификатор  пользователя.  
 
-Параметр auth.sid  
+Есть два способа передачи auth.sid на сервер. Рекомендуется поддерживать оба способа.
 
-  GET /drive/documents?skip=10&take=10&auth.sid=FE6CFF8BE5E5B548AB1971874886D5C30E85D9BFA41978478FD26D5FD6B66D81
-  Host: api.kontur.ru
-  Accept: application/json
-
-
-### HTTP заголовок Authorization  
+### HTTP-заголовок Authorization   
 
 Схема auth.sid  
 
@@ -20,16 +15,15 @@
 
 ## Cookie
 
-Параметр auth.sid  
+Параметр auth.sid   
 
   GET /drive/documents?skip=10&take=10
   Host: api.kontur.ru
   Accept: application/json
   Cookie: auth.sid=FE6CFF8BE5E5B548AB1971874886D5C30E85D9BFA41978478FD26D5FD6B66D81
 
-### Примечания
+### Примечания  
 
-- По приоритетам способы рекомендуется оценивать так:
--- Самый высокий приоритет у Query string, затем Authorization, затем Cookie.  
+- Передачу через заголовок Authorization рекомендуется считать приоритней, чем через Cookie.  
 
-- Параметры auth.sid следует считать регистронезависимыми в каждом из трех способов.
+- Параметры auth.sid следует считать регистронезависимыми в каждом способе.
