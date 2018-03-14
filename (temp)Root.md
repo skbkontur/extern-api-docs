@@ -12,7 +12,7 @@
 
 ![Схема](https://github.com/skbkontur/extern-api-docs/blob/master/images/main1.jpg)
 
-### I. Аутентификация, авторизация [->](https://github.com/skbkontur/extern-api-docs/blob/master/Аутентификация.md)
+### I. Аутентификация, авторизация [→](https://github.com/skbkontur/extern-api-docs/blob/master/Аутентификация.md)
 
 Методы этого блока позволяют получить доступ к своим организациям следующими защищенными способами:
 * предъявить свой сертификат квалифицированной электронной подписи
