@@ -18,7 +18,7 @@
 ## Доверительная:
 Коды ошибок при запросе **связывания**:
 * ForbiddenForTargetUser - пользователь, под которого пытаются войти, является администратором, вход под администраторов запрещен.
-* InvalidApiKey	- невалидный [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/Как%20передавать%20api-key.md)
+* InvalidApiKey	- невалидный [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/api-key.md)
 * NotId	- не указан идентификатор пользователя доверенной системы
 * UserNotFound - пользователь Контура не найден
 * UserNotUniq	- пользователь с указанным идентификатором не уникален
