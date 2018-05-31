@@ -12,14 +12,12 @@ source_suffix = ['.rst', '.md']
 
 master_doc = 'index'
 
-#project = u'InfinniPlatform'
-#copyright = u'2016, Infinnity Solutions'
-#author = u'Infinnity Solutions'
+project = u'InfinniPlatform'
+copyright = u'2016, Infinnity Solutions'
+author = u'Infinnity Solutions'
+version = u'1.5.0'
 
-
-#version = u'1.5.0'
-
-#release = u'1.5.0'
+release = u'1.5.0'
 
 language = 'ru'
 
