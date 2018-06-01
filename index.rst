@@ -8,5 +8,6 @@
    :maxdepth: 2
 
    auth/index.rst
+   dc/Работа с ДО.md
 
 .. include:: README.md
