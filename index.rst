@@ -9,6 +9,6 @@
 
    Аутентификация.md
    Работа с ДО.md
-   images
+   README.md
 
 .. include:: README.md
