@@ -7,8 +7,6 @@
 .. toctree::
    :maxdepth: 1
 
-   Аутентификация.md
-   Работа с ДО.md
-   images
+   auth/index.rst
 
-.. include:: README.md
+#.. include:: README.md
