@@ -2,7 +2,7 @@
 ============
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    api-key.md
    auth.sid.md
