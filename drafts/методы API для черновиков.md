@@ -1,4 +1,4 @@
-# Методы API Контур.Экстерна для работы с черновиками документооборотов
+# Методы для работы с черновиками
 Подробная спецификация методов показана в сваггере в разделе [Drafts](http://extern-api.testkontur.ru/swagger/ui/index#/Drafts).
 
 Список доступных методов:
@@ -175,5 +175,5 @@
 С помощью метода возможно получить xml-файл деклараций по Упрощенной системы налогообложения по ставке 6% и 15%, передав определенный контракт с данными, на основе которых необходимо сформировать декларацию. 
 
 Контракты:
-* V1 - [УСН-6](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/usn6%20-v1.json), [УСН-15](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/usn15%20-v1.json)
-* V2 - [УСН-6](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/usn6%20-v2.json), [УСН-15](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/usn15%20-v2.json)
+* V1 - [УСН-6](/manuals/usn6%20-v1.json), [УСН-15](/manuals/usn15%20-v1.json)
+* V2 - [УСН-6](/manuals/usn6%20-v2.json), [УСН-15](/manuals/usn15%20-v2.json)
