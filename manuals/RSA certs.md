@@ -1,3 +1,5 @@
+# Получение RSA-сертификата
+
 1. Открываем "Консоль управления"
 
 ![Рис.1](https://github.com/skbkontur/extern-api-docs/blob/master/images/rsa1.jpg)
