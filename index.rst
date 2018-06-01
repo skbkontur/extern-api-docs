@@ -23,7 +23,7 @@
 ===================
 Работа в API состоит из четырех основных блоков.
 
-.. image:: https://github.com/skbkontur/extern-api-docs/master/images/Общая%20краткая.jpg
+.. image:: https://github.com/skbkontur/extern-api-docs/blob/master/images/Общая%20краткая.jpg
    :alt: ui screenshot
 
 I. Аутентификация, авторизация
