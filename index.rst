@@ -8,12 +8,7 @@
    :maxdepth: 2
 
    scenarios/index.rst
-   auth/index.rst
-   accounts/index.rst
-   drafts/index.rst
-   dc/index.rst
-   manuals/index.rst
-   examples/index.rst
+   
 
 У Контур.Экстерна есть удобный и понятный веб-интерфейс, но иногда требуется решать задачи, для которых веб-интерфейс не подходит. Например, необходимо отправить тысячи документов в ответ на требование ФНС: через веб-интерфейс на это потребуется большое количество человеко-часов, а через API это быстро сделает код.
 
@@ -24,7 +19,6 @@
 Работа в API состоит из четырех основных блоков.
 
 .. image:: https://github.com/skbkontur/extern-api-docs/blob/master/images/Общая%20краткая.jpg
-   :alt: ui screenshot
 
 I. Аутентификация, авторизация
 --------
