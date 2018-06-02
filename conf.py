@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 #
-# moira-api documentation build configuration file, created by
-# sphinx-quickstart on Mon Jun 29 12:49:57 2015.
-#
 # This file is execfile()d with the current directory set to its
 # containing dir.
 #
@@ -81,7 +78,7 @@ release = '1.1'
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = 'en'
+language = 'ru'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -91,7 +88,7 @@ language = 'en'
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns = ['api/*']
+#exclude_patterns = ['api/*']
 
 # The reST default role (used for this markup: `text`) to use for all
 # documents.
@@ -109,7 +106,9 @@ exclude_patterns = ['api/*']
 #show_authors = False
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+#pygments_style = 'sphinx'
+highlight_language = 'csharp'
+pygments_style = 'vs'
 
 # A list of ignored prefixes for module index sorting.
 #modindex_common_prefix = []
