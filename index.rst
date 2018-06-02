@@ -3,9 +3,6 @@
 
 .. image:: /logo.png
 
-Содержание:
---------
-
 .. toctree::
    :maxdepth: 1 
    
