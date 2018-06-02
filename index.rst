@@ -4,7 +4,9 @@
 .. image:: /logo.png
 
 .. toctree::
+   :name: prepare
    :maxdepth: 1 
+   :caption: Подготовка
    
    scenarios/index.rst
    auth/index.rst
