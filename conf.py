@@ -15,7 +15,7 @@ import shlex
 import sphinx_rtd_theme
 from recommonmark.parser import CommonMarkParser
 
-from docutils.parsers.md.directives.admonitions import BaseAdmonition
+from docutils.parsers.rst.directives.admonitions import BaseAdmonition
 from sphinx.util import compat
 compat.make_admonition = BaseAdmonition
 
