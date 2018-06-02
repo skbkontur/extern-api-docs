@@ -5,5 +5,6 @@
 
 .. toctree::
    :maxdepth: 1
+   :caption: Работа с API
 
   методы API для учеток.md
