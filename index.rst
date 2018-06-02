@@ -12,9 +12,19 @@
    scenarios/index.rst
    auth/index.rst
    
+.. toctree::
+   :name: extern-api
+   :maxdepth: 1 
+   :caption: Работа с API
+   
    accounts/index.rst
    drafts/index.rst
    dc/index.rst
+   
+.. toctree::
+   :name: help
+   :maxdepth: 1 
+   :caption: Помощь
    
    examples/index.rst
    manuals/index.rst
