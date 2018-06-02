@@ -13,7 +13,7 @@
    
 .. toctree::
    :name: extern-api
-   :maxdepth: 2 
+   :maxdepth: 1 
    :caption: Работа с API
    
    accounts/index.rst
@@ -23,7 +23,7 @@
 .. toctree::
    :name: help
    :maxdepth: 1 
-   :caption: Помощь
+   :caption: Справка
    
    examples/index.rst
    manuals/index.rst
