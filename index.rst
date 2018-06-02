@@ -12,12 +12,10 @@
    scenarios/index.rst
    auth/index.rst
    
-   :caption: Работа с API
    accounts/index.rst
    drafts/index.rst
    dc/index.rst
    
-   :caption: Помощь
    examples/index.rst
    manuals/index.rst
 
