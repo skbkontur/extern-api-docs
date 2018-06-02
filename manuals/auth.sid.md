@@ -1,5 +1,4 @@
-<a name="auth.sid"></a>  
-# auth.sid
+# auth.sid <a name="auth.sid"></a>  
 
 ## Что это такое?
 
