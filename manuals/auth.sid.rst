@@ -1,4 +1,4 @@
-
+.. _rst-markup-auth.sid:
 auth.sid
 ========
 
