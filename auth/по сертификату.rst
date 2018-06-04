@@ -1,76 +1,97 @@
-# По сертификату 
+По сертификату 
+==============
 
-![Схема](https://github.com/skbkontur/extern-api-docs/blob/master/images/По%20серту.jpg)
+.. image:: /_static/По%20серту.jpg
 
 Аутентификация по сертификату двухшаговая.
-## 1. Инициализация:
+
+1. Инициализация:
+-----------------
+
 * Пользователь присылает объект идентификации - сертификат (*cert*). Сервер идентифицирует его и находит нужный userID.
 * Для userID генерируется случайное значение - *rnd*. Сервер шифрует *rnd* (получаем *enc(rnd)*) и отправляет пользователю.
 
-**Запрос**: ```POST /auth/v5.9/authenticate-by-cert?free=value&apiKey=value```, где:
-* free - булевый флаг, который говорит проверять или нет валидность сертификата (true - не проверять, по умолчанию - false).
-* apiKey - [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/api-key.md).
+**Запрос**: ``POST /auth/v5.9/authenticate-by-cert?free=value&apiKey=value``, где:
+
+* free - булевый флаг, который говорит проверять или нет валидность сертификата (true - не проверять, по умолчанию - false);
+* apiKey - :doc:`/manuals/api-key`.
 
 **Тело запроса**: сертификат в PEM-формате.
 
 **Ответ**:
+
 * EncryptedKey - зашифрованная случайная строка. Возвращается в кодировке Base-64. Для корректной расшифровки требуется декодировать ее из Base-64.
 * Link - объект, который описывает ссылку для подтверждения запроса аутентификации:
     * Link.Rel - описание ссылки,
     * Link.Href - адрес ссылки.
 
 **Коды ответов**:
-* 200(OK) - запрос выполнен успешно
+
+* 200(OK) - запрос выполнен успешно.
 * 400(Bad Request) - отсутствуют необходимые параметры
-* 403(Forbidden)[→](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/403%20(Forbidden)%20от%20auth.api.md#2)
+* 403(Forbidden) :doc:`/auth/403%20(Forbidden)%20от%20auth.api`.
 * 406(Not Acceptable), причин может быть несколько:
-    * один из сертификатов цепочки имеет неверную подпись
-    * истек либо не наступил срок действия сертификата
-    * цепочка сертификатов основана на не доверенном корневом сертификате
-* 500(InternalServerError)
+
+    * один из сертификатов цепочки имеет неверную подпись;
+    * истек либо не наступил срок действия сертификата;
+    * цепочка сертификатов основана на не доверенном корневом сертификате.
+    
+* 500(InternalServerError).
           
-## 2. Подтверждение:
+2. Подтверждение:
+-----------------
+
 * Пользователь, получив enc(rnd), расшифровывает его (получаем *dec(enc(rnd))*) и отправляет результат серверу.
 * Если dec(enc(rnd)) равен rnd, то сервер возвращает *auth.sid*
 
- **Запрос**: ```POST /auth/v5.9/approve-cert?thumbprint=value&apiKey=value```, где:
-* thumbprint - отпечаток сертификата, используемого для аутентификации.
-* apiKey - [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/api-key.md).
+ **Запрос**: ``POST /auth/v5.9/approve-cert?thumbprint=value&apiKey=value``, где:
+ 
+* thumbprint - отпечаток сертификата, используемого для аутентификации;
+* apiKey - :doc:`/manuals/api-key`.
 
 **Тело запроса**: расшифрованный сертификатом пользователя EncryptedKey в байтах.
 
 **Ответ**:
-* Sid - идентификатор сессии [auth.sid](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/auth.sid.md).
+
+* Sid - идентификатор сессии :doc:`/manuals/auth.sid`.
 * RefreshToken - ключ, необходимый для продления созданной сессии.
 
 **Коды ответов**:
-* 200(OK) - запрос выполнен успешно
-* 400(Bad Request) - отсутствует thumbprint
-* 403(Forbidden)[→](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/403%20(Forbidden)%20от%20auth.api.md#3)
-* 500(InternalServerError)
 
-## 3. Продление сессии
+* 200(OK) - запрос выполнен успешно.
+* 400(Bad Request) - отсутствует thumbprint.
+* 403(Forbidden) :doc:`/auth/403%20(Forbidden)%20от%20auth.api`.
+* 500(InternalServerError).
+
+3. Продление сессии
+-------------------- 
 При истечении времени жизни auth.sid необходимо его обновить, это можно сделать двумя способами:
+
 * пройти заново предыдущие два шага аутентификации по сертификату;
 * воспользоваться запросом ниже.
 
-**Запрос**: ```POST /sessions/v5.9/sessions/refresh?auth.sid=value&refresh-token=value&api-key=value```, где:
-* auth.sid - обновляемая сессия
-* refresh-token - токен, соответствующий обновляемой сессии
-* api-key - [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/api-key.md).
+**Запрос**: ``POST /sessions/v5.9/sessions/refresh?auth.sid=value&refresh-token=value&api-key=value``, где:
+
+* auth.sid - обновляемая сессия;
+* refresh-token - токен, соответствующий обновляемой сессии;
+* api-key - :doc:`/manuals/api-key`.
 
 **Ответ**:
-* Sid - идентификатор сессии [auth.sid](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/auth.sid.md).
+
+* Sid - идентификатор сессии :doc:`/manuals/auth.sid`.
 * RefreshToken - ключ, необходимый для продления созданной сессии.
 
 **Коды ответов**:
-* 200(OK) - запрос выполнен успешно
-* 400(Bad Request) - отсутствует thumbprint
-* 403(Forbidden) - неподходящий api-key или refresh-token 
-* 500(InternalServerError)
-* 503(ServiceUnavailable) - внутренние сервисы не отвечают
 
-## Примечание
+* 200(OK) - запрос выполнен успешно.
+* 400(Bad Request) - отсутствует thumbprint.
+* 403(Forbidden) - неподходящий api-key или refresh-token.
+* 500(InternalServerError).
+* 503(ServiceUnavailable) - внутренние сервисы не отвечают.
+
+Примечание
+----------
+
 * Для удобства проверки у rnd будет префикс равный userID. 
 * rnd живет 10 минут. 
 * У каждого пользователя один свой уникальный rnd. 
