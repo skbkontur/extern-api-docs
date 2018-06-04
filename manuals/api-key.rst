@@ -9,6 +9,7 @@ api-key
 * В запросах его необходимо передавать при помощи Http-заголовка  **X-Kontur-Apikey**.
 
 Пример:
+
 .. code-block:: http
 
   GET /drive/documents?skip=10&take=10
