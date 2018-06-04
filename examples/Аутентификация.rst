@@ -1,17 +1,23 @@
-# Примеры аутентификации
+Примеры аутентификации
+======================
 
 Способы аутентификации:
-* [По сертификату](#1)
-* [Доверительная](#2)
 
-<a name="1"></a>
-## По сертификату 
-### 1. Инициализация
+* `По сертификату`_
+* `Доверительная`_
+
+По сертификату 
+--------------
+
+1. Инициализация
+^^^^^^^^^^^^^^^^
+
 **Запрос**: 
-```
-POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
-```
+
+``POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+
 **Тело**:
+
 ```
 -----BEGIN CERTIFICATE-----
 MIIJTzCCCP6gAwIBAgIKLUfNEQAAAAKeZjAIBgYqhQMCAgMwggFbMRgwFgYFKoUD
@@ -21,13 +27,15 @@ Ni4yMDEyMAgGBiqFAwICAwNBAIR0lvMDEgi++3xcZ7bBjFyKxJ81DoyKdY8Mm1fb
 ig6Wya0ui9H9fTASUKfeJoOHE6u01whF06AZ3YrAMkluO1E=
 -----END CERTIFICATE-----
 ```
+
 **Ответ**:
-```
+
+.. code-block:: http
+
 HTTP/1.1 200 OK 
 Content-Type: application/json;charset=UTF-8 
 Content-Length: xxxx 
 Server: xxxx 
-
 {
 "EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
 "Link":
@@ -36,13 +44,16 @@ Server: xxxx
 "Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
 }
 }
-```
-### 2. Подтверждение
+
+
+2. Подтверждение
+^^^^^^^^^^^^^^^^
+
 **Запрос**: 
-```
-POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
-```
+``POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+
 **Тело**:
+
 ```
 {
 3082 03a7 0609 2a86 4886 f70d 0107 03a0
@@ -52,13 +63,15 @@ POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c
 b128 17d1 852b 8edf de3f 7b
 }
 ```
+
 **Ответ**:
-```
+
+.. code-block:: http
+
 HTTP/1.1 200 OK
 Content-Type: application/json;charset=UTF-8
 Content-Length: xxxx
 Server: xxxx
-
 {
 "Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
 "RefreshToken": "AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB"
