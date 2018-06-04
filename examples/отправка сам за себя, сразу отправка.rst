@@ -1,0 +1,483 @@
+.. _`GET All`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll
+.. _`POST Draft`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Create
+.. _`POST Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument
+.. _`POST Send`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Send
+
+Отправка за свою организацию
+===================================
+
+Разберем пример, когда организация сдаёт отчетность о среднесписочной численности сама за себя - то есть одновременно является и отправителем, и налогоплательщиком. Отправка пройдет по короткой схеме: бужет вызван сразу метод отправки документов, проверка и подготовка документов произойдет в фоне.
+
+Данные необходимые для работы примера
+-------------------------------------
+
+* файл декларации о среднесписочной численности :ref:`→ <rst-dec1>`;
+* api-key - :doc:`/manuals/api-key`;
+* inn - ИНН тестовой учетной записи;
+* kpp - КПП тестовой учетной записи;
+* certificate - тестовый сертификат ЭП тестовой учетной записи;
+* ifns-code - код инспекции ФНС, на тестовой площадке у нас работают 2 инспекции, которые автоматически отвечают на отправленные документы (0087 - приходят положительные ответы, 0088 - приходят отрицательные ответы).
+
+Порядок работы
+--------------
+
+Предполагаем, что учетные данные организации уже заведены.    
+
+1. Аутентифицируемся, получая :doc:`/manuals/auth.sid`.
+2. Получаем accountId своей учетной записи Контур.Экстерна в тестовой среде.
+3. Создаем черновик документооборота, наполняя его минимально необходимыми данными:
+   * ИНН-КПП отправителя;
+   * сертификат, который используется для подписи;
+   * ip-адрес рабочего места абонента (необходимо для предоставления в ФНС);
+   * код инспекции ФНС, куда направляется декларация;
+   * ИНН-КПП организации, за которую происходит отправка декларации (в нашем случае совпадают с ИНН-КПП отправителя).
+4. Записываем в черновик декларацию и подпись (контент в base64).
+5. Отправляем документы из черновика в ФНС.
+ 
+1. Аутентификация
+^^^^^^^^^^^^^^^^^
+
+Получаем :doc:`/manuals/auth.sid`. Например, используя метод аутентификации по сертификату :ref:`→ <rst-auth-cert>`.
+
+**Инициализация**  
+___________
+
+**Запрос**: 
+
+``POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
+
+**Тело**:
+
+::
+
+   -----BEGIN CERTIFICATE-----
+   MIIJTzCCCP6gAwIBAgIKLUfNEQAAAAKeZjAIBgYqhQMCAgMwggFbMRgwFgYFKoUD
+   ...
+   ig6Wya0ui9H9fTASUKfeJoOHE6u01whF06AZ3YrAMkluO1E=
+   -----END CERTIFICATE-----
+   
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK 
+   Content-Type: application/json;charset=UTF-8 
+   Content-Length: xxxx 
+   Server: xxxx 
+   
+   {
+   "EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
+   "Link":
+   {
+   "Rel":"Send decrypted key to this link",
+   "Href":"https://api.testkontur.ru/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
+   }
+   }
+   
+**Подтверждение**  
+________________
+
+**Запрос**: 
+
+``POST /auth/v5.9/approve-cert?thumbprint=dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
+
+**Тело**:
+
+::
+
+   {
+   3082 03a7 0609 2a86 4886 f70d 0107 03a0
+   8203 9830 8203 9402 0100 3182 025b 3082
+   ...
+   9ec7 b7a0 8470 f271 2a11 d1c8 007e be42
+   b128 17d1 852b 8edf de3f 7b
+   }
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json;charset=UTF-8
+   Content-Length: xxxx
+   Server: xxxx
+
+
+2. Получение accountId
+^^^^^^^^^^^^^^^^^^^^^^
+
+Метод: `GET All`_
+
+Получаем идентификатор учетной записи, от имени которой будем работать с API. В общем случае учетная запись создается при подключении организации к Контур.Экстерну.
+
+**Запрос**: 
+
+.. code-block:: http
+
+   GET /v1 HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Host: extern-api.testkontur.ru
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json; charset=utf-8
+   Server: Microsoft-HTTPAPI/2.0
+   Date: Tue, 10 Apr 2018 06:15:48 GMT
+   Content-Length: 723
+   
+   {
+     "skip": 0,
+     "take": 1,
+     "total-count": 1,
+     "accounts": [
+       {
+         "id": "ea3a9316-d3c5-4544-a6df-4e8d9aa9f813",
+         "inn": "3782868692",
+         "kpp": "378750338",
+         "organization-name": "ООО Стеклорегистр",
+         "links": [
+           {
+             "rel": "self",
+             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813"
+           },
+           {
+             "rel": "drafts",
+             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts"
+           },
+           {
+             "rel": "docflows",
+             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows"
+           }
+         ]
+       }
+     ]
+   }
+
+
+3. Создание черновика документооборота  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Метод: `POST Draft`_
+
+При сдаче отчетности за себя, *sender* совпадает с *organization*. Указывать необходимо оба параметра.
+
+**Запрос**: 
+
+.. code-block:: http
+
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Host: extern-api.testkontur.ru
+   Connection: Keep-Alive
+   Content-Length: 9431
+   
+   {
+	   "sender": {
+		   "inn": "3782868692",
+   		"kpp": "378750338",
+		   "certificate": {
+			   "content": "MIIJJiMxMTEwOzCCCWKgAwI ... A1MTuX"
+		   },
+   		"ipaddress": "8.8.8.8"
+	   },
+   	"recipient": {
+		   "ifns-code": "0087"
+	   },
+   	"payer": {
+		   "inn": "3782868692",
+   		"organization": {
+			   "kpp": "378750338"
+		   }
+	   }
+   }
+
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 201 Created
+   Content-Type: application/json; charset=utf-8
+   Server: nginx
+   Date: Wed, 11 Apr 2018 08:29:58 GMT
+   Content-Length: 9810
+   
+   {
+     "id": "a3cbaa67-b52d-49a0-9105-3040654c0b13",
+     "docflows": [],
+     "documents": [],
+     "meta": {
+       "sender": {
+         "inn": "3782868692",
+         "kpp": "378750338",
+         "certificate": {
+           "content": "MIIJJiMxMTEwOzCCCWK ... MTA1MTuX"
+         },
+         "ipaddress": "8.8.8.8"
+       },
+       "recipient": {
+         "ifns-code": "0087"
+       },
+       "payer": {
+         "inn": "3782868692",
+         "organization": {
+           "kpp": "378750338"
+         }
+       }
+     },
+     "status": "new",
+     "links": [
+       {
+         "rel": "self",
+         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13"
+       }
+     ]
+   }
+  
+4. Добавление документов  
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+Метод: `POST Document`_ 
+
+На этом этапе добавляем в черновик документооборота необходимые документы. Добавим декларацию со сведениями о среднесписочной численности. В этом же запросе добавим подпись.
+
+**Запрос**: 
+
+.. code-block:: http
+
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/documents HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Connection: Keep-Alive
+   Host: extern-api.testkontur.ru
+   Content-Length: 5876
+   
+   {
+	   "base64-content": "PD94bWwgdmVyc2lvbj0iMS4wI ... 7fI+DQo8L9Tg6es+",
+   	"signature": "MIIN8QYJKoZIhvcNAQcCoIIN4jCCD ... mUqDa705IfSQx794hbff6AebIvG3prTkVxbP+2Qr/",
+	   "description": {
+		   "filename": "NO_SRCHIS_0087_0087_3782868692378750338_20180411_d0cc4da7-a9a8-407a-97ac-93ceff1cdff0.xml",
+   		"content-type": "application/xml"
+	   }
+   }
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 201 Created
+   Content-Type: application/json; charset=utf-8
+   Server: nginx
+   Date: Wed, 11 Apr 2018 10:10:50 GMT
+   Content-Length: 1112
+   
+   {
+     "id": "1382522e-815a-4790-ae6c-ccf0341f38da",
+     "decrypted-content-link": {
+       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/documents/1382522e-815a-4790-ae6c-ccf0341f38da/content/decrypted",
+       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/documents/1382522e-815a-4790-ae6c-ccf0341f38da/content/decrypted"
+     },
+     "signature-content-link": {
+       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/documents/1382522e-815a-4790-ae6c-ccf0341f38da/signature",
+       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/documents/1382522e-815a-4790-ae6c-ccf0341f38da/signature"
+     },
+     "description": {
+       "type": "urn:document:fns534-report",
+       "filename": "NO_SRCHIS_0087_0087_3782868692378750338_20180411_d0cc4da7-a9a8-407a-97ac-93ceff1cdff0.xml",
+       "content-type": "application/xml"
+     }
+   }
+
+5. Отправка  
+^^^^^^^^^^^
+
+Метод: `POST Send`_
+
+На выходе данного метода получается документооборот, примеры по работе с документооборотами будут рассмотрены в примере [→]().
+
+**Запрос**: 
+
+.. code-block:: http
+
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/a3cbaa67-b52d-49a0-9105-3040654c0b13/send HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Host: extern-api.testkontur.ru
+   Connection: Keep-Alive
+   Content-Length: 0
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json; charset=utf-8
+   Server: nginx
+   Date: Wed, 11 Apr 2018 10:37:14 GMT
+   Content-Length: 7306
+   
+   [
+     {
+       "id": "520e9bec-90b3-4d35-ab18-240ee2c72df3",
+       "type": "urn:docflow:fns534-report",
+       "status": "urn:docflow-common-status:sent",
+       "description": {
+         "recipient": "0087",
+         "final-recipient": "0087",
+         "correction-number": 0,
+         "period-begin": "2012-01-01T00:00:00",
+         "period-end": "2012-12-31T00:00:00",
+         "period-code": 34,
+         "payer-inn": "3782868692-378750338"
+       },
+       "documents": [
+         {
+           "id": "37ce7fbc-f7d1-46e6-8456-513c2b9b118a",
+           "description": {
+             "type": "urn:document:fns534-report",
+             "filename": "NO_SRCHIS_0087_0087_3782868692378750338_20180411_d0cc4da7-a9a8-407a-97ac-93ceff1cdff0.xml",
+             "content-type": "application/xml"
+           },
+           "content": {
+             "decrypted": {
+               "rel": "decrypted-content",
+               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/decrypted"
+             },
+             "encrypted": {
+               "rel": "encrypted-content",
+               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/encrypted"
+             }
+           },
+           "signatures": [
+             {
+               "id": "fa24854e-38f6-499e-a693-78ca57fd1d1c",
+               "content-link": {
+                 "rel": "content",
+                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
+            },
+            "links": [
+              {
+                "rel": "self",
+                "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
+              },
+              {
+                "rel": "docflows",
+                "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a"
+          },
+          {
+            "rel": "docflows",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+          }
+        ]
+      },
+      {
+        "id": "c4a12f9d-22a9-455a-904a-ae0e12dc5161",
+        "description": {
+          "type": "urn:document:fns534-report-description",
+          "filename": "TR_DEKL.xml",
+          "content-type": "application/xml"
+        },
+        "content": {
+          "decrypted": {
+            "rel": "decrypted-content",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/decrypted"
+          },
+          "encrypted": {
+            "rel": "encrypted-content",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/encrypted"
+          }
+        },
+        "signatures": [],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161"
+          },
+          {
+            "rel": "docflows",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+          }
+        ]
+      },
+      {
+        "id": "2511db49-738c-4a42-8132-09a78747257a",
+        "description": {
+          "type": "urn:document:fns534-report-date-confirmation",
+          "filename": "PD_NOSRCHIS_3782868692378750338_3782868692378750338_1BM_20180411_e255e863-144d-4962-b6b6-969cdc5579f6.xml",
+          "content-type": "application/xml"
+        },
+        "content": {
+          "decrypted": {
+            "rel": "decrypted-content",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/decrypted"
+          },
+          "encrypted": {
+            "rel": "encrypted-content",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/encrypted"
+          }
+        },
+        "signatures": [
+          {
+            "id": "1bc849a9-22dc-4835-bbbc-ab2bacd7bb41",
+            "content-link": {
+              "rel": "content",
+              "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
+            },
+            "links": [
+              {
+                "rel": "self",
+                "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
+              },
+              {
+                "rel": "docflows",
+                "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+              }
+            ]
+          }
+        ],
+        "links": [
+          {
+            "rel": "self",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a"
+          },
+          {
+            "rel": "docflows",
+            "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+          }
+        ]
+      }
+    ],
+    "links": [
+      {
+        "rel": "self",
+        "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
+      },
+      {
+        "rel": "reply",
+        "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/reply/fns534-report-receipt",
+        "name": "fns534-report-receipt"
+      }
+    ],
+    "send-date": "2018-04-11T13:37:14.4795073",
+    "last-change-date": "2018-04-11T10:37:14.4795073Z"
+  }
+   ]
