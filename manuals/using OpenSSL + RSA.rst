@@ -21,21 +21,21 @@
 .. code-block:: cs
 
    using System.Security.Cryptography.Pkcs;
-using System.Security.Cryptography.X509Certificates;
-using System.Threading.Tasks;
- 
-namespace SignerApp
-{
-  public class Signer
-  {
-    public async Task<byte[]> SignData(byte[] contentToSign)
-    {
-      var certificateWithPassword = new X509Certificate2(@"path\to\PKCS#12\Certificate", "password");
-      ContentInfo content = new ContentInfo(contentToSign);
-      SignedCms signedCms = new SignedCms(content, true);
-      CmsSigner signer = new CmsSigner(SubjectIdentifierType.IssuerAndSerialNumber, certificateWithPassword);
-      signedCms.ComputeSignature(signer);
-      return signedCms.Encode();
-    }
-  }
-}
+   using System.Security.Cryptography.X509Certificates;
+   using System.Threading.Tasks;
+    
+   namespace SignerApp
+   {
+     public class Signer
+     {
+       public async Task<byte[]> SignData(byte[] contentToSign)
+       {
+         var certificateWithPassword = new X509Certificate2(@"path\to\PKCS#12\Certificate", "password");
+         ContentInfo content = new ContentInfo(contentToSign);
+         SignedCms signedCms = new SignedCms(content, true);
+         CmsSigner signer = new CmsSigner(SubjectIdentifierType.IssuerAndSerialNumber, certificateWithPassword);
+         signedCms.ComputeSignature(signer);
+         return signedCms.Encode();
+       }
+     }
+   }
