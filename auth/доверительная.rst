@@ -27,7 +27,7 @@
 * 200(OK) - запрос выполнен успешно.
 * 400(Bad Request) - отсутствуют необходимые параметры.
 * 401(Unauthorized) - api-key не указан.
-* 403(Forbidden) :doc:`/auth/403%20(Forbidden)%20от%20auth.api`.
+* :doc:`/auth/403%20(Forbidden)`.
 * 500(InternalServerError).
 
 Метод доверительной аутентификации
@@ -74,7 +74,7 @@
 * 200(OK) - запрос выполнен успешно.
 * 400(Bad Request).
 * 401(Unauthorized) - api-key не указан.
-* 403(Forbidden) :doc:`/auth/403%20(Forbidden)%20от%20auth.api`.
+* :doc:`/auth/403%20(Forbidden)`.
 * 500(InternalServerError).
 
 2. Подтверждение
@@ -98,5 +98,5 @@
 * 200(OK) - запрос выполнен успешно.
 * 400(Bad Request) - отсутствуют необходимые параметры.
 * 401(Unauthorized) - api-key не указан.
-* 403(Forbidden) :doc:`/auth//403%20(Forbidden)%20от%20auth.api`.
+* :doc:`/auth/403%20(Forbidden)`.
 * 500(InternalServerError).
