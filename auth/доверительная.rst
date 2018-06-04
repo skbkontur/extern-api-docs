@@ -42,7 +42,7 @@
 
 **Запрос**: 
 
-..code-block:: http
+.. code-block:: http
 
 POST /auth/v5.9/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value 
 
