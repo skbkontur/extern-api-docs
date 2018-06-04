@@ -1,4 +1,4 @@
-.. _`GET DocflowsAsync`: (http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync)
+.. _`GET DocflowsAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
 
 Пример работы со списком документооборотов
 ==========================================
