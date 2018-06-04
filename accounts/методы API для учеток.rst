@@ -1,7 +1,7 @@
 .. _Accounts: http://extern-api.testkontur.ru/swagger/ui/index#/Accounts
-.. _GET All: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll
-.. _POST Account: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Create
-.. _GET Account: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Get
+.. _`GET All`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll
+.. _`POST Account`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Create
+.. _`GET Account`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Get
 
 Методы для работы с учетными записями
 =======================================
@@ -10,11 +10,10 @@
 
 .. contents:: Список доступных методов
 
-
 Получение списка всех доступных учетных записей 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Метод: GET All_
+Метод: `GET All`_
 
 При вызове этого метода можно получить список доступных учетных записей авторизованного пользователя. Пользователь определяется по :doc:`/manuals/auth.sid` из запроса. 
 
@@ -23,11 +22,11 @@
 Создание новой учетной записи 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Метод: POST Account_
+Метод: `POST Account`_
 
 **Доступен только** для работы в сценариях :doc:`Компаний-Партнеров Контура </scenarios/Компания-партнер-Контура)>` и :doc:`дополнительно ещё и УЦ Контура </scenarios/Компания-партнер-УЦ-Контура>`. С помощью данного метода есть возможность создавать новые учетные записи для пользователей сервис Компаний-Партнеров, если организации этих пользователей ещё не существуют в Контур.Экстерне.
 
 Получение конкретной учетной записи 
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Метод: GET Account_
+Метод: `GET Account`_
