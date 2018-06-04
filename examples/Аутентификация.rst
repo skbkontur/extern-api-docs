@@ -33,125 +33,133 @@
 
 .. code-block:: http
 
-HTTP/1.1 200 OK 
-Content-Type: application/json;charset=UTF-8 
-Content-Length: xxxx 
-Server: xxxx 
-{
-"EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
-"Link":
-{
-"Rel":"Send decrypted key to this link",
-"Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
-}
-}
+  HTTP/1.1 200 OK 
+  Content-Type: application/json;charset=UTF-8 
+  Content-Length: xxxx 
+  Server: xxxx 
+  {
+  "EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
+  "Link":
+  {
+  "Rel":"Send decrypted key to this link",
+  "Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
+  }
+  }
 
 
 2. Подтверждение
 ^^^^^^^^^^^^^^^^
 
 **Запрос**: 
-``POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+
+``POST /auth/v5.9/approve-cert?thumbprint=dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
 
 **Тело**:
 
-```
-{
-3082 03a7 0609 2a86 4886 f70d 0107 03a0
-8203 9830 8203 9402 0100 3182 025b 3082
-...
-9ec7 b7a0 8470 f271 2a11 d1c8 007e be42
-b128 17d1 852b 8edf de3f 7b
-}
-```
+::
+
+  {
+  3082 03a7 0609 2a86 4886 f70d 0107 03a0
+  8203 9830 8203 9402 0100 3182 025b 3082
+  ...
+  9ec7 b7a0 8470 f271 2a11 d1c8 007e be42
+  b128 17d1 852b 8edf de3f 7b
+  }
 
 **Ответ**:
 
 .. code-block:: http
 
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: xxxx
-Server: xxxx
-{
-"Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-"RefreshToken": "AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB"
-}
-```
+  HTTP/1.1 200 OK
+  Content-Type: application/json;charset=UTF-8
+  Content-Length: xxxx
+  Server: xxxx
+  {
+  "Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+  "RefreshToken": "AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB"
+  }
 
-### 3. Продление сессии
+3. Продление сессии
+^^^^^^^^^^^^^^^^^^^
 
 **Запрос**: 
-```
-POST sessions/v5.9/sessions/refresh?auth.sid=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&refresh-token=AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB&api-key=CAFEBABE-DEAD-BEEF-AAAA-FEEDDEADFACE HTTP/1.1
-```
+
+``POST sessions/v5.9/sessions/refresh?auth.sid=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA&refresh-token=AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB&api-key=CAFEBABE-DEAD-BEEF-AAAA-FEEDDEADFACE HTTP/1.1``
 
 **Ответ**:
-```
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: xxxx
-Server: xxxx
- 
-{
+
+.. code-block:: http
+
+  HTTP/1.1 200 OK
+  Content-Type: application/json;charset=UTF-8
+  Content-Length: xxxx
+  Server: xxxx
+  {
 	"Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
 	"RefreshToken": "AAAAAAAAAAAAAAAAAAAAAABBBBBBBBBBBBBBBBBBBBBBBB"
-}
-```
+  }
 
-<a name="2"></a>
-## Доверительная
-### 0. Связывание пользователей
+Доверительная
+-------------
+
+0. Связывание пользователей
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 **Запрос**: 
-```
-POST /auth/v5.9/register-external-service-id?api-key=74cc9756-4acb-4daf-9a17-03a38400000f&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1
-```
+
+``POST /auth/v5.9/register-external-service-id?api-key=74cc9756-4acb-4daf-9a17-03a38400000f&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1``
+
 **Ответ**:
-```
-HTTP/1.1 200 OK 
-Content-Type: application/json;charset=UTF-8 
-Content-Length: xxxx 
-Server: xxxx  
-```
 
-### 1. Инициализация
+.. code-block:: http
+
+  HTTP/1.1 200 OK 
+  Content-Type: application/json;charset=UTF-8 
+  Content-Length: xxxx 
+  Server: xxxx  
+
+1. Инициализация
+^^^^^^^^^^^^^^^^
+
 **Запрос**: 
-```
-POST /auth/v5.9/authenticate-by-truster?apiKey=74cc9756-4acb-4daf-9a17-03a38400000f&timestamp=16.08.2016 14:03:10&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&snils=40934200000 HTTP/1.1
-```
+
+``POST /auth/v5.9/authenticate-by-truster?apiKey=74cc9756-4acb-4daf-9a17-03a38400000f&timestamp=16.08.2016 14:03:10&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&snils=40934200000 HTTP/1.1``
+
 **Тело**:
-```
-file.sig
-```
-**Ответ**:
-```
-HTTP/1.1 200 OK 
-Content-Type: application/json;charset=UTF-8 
-Content-Length: xxxx 
-Server: xxxx  
 
-{
-"Key": "FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000",
-"Link":
-{
-"Rel": "Send key to this link",
-"Href":  "https://api.dev.kontur/auth/v5/approve-truster?id=40934200000&key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F10000000000"
-}
-}
-```
-### 2. Подтверждение
-**Запрос**: 
-```
-POST /auth/v5.9/approve-truster?key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000&id=40934200000 HTTP/1.1
-```
+``file.sig``
+
 **Ответ**:
-```
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: xxxx
-Server: xxxx
- 
-{
+
+.. code-block:: http
+
+  HTTP/1.1 200 OK 
+  Content-Type: application/json;charset=UTF-8 
+  Content-Length: xxxx 
+  Server: xxxx  
+  {
+  "Key": "FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000",
+  "Link":
+  {
+  "Rel": "Send key to this link",
+  "Href":  "https://api.dev.kontur/auth/v5/approve-truster?  id=40934200000&key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F10000000000"
+  }
+  }
+
+2. Подтверждение
+^^^^^^^^^^^^^^^^
+
+**Запрос**: 
+``POST /auth/v5.9/approve-truster?key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000&id=40934200000 HTTP/1.1``
+
+**Ответ**:
+
+.. code-block:: http
+
+  HTTP/1.1 200 OK
+  Content-Type: application/json;charset=UTF-8
+  Content-Length: xxxx
+  Server: xxxx
+  {
 	"Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-}
-```
+  }
