@@ -1,4 +1,4 @@
-.. _RSA: https://ru.wikipedia.org/wiki/RSA
+.. .. _RSA: https://ru.wikipedia.org/wiki/RSA
 
 Доверительная 
 =============
