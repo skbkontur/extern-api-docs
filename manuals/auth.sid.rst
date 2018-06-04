@@ -1,4 +1,3 @@
-.. _auth.sid:
 auth.sid
 ========
 
