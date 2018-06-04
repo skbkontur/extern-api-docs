@@ -32,7 +32,7 @@
 * :doc:`403(Forbidden) </auth/403(Forbidden)>`.
 * 500(InternalServerError).
 
-.. impotant:: Доверительная аутентификация двухшаговая.
+.. important:: Доверительная аутентификация двухшаговая.
 
 .. image:: /_static/Доверительная.jpg
 
