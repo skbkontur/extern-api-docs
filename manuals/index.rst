@@ -4,7 +4,8 @@
 .. toctree::
    :maxdepth: 1
 
-   api-key.md
-   auth.sid.md
-   using OpenSSL + RSA.md
-   RSA certs.md
+   api-key
+   auth.sid
+   using-OpenSSL-and-RSA
+   RSA-certs
+   contracts-usn
