@@ -1,9 +1,0 @@
-Pillow
-Sphinx
-sphinx-rtd-theme
-sphinxcontrib-httpdomain
-sphinxcontrib-images
-pyenchant
-recommonmark
-txredisapi
-anyjson
