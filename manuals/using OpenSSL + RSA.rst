@@ -18,7 +18,7 @@
 
 **Пример использования системной криптографии Windows (с использованием C#)**
 
-.. code-block:: cs
+.. code-block:: c#
 
 using System.Security.Cryptography.Pkcs;
 using System.Security.Cryptography.X509Certificates;
