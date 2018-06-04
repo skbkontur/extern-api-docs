@@ -16,7 +16,9 @@
 * вручную техподдержкой или продуктами на стороне Контура по запросу Компании-Партнера
 * доверенной системе разрешается самостоятельно связывать определенных пользователей Контура с любым своим пользователем по номеру телефона пользователя - требуется отдельное разрешение, которое проставляется на :doc:`/manuals/api-key` Компании-Партнера.
 
-**Запрос**: ``PUT /auth/v5.9/register-external-service-id?api-key=value&serviceUserId=value&phone=value``, где:
+**Запрос**: 
+
+``PUT /auth/v5.9/register-external-service-id?api-key=value&serviceUserId=value&phone=value``, где:
 
 * phone - объект идентификации, телефон пользователя;
 * serviceUserId - идентификатор пользователя в доверенной системе;
@@ -41,7 +43,9 @@
 * подписывает данные запроса своим ключом (открытый сертификат данного ключа необходимо передать в Контур, он будет использовать для проверки подписи запроса на нашей стороне), на этом шаге допускается возможность использования криптографии RSA_, сертификат и ключ для данного алгоритма криптографии можно получить, например, в ОС Windows :doc:`→ </manuals/RSA-certs>`, примеры работы с использованием OpenSSL :doc:`→ </manuals/using-OpenSSL-and-RSA>`;
 * сервер формирует случайный ключ (*rnd*) и передает его доверенной системе.
 
-**Запрос**: ``POST /auth/v5.9/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value``, где:
+**Запрос**: 
+
+``POST /auth/v5.9/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value``, где:
 
 * serviceUserId - идентификатор пользователя в доверенном системе;
 * apiKey - :doc:`/manuals/api-key`;
@@ -52,7 +56,9 @@
     * snils - 11-значный СНИЛС для идентификации пользователя;
 * timestamp -  метка времени.
 
-**Тело запроса**: открепленная подпись, передается в виде массива байтов без всякого дополнительного кодирования, подписываются следующие данные (кодировка UTF-8): ``string.Format("apikey={0}\r\nid={1}\r\ntimestamp={2}\r\n", ApiKey.ToLower(), Id, Timestamp)``, где:
+**Тело запроса**: 
+
+открепленная подпись, передается в виде массива байтов без всякого дополнительного кодирования, подписываются следующие данные (кодировка UTF-8): ``string.Format("apikey={0}\r\nid={1}\r\ntimestamp={2}\r\n", ApiKey.ToLower(), Id, Timestamp)``, где:
 
 * :doc:`/manuals/api-key` в нижнем регистре;
 * id - объект идентификации, параметр credential из query-string запроса;
@@ -82,7 +88,9 @@
 * Доверенная система, получив случайное значение *rnd* генерирует запрос, где в параметре указывает этот *rnd*.
 * Сервер проверяет тот ли этот *rnd*, который он отправлял ранее, в случае успеха отдает auth.sid.
 
-**Запрос**:  ``POST /auth/v5.9/approve-truster?key=value&id=value&apiKey=value``, где:
+**Запрос**:  
+
+``POST /auth/v5.9/approve-truster?key=value&id=value&apiKey=value``, где:
 
 * key - случайное значение *rnd*;
 * apiKey - :doc:`/manuals/api-key`;
