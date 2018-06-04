@@ -3,6 +3,7 @@
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
 
    методы API для ДО
    категории ДО
