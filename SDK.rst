@@ -1,4 +1,4 @@
 SDK
 ===
 
-**JavaSDK** - https://github.com/skbkontur/extern-java-sdk/
+**Java** - https://github.com/skbkontur/extern-java-sdk/
