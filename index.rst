@@ -5,7 +5,7 @@
 
 .. toctree::
    :name: prepare
-   :maxdepth: 1 
+   :includehidden: 
    :caption: Подготовка
    
    scenarios/index.rst
@@ -13,7 +13,7 @@
    
 .. toctree::
    :name: extern-api
-   :maxdepth: 1 
+   :includehidden:  
    :caption: Работа с API
    
    accounts/index.rst
@@ -22,7 +22,7 @@
    
 .. toctree::
    :name: help
-   :maxdepth: 4 
+   :includehidden:  
    :caption: Дополнительно
    
    examples/index.rst
