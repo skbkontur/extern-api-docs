@@ -1,24 +1,31 @@
-# Пример отправки за другую организацию, поэтапно, получение ошибки при подготовке
+.. _`GET All`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll
+.. _`POST Draft`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Create
+.. _`POST Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument
+.. _`POST Check`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Check
+.. _`POST Prepare`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Prepare
+.. _`PUT DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentSignature
+
+2. Отправка за другую организацию, поэтапно, получение ошибки при подготовке
+============================================================================
 
 Разберем пример, когда отправитель сдаёт отчетность не за себя, а за другую организацию - то есть отправитель и налогоплательщик не совпадают. Организация сдаёт бухгалтерскую отчетность, прикрепляя к ней сообщение о представительстве. Методы проверки, подготовки и отправки будут вызваны последовательно. Также для демонстрации работы с ошибками, в ходе подготовки документов мы получим ошибку. 
 
-Для работы примера необходимо получить тестовые данные, написав нам по адресу extern-api@skbkontur.ru. В письме необходимо указать наименование и ИНН вашей организации, кратко описать суть вашей деятельности и планируемые сценарии использования API Контур.Экстерна.
+Данные необходимые для работы примера
+-------------------------------------
 
-## Данные необходимые для работы примера
-Для работы примера необходимо получить тестовые данные, написав нам по адресу extern-api@skbkontur.ru. В письме необходимо указать наименование и ИНН вашей организации, кратко описать суть вашей деятельности и планируемые сценарии использования API Контур.Экстерна.
-
-* файл бухгалтерской отчетности [→](https://github.com/skbkontur/extern-api-docs/blob/master/examples/files/2/NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml)
-* файл сообщения о представительстве [→](https://github.com/skbkontur/extern-api-docs/blob/master/examples/files/2/ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml)
-* api-key - [api-key](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/api-key.md)
+* файл бухгалтерской отчетности и файл сообщения о представительстве :ref:`→ <rst-markup-exmp2>`
+* api-key - :doc:`/manuals/api-key`
 * inn - ИНН тестовой учетной записи
 * kpp - КПП тестовой учетной записи
 * certificate - тестовый сертификат ЭП тестовой учетной записи
 * ifns-code - код инспекции ФНС, на тестовой площадке у нас работают 2 инспекции, которые автоматически отвечают на отправленные документы (0087 - приходят положительные ответы, 0088 - приходят отрицательные ответы)
 
-## Порядок работы
+Порядок работы
+--------------
 
-Предполагаем, что учетные данные организации уже заведены.  
-1. Аутентифицируемся, получая [auth.sid](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/auth.sid.md).
+Предполагаем, что учетные данные организации уже заведены. 
+
+1. Аутентифицируемся, получая :doc:`/manuals/auth.sid`.
 2. Получаем accountId своей учетной записи Контур.Экстерна в тестовой среде.
 3. Создаем черновик документооборота, наполняя его минимально необходимыми данными:
    * ИНН-КПП отправителя;
@@ -33,411 +40,459 @@
 8. Запускаем вновь подготовку.
 9. Отправляем документы в ФНС.
 
-## 1. Аутентификация  
-Получаем [auth.sid](https://github.com/skbkontur/extern-api-docs/blob/master/manuals/auth.sid.md). Например, используя метод аутентификации по сертификату [→](https://github.com/skbkontur/extern-api-docs/blob/master/examples/Аутентификация.md#1)
+1. Аутентификация  
+~~~~~~~~~~~~~~~~~
 
-**Инициализация**  
-*Запрос*: 
-```
-POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
-```
-*Тело*:
-```
------BEGIN CERTIFICATE-----
-MIIJTzCCCP6gAwIBAgIKLUfNEQAAAAKeZjAIBgYqhQMCAgMwggFbMRgwFgYFKoUD
-...
-ig6Wya0ui9H9fTASUKfeJoOHE6u01whF06AZ3YrAMkluO1E=
------END CERTIFICATE-----
-```
-*Ответ*:
-```
-HTTP/1.1 200 OK 
-Content-Type: application/json;charset=UTF-8 
-Content-Length: xxxx 
-Server: xxxx 
+Получаем :doc:`/manuals/auth.sid`. Например, используя метод аутентификации :doc:`/auth/по сертификату`.
 
-{
-"EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
-"Link":
-{
-"Rel":"Send decrypted key to this link",
-"Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
-}
-}
-```
-**Подтверждение**  
-*Запрос*: 
-```
-POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
-```
-*Тело*:
-```
-{
-3082 03a7 0609 2a86 4886 f70d 0107 03a0
-8203 9830 8203 9402 0100 3182 025b 3082
-...
-9ec7 b7a0 8470 f271 2a11 d1c8 007e be42
-b128 17d1 852b 8edf de3f 7b
-}
-```
-*Ответ*:
-```
-HTTP/1.1 200 OK
-Content-Type: application/json;charset=UTF-8
-Content-Length: xxxx
-Server: xxxx
-```  
+Инициализация 
+"""""""""""""
 
-## 2. Получение accountId
-Метод: GET All ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Работа%20с%20УЗ.md#2))
+**Запрос**: 
 
-*Запрос*: 
-```
-GET /v1 HTTP/1.1
-Accept: application/json
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Host: extern-api.testkontur.ru
-```
+``POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
 
-*Ответ*:
-```
-HTTP/1.1 200 OK
-Content-Type: application/json; charset=utf-8
-Server: Microsoft-HTTPAPI/2.0
-Date: Tue, 10 Apr 2018 06:15:48 GMT
-Content-Length: 723
+**Тело**:
 
-{
-  "skip": 0,
-  "take": 1,
-  "total-count": 1,
-  "accounts": [
-    {
-      "id": "ea3a9316-d3c5-4544-a6df-4e8d9aa9f813",
-      "inn": "3782868692",
-      "kpp": "378750338",
-      "organization-name": "ООО Стеклорегистр",
-      "links": [
-        {
-          "rel": "self",
-          "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813"
-        },
-        {
-          "rel": "drafts",
-          "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts"
-        },
-        {
-          "rel": "docflows",
-          "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows"
-        }
-      ]
-    }
-  ]
-}
-```
+::
 
-## 3. Создание черновика документооборота  
-Метод: POST Draft ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Create), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#1))
+   -----BEGIN CERTIFICATE-----
+   MIIJTzCCCP6gAwIBAgIKLUfNEQAAAAKeZjAIBgYqhQMCAgMwggFbMRgwFgYFKoUD
+   ...
+   ig6Wya0ui9H9fTASUKfeJoOHE6u01whF06AZ3YrAMkluO1E=
+   -----END CERTIFICATE-----
 
-*Запрос*: 
-```
-POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts HTTP/1.1
-Accept: application/json
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Content-Type: application/json
-Host: extern-api.testkontur.ru
-Connection: Keep-Alive
-Content-Length: 9431
+**Ответ**:
 
-{
-	"sender": {
-		"inn": "3782868692",
-		"kpp": "378750338",
-		"certificate": {
-			"content": "MIIJJiMxMTEwOzCCC ... A1MTuX"
-		},
-		"ipaddress": "8.8.8.8"
-	},
-	"recipient": {
-		"ifns-code": "0087"
-	},
-	"payer": {
-		"inn": "0426016521",
-		"organization": {
-			"kpp": "321650455"
-		}
-	}
-}
-```
+.. code-block:: http
 
-*Ответ*:
-```
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-Server: nginx
-Date: Wed, 11 Apr 2018 11:04:06 GMT
-Content-Length: 9810
+   HTTP/1.1 200 OK 
+   Content-Type: application/json;charset=UTF-8 
+   Content-Length: xxxx 
+   Server: xxxx 
+   
+   {
+   "EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
+   "Link":
+   {
+   "Rel":"Send decrypted key to this link",
+   "Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
+   }
+   }
 
-{
-  "id": "87d4f4f9-b166-417c-b700-44a406e2fdb8",
-  "docflows": [],
-  "documents": [],
-  "meta": {
-    "sender": {
-      "inn": "3782868692",
-      "kpp": "378750338",
-      "certificate": {
-        "content": "MIIJJiMxMTEwOzCCCW ... MTA1MTuX"
-      },
-      "ipaddress": "8.8.8.8"
-    },
-    "recipient": {
-      "ifns-code": "0087"
-    },
-    "payer": {
-      "inn": "0426016521",
-      "organization": {
-        "kpp": "321650455"
-      }
-    }
-  },
-  "status": "new",
-  "links": [
-    {
-      "rel": "self",
-      "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8"
-    }
-  ]
-}
-```
+Подтверждение
+"""""""""""""
 
-## 4. Добавление документов  
-Метод: POST Document ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#12))
+**Запрос**: 
+
+``POST /auth/v5.9/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+
+**Тело**:
+
+::
+
+   {
+   3082 03a7 0609 2a86 4886 f70d 0107 03a0
+   8203 9830 8203 9402 0100 3182 025b 3082
+   ...
+   9ec7 b7a0 8470 f271 2a11 d1c8 007e be42
+   b128 17d1 852b 8edf de3f 7b
+   }
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json;charset=UTF-8
+   Content-Length: xxxx
+   Server: xxxx
+
+2. Получение accountId
+~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `GET All`_ 
+
+**Запрос**: 
+
+.. code-block:: http
+
+   GET /v1 HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Host: extern-api.testkontur.ru
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Content-Type: application/json; charset=utf-8
+   Server: Microsoft-HTTPAPI/2.0
+   Date: Tue, 10 Apr 2018 06:15:48 GMT
+   Content-Length: 723
+   
+   {
+     "skip": 0,
+     "take": 1,
+     "total-count": 1,
+     "accounts": [
+       {
+         "id": "ea3a9316-d3c5-4544-a6df-4e8d9aa9f813",
+         "inn": "3782868692",
+         "kpp": "378750338",
+         "organization-name": "ООО Стеклорегистр",
+         "links": [
+           {
+             "rel": "self",
+             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813"
+           },
+           {
+             "rel": "drafts",
+             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts"
+           },
+           {
+             "rel": "docflows",
+             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows"
+           }
+         ]
+       }
+     ]
+   }
+
+3. Создание черновика документооборота
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST Draft`_
+
+**Запрос**: 
+
+.. code-block:: http
+
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Host: extern-api.testkontur.ru
+   Connection: Keep-Alive
+   Content-Length: 9431
+   
+   {
+	   "sender": {
+		   "inn": "3782868692",
+   		"kpp": "378750338",
+		   "certificate": {
+			   "content": "MIIJJiMxMTEwOzCCC ... A1MTuX"
+		   },
+   		"ipaddress": "8.8.8.8"
+	   },
+   	"recipient": {
+		   "ifns-code": "0087"
+	   },
+   	"payer": {
+		   "inn": "0426016521",
+   		"organization": {
+			   "kpp": "321650455"
+		   }
+	   }
+   }
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 201 Created
+   Content-Type: application/json; charset=utf-8
+   Server: nginx
+   Date: Wed, 11 Apr 2018 11:04:06 GMT
+   Content-Length: 9810
+   
+   {
+     "id": "87d4f4f9-b166-417c-b700-44a406e2fdb8",
+     "docflows": [],
+     "documents": [],
+     "meta": {
+       "sender": {
+         "inn": "3782868692",
+         "kpp": "378750338",
+         "certificate": {
+           "content": "MIIJJiMxMTEwOzCCCW ... MTA1MTuX"
+         },
+         "ipaddress": "8.8.8.8"
+       },
+       "recipient": {
+         "ifns-code": "0087"
+       },
+       "payer": {
+         "inn": "0426016521",
+         "organization": {
+           "kpp": "321650455"
+         }
+       }
+     },
+     "status": "new",
+     "links": [
+       {
+         "rel": "self",
+         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8"
+       }
+     ]
+   }
+
+4. Добавление документов 
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST Document`_
 
 На этом этапе добавляем в черновик документооборота необходимые документы. Каждый документ добавляется отдельным запросом. Добавим бухгалтерскую отчетность и сообщение о представительстве, так как отчетность передается за организацию отличную от той, которая подписывает документ. В реальной жизни перед отправкой документов в ФНС в такой ситуации необходимо заранее предоставить в инспекцию ФНС, куда направляется документ, бумажную доверенность на право подписи. Намеренно "забываем" положить подписи под документы.
 
-* Бухгалтерская отчетность
+Бухгалтерская отчетность
+""""""""""""""""""""""""
 
-*Запрос*: 
-```
-POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
-Accept: application/json
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Content-Type: application/json
-Host: extern-api.testkontur.ru
-Content-Length: 4283
-Connection: keep-alive
+**Запрос**:
 
-{
-	"base64-content": "PD94bWwgdmVyc2lvbj0iMS4wIiBl ... L9bl68jx7z4NCiAgPC/E7urz7OXt8j4NCjwv1ODp6z4=",
-	"description": {
-		"filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
-		"content-type": "application/xml"
-	}
-}
-```
+.. code-block:: http
 
-*Ответ*:
-```
-HTTP/1.1 201 Created
-Content-Type: application/json; charset=utf-8
-Server: nginx
-Date: Wed, 11 Apr 2018 11:15:31 GMT
-Content-Length: 700
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
+   Accept: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Host: extern-api.testkontur.ru
+   Content-Length: 4283
+   Connection: keep-alive
+   
+   {
+	   "base64-content": "PD94bWwgdmVyc2lvbj0iMS4wIiBl ... L9bl68jx7z4NCiAgPC/E7urz7OXt8j4NCjwv1ODp6z4=",
+   	"description": {
+		   "filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
+   		"content-type": "application/xml"
+	   }
+   }
 
-{
-  "id": "21dbefdd-8c1f-423c-9552-44ee27c245ff",
-  "decrypted-content-link": {
-    "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted",
-    "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted"
-  },
-  "description": {
-    "type": "urn:document:fns534-report",
-    "filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
-    "content-type": "application/xml"
-  }
-}
-```
+**Ответ**:
 
-* Сообщение о представительстве
+.. code-block:: http
 
-*Запрос*: 
-```
-POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Content-Type: application/json
-Host: extern-api.testkontur.ru
-content-length: 1963
-Connection: keep-alive
+   HTTP/1.1 201 Created
+   Content-Type: application/json; charset=utf-8
+   Server: nginx
+   Date: Wed, 11 Apr 2018 11:15:31 GMT
+   Content-Length: 700
+   
+   {
+     "id": "21dbefdd-8c1f-423c-9552-44ee27c245ff",
+     "decrypted-content-link": {
+       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted",
+       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted"
+     },
+     "description": {
+       "type": "urn:document:fns534-report",
+       "filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
+       "content-type": "application/xml"
+     }
+   }
 
-{
-	"base64-content": "PD94bWwgdmVyc2lvbj0iMS4w ... g0KICA8L8Tu6vPs5e3yPg0KPC/U4OnrPg==",
-	"description": {
-		"filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
-		"content-type": "application/xml"
-	}
-}
-```
 
-*Ответ*:
-```
-HTTP/1.1 201 Created
-Server: nginx
-Date: Fri, 13 Apr 2018 08:24:06 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 696
+Сообщение о представительстве
+"""""""""""""""""""""""""""""
 
-{
-  "id": "1428bf5c-b917-4f34-8c65-2bd1029d8dfb",
-  "decrypted-content-link": {
-    "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted",
-    "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted"
-  },
-  "description": {
-    "type": "urn:document:fns534-report",
-    "filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
-    "content-type": "application/xml"
-  }
-}
-```
+**Запрос**: 
 
-## 5. Проверка
-Метод: POST Check ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Check), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#6))
+.. code-block:: http
 
-*Запрос*: 
-```
-POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/check HTTP/1.1
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Host: extern-api.testkontur.ru
-content-length: 0
-Connection: keep-alive
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Host: extern-api.testkontur.ru
+   content-length: 1963
+   Connection: keep-alive
+   
+   {
+	   "base64-content": "PD94bWwgdmVyc2lvbj0iMS4w ... g0KICA8L8Tu6vPs5e3yPg0KPC/U4OnrPg==",
+   	"description": {
+		   "filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
+   		"content-type": "application/xml"
+	   }
+   }
 
-```
+**Ответ**:
 
-*Ответ*:
-```
-HTTP/1.1 200 OK
-Server: nginx
-Date: Fri, 13 Apr 2018 08:32:26 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 76
+.. code-block:: http
 
-{
-  "data": {
-    "documents-errors": {},
-    "common-errors": []
-  }
-}
-```
+   HTTP/1.1 201 Created
+   Server: nginx
+   Date: Fri, 13 Apr 2018 08:24:06 GMT
+   Content-Type: application/json; charset=utf-8
+   Content-Length: 696
+   
+   {
+     "id": "1428bf5c-b917-4f34-8c65-2bd1029d8dfb",
+     "decrypted-content-link": {
+       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted",
+       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted"
+     },
+     "description": {
+       "type": "urn:document:fns534-report",
+       "filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
+       "content-type": "application/xml"
+     }
+   }
 
-## 6. Подготовка
-Метод: POST Prepare ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Prepare), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#7))
+5. Проверка
+~~~~~~~~~~~
 
-В этом примере мы допустили ошибку, забыв добавить подпись под документы, поэтому в этом методе нам вернется ошибка.
+Метод: `POST Check`_
 
-*Запрос*: 
-```
-POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
-Content-Type: application/json
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Host: extern-api.testkontur.ru
-accept-encoding: gzip, deflate
-content-length: 0
-Connection: keep-alive
-```
+**Запрос**: 
 
-*Ответ*:
-```
-HTTP/1.1 400 Bad Request
-Server: nginx
-Date: Wed, 16 May 2018 08:31:06 GMT
-Content-Type: application/json; charset=utf-8
-Content-Length: 244
+.. code-block:: http
 
-{
-  "id": "urn:error:externapi:signatureNotFound",
-  "status-code": 400,
-  "track-id": "mm76a1xrzyhikjf1oxoy",
-  "message": "there are no signature for documents: 1428bf5c-b917-4f34-8c65-2bd1029d8dfb,21dbefdd-8c1f-423c-9552-44ee27c245ff"
-}
-```
+   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/check HTTP/1.1
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Host: extern-api.testkontur.ru
+   content-length: 0
+   Connection: keep-alive
 
-## 7. Добавление подписи
-Метод: PUT DocumentSignature ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentSignature), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#17))
+**Ответ**:
 
-* Бухгалтерская отчетность
+.. code-block:: http
 
-*Запрос*: 
-```
-PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/signature HTTP/1.1
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Content-Type: text/plain
-Accept: */*
-Host: extern-api.testkontur.ru
-accept-encoding: gzip, deflate
-content-transfer-encoding: base64
-Content-Type: applicaton/octet-stream
-Connection: keep-alive
+   HTTP/1.1 200 OK
+   Server: nginx
+   Date: Fri, 13 Apr 2018 08:32:26 GMT
+   Content-Type: application/json; charset=utf-8
+   Content-Length: 76
+   
+   {
+     "data": {
+       "documents-errors": {},
+       "common-errors": []
+     }
+   }
 
-byte[]
-```
+6. Подготовка
+~~~~~~~~~~~~~
 
-*Ответ*:
-```
-HTTP/1.1 200 OK
-Server: nginx
-Date: Wed, 16 May 2018 08:50:21 GMT
-Content-Length: 0
-```
+Метод: `POST Prepare`_
 
-* Сообщение о представительстве
+В этом примере мы допустили ошибку, забыв добавить подписи под документы, поэтому в этом методе нам вернется ошибка.
 
-*Запрос*: 
-```
-PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/signature HTTP/1.1
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Content-Type: text/plain
-Accept: */*
-Host: extern-api.testkontur.ru
-accept-encoding: gzip, deflate
-content-transfer-encoding: base64
-Content-Type: applicaton/octet-stream
-Connection: keep-alive
+**Запрос**: 
 
-byte[]
-```
+.. code-block:: http
 
-*Ответ*:
-```
-HTTP/1.1 200 OK
-Server: nginx
-Date: Wed, 16 May 2018 08:51:48 GMT
-Content-Length: 0
-```
+   POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
+   Content-Type: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Host: extern-api.testkontur.ru
+   accept-encoding: gzip, deflate
+   content-length: 0
+   Connection: keep-alive
 
-## 8. Повторный вызов подготовки
-Метод: POST Prepare ([swagger](http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/Drafts_Prepare), [docs](https://github.com/skbkontur/extern-api-docs/blob/master/Черновик%20ДО.md#7))
+**Ответ**:
 
-*Запрос*: 
-```
-POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
-Content-Type: application/json
-Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
-X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
-Accept: */*
-Host: extern-api.testkontur.ru
-accept-encoding: gzip, deflate
-content-length: 0
-Connection: keep-alive
-```
+.. code-block:: http
+
+   HTTP/1.1 400 Bad Request
+   Server: nginx
+   Date: Wed, 16 May 2018 08:31:06 GMT
+   Content-Type: application/json; charset=utf-8
+   Content-Length: 244
+   
+   {
+     "id": "urn:error:externapi:signatureNotFound",
+     "status-code": 400,
+     "track-id": "mm76a1xrzyhikjf1oxoy",
+     "message": "there are no signature for documents: 1428bf5c-b917-4f34-8c65-2bd1029d8dfb,21dbefdd-8c1f-423c-9552-44ee27c245ff"
+   }
+
+7. Добавление подписи
+~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `PUT DocumentSignature`_
+
+Бухгалтерская отчетность
+""""""""""""""""""""""""
+
+**Запрос**: 
+
+.. code-block:: http
+
+   PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/signature HTTP/1.1
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: text/plain
+   Accept: */*
+   Host: extern-api.testkontur.ru
+   accept-encoding: gzip, deflate
+   content-transfer-encoding: base64
+   Content-Type: applicaton/octet-stream
+   Connection: keep-alive
+   
+   byte[]
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Server: nginx
+   Date: Wed, 16 May 2018 08:50:21 GMT
+   Content-Length: 0
+
+Сообщение о представительстве
+"""""""""""""""""""""""""""""
+
+**Запрос**:
+
+.. code-block:: http
+
+   PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/signature HTTP/1.1
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: text/plain
+   Accept: */*
+   Host: extern-api.testkontur.ru
+   accept-encoding: gzip, deflate
+   content-transfer-encoding: base64
+   Content-Type: applicaton/octet-stream
+   Connection: keep-alive
+   
+   byte[]
+
+**Ответ**:
+
+.. code-block:: http
+
+   HTTP/1.1 200 OK
+   Server: nginx
+   Date: Wed, 16 May 2018 08:51:48 GMT
+   Content-Length: 0
+
+8. Повторный вызов подготовки
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST Prepare`_
+
+**Запрос**: 
+
+.. code-block:: http
+
+   POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
+   Content-Type: application/json
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Accept: */*
+   Host: extern-api.testkontur.ru
+   accept-encoding: gzip, deflate
+   content-length: 0
+   Connection: keep-alive
 
 *Ответ*:
 ```
