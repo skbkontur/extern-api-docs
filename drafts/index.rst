@@ -2,7 +2,7 @@
 ============
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 4
    :hidden:
 
    порядок работы с черновиками.md
