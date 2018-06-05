@@ -3,7 +3,9 @@
 
 .. contents:: Содержание
    :depth: 2
-   
+
+.. _rst-markup-label:
+
 Пример 1
 --------
 
