@@ -22,7 +22,7 @@
    
 .. toctree::
    :name: help
-   :maxdepth: 3 
+   :maxdepth: 4 
    :caption: Дополнительно
    
    examples/index.rst
