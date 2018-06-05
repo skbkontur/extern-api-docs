@@ -7,6 +7,7 @@
    :name: prepare
    :maxdepth: 1 
    :caption: Подготовка
+   :hidden:
    
    scenarios/index.rst
    auth/index.rst
@@ -15,6 +16,7 @@
    :name: extern-api
    :maxdepth: 1  
    :caption: Работа с API
+   :hidden:
    
    accounts/index.rst
    drafts/index.rst
@@ -24,6 +26,7 @@
    :name: help
    :maxdepth: 1 
    :caption: Дополнительно
+   :hidden:
    
    examples/index.rst
    manuals/index.rst
