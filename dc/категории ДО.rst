@@ -11,7 +11,7 @@
 Входящие документообороты
 -------------------------
 
-.. image:: https://github.com/skbkontur/extern-api-docs/blob/nikita314/images/Входящий-ДО.jpg
+.. image:: /_static/Входящий-ДО.jpg
 
 Отличительные особенности входящих документооборотов:
 
