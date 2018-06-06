@@ -1,7 +1,7 @@
 Справка
 ============
 
-.. toctree:: help
+.. toctree::
    :maxdepth: 2
    :hidden:
 
