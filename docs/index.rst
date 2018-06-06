@@ -4,7 +4,6 @@
 .. image:: /logo.png
 
 .. toctree::
-   :name: prepare
    :maxdepth: 2 
    :caption: Подготовка
    :hidden:
@@ -13,7 +12,6 @@
    auth/index
    
 .. toctree::
-   :name: extern-api
    :maxdepth: 2  
    :caption: Работа с API
    :hidden:
@@ -23,7 +21,6 @@
    dc/index
    
 .. toctree::
-   :name: help
    :maxdepth: 2 
    :caption: Дополнительно
    :hidden:
