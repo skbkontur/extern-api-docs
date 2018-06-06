@@ -1,7 +1,7 @@
 Аутентификация
 ==============
 
-.. toctree:: auth
+.. toctree::
    :maxdepth: 2
    :hidden:
 
