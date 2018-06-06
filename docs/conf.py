@@ -124,8 +124,8 @@ todo_include_todos = False
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
-#html_theme = 'sphinxdoc'
+#html_theme = 'default'
+html_theme = 'sphinxdoc'
 #html_theme = 'scrolls'
 #html_theme = 'agogo'
 #html_theme = 'traditional'
