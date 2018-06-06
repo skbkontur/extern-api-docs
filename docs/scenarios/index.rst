@@ -1,7 +1,7 @@
 Сценарии использования
 ======================
 
-.. toctree:: scenarios
+.. toctree::
    :maxdepth: 2
    :hidden:
 
