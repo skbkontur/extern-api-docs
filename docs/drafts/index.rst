@@ -1,7 +1,7 @@
 Работа с черновиками
 ============
 
-.. toctree::
+.. toctree:: drafts
    :maxdepth: 2
    :hidden:
 
