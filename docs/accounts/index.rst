@@ -1,7 +1,7 @@
 Работа с учетными записями
 ==========================
 
-.. toctree:: accounts
+.. toctree::
    :maxdepth: 2
    :hidden:
 
