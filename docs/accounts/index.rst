@@ -1,8 +1,8 @@
 Работа с учетными записями
 ==========================
 
-.. toctree::
-   :maxdepth: 1
+.. toctree:: accounts
+   :maxdepth: 2
    :hidden:
 
   методы API для учеток
