@@ -5,7 +5,7 @@
 
 .. toctree::
    :name: prepare
-   :maxdepth: 1 
+   :maxdepth: 2 
    :caption: Подготовка
    :hidden:
    
@@ -14,7 +14,7 @@
    
 .. toctree::
    :name: extern-api
-   :maxdepth: 1  
+   :maxdepth: 2  
    :caption: Работа с API
    :hidden:
    
@@ -24,7 +24,7 @@
    
 .. toctree::
    :name: help
-   :maxdepth: 1 
+   :maxdepth: 2 
    :caption: Дополнительно
    :hidden:
    
