@@ -1,8 +1,8 @@
 Справка
 ============
 
-.. toctree::
-   :maxdepth: 4
+.. toctree:: help
+   :maxdepth: 2
    :hidden:
 
    api-key
