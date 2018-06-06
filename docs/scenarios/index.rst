@@ -1,8 +1,8 @@
 Сценарии использования
 ======================
 
-.. toctree::
-   :maxdepth: 4
+.. toctree:: scenarios
+   :maxdepth: 2
    :hidden:
 
    Абонент-Контур.Экстерна
