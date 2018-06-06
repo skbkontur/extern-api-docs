@@ -9,8 +9,8 @@
    :caption: Подготовка
    :hidden:
    
-   scenarios/index.rst
-   auth/index.rst
+   scenarios/index
+   auth/index
    
 .. toctree::
    :name: extern-api
@@ -18,9 +18,9 @@
    :caption: Работа с API
    :hidden:
    
-   accounts/index.rst
-   drafts/index.rst
-   dc/index.rst
+   accounts/index
+   drafts/index
+   dc/index
    
 .. toctree::
    :name: help
@@ -28,8 +28,8 @@
    :caption: Дополнительно
    :hidden:
    
-   examples/index.rst
-   manuals/index.rst
+   examples/index
+   manuals/index
    contacts
    SDK
 
