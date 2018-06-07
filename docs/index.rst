@@ -5,26 +5,13 @@
 
 .. toctree::
    :maxdepth: 2 
-   :caption: Подготовка
    :hidden:
    
    scenarios/index
-   auth/index
-   
-.. toctree::
-   :maxdepth: 2  
-   :caption: Работа с API
-   :hidden:
-   
+   auth/index   
    accounts/index
    drafts/index
    dc/index
-   
-.. toctree::
-   :maxdepth: 2 
-   :caption: Дополнительно
-   :hidden:
-   
    examples/index
    manuals/index
    contacts
