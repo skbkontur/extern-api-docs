@@ -12,7 +12,7 @@
    auth/index
    
 .. toctree::
-   :maxdepth: 2  
+   :maxdepth: 1  
    :caption: Работа с API
    :hidden:
    
