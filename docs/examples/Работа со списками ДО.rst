@@ -149,7 +149,7 @@
 
 .. code-block:: http
 
-   GET /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows?incoming=false&finished=true&take=3 HTTP/1.1
+   GET /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows?finished=true&incoming=false&createdFrom=2018-04-01&createdTo=2018-04-30 HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
    Content-Type: application/json
@@ -166,9 +166,9 @@
    Content-Type: application/json; charset=utf-8
    Content-Length: 1557
    
-   {
+      {
      "skip": 0,
-     "take": 3,
+     "take": 1000,
      "total-count": 5,
      "docflows-page-item": [
        {
@@ -209,6 +209,32 @@
          ],
          "send-date": "2018-04-11T07:21:43.9161069",
          "last-change-date": "2018-04-12T12:03:20.9713074Z"
+       },
+       {
+         "id": "5c81f5f2-c754-4e33-8729-5914a7de3ffd",
+         "type": "urn:docflow:fns534-report",
+         "status": "urn:docflow-common-status:finished",
+         "links": [
+           {
+             "rel": "self",
+             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/5c81f5f2-c754-4e33-8729-5914a7de3ffd"
+           }
+         ],
+         "send-date": "2018-04-10T08:59:30.5452223",
+         "last-change-date": "2018-04-12T12:04:24.3150691Z"
+       },
+       {
+         "id": "0f61ec34-c7da-4db0-9b17-8b7e64f52fa3",
+         "type": "urn:docflow:fns534-report",
+         "status": "urn:docflow-common-status:finished",
+         "links": [
+           {
+             "rel": "self",
+             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/0f61ec34-c7da-4db0-9b17-8b7e64f52fa3"
+           }
+         ],
+         "send-date": "2018-04-04T14:03:12.6340134",
+         "last-change-date": "2018-04-12T12:04:00.6588169Z"
        }
      ]
    }
