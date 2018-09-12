@@ -1,0 +1,98 @@
+.. _Drafts: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts
+.. _`DELETE Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_DeleteDocument
+.. _`GET DocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentAsync
+.. _`PUT Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocument
+.. _`GET DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrint
+.. _`POST Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument
+.. _`GET DocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentContent
+.. _`PUT DocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentContent
+.. _`GET EncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetEncryptedDocumentContent
+.. _`GET SignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetSignatureContent
+.. _`PUT DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentSignature
+.. _`GET DocumentPrintAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrintAsync
+
+Методы для работы документами в черновике
+=========================================
+
+Данный раздел посвящен методом, с помощью которых работать с документами в черновике. Работу с черновиком в целом, в том числе и его создание, можно увидеть в разделе :doc:`Методы работы с черновиками </drafts/методы работы с черновиками.rst>`  
+
+Подробная спецификация методов показана в сваггере в разделе Drafts_.
+
+Список доступных методов:
+
+* `Удаление документа`_
+* `Получение документа`_
+* `Редактирование документа`_
+* `Получение печатной формы документа`_
+* `Добавление документа`_
+* `Получение расшифрованного контента документа`_
+* `Запись контента документа`_
+* `Получение зашифрованного контента документа`_
+* `Получение подписи под документом`_
+* `Добавление подписи под документ`_
+* `Печать документа`_
+
+Удаление документа 
+------------------
+
+Метод: `DELETE Document`_
+
+Получение документа 
+-------------------
+
+Метод: `GET DocumentAsync`_
+
+С помощью данного метода можно получить конкретный документ из черновика, с его мета-информацией и контентами самого документа и подписи, если она уже была добавлена
+
+Редактирование документа 
+------------------------
+
+Метод: `PUT Document`_
+
+Используется для добавления каких-либо данных в документ, например, добавление подписи к нему.
+
+Получение печатной формы документа 
+----------------------------------
+
+Метод: `GET DocumentPrint`_
+
+Добавление документа 
+--------------------
+
+Метод: `POST Document`_
+
+Допускается добавление документа без подписи. Например, вы не уверены в валидности сформированного xml-файла документа, и чтобы не генерировать лишний раз подпись к нему, хотите сначала его проверить отдельно. И если проверка прошла успешно, то подпись можно отдельно добавить к документу с помощью метода `Добавление подписи под документ`_
+
+Получение расшифрованного контента документа 
+--------------------------------------------
+
+Метод: `GET DocumentContent`_
+
+Запись контента документа 
+-------------------------
+
+Метод: `PUT DocumentContent`_
+
+Получение зашифрованного контента документа 
+-------------------------------------------
+
+Метод: `GET EncryptedDocumentContent`_
+
+Если над черновиком был вызван метод `Подготовка документов в черновике к отправке`_, то в черновике появился зашифрованный контент документа, с помощью данного метода его можно получить
+
+Получение подписи под документом 
+--------------------------------
+
+Метод: `GET SignatureContent`_
+
+Добавление подписи под документ 
+-------------------------------
+
+Метод: `PUT DocumentSignature`_
+
+Печать документа
+----------------
+
+Метод: `GET DocumentPrintAsync`_
+
+Метод позволяет получить печатную форму любого формализованного документа в черновике.
