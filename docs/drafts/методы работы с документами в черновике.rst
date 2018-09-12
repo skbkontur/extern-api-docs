@@ -11,8 +11,8 @@
 .. _`PUT DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentSignature
 .. _`GET DocumentPrintAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrintAsync
 
-Методы для работы документами в черновике
-=========================================
+Методы для работы c документами в черновике
+===========================================
 
 Данный раздел посвящен методом, с помощью которых работать с документами в черновике. Работу с черновиком в целом, в том числе и его создание, можно увидеть в разделе :doc:`Методы работы с черновиками </drafts/методы работы с черновиками.rst>`  
 
