@@ -1,0 +1,26 @@
+.. _Drafts: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts
+.. _`POST BuildContentFromFormat-V1`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_BuildContentFromFormat
+.. _`POST BuildContentFromFormat-V2`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_BuildContentFromFormat_0
+
+
+Методы для формирования документов в черновике
+==============================================
+
+Некоторые формализованные документы можно создать прямо в черновике, а не загружать уже готовые.
+
+Подробная спецификация методов показана в сваггере в разделе Drafts_.
+
+Список доступных методов:
+
+* `Формирование декларации`_
+
+
+Формирование декларации
+-----------------------
+
+Методы: 
+
+* `POST BuildContentFromFormat-V1`_
+* `POST BuildContentFromFormat-V2`_
+
+С помощью метода возможно получить xml-файл деклараций по Упрощенной системы налогообложения по ставке 6% или 15%, передав определенный :doc:`контракт </manuals/contracts-usn>` с данными, на основе которых необходимо сформировать декларацию. Метод сам, по входным данным, определит по какой ставке необходимо сформировать декларацию.
