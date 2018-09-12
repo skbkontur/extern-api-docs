@@ -19,6 +19,7 @@
    accounts/index
    drafts/index
    dc/index
+   cloud/index
    
 .. toctree::
    :maxdepth: 2 
