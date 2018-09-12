@@ -2,7 +2,6 @@
 .. _`DELETE Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_DeleteDocument
 .. _`GET DocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentAsync
 .. _`PUT Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocument
-.. _`GET DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrint
 .. _`POST Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument
 .. _`GET DocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentContent
 .. _`PUT DocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentContent
@@ -23,7 +22,6 @@
 * `Удаление документа`_
 * `Получение документа`_
 * `Редактирование документа`_
-* `Получение печатной формы документа`_
 * `Добавление документа`_
 * `Получение расшифрованного контента документа`_
 * `Запись контента документа`_
@@ -50,11 +48,6 @@
 Метод: `PUT Document`_
 
 Используется для добавления каких-либо данных в документ, например, добавление подписи к нему.
-
-Получение печатной формы документа 
-----------------------------------
-
-Метод: `GET DocumentPrint`_
 
 Добавление документа 
 --------------------
