@@ -1,6 +1,6 @@
 .. _Drafts: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts
-.. _`POST BuildContentFromFormat-V1`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_BuildContentFromFormat
-.. _`POST BuildContentFromFormat-V2`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_BuildContentFromFormat_0
+.. _`POST BuildDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/DraftDocumentBuild_CreateDocumentWithBuildContentFromFormat
+.. _`POST BuildDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/DraftDocumentBuild_BuildContentFromFormat
 
 
 Методы для формирования документов в черновике
@@ -12,15 +12,26 @@
 
 Список доступных методов:
 
-* `Формирование декларации`_
+* `Формирование документа`_
+* `Формирование определенного документа в черновике`_
+* `Доступные документы для формирования`_
 
 
-Формирование декларации
+Формирование документа
 -----------------------
 
-Методы: 
+Метод: `POST BuildDocument`_
 
-* `POST BuildContentFromFormat-V1`_
-* `POST BuildContentFromFormat-V2`_
+Данный метод позволяет по определенному контракту создать документ, установленного формата, в указанном черновике. Методу необходимо передать тип документа, версию контракта и сам контракт формирования документа.
 
-С помощью метода возможно получить xml-файл деклараций по Упрощенной системы налогообложения по ставке 6% или 15%, передав определенный :doc:`контракт </manuals/contracts-usn>` с данными, на основе которых необходимо сформировать декларацию. Метод сам, по входным данным, определит по какой ставке необходимо сформировать декларацию.
+Формирование определенного документа в черновике
+------------------------------------------------
+
+Метод: `POST BuildDocumentContent`_
+
+С помощью этого метода можно заменить указанный документ в черновике на документ, установленного формата, созданный по переданному контракту. Методу необходимо передать тип документа, версию контракта и сам контракт формирования документа. 
+
+Доступные документы для формирования
+------------------------------------
+
+Декларации по Упрощенной системы налогообложения по ставке 6% или 15%: :doc:`Контракт </manuals/contracts-usn>`. Ставка определяется автоматически. 
