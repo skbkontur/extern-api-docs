@@ -1,2 +1,30 @@
+.. _`POST SignReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignReplyDocumentAsync
+.. _`POST SignConfirmReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignConfirmReplyDocumentAsync
+.. _`POST DecryptDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentAsync
+.. _`POST DecryptDocumentConfirmationAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentConfirmationAsync
+
 Методы для работы в документооборотах
 =====================================
+
+Список доступных методов:
+
+* `Подпись ответного документа`_
+* `Подтверждение подписи ответного документа`_
+* `Дешифрование документа`_
+* `Подтверждение дешифрования документа`_
+
+Подпись ответного документа
+---------------------------
+Метод: `POST SignReplyDocumentAsync`_
+
+Подтверждение подписи ответного документа
+-----------------------------------------
+Метод: `POST SignConfirmReplyDocumentAsync`_
+
+Дешифрование документа
+----------------------
+Метод: `POST DecryptDocumentAsync`_
+
+Подтверждение дешифрования документа
+------------------------------------
+Метод: `POST DecryptDocumentConfirmationAsync`_
