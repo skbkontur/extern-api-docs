@@ -1,2 +1,20 @@
+.. _`POST Sign`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/Drafts_Sign
+.. _`POST SignConfirm`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/Drafts_SignConfirm
+
+
 Методы для работы в черновиках
 ==============================
+
+Список доступных методов:
+
+* `Подпись документов черновика`_
+* `Подтверждение подписи документов черновика`_
+
+
+Подпись документов черновика
+----------------------------
+Метод: `POST Sign`_
+
+Подтверждение подписи документов черновика
+------------------------------------------
+Метод: `POST SignConfirm`_
