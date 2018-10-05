@@ -18,3 +18,5 @@
    "urn:docflow-common-status:response-arrived", "получен ответ", "от ФНС пришли результаты обработки или проверки"
    "urn:docflow-common-status:response-processed", "ответ обработан", "абонент отправил извещение о получении на квитанцию о приеме"
    "urn:docflow-common-status:finished", "завершен", "абонент отправил извещение о получении на результаты проверки или на уведомление об отказе"
+
+.. image:: /_static/status-fns534-report.jpg
