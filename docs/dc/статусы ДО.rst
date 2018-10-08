@@ -21,7 +21,7 @@
 
 Процесс изменения статуса:
 
-.. image:: /_static/status-fns534-report1.jpg
+.. image:: /_static/status-fns534-report.jpg
 
 ИОН-запросы
 +++++++++++
