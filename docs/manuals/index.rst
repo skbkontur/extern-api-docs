@@ -6,7 +6,6 @@
    :hidden:
 
    api-key
-   auth.sid
    using-OpenSSL-and-RSA
    RSA-certs
    contracts-usn
