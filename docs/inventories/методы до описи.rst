@@ -1,0 +1,133 @@
+.. _`InventoriesDocflows`: http://extern-api.testkontur.ru/swagger/ui/index#/InventoriesDocflows
+.. _`GET GetAllInventoryDocflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetAllInventoryDocflowsAsync
+.. _`GET GetOneInventoryDocflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetOneInventoryDocflowAsync
+.. _`GET GetEncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetEncryptedDocumentContentAsync
+.. _`GET GetDecryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetDecryptedDocumentContentAsync
+.. _`GET GetSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetSignatureContentAsync
+.. _`POST InitDecryptDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_InitDecryptDocumentAsync
+.. _`POST DecryptDocumentConfirmation`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_DecryptDocumentConfirmationAsync
+.. _`POST GetDocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetDocumentPrintAsync
+.. _`POST CreateReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_CreateReplyDocumentAsync
+.. _`GET GetReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetReplyDocumentAsync
+.. _`PUT SaveReplyDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentContentAsync
+.. _`PUT SaveReplyDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentSignatureAsync
+.. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignReplyDocumentAsync
+.. _`POSTSignConfirmReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignConfirmReplyDocumentAsync
+.. _`POST SendReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SendReplyDocumentAsync
+
+Методы для работы с документооборотами описи
+============================================
+
+Простые методы для работы с документооборотом не могут отследить опись, так как ее характеризуют параметры:
+* Идентификатор ДО описи
+* Идентификатор входящего ДО, в ответ на которое посылается опись
+* Идентификатор документа из входящего ДО, на который была отправлена опись
+
+Подробная спецификация методов показана в сваггере в разделе InventoriesDocflows_.
+
+.. contents:: Список доступных методов
+   :depth: 2
+
+Получение списка документооборотов описей
+-----------------------------------------
+Метод: `GET GetAllInventoryDocflows`_
+
+С помощью этого метода можно получить список всех отправленных описей. Так как опись формируется в ответ на входящий документооборот, нужно знать его идентификатор и документа в нем. Можно применить различные фильтры, чтобы получить необходимую выборку. В ответе метод возвращает список документооборотов с необходимой мета-информацией по ним.
+Сценарии, в которых можно использовать списки документооборотов:
+* следить за статусом отправленных описей;
+* отображать пользователю списки его документооборотов, применяя различные фильтры.
+
+.. _rst-markup-get-inventory-dc:
+Получение документооборота описи
+--------------------------------
+Метод: `GET GetOneInventoryDocflow`_
+
+С помощью этого метода можно получить такую информацию о документообороте, как:
+
+* его текущий статус;
+* мета-информацию;
+* список документов;
+* список подписей;
+* и многое другое, полный ответ можно посмотреть в сваггере.
+
+Если текущий статус документооборота подразумевает необходимость отправки ответного документа в контролирующий орган, например, квитанцию о приеме, среди ссылок в ответе этого метода будет ссылка на :ref:`методы для работы с ответными документами<rst-markup-replymethods>`.
+
+Получение зашифрованного контента документа
+-------------------------------------------
+Метод: `GET GetEncryptedDocumentContent`_
+
+Получение расшифрованного контента документа
+--------------------------------------------
+Метод: `GET GetDecryptedDocumentContent`_
+
+Наличие расшифрованного контента возможно не для всех документов.
+
+Получение контента конкретной подписи под документом
+----------------------------------------------------
+Метод: `GET GetSignatureContent`_
+
+Идентификатор подписи можно посмотреть в методе получения документооборота описи. 
+
+Дешифрование содержимого документа
+----------------------------------
+Метод: `POST InitDecryptDocument`_
+
+С помощью данного метода можно расшифровать любой зашифрованный документ в документообороте. При вызове данного метода пользователю на телефон придет СМС-сообщения с проверочным кодом. 
+
+Подтверждение дешифрования документа
+------------------------------------
+Метод: `POST DecryptDocumentConfirmation`_
+
+В ответ на переданный код из СМС-сообщения метод вернет расшифрованный контент.
+
+Печать документа 
+----------------
+Метод: `POST GetDocumentPrint`_
+
+Можно получить печатную форму формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов.
+
+
+.. _rst-markup-replymethods:
+Методы для работы с ответными документами
+=========================================
+На входящие документы от налогового органа налогоплательщик должен отправлять определенные ответные документы. Представленные ниже методы позволяют формировать подобные технологические документы и работать с ними. Также необходимые ссылки для формирования ответных документов будут появляться в работе с :ref:`методом получения документооборота<rst-markup-get-inventory-dc>`.
+
+Генерация ответного документа
+-----------------------------
+Метод: `POST CreateReplyDocument`_
+
+Метод позволяет сгенерировать XML-файл документа установленного формата. В результате метод вернет идентификатор черновика документа. Также в ответе будет доступна и печатная форма сгенерированного документа.
+
+Просмотр ответного документа
+----------------------------
+Метод: `GET GetReplyDocument`_
+
+С помощью данного метода можно получить содержимое ответного документа, сгенерированного в методе выше.
+
+Оюновление контента ответного документа
+-------------------------------------------
+Метод: `PUT SaveReplyDocumentContent`_
+
+.. _rst-markup-reply-doc-signature:
+Добавление подписи к ответному документу
+----------------------------------------
+Метод: `PUT SaveReplyDocumentSignature`_
+
+Метод сохраняет файл подписи, если результат подписания сохранен на стороне клиента. 
+
+Подпись ответного документа
+---------------------------
+Метод: `POST SignReplyDocument`_
+
+С помощью данного метода можно подписать сгенерированный ответный документ. При вызове метода пользователю на телефон придет СМС-сообщение с кодом подтверждения.
+
+Подтверждение подписи ответного документа
+-----------------------------------------
+Метод: `POST SignConfirmReplyDocument`_
+
+После ввода кода из СМС-сообщения, произойдет подписание документа. Подпись добавится к ответному документу.
+
+Отправка ответного документа
+----------------------------
+Метод: `POST SendReplyDocument`_
+Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.

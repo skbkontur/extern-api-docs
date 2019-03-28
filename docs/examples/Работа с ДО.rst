@@ -1,8 +1,8 @@
-.. _`GET DocflowAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
-.. _`GET DocflowsAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
-.. _`GET ReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetReplyDocumentAsync
-.. _`POST ReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
-.. _`POST DocumentPrintAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
+.. _`GET Docflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
+.. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
+.. _`GET ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetReplyDocumentAsync
+.. _`POST ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
+.. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
 
 Пример работы с документооборотом
 =================================
@@ -39,7 +39,7 @@
 
 Данный процесс можно организовать двумя методами:
 
-* Метод: `GET DocflowAsync`_ 
+* Метод: `GET Docflow`_ 
 
 В цикле запрашиваем документооборот, оптимальным периодом запроса можно считать 1 час, изменения в документообороте не происходят часто. В результате работы метода содержится вся актуальная информация по документообороту, в том числе и его статус.
 
@@ -413,9 +413,9 @@
      "last-change-date": "2018-04-11T10:37:53.2772378Z"
    }
 
-* Метод: `GET DocflowsAsync`_
+* Метод: `GET Docflows`_
 
-В результате работы этого метода мы получаем список всех документооборотов учетной записи, у каждого документооборота в списке будет мета-информация о нем, в том числе и его статус. А можно заранее, задав фильтр в списке по статусу, выбирать документообороты только нужного статуса. В примере я для краткости списка выбрал только фильтр *take=3*, то есть взял 3 последних документооборота учетной записи. И если в списке будет видно изменение статуса, то можно запрашивать документооборот, чей статус изменился с помощью предыдущего метода GET DocflowAsync и работать с ним дальше.
+В результате работы этого метода мы получаем список всех документооборотов учетной записи, у каждого документооборота в списке будет мета-информация о нем, в том числе и его статус. А можно заранее, задав фильтр в списке по статусу, выбирать документообороты только нужного статуса. В примере я для краткости списка выбрал только фильтр *take=3*, то есть взял 3 последних документооборота учетной записи. И если в списке будет видно изменение статуса, то можно запрашивать документооборот, чей статус изменился с помощью предыдущего метода GET Docflow и работать с ним дальше.
 
 **Запрос**: 
 
@@ -488,11 +488,11 @@
 2. Формирование извещения о получении на результаты приема
 ----------------------------------------------------------
 
-Для этого необходимо воспользоваться последовательностью методов: ``GET ReplyDocumentAsync`` и ``POST ReplyDocumentAsync``.
+Для этого необходимо воспользоваться последовательностью методов: ``GET ReplyDocument`` и ``POST ReplyDocument``.
 
-Сначала с помощью метода ``GET ReplyDocumentAsync`` (в теле передаем контент сертификата) получаем xml-файл и печатную форму извещения о получении, подписываем его и методом ``POST ReplyDocumentAsync`` отправляем в ФНС: в ответе ``GET ReplyDocumentAsync`` будет нужная ссылка для отправки.
+Сначала с помощью метода ``GET ReplyDocument`` (в теле передаем контент сертификата) получаем xml-файл и печатную форму извещения о получении, подписываем его и методом ``POST ReplyDocument`` отправляем в ФНС: в ответе ``GET ReplyDocument`` будет нужная ссылка для отправки.
 
-* Метод: `GET ReplyDocumentAsync`_
+* Метод: `GET ReplyDocument`_
 
 **Запрос**: 
 
@@ -542,7 +542,7 @@
      ]
    }
 
-* Метод: `POST ReplyDocumentAsync`_
+* Метод: `POST ReplyDocument`_
 
 **Запрос**:
 
@@ -1000,7 +1000,7 @@
 Печать документов
 -----------------
 
-Метод: `POST DocumentPrintAsync`_ 
+Метод: `POST DocumentPrint`_ 
 
 Также в любой момент времени можно получить печатную форму любого формализованного документа в документообороте. В теле запроса передается контент печатаемого документа в base64. При чем во время печати мы проверим переданный на печать документ на соответствие подписи этого документа в документообороте. Если на печать передали контент измененного документа, то вернется ошибка.
 

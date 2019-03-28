@@ -1,6 +1,6 @@
 .. _Drafts: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts
 .. _`DELETE Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_DeleteDocument
-.. _`GET DocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentAsync
+.. _`GET Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentAsync
 .. _`PUT Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocument
 .. _`POST Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_AddDocument
 .. _`GET DocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentContent
@@ -8,7 +8,7 @@
 .. _`GET EncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetEncryptedDocumentContent
 .. _`GET SignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetSignatureContent
 .. _`PUT DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_PutDocumentSignature
-.. _`GET DocumentPrintAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrintAsync
+.. _`GET DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Drafts/DraftDocuments_GetDocumentPrintAsync
 
 Методы для работы c документами в черновике
 ===========================================
@@ -39,7 +39,7 @@
 Получение документа 
 -------------------
 
-Метод: `GET DocumentAsync`_
+Метод: `GET Document`_
 
 С помощью данного метода можно получить конкретный документ из черновика, с его мета-информацией и контентами самого документа и подписи, если она уже была добавлена
 
@@ -92,6 +92,6 @@
 Печать документа
 ----------------
 
-Метод: `GET DocumentPrintAsync`_
+Метод: `GET DocumentPrint`_
 
 Метод позволяет получить печатную форму любого формализованного документа в черновике.

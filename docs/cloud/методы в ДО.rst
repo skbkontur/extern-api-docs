@@ -1,8 +1,8 @@
 .. _Docflows: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows
-.. _`POST SignReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignReplyDocumentAsync
-.. _`POST SignConfirmReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignConfirmReplyDocumentAsync
-.. _`POST DecryptDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentAsync
-.. _`POST DecryptDocumentConfirmationAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentConfirmationAsync
+.. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignReplyDocumentAsync
+.. _`POST SignConfirmReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SignConfirmReplyDocumentAsync
+.. _`POST DecryptDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentAsync
+.. _`POST DecryptDocumentConfirmation`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/Docflows_DecryptDocumentConfirmationAsync
 
 Методы для работы в документооборотах
 =====================================
@@ -31,7 +31,7 @@
 
 Подпись ответного документа
 ---------------------------
-Метод: `POST SignReplyDocumentAsync`_
+Метод: `POST SignReplyDocument`_
 
 Позволяет подписать сгенерированный ответный документ (:ref:`Генерация ответного документа <rst-markup-post-reply-doc>`). 
 
@@ -39,7 +39,7 @@
 
 Подтверждение подписи ответного документа
 -----------------------------------------
-Метод: `POST SignConfirmReplyDocumentAsync`_
+Метод: `POST SignConfirmReplyDocument`_
 
 После ввода кода из смс-сообщения, произойдет подписание документа. Подпись добавится под ответный документ.
 
@@ -47,13 +47,13 @@
 
 Дешифрование документа
 ----------------------
-Метод: `POST DecryptDocumentAsync`_
+Метод: `POST DecryptDocument`_
 
 С помощью данного метода можно расшифровать любой зашифрованный документ в документообороте. 
 
 Подтверждение дешифрования документа
 ------------------------------------
-Метод: `POST DecryptDocumentConfirmationAsync`_
+Метод: `POST DecryptDocumentConfirmation`_
 
 После ввода кода из смс-сообщения произойдет дешифрование документа. В ответе будет расшифрованный контент.
 

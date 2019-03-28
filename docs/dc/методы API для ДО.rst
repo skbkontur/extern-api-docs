@@ -1,15 +1,15 @@
 .. _Docflows: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows
-.. _`GET DocflowsAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
-.. _`GET DocflowAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
-.. _`GET DocumentsAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentsAsync
-.. _`GET DocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentAsync
-.. _`GET DocumentDescriptionAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentDescriptionAsync
-.. _`GET EncryptedDocumentContentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetEncryptedDocumentContentAsync
-.. _`GET DecryptedDocumentContentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDecryptedDocumentContentAsync
-.. _`GET DocumentSignaturesAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignaturesAsync
-.. _`GET DocumentSignatureAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureAsync
-.. _`GET DocumentSignatureContentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureContentAsync
-.. _`GET DocumentPrintAsync`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
+.. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
+.. _`GET Docflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
+.. _`GET Documents`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentsAsync
+.. _`GET Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentAsync
+.. _`GET DocumentDescription`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentDescriptionAsync
+.. _`GET EncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetEncryptedDocumentContentAsync
+.. _`GET DecryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDecryptedDocumentContentAsync
+.. _`GET DocumentSignatures`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignaturesAsync
+.. _`GET DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureAsync
+.. _`GET DocumentSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureContentAsync
+.. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
 
 Методы для работы с документооборотами
 ======================================
@@ -34,7 +34,7 @@
 Получение списка документооборотов 
 ----------------------------------
 
-Метод: `GET DocflowsAsync`_
+Метод: `GET Docflows`_
 
 С помощью этого метода можно получить список всех документооборотов учетной записи, при этом можно применить различные фильтры, чтобы получить необходимую выборку интересных на данный момент документооборотов. В ответе получает список документооборотов с необходимой мета-информацией по ним.
 
@@ -50,7 +50,7 @@
 Получение документооборота
 --------------------------
 
-Метод: `GET DocflowAsync`_
+Метод: `GET Docflow`_
 
 С помощью этого метода можно получить всю информацию о документообороте, такую как:
 
@@ -64,63 +64,63 @@
 Получение списка документов документооборота 
 --------------------------------------------
 
-Метод: `GET DocumentsAsync`_
+Метод: `GET Documents`_
 
 С помощью этого метода можно получить данные всех документов, созданных и полученных в ходе документооборота.
 
 Получение документа 
 -------------------
 
-Метод: `GET DocumentAsync`_
+Метод: `GET Document`_
 
 C помощью этого метода можно получить отдельный документ, созданный или полученный в ходе документооборота, с его описанием и контентами.
 
 Получение описания документа 
 ----------------------------
 
-Метод: `GET DocumentDescriptionAsync`_
+Метод: `GET DocumentDescription`_
 
 Данный метод позволяет отдельно получить описание документа, входящего в документооборот.
 
 Получение зашифрованного контента документа 
 -------------------------------------------
 
-Метод: `GET EncryptedDocumentContentAsync`_
+Метод: `GET EncryptedDocumentContent`_
 
 Получение расшифрованного контента документа 
 --------------------------------------------
 
-Метод: `GET DecryptedDocumentContentAsync`_
+Метод: `GET DecryptedDocumentContent`_
 
 Наличие расшифрованного контента возможно не для всех документов.
 
 Дешифрование контента документа с помощью облачной подписи
 ----------------------------------------------------------
 
-См. раздел Облачная криптография → Методы для работы в документооборотах → :ref:`Дешифрование документа  <rst-markup-post-decrypt-doc>`.
+См. раздел Контур.Сертификат → Методы для работы в документооборотах → :ref:`Дешифрование документа  <rst-markup-post-decrypt-doc>`.
 
 Получение подписей под документом 
 ---------------------------------
 
-Метод: `GET DocumentSignaturesAsync`_
+Метод: `GET DocumentSignatures`_
 
 В некоторых случаях у документа может быть несколько подписей. В ответе будут возвращены все подписи под запрашиваемым документом.
 
 Получение конкретной подписи под документом 
 -------------------------------------------
 
-Метод: `GET DocumentSignatureAsync`_
+Метод: `GET DocumentSignature`_
 
-В ответе будет мета-инфомарция подписи и ссылка на её контент.
+В ответе будет мета-информация подписи и ссылка на её контент.
 
 Получение контента конкретной подписи под документом 
 ----------------------------------------------------
 
-Метод: `GET DocumentSignatureContentAsync`_
+Метод: `GET DocumentSignatureContent`_
 
 Печать документов 
 -----------------
 
-Метод: `GET DocumentPrintAsync`_
+Метод: `POST DocumentPrint`_
 
 Можно получить печатную форму любого формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов.

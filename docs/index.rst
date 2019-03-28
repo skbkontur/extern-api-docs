@@ -20,6 +20,7 @@
    drafts/index
    dc/index
    cloud/index
+   inventories/index
    
 .. toctree::
    :maxdepth: 2 
