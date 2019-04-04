@@ -32,6 +32,7 @@
    :depth: 2
 
 .. _rst-markup-createDB:
+
 Создание DraftsBuilder
 ----------------------
 Метод: `POST CreateDraftsBuilder`_
@@ -61,6 +62,7 @@
 Метод обновляет метаинформацию DraftsBuilder.
 
 .. _rst-markup-build-DB:
+
 Сборка содержимого DraftsBuilder в черновик
 -------------------------------------------
 Метод: `POST BuildDrafts`_
@@ -96,6 +98,7 @@
 По идентификатору DraftsBuilderId метод находит список созданных в нем документов, для каждого возвращается: идентификатор документа, идентификатор DraftsBuilder, метаинформация.
 
 .. _rst-markup-create-docDB:
+
 Создание документа
 ------------------
 Метод: `POST CreateDraftsBuilderDocument`_
@@ -136,6 +139,7 @@
 По идентификатору DraftsBuilder и документу в нем метод находит список добавленных файлов.
 
 .. _rst-markup-create-fileDB:
+
 Создание файла в документе
 --------------------------
 Метод: `POST CreateDraftsBuilderDocumentFile`_
