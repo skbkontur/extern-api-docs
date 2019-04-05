@@ -12,13 +12,13 @@
 .. _`PUT SaveReplyDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentContentAsync
 .. _`PUT SaveReplyDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentSignatureAsync
 .. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignReplyDocumentAsync
-.. _`POSTSignConfirmReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignConfirmReplyDocumentAsync
+.. _`POST SignConfirmReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignConfirmReplyDocumentAsync
 .. _`POST SendReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SendReplyDocumentAsync
 
 Методы для работы с документооборотами описи
 ============================================
 
-В :doc:`методах для работы с документооборотом</dc/методы API для ДО>`, чтобы его отследить достаточно знать идентификатор docflowId. Опись в свою очередь характеризуют три параметра, поэтому для работы с ней есть мы реализовали отдельные методы. Параметры, которые характеризуют опись:
+В :doc:`методах для работы с документооборотом</dc/методы API для ДО>` достаточно знать идентификатор docflowId, чтобы отследить документооборот. Опись в свою очередь характеризуют три параметра, поэтому для работы с ней есть мы реализовали отдельные методы. Параметры, которые характеризуют опись:
 
 * Идентификатор документооборота описи.
 * Идентификатор входящего документооборота, в ответ на которое посылается опись.
