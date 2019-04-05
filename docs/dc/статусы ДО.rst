@@ -76,6 +76,7 @@
 
 .. image:: /_static/status-fns534-letterCU.jpg
 
+.. _rst-markup-demand-status:
 Требования
 ++++++++++
 

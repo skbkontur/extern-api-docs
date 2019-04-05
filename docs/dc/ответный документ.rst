@@ -1,8 +1,8 @@
-.. _`POST CreateReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
-.. _`GET ReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_GetReplyDocumentAsync
-.. _`PUT ReplyDocumentContentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SaveReplyDocumentContentAsync
-.. _`PUT ReplyDocumentSignatureAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SaveReplyDocumentSignatureAsync
-.. _`POST SendReplyDocumentAsync`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SendReplyDocumentAsync
+.. _`POST CreateReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
+.. _`GET ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_GetReplyDocumentAsync
+.. _`PUT ReplyDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SaveReplyDocumentContentAsync
+.. _`PUT ReplyDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SaveReplyDocumentSignatureAsync
+.. _`POST SendReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows/DocflowReplyDocument_SendReplyDocumentAsync
 
 
 Методы для работы с ответными документами
@@ -24,26 +24,26 @@
 Генерация ответного документа 
 -----------------------------
 
-Метод: `POST CreateReplyDocumentAsync`_
+Метод: `POST CreateReplyDocument`_
 
 Метод позволяет сгенерировать xml-файл документа установленного формата. Также в ответе метода доступна и печатная форма сгенерированного документа.
 
 Просмотр документа 
 ------------------
 
-Метод: `GET ReplyDocumentAsync`_
+Метод: `GET ReplyDocument`_
 
 С помощью данного метода можно получить все данные и контенты ответного документа, сгенерированного в методе выше.
 
 Редактирование контента документа
 ---------------------------------
 
-Метод: `PUT ReplyDocumentContentAsync`_
+Метод: `PUT ReplyDocumentContent`_
 
 Добавление подписи документа
 ----------------------------
 
-Метод: `PUT ReplyDocumentSignatureAsync`_
+Метод: `PUT ReplyDocumentSignature`_
 
 Подписание ответного документа
 ---------------------------------------
@@ -53,6 +53,6 @@
 Отправка ответного документа
 ----------------------------
 
-Метод: `POST SendReplyDocumentAsync`_
+Метод: `POST SendReplyDocument`_
 
 Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.
