@@ -55,7 +55,7 @@ DraftsBuilder можно использовать для получения че
  
  При создании обязательно заполнить метаинформацию.
 
- * Для документооборота описи (ответа на требование) указать тип DraftsBuilder = urn:externapi:fns:inventory.
+ * Для документооборота описи (ответа на требование) указать тип DraftsBuilder = urn:externapi:fns534-inventory.
  * Для документооборота регистрации бизнеса указать тип DraftsBuilder = urn:externapi:business-registration:registration.
 
 2. Добавление документа :ref:`POST CreateDraftsBuilderDocument<rst-markup-createdocDB>`
