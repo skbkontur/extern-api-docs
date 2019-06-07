@@ -10,6 +10,7 @@
    
    scenarios/index
    auth/index
+   specification/index
    
 .. toctree::
    :maxdepth: 2  

@@ -135,6 +135,8 @@
 
 .. image:: /_static/status-fns534-application2013.jpg
 
+.. _rst-markup-business-reg-status:
+
 Регистрация бизнеса
 +++++++++++++
 
