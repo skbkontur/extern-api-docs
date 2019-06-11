@@ -1,6 +1,7 @@
 .. _`GET Docflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
 .. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
-.. _`GET ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetReplyDocumentAsync
+.. _`POST CreateReplyDocument`:http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
+.. _`PUT ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_SaveReplyDocumentSignatureAsync
 .. _`POST ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
 .. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
 
@@ -16,32 +17,42 @@
 
 .. image:: /_static/dc_example4.jpg
 
-1. Запрашиваем статус документооборота. Это можно делать двумя способами: запрашивать периодически конкретный документооборот, запомнив его id при отправке черновика, запрашивать список документооборотов своей учетной записи (предпочтительный вариант):
+.. note:: По сути вся работа с документооборотом сводится к двум моментам:
+   * следить за статусом незавершенных документооборотов;
+   * при необходимости отправлять ответные документы.
 
-      * статус "Отправлен" означает, что изменений в документообороте после отправке черновика ещё не произошло, никаких действий не требуется
-      * статус "Доставлен" означает, что документ дошел до ФНС и принят в работу, в документообороте при этом появится новый документ извещение о получении, никаких действий не требуется
-      * статус "Ответ обработан" означает, что на отправленный документооборот пришли результаты приема.  
-2. Получили результаты приема, формируем извещения о получении на них:
+Этапы работы с документооборотами:
 
-      * пришло уведомление об отказе, на него необходимо в ответ в инспекцию направить извещение о получении; после этого документооборот считается **завершенным**; отправленный документ ФНС не приняла; необходимо прочитать причины отказа в уведомлении, исправить их и отправить документ заново, создав новый черновик.  
-      * пришла квитанция о приеме, на неё необходимо в ответ в инспекцию направить извещение о получении; отправленный документ ФНС приняла и приступила к его проверке.  
-3. Вновь запрашиваем статус документооборота, и ждем его изменения на "Получен ответ"  
+1. Запрашиваем статус документооборота. Это можно делать двумя способами. Первый - запрашивать периодически конкретный документооборот, запомнив его id при отправке черновика. Второй - запрашивать список документооборотов своей учетной записи (предпочтительный вариант). Возможные статусы документооборота:
 
-4. Статус "Получен ответ" означает, что на документ пришли результаты обработки: либо извещение о вводе, либо уведомление об уточнении. На них необходимо в ответ в инспекцию направить извещение о получении. После этого документооборот считается завершенным. Если пришло уведомление об уточнении, то необходимо исправить недочеты, указанные в уведомлении, исправить их и отправить корректировку, создав новый черновик.
+    * статус "Отправлен" означает, что изменений в документообороте после отправки черновика ещё не произошло, никаких действий не требуется;
+    * статус "Доставлен" означает, что документ дошел до ФНС и принят в работу. В документообороте при этом появится новый документ *Извещение о получении*, никаких действий не требуется;
+    * статус "Ответ обработан" означает, что на отправленный документооборот пришли результаты приема, переходим к шагу 2.  
 
-По сути вся работа с документооборотом сводится к двум моментам:
+2. Получены результаты приема, формируем *Извещения о получении* на них. Существует два возможных результата приема:
 
-* следить за статусом незавершенных документооборотов;
-* при необходимости отправлять ответные документы.
+    * пришло уведомление об отказе, в ответ на него необходимо направить извещение о получении. После этого документооборот считается **завершенным**. Уведомление об отказе означает, что отправленный документ ФНС не приняла. Налогоплательщик может изучить причины отказа в уведомлении, исправить их и отправить документ заново, создав новый черновик.  
+    * пришла квитанция о приеме, в ответ на неё необходимо направить извещение о получении. Квитанция о приеме означает, что отправленный документ ФНС приняла и приступила к его проверке.  
+
+3. Повторяем шаг 1: запрашиваем статус документооборота и ждем его изменения на "Получен ответ":
+
+    * Статус "Получен ответ" означает, что на отправленный документ пришли результаты обработки, переходим к шагу 4.
+
+4. Существует два возможных результата ответа: 
+
+    * пришло извещение о вводе, в ответ на него необходимо направить извещение о получении. После этого документооборот считается **завершенным**.
+    * пришло уведомление об уточнении, в ответ на него необходимо направить извещение о получении. После этого документооборот считается **завершенным**. Налогоплательщик может исправить недочеты, указанные в уведомлении, исправить их и отправить корректировку, создав новый черновик.
+
+Рассмотрим подробнее каждый шаг:
 
 1. Запрашиваем статус документооборота
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Данный процесс можно организовать двумя методами:
 
 * Метод: `GET Docflow`_ 
 
-В цикле запрашиваем документооборот, оптимальным периодом запроса можно считать 1 час, изменения в документообороте не происходят часто. В результате работы метода содержится вся актуальная информация по документообороту, в том числе и его статус.
+  В цикле запрашиваем документооборот, оптимальным периодом запроса можно считать 1 час, изменения в документообороте не происходят часто. В результате работы метода содержится вся актуальная информация по документообороту, в том числе и его статус.
 
 **Запрос**: 
 
@@ -55,367 +66,9 @@
    Connection: keep-alive
 
 
-**Ответ**:
-
-.. code-block:: http
-   :hidden:
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 11 Apr 2018 11:55:30 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 16713
-   
-   {
-     "id": "520e9bec-90b3-4d35-ab18-240ee2c72df3",
-     "type": "urn:docflow:fns534-report",
-     "status": "urn:docflow-common-status:response-arrived",
-     "description": {
-       "recipient": "0087",
-       "final-recipient": "0087",
-       "correction-number": 0,
-       "period-begin": "2012-01-01T00:00:00",
-       "period-end": "2012-12-31T00:00:00",
-       "period-code": 34,
-       "payer-inn": "3782868692-378750338"
-     },
-     "documents": [
-       {
-         "id": "37ce7fbc-f7d1-46e6-8456-513c2b9b118a",
-         "description": {
-           "type": "urn:document:fns534-report",
-           "filename": "NO_SRCHIS_0087_0087_3782868692378750338_20180411_d0cc4da7-a9a8-407a-97ac-93ceff1cdff0.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "fa24854e-38f6-499e-a693-78ca57fd1d1c",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "c4a12f9d-22a9-455a-904a-ae0e12dc5161",
-         "description": {
-           "type": "urn:document:fns534-report-description",
-           "filename": "TR_DEKL.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/encrypted"
-           }
-         },
-         "signatures": [],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "2511db49-738c-4a42-8132-09a78747257a",
-         "description": {
-           "type": "urn:document:fns534-report-date-confirmation",
-           "filename": "PD_NOSRCHIS_3782868692378750338_3782868692378750338_1BM_20180411_e255e863-144d-4962-b6b6-969cdc5579f6.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "1bc849a9-22dc-4835-bbbc-ab2bacd7bb41",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "042952ea-87b2-49c6-b4f1-f4834507de11",
-         "description": {
-           "type": "urn:document:fns534-report-receipt",
-           "filename": "IZ_NOSRCHIS_3782868692_3782868692_0087_20180411_c3b49b129f9047b1b816baf710462f7c.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "2a9348e5-5f5b-4277-85cd-c030d52105c2",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/signatures/2a9348e5-5f5b-4277-85cd-c030d52105c2/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/signatures/2a9348e5-5f5b-4277-85cd-c030d52105c2/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "3bd9e2ba-9273-4e21-ae56-c7eb4aa17538",
-         "description": {
-           "type": "urn:document:fns534-report-acceptance-result-positive",
-           "filename": "KV_NOSRCHIS_3782868692_3782868692_0087_20180411_4f5e45f87bff45fdb4ca6ed794a5446e.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "c827fbb2-46c9-47d9-b3be-6ecf9a109399",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/signatures/c827fbb2-46c9-47d9-b3be-6ecf9a109399/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/signatures/c827fbb2-46c9-47d9-b3be-6ecf9a109399/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "37ce7fbc-f7d1-46e6-8456-513c2b9b118a",
-         "description": {},
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "05173870-6e5a-4343-b29a-03f90e8a7d52",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/05173870-6e5a-4343-b29a-03f90e8a7d52/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/05173870-6e5a-4343-b29a-03f90e8a7d52/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "932c8211-a0fb-4eaa-b357-03f05303c82f",
-         "description": {
-           "type": "urn:document:fns534-report-processing-result-ok",
-           "filename": "IV_NOSRCHIS_3782868692_3782868692_0087_20180411_7ee9c300ce484b5ebf0d1593597dfa42.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "53b52103-60e0-426a-86b7-c8e10db56f99",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/signatures/53b52103-60e0-426a-86b7-c8e10db56f99/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/signatures/53b52103-60e0-426a-86b7-c8e10db56f99/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       }
-     ],
-     "links": [
-       {
-         "rel": "self",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-       },
-       {
-         "rel": "reply",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/reply/fns534-report-receipt",
-         "name": "fns534-report-receipt"
-       },
-       {
-         "rel": "reply",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt",
-         "name": "fns534-report-receipt"
-       },
-       {
-         "rel": "reply",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/reply/fns534-report-receipt",
-         "name": "fns534-report-receipt"
-       }
-     ],
-     "send-date": "2018-04-11T13:37:14.4795073",
-     "last-change-date": "2018-04-11T10:37:53.2772378Z"
-   }
-
 * Метод: `GET Docflows`_
 
-В результате работы этого метода мы получаем список всех документооборотов учетной записи, у каждого документооборота в списке будет мета-информация о нем, в том числе и его статус. А можно заранее, задав фильтр в списке по статусу, выбирать документообороты только нужного статуса. В примере я для краткости списка выбрал только фильтр *take=3*, то есть взял 3 последних документооборота учетной записи. И если в списке будет видно изменение статуса, то можно запрашивать документооборот, чей статус изменился с помощью предыдущего метода GET Docflow и работать с ним дальше.
+  В результате работы этого метода мы получаем список всех документооборотов учетной записи, у каждого документооборота в списке будет мета-информация о нем, в том числе и его статус. Вы сможете выбирать документообороты только нужного статуса, если зададите фильтр для полученного списка по полю status. Если в списке будет видно изменение статуса, то можно запрашивать документооборот, чей статус изменился с помощью предыдущего метода GET Docflow и работать с ним дальше.
 
 **Запрос**: 
 
@@ -428,71 +81,15 @@
    Host: extern-api.testkontur.ru
    Connection: keep-alive
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 11 Apr 2018 11:59:47 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 1582
-   
-   {
-     "skip": 0,
-     "take": 3,
-     "total-count": 10,
-     "docflows-page-item": [
-       {
-         "id": "520e9bec-90b3-4d35-ab18-240ee2c72df3",
-         "type": "urn:docflow:fns534-report",
-         "status": "urn:docflow-common-status:response-arrived",
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ],
-         "send-date": "2018-04-11T13:37:14.4795073",
-         "last-change-date": "2018-04-11T10:37:53.2772378Z"
-       },
-       {
-         "id": "c70af813-f29a-4d3c-9d07-04fc204ea3a2",
-         "type": "urn:docflow:fns534-report",
-         "status": "urn:docflow-common-status:response-arrived",
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/c70af813-f29a-4d3c-9d07-04fc204ea3a2"
-           }
-         ],
-         "send-date": "2018-04-11T07:21:43.9161069",
-         "last-change-date": "2018-04-11T04:22:32.4713324Z"
-       },
-       {
-         "id": "529b26a1-5488-492f-a687-aea18c0edde9",
-         "type": "urn:docflow:fns534-report",
-         "status": "urn:docflow-common-status:response-arrived",
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/529b26a1-5488-492f-a687-aea18c0edde9"
-           }
-         ],
-         "send-date": "2018-04-10T14:51:37.0850791",
-         "last-change-date": "2018-04-10T11:52:11.9999401Z"
-       }
-     ]
-   }
 
 2. Формирование извещения о получении на результаты приема
-----------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Для этого необходимо воспользоваться последовательностью методов: ``GET ReplyDocument`` и ``POST ReplyDocument``.
+Для этого необходимо воспользоваться последовательностью методов: 
 
-Сначала с помощью метода ``GET ReplyDocument`` (в теле передаем контент сертификата) получаем xml-файл и печатную форму извещения о получении, подписываем его и методом ``POST ReplyDocument`` отправляем в ФНС: в ответе ``GET ReplyDocument`` будет нужная ссылка для отправки.
+* Метод: `POST CreateReplyDocument`_
 
-* Метод: `GET ReplyDocument`_
+Метод позволяет сгенерировать xml-файл документа установленного формата и печатную форму извещения о получении, в теле запроса передаем контент сертификата.
 
 **Запрос**: 
 
@@ -510,39 +107,25 @@
 	   "certificate-base64": MIIJszCCCWKgAw ... NrZxycuX
    }
 
-**Ответ**:
+* Метод: `PUT ReplyDocument`_
+
+Для подписи полученного xml-файла в теле данного метода подкладывается подпись. 
+
+**Запрос**:
 
 .. code-block:: http
 
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 11 Apr 2018 12:29:57 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 82329
-   
-   {
-     "id": "97096b8a-9a45-44af-873c-f4f3f6e18293",
-     "content": "PD94bWwgdmVy ... e3yPg0KPC/U4OnrPg==",
-     "print-form-content": "JVBERi0xLjQKJdPr6eE ... w8L1NpemUgMTcKL1Jvb3QgMyAwIFIKL0luZm8gMSAwIFI+PgpzdGFydHhyZWYKNTc0MjYKJSVFT0Y=",
-     "filename": "IZ_KVNOSRCHIS_0087_0087_3782868692378750338_20180411_51f5c29eb1b44e7399f5c3b3bac0c37e.xml",
-     "sender-ip": "8.8.8.8.",
-     "links": [
-       {
-         "rel": "self",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt/generate"
-       },
-       {
-         "rel": "docflow",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-       },
-       {
-         "rel": "send",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt/send"
-       }
-     ]
-   }
+   POST 
+   Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+   X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
+   Content-Type: application/json
+   Host: extern-api.testkontur.ru
+   Content-length: 
+   Connection: keep-alive
 
 * Метод: `POST ReplyDocument`_
+
+Данный метод отправляет подписанный документ в ФНС.
 
 **Запрос**:
 
@@ -555,450 +138,25 @@
    Host: extern-api.testkontur.ru
    Content-length: 87214
    Connection: keep-alive
-   
-   {
-     "id": "97096b8a-9a45-44af-873c-f4f3f6e18293",
-     "content": "PD94bWwgdmVyc2 ... Pg0KPC/U4OnrPg==",
-     "print-form-content": "JVBERi0xLjQKJdPr6eEKM ... 8gMSAwIFI+PgpzdGFydHhyZWYKNTc0MjYKJSVFT0Y=",
-     "filename": "IZ_KVNOSRCHIS_0087_0087_3782868692378750338_20180411_51f5c29eb1b44e7399f5c3b3bac0c37e.xml",
-     "signature": {
-		   "id": "00000000-0000-0000-0000-000000000000",
-   		"content-data": "MIIN8QYJKoZIhvcNAQcCoIIN4jCCDd4CAQEx ... Wg1AR2LO7hdfgy3H6AAsOzzF2epQn"
-	   },
-     "sender-ip": "8.8.8.8.",
-     "links": [
-       {
-         "rel": "self",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt/generate"
-       },
-       {
-         "rel": "docflow",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-       },
-       {
-         "rel": "send",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt/send"
-       }
-     ]
-   }
-
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 11 Apr 2018 12:44:28 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 18758
-   
-   {
-     "id": "520e9bec-90b3-4d35-ab18-240ee2c72df3",
-     "type": "urn:docflow:fns534-report",
-     "status": "urn:docflow-common-status:response-arrived",
-     "description": {
-       "recipient": "0087",
-       "final-recipient": "0087",
-       "correction-number": 0,
-       "period-begin": "2012-01-01T00:00:00",
-       "period-end": "2012-12-31T00:00:00",
-       "period-code": 34,
-       "payer-inn": "3782868692-378750338"
-     },
-     "documents": [
-       {
-         "id": "37ce7fbc-f7d1-46e6-8456-513c2b9b118a",
-         "description": {
-           "type": "urn:document:fns534-report",
-           "filename": "NO_SRCHIS_0087_0087_3782868692378750338_20180411_d0cc4da7-a9a8-407a-97ac-93ceff1cdff0.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "fa24854e-38f6-499e-a693-78ca57fd1d1c",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/fa24854e-38f6-499e-a693-78ca57fd1d1c/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "c4a12f9d-22a9-455a-904a-ae0e12dc5161",
-         "description": {
-           "type": "urn:document:fns534-report-description",
-           "filename": "TR_DEKL.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161/content/encrypted"
-           }
-         },
-         "signatures": [],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/c4a12f9d-22a9-455a-904a-ae0e12dc5161"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "2511db49-738c-4a42-8132-09a78747257a",
-         "description": {
-           "type": "urn:document:fns534-report-date-confirmation",
-           "filename": "PD_NOSRCHIS_3782868692378750338_3782868692378750338_1BM_20180411_e255e863-144d-4962-b6b6-969cdc5579f6.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "1bc849a9-22dc-4835-bbbc-ab2bacd7bb41",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a/signatures/1bc849a9-22dc-4835-bbbc-ab2bacd7bb41/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/2511db49-738c-4a42-8132-09a78747257a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "042952ea-87b2-49c6-b4f1-f4834507de11",
-         "description": {
-           "type": "urn:document:fns534-report-receipt",
-           "filename": "IZ_NOSRCHIS_3782868692_3782868692_0087_20180411_c3b49b129f9047b1b816baf710462f7c.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "2a9348e5-5f5b-4277-85cd-c030d52105c2",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/signatures/2a9348e5-5f5b-4277-85cd-c030d52105c2/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11/signatures/2a9348e5-5f5b-4277-85cd-c030d52105c2/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/042952ea-87b2-49c6-b4f1-f4834507de11"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "3bd9e2ba-9273-4e21-ae56-c7eb4aa17538",
-         "description": {
-           "type": "urn:document:fns534-report-acceptance-result-positive",
-           "filename": "KV_NOSRCHIS_3782868692_3782868692_0087_20180411_4f5e45f87bff45fdb4ca6ed794a5446e.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "c827fbb2-46c9-47d9-b3be-6ecf9a109399",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/signatures/c827fbb2-46c9-47d9-b3be-6ecf9a109399/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/signatures/c827fbb2-46c9-47d9-b3be-6ecf9a109399/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "37ce7fbc-f7d1-46e6-8456-513c2b9b118a",
-         "description": {},
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "05173870-6e5a-4343-b29a-03f90e8a7d52",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/05173870-6e5a-4343-b29a-03f90e8a7d52/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/signatures/05173870-6e5a-4343-b29a-03f90e8a7d52/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "932c8211-a0fb-4eaa-b357-03f05303c82f",
-         "description": {
-           "type": "urn:document:fns534-report-processing-result-ok",
-           "filename": "IV_NOSRCHIS_3782868692_3782868692_0087_20180411_7ee9c300ce484b5ebf0d1593597dfa42.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "53b52103-60e0-426a-86b7-c8e10db56f99",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/signatures/53b52103-60e0-426a-86b7-c8e10db56f99/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/signatures/53b52103-60e0-426a-86b7-c8e10db56f99/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       },
-       {
-         "id": "97096b8a-9a45-44af-873c-f4f3f6e18293",
-         "description": {
-           "type": "urn:document:fns534-report-receipt",
-           "filename": "IZ_KVNOSRCHIS_0087_0087_3782868692378750338_20180411_51f5c29eb1b44e7399f5c3b3bac0c37e.xml",
-           "content-type": "application/xml"
-         },
-         "content": {
-           "decrypted": {
-             "rel": "decrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/97096b8a-9a45-44af-873c-f4f3f6e18293/content/decrypted"
-           },
-           "encrypted": {
-             "rel": "encrypted-content",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/97096b8a-9a45-44af-873c-f4f3f6e18293/content/encrypted"
-           }
-         },
-         "signatures": [
-           {
-             "id": "6bcb530d-ba02-4c61-8430-1b9ce50297e7",
-             "content-link": {
-               "rel": "content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/97096b8a-9a45-44af-873c-f4f3f6e18293/signatures/6bcb530d-ba02-4c61-8430-1b9ce50297e7/content"
-             },
-             "links": [
-               {
-                 "rel": "self",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/97096b8a-9a45-44af-873c-f4f3f6e18293/signatures/6bcb530d-ba02-4c61-8430-1b9ce50297e7/content"
-               },
-               {
-                 "rel": "docflows",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-               }
-             ]
-           }
-         ],
-         "links": [
-           {
-             "rel": "self",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/97096b8a-9a45-44af-873c-f4f3f6e18293"
-           },
-           {
-             "rel": "docflows",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-           }
-         ]
-       }
-     ],
-     "links": [
-       {
-         "rel": "self",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3"
-       },
-       {
-         "rel": "reply",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/37ce7fbc-f7d1-46e6-8456-513c2b9b118a/reply/fns534-report-receipt",
-         "name": "fns534-report-receipt"
-       },
-       {
-         "rel": "reply",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/932c8211-a0fb-4eaa-b357-03f05303c82f/reply/fns534-report-receipt",
-         "name": "fns534-report-receipt"
-       }
-     ],
-     "send-date": "2018-04-11T13:37:14.4795073",
-     "last-change-date": "2018-04-11T12:44:28.6460704Z"
-   }
 
 3. Ожидание результатов обработки
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Работаем аналогично п.1.
 
 4. Формирование извещения о получении на результаты обработки
--------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Работаем аналогично п.2
 
 Примечание
 ----------
 
-* Статусы необязательно могут меняться строго последовательно. В примере выше мы запросили документооборот уже после того, как от ФНС пришли и результаты приема, и результаты обработки. Поэтому у нас сразу есть ссылки на формирование извещение о получении результата приема и результата обработки
-* Среди ссылок с типом *reply* есть третья ссылка, она ведет на формирование извещения о получении подтверждения даты отправки, это технологический документ, им вы сообщаете нам о получении вами подтверждения даты отправки
+* Статусы необязательно могут меняться строго последовательно.
+* Среди ссылок с типом *reply* есть ссылка, которая ведет на формирование извещения о получении подтверждения даты отправки. Это технологический документ, им вы сообщаете о получении вами подтверждения даты отправки.
 
 Печать документов
------------------
+~~~~~~~~~~~~~~~~~
 
 Метод: `POST DocumentPrint`_ 
 
