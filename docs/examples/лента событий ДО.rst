@@ -1,7 +1,9 @@
+.. _`GET Events`: http://extern-api.testkontur.ru/swagger/ui/index#!/Events/Events_GetEvents
+
 Лента событий документооборота
 ==============================
 
-сделать ряд запросов
+Лента событий - это последовательность запросов `GET Events`_
 
 **Запрос**:
 
