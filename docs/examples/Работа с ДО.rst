@@ -1,6 +1,6 @@
 .. _`GET Docflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
 .. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
-.. _`POST CreateReplyDocument`:http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
+.. _`POST CreateReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
 .. _`PUT ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_SaveReplyDocumentSignatureAsync
 .. _`POST ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
 .. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
