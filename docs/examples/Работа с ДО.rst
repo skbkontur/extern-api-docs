@@ -2,13 +2,28 @@
 .. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
 .. _`POST CreateReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_CreateReplyDocumentAsync
 .. _`PUT ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowReplyDocument_SaveReplyDocumentSignatureAsync
-.. _`POST ReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
+.. _`POST SendReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_SendReplyDocumentAsync
 .. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
 
 Пример работы с документооборотом
 =================================
 
 После отправки черновика мы получаем идентификатор документооборота (id). В этом примере рассмотрим, как по id получить документооборот и работать с ним дальше. Пример касается документооборота ФНС типа Декларация.
+
+Примечание
+----------
+
+.. note:: По сути вся работа с документооборотом сводится к двум моментам:
+
+  * следить за статусом незавершенных документооборотов;
+  * при необходимости отправлять ответные документы.
+
+Важно понимать, что:
+
+* Статусы необязательно меняются строго последовательно.
+* После отправки документооборота ссылки с типом *reply* появляются постепенно. 
+* Среди ссылок с типом *reply* есть ссылка, которая ведет на формирование извещения о получении подтверждения даты отправки. Это технологический документ, им вы сообщаете о получении вами подтверждения даты отправки.
+* На все ссылки с типом *reply* необходимо сформировать ответный документ. 
 
 Порядок работы
 --------------
@@ -17,12 +32,8 @@
 
 .. image:: /_static/dc_example4.jpg
 
-.. note:: По сути вся работа с документооборотом сводится к двум моментам:
-
-  * следить за статусом незавершенных документооборотов;
-  * при необходимости отправлять ответные документы.
-
 Этапы работы с документооборотами:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Запрашиваем статус документооборота. Это можно делать двумя способами. Первый - запрашивать периодически конкретный документооборот, запомнив его id при отправке черновика. Второй - запрашивать список документооборотов своей учетной записи (предпочтительный вариант). Возможные статусы документооборота:
 
@@ -44,7 +55,7 @@
     * пришло извещение о вводе, в ответ на него необходимо направить извещение о получении. После этого документооборот считается **завершенным**.
     * пришло уведомление об уточнении, в ответ на него необходимо направить извещение о получении. После этого документооборот считается **завершенным**. Налогоплательщик может исправить недочеты, указанные в уведомлении, исправить их и отправить корректировку, создав новый черновик.
 
-Рассмотрим подробнее каждый шаг:
+**Рассмотрим подробнее каждый шаг**:
 
 1. Запрашиваем статус документооборота
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -96,7 +107,7 @@
 
 .. code-block:: http
 
-   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-      c7eb4aa17538/reply/fns534-report-receipt/generate HTTP/1.1
+   POST v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/generate-reply?documentType=fns534-report-receipt HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
    Content-Type: application/json
@@ -116,7 +127,7 @@
 
 .. code-block:: http
 
-   POST 
+   PUT v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/replies/70cd138a-89d5-4ed6-bd4e-a9127f18083f/signature 
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
    Content-Type: application/json
@@ -124,7 +135,11 @@
    Content-length: 
    Connection: keep-alive
 
-* Метод: `POST ReplyDocument`_
+   {
+        "сontent": MCKofpsgkfQdENW0 ... 34IqrD
+   }
+
+* Метод: `POST SendReplyDocument`_
 
 Данный метод отправляет подписанный документ в ФНС.
 
@@ -132,13 +147,17 @@
 
 .. code-block:: http
 
-   POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3/documents/3bd9e2ba-9273-4e21-ae56-c7eb4aa17538/reply/fns534-report-receipt/send HTTP/1.1
+   POST v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/replies/70cd138a-89d5-4ed6-bd4e-a9127f18083f/send HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
    Content-Type: application/json
    Host: extern-api.testkontur.ru
    Content-length: 87214
    Connection: keep-alive
+
+   {
+        "sender-ip" : 0.0.0.0
+   }
 
 3. Ожидание результатов обработки
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -150,11 +169,6 @@
 
 Работаем аналогично п.2
 
-Примечание
-----------
-
-* Статусы необязательно могут меняться строго последовательно.
-* Среди ссылок с типом *reply* есть ссылка, которая ведет на формирование извещения о получении подтверждения даты отправки. Это технологический документ, им вы сообщаете о получении вами подтверждения даты отправки.
 
 Печать документов
 ~~~~~~~~~~~~~~~~~

@@ -144,7 +144,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Короткое имя", "Комментарий", "Возможное состояние"
-   :widths: 20 10 50
+   :widths: 20 10 30 10
 
    "urn:docflow-common-status:sent", "отправлен", "документооборот поставлен в очередь на отправку", "neutral"
    "urn:docflow-common-status:delivered", "доставлен","документооборот отправлен в ФНС", "neutral"
