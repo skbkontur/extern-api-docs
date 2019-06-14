@@ -45,7 +45,7 @@
 
 **Запрос**: 
 
-``POST /auth/v5.9/authenticate-by-cert?free=true&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
+``POST /auth/v5.13/authenticate-by-cert?free=true&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
 
 **Тело**:
 
@@ -80,7 +80,7 @@
 
 **Запрос**: 
 
-``POST /auth/v5.9/approve-cert?thumbprint=dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
+``POST /auth/v5.13/approve-cert?thumbprint=dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA HTTP/1.1``
 
 **Тело**:
 
