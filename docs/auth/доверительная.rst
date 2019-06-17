@@ -18,7 +18,7 @@
 
 **Запрос**: 
 
-``PUT /auth/v5.9/register-external-service-id?api-key=value&serviceUserId=value&phone=value``, где:
+``PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=value&phone=value``, где:
 
 * phone - объект идентификации, телефон пользователя;
 * serviceUserId - идентификатор пользователя в доверенной системе;
@@ -45,7 +45,7 @@
 
 **Запрос**: 
 
-``POST /auth/v5.9/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value``, где:
+``POST /auth/v5.13/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value``, где:
 
 * serviceUserId - идентификатор пользователя в доверенной системе;
 * apiKey - :doc:`/manuals/api-key`;
@@ -90,7 +90,7 @@
 
 **Запрос**:  
 
-``POST /auth/v5.9/approve-truster?key=value&id=value&apiKey=value``, где:
+``POST /auth/v5.13/approve-truster?key=value&id=value&apiKey=value``, где:
 
 * key - случайное значение *rnd*;
 * apiKey - :doc:`/manuals/api-key`;
