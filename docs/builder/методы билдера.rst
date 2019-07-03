@@ -4,7 +4,7 @@
 .. _`GET GetDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetDraftsBuilderMetaAsync
 .. _`PUT UpdateDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_UpdateDraftsBuilderMetaAsync
 .. _`POST BuildDrafts`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_BuildDraftsAsync
-.. _`POST GetBuildResult`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetBuildResultAsync
+.. _`GET GetBuildResult`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetBuildResultAsync
 .. _`DELETE RemoveDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_RemoveDraftsBuilderAsync
 .. _`GET GetDraftsBuilderDocuments`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentsAsync
 .. _`POST CreateDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_CreateDraftsBuilderDocumentAsync
@@ -76,7 +76,7 @@
 
 Проверка статуса сборки
 -----------------------
-Метод: `POST GetBuildResult`_
+Метод: `GET GetBuildResult`_
 
 По переданным идентификаторам TaskId и DraftsBuilderId метод возвращает статус сборки. Когда сборка завершится, вы получите значение статуса равным succeed. Если в процессе хотя бы в одном документе произошла ошибка, статус сборки вернется также со значением succeed, а документ будет записан в список ошибочных (error-drafts-builder-documents). Идентификаторы сформированных без ошибок черновиков будут в списке draft-ids.
 
