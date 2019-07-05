@@ -64,23 +64,6 @@
    ig6Wya0ui9H9fTASUKfeJoOHE6u01whF06AZ3YrAMkluO1E=
    -----END CERTIFICATE-----
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK 
-   Content-Type: application/json;charset=UTF-8 
-   Content-Length: xxxx 
-   Server: xxxx 
-   
-   {
-   "EncryptedKey": "MIIDigYJKoZIhvcNAQcDoIIDezCCA3cCAQAxggI+MII ... CRV6wnPTXyfIgIvttB5pXzwwWVE/6pdw==",
-   "Link":
-   {
-   "Rel":"Send decrypted key to this link",
-   "Href":"https://api.dev.kontur/auth/v5/approve-cert?thumbprint=53AC6B8A92C13C651E7EF5AD7E22916D8E7FAAAA"
-   }
-   }
 
 Подтверждение
 """""""""""""
@@ -101,15 +84,6 @@
    b128 17d1 852b 8edf de3f 7b
    }
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Content-Type: application/json;charset=UTF-8
-   Content-Length: xxxx
-   Server: xxxx
-
 2. Получение accountId
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -124,44 +98,6 @@
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
    X-Kontur-Apikey: AAAAAAAA-AAAA-AAAA-AAAA-AAAAAAAAAA
    Host: extern-api.testkontur.ru
-
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Content-Type: application/json; charset=utf-8
-   Server: Microsoft-HTTPAPI/2.0
-   Date: Tue, 10 Apr 2018 06:15:48 GMT
-   Content-Length: 723
-   
-   {
-     "skip": 0,
-     "take": 1,
-     "total-count": 1,
-     "accounts": [
-       {
-         "id": "ea3a9316-d3c5-4544-a6df-4e8d9aa9f813",
-         "inn": "3782868692",
-         "kpp": "378750338",
-         "organization-name": "ООО Стеклорегистр",
-         "links": [
-           {
-             "rel": "self",
-             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813"
-           },
-           {
-             "rel": "drafts",
-             "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts"
-           },
-           {
-             "rel": "docflows",
-             "href": "https://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows"
-           }
-         ]
-       }
-     ]
-   }
 
 3. Создание черновика документооборота
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -201,48 +137,6 @@
 	   }
    }
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 201 Created
-   Content-Type: application/json; charset=utf-8
-   Server: nginx
-   Date: Wed, 11 Apr 2018 11:04:06 GMT
-   Content-Length: 9810
-   
-   {
-     "id": "87d4f4f9-b166-417c-b700-44a406e2fdb8",
-     "docflows": [],
-     "documents": [],
-     "meta": {
-       "sender": {
-         "inn": "3782868692",
-         "kpp": "378750338",
-         "certificate": {
-           "content": "MIIJJiMxMTEwOzCCCW ... MTA1MTuX"
-         },
-         "ipaddress": "8.8.8.8"
-       },
-       "recipient": {
-         "ifns-code": "0087"
-       },
-       "payer": {
-         "inn": "0426016521",
-         "organization": {
-           "kpp": "321650455"
-         }
-       }
-     },
-     "status": "new",
-     "links": [
-       {
-         "rel": "self",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8"
-       }
-     ]
-   }
-
 4. Добавление документов 
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -274,29 +168,6 @@
 	   }
    }
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 201 Created
-   Content-Type: application/json; charset=utf-8
-   Server: nginx
-   Date: Wed, 11 Apr 2018 11:15:31 GMT
-   Content-Length: 700
-   
-   {
-     "id": "21dbefdd-8c1f-423c-9552-44ee27c245ff",
-     "decrypted-content-link": {
-       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted",
-       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/content/decrypted"
-     },
-     "description": {
-       "type": "urn:document:fns534-report",
-       "filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
-       "content-type": "application/xml"
-     }
-   }
-
 
 Сообщение о представительстве
 """""""""""""""""""""""""""""
@@ -321,29 +192,6 @@
 	   }
    }
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 201 Created
-   Server: nginx
-   Date: Fri, 13 Apr 2018 08:24:06 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 696
-   
-   {
-     "id": "1428bf5c-b917-4f34-8c65-2bd1029d8dfb",
-     "decrypted-content-link": {
-       "rel": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted",
-       "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/content/decrypted"
-     },
-     "description": {
-       "type": "urn:document:fns534-report",
-       "filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
-       "content-type": "application/xml"
-     }
-   }
-
 5. Проверка
 ~~~~~~~~~~~
 
@@ -359,23 +207,6 @@
    Host: extern-api.testkontur.ru
    content-length: 0
    Connection: keep-alive
-
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Fri, 13 Apr 2018 08:32:26 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 76
-   
-   {
-     "data": {
-       "documents-errors": {},
-       "common-errors": []
-     }
-   }
 
 6. Подготовка
 ~~~~~~~~~~~~~
@@ -396,23 +227,6 @@
    accept-encoding: gzip, deflate
    content-length: 0
    Connection: keep-alive
-
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 400 Bad Request
-   Server: nginx
-   Date: Wed, 16 May 2018 08:31:06 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 244
-   
-   {
-     "id": "urn:error:externapi:signatureNotFound",
-     "status-code": 400,
-     "track-id": "mm76a1xrzyhikjf1oxoy",
-     "message": "there are no signature for documents: 1428bf5c-b917-4f34-8c65-2bd1029d8dfb,21dbefdd-8c1f-423c-9552-44ee27c245ff"
-   }
 
 7. Добавление подписи
 ~~~~~~~~~~~~~~~~~~~~~
@@ -439,14 +253,6 @@
    
    byte[]
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 16 May 2018 08:50:21 GMT
-   Content-Length: 0
 
 Сообщение о представительстве
 """""""""""""""""""""""""""""
@@ -468,15 +274,6 @@
    
    byte[]
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 16 May 2018 08:51:48 GMT
-   Content-Length: 0
-
 8. Повторный вызов подготовки
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -496,29 +293,6 @@
    content-length: 0
    Connection: keep-alive
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 16 May 2018 10:33:37 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 309
-   
-   {
-     "check-result": {
-       "documents-errors": {},
-       "common-errors": []
-     },
-     "links": [
-       {
-         "rel": "next",
-         "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/send?force=false"
-       }
-     ],
-     "status": "ok"
-   }
 
 9. Отправка
 ~~~~~~~~~~~
@@ -541,214 +315,3 @@
    content-length: 0
    Connection: keep-alive
 
-**Ответ**:
-
-.. code-block:: http
-
-   HTTP/1.1 200 OK
-   Server: nginx
-   Date: Wed, 16 May 2018 10:37:48 GMT
-   Content-Type: application/json; charset=utf-8
-   Content-Length: 9734
-   
-   [
-     {
-       "id": "45de1457-8fb6-4c88-9cf4-34f653e38ace",
-       "type": "urn:docflow:fns534-report",
-       "status": "urn:docflow-common-status:sent",
-       "description": {
-         "recipient": "0087",
-         "final-recipient": "0087",
-         "correction-number": 0,
-         "period-begin": "2017-01-01T00:00:00",
-         "period-end": "2017-12-31T00:00:00",
-         "period-code": 94,
-         "payer-inn": "0426016521-321650455"
-       },
-       "documents": [
-         {
-           "id": "6d82e0a1-5678-494b-a184-4435aa1512dc",
-           "description": {
-             "type": "urn:document:fns534-report-warrant",
-             "filename": "ON_DOV_0087_0087_3782868692378750338_20180411_d075a2c7-1e38-49f1-a13b-28753780103c.xml",
-             "content-type": "application/xml"
-           },
-           "content": {
-             "decrypted": {
-               "rel": "decrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc/content/decrypted"
-             },
-             "encrypted": {
-               "rel": "encrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc/content/encrypted"
-             }
-           },
-           "signatures": [
-             {
-               "id": "aef5c2b6-2206-41af-b99e-0263efdbb2d3",
-               "content-link": {
-                 "rel": "content",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc/signatures/aef5c2b6-2206-41af-b99e-0263efdbb2d3/content"
-               },
-               "links": [
-                 {
-                   "rel": "self",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc/signatures/aef5c2b6-2206-41af-b99e-0263efdbb2d3/content"
-                 },
-                 {
-                   "rel": "docflow",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-                 }
-               ]
-             }
-           ],
-           "links": [
-             {
-               "rel": "self",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc"
-             },
-             {
-               "rel": "docflow",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-             }
-           ]
-         },
-         {
-           "id": "8c020293-f863-44f8-9fbd-1f3c99f97733",
-           "description": {
-             "type": "urn:document:fns534-report",
-             "filename": "NO_BUHOTCH_0087_0087_3782868692378750338_20180411_0aaac90f-ac5b-4709-a799-625eb7c0f78b.xml",
-             "content-type": "application/xml"
-           },
-           "content": {
-             "decrypted": {
-               "rel": "decrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/8c020293-f863-44f8-9fbd-1f3c99f97733/content/decrypted"
-             },
-             "encrypted": {
-               "rel": "encrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/8c020293-f863-44f8-9fbd-1f3c99f97733/content/encrypted"
-             }
-           },
-           "signatures": [
-             {
-               "id": "c5ab2797-28a8-426c-acbe-8c8d0ac13b7b",
-               "content-link": {
-                 "rel": "content",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/8c020293-f863-44f8-9fbd-1f3c99f97733/signatures/c5ab2797-28a8-426c-acbe-8c8d0ac13b7b/content"
-               },
-               "links": [
-                 {
-                   "rel": "self",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/8c020293-f863-44f8-9fbd-1f3c99f97733/signatures/c5ab2797-28a8-426c-acbe-8c8d0ac13b7b/content"
-                 },
-                 {
-                   "rel": "docflow",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-                 }
-               ]
-             }
-           ],
-           "links": [
-             {
-               "rel": "self",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/8c020293-f863-44f8-9fbd-1f3c99f97733"
-             },
-             {
-               "rel": "docflow",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-             }
-           ]
-         },
-         {
-           "id": "96c69f86-e33c-43a4-ad68-0be60472d12b",
-           "description": {
-             "type": "urn:document:fns534-report-description",
-             "filename": "TR_DEKL.xml",
-             "content-type": "application/xml"
-           },
-           "content": {
-             "decrypted": {
-               "rel": "decrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/96c69f86-e33c-43a4-ad68-0be60472d12b/content/decrypted"
-             },
-             "encrypted": {
-               "rel": "encrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/96c69f86-e33c-43a4-ad68-0be60472d12b/content/encrypted"
-             }
-           },
-           "signatures": [],
-           "links": [
-             {
-               "rel": "self",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/96c69f86-e33c-43a4-ad68-0be60472d12b"
-             },
-             {
-               "rel": "docflow",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-             }
-           ]
-         },
-         {
-           "id": "c1c4c079-08ab-48df-9ea9-e1ac02f096a4",
-           "description": {
-             "type": "urn:document:fns534-report-date-confirmation",
-             "filename": "PD_NOBUHOTCH_3782868692378750338_3782868692378750338_1BM_20180516_2ecd15de-0221-4cdb-a27a-96cf92abe0bf.xml",
-             "content-type": "application/xml"
-           },
-           "content": {
-             "decrypted": {
-               "rel": "decrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/c1c4c079-08ab-48df-9ea9-e1ac02f096a4/content/decrypted"
-             },
-             "encrypted": {
-               "rel": "encrypted-content",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/c1c4c079-08ab-48df-9ea9-e1ac02f096a4/content/encrypted"
-             }
-           },
-           "signatures": [
-             {
-               "id": "3e1e959f-5aa0-4dd0-a5aa-fcf4c5970b1f",
-               "content-link": {
-                 "rel": "content",
-                 "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/c1c4c079-08ab-48df-9ea9-e1ac02f096a4/signatures/3e1e959f-5aa0-4dd0-a5aa-fcf4c5970b1f/content"
-               },
-               "links": [
-                 {
-                   "rel": "self",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/c1c4c079-08ab-48df-9ea9-e1ac02f096a4/signatures/3e1e959f-5aa0-4dd0-a5aa-fcf4c5970b1f/content"
-                 },
-                 {
-                   "rel": "docflow",
-                   "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-                 }
-               ]
-             }
-           ],
-           "links": [
-             {
-               "rel": "self",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/c1c4c079-08ab-48df-9ea9-e1ac02f096a4"
-             },
-             {
-               "rel": "docflow",
-               "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-             }
-           ]
-         }
-       ],
-       "links": [
-         {
-           "rel": "self",
-           "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace"
-         },
-         {
-           "rel": "reply",
-           "href": "http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/45de1457-8fb6-4c88-9cf4-34f653e38ace/documents/6d82e0a1-5678-494b-a184-4435aa1512dc/reply/fns534-report-receipt/generate",
-           "name": "fns534-report-receipt"
-         }
-       ],
-       "send-date": "2018-05-16T10:37:48.7999508",
-       "last-change-date": "2018-05-16T10:37:48.7999508Z"
-     }
-   ]
