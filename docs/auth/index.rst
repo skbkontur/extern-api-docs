@@ -6,7 +6,6 @@
    :hidden:
 
    по сертификату
-   доверительная
    403(Forbidden)
    auth.sid
 
