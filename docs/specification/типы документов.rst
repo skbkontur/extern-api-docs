@@ -159,11 +159,17 @@
    "urn:document:business-registration-application-usn","Заявление о переходе на упрощенную систему налогообложения (форма №26.2-1)","Заявление о переходе на УСН"
    "urn:document:business-registration-founding-document","Учредительный документ","Учредительный документ"
    "urn:document:business-registration-attachment","Документы, необходимые для государственной регистрации","Иные документы"
-   "urn:document:business-registration-reply-protocol","Протокол с информацией о выявленных несоответствиях форматно-логического контроля","Сообщение о невозможности обработки электронных документов"
-   "urn:document:business-registration-reply-receipt","Расписка о принятии заявления","Расписка в получении налоговым (регистрирующим) органом документов в электронном виде"
-   "urn:document:business-registration-reply-refusal","Решение об отказе в регистрации","Решение об отказе в государственной регистрации"
-   "urn:document:business-registration-reply-acceptance-positive","Документы, сформированные регистрирующим органом в связи с внесением записи в ЕГРЮЛ или ЕГРИП","Документы о регистрации"
-   "urn:document:business-registration-reply-egrip-excerpt","Выписка или лист записи ЕГРИП","Выписка или лист записи ЕГРИП"
+   "**Ответные документы**","",""
+   "urn:document:business-registration-check-protocol","Протокол с информацией о выявленных несоответствиях форматно-логического контроля","Сообщение о невозможности обработки электронных документов"
+   "urn:document:business-registration-receipt","Расписка о принятии заявления","Расписка в получении налоговым (регистрирующим) органом документов в электронном виде"
+   "urn:document:business-registration-acceptance-result-negative","Решение об отказе в регистрации","Решение об отказе в государственной регистрации"
+   "urn:document:business-registration-registration-notice","Уведомление о постановке на учёт","Уведомление о постановке на учет в качестве индивидуального предпринимателя в налоговом органе"
+   "urn:document:business-registration-registration-certificate","Свидетельство о постановке на учет","Свидетельство о постановке на учет в налоговом органе"
+   "urn:document:business-registration-deregistration-notice","Уведомление о снятии с учета","Уведомление о снятии с учета в налоговом органе"
+   "urn:document:business-registration-egrip-extract","Выписка или лист записи ЕГРИП","Выписка или лист записи ЕГРИП"
+   "urn:document:business-registration-egrul-extract","Выписка или лист записи ЕГРЮЛ","Выписка или лист записи ЕГРЮЛ"
+   "urn:document:business-registration-decline-notice","Уведомление об оставлении документов без рассмотрения","Уведомление об оставлении документов без рассмотрения"
+   "urn:document:business-registration-acceptance-result-suspension","Решение о приостановлении регистрации","Решение о приостановлении государственной регистрации"
    
 ПФР
 ---
