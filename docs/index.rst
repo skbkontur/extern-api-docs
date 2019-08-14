@@ -24,6 +24,7 @@ API Контур.Экстерн
    :hidden:
    
    accounts/index
+   cloud/index
    drafts/index
    dc/index
    inventories/index
