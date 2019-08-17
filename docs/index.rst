@@ -17,6 +17,7 @@ API Контур.Экстерн
    
    auth/index
    specification/index
+   knowledge base/index
    
 .. toctree::
    :maxdepth: 2  
