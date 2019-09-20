@@ -208,6 +208,8 @@
 
 .. image:: /_static/status-stat-letterCU.jpg
 
+.. _rst-markup-prf-status:
+
 ПФР
 -------
 
