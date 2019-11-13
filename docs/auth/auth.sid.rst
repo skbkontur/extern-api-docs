@@ -12,7 +12,7 @@ auth.sid
 HTTP-заголовок Authorization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. code-block:: http
+.. code-block::
 
   GET /drive/documents?skip=10&take=10
   Host: api.kontur.ru
@@ -22,7 +22,7 @@ HTTP-заголовок Authorization
 Cookie
 ^^^^^^
 
-.. code-block:: http
+.. code-block::
 
   GET /drive/documents?skip=10&take=10
   Host: api.kontur.ru

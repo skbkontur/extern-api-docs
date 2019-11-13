@@ -3,8 +3,17 @@
 Доверительная 
 =============
 
-Данная аутентификация доступна только для Компаний-Партнеров.  
-Этот метод позволяет получить :doc:`/auth/auth.sid`, используя аутентификацию пользователя в доверенной системе Компании-Партнера. Для того, чтобы воспользоваться доверительной аутентификацией, необходимо при **первом** входе пользователя произвести связывание пользователей систем Партнера и Контура.
+.. warning:: Данный вид аутентификации доступен только для **Компаний-Партнеров Удостоверяющего Центра**.  
+
+Компания-Партнер Удостоверяющего Центра
+  Это организации, которые имеют у себя аккредитованное рабочее место Удостоверяющего центра. Они самостоятельно могут удостоверить личность пользователя, проверить документы и создать запрос на сертификат.
+
+Доверительная аутентификация позволяет получить :doc:`/auth/auth.sid`, используя аутентификацию пользователя в доверенной системе Компании-Партнера. Получение auth.sid состоит из двух шагов. Сначала вы инициализируете аутентификацию: передаете серверу данные о пользователе. После этого, вторым шагом, вы подтверждаете аутентификацию. 
+
+Но для того, чтобы воспользоваться доверительной аутентификацией, необходимо при **первом** входе пользователя произвести связывание пользователей систем Партнера и Контура.
+
+.. image:: /_static/Доверительная.jpg
+ 
 
 0. Связывание пользователей
 ---------------------------
@@ -18,7 +27,11 @@
 
 **Запрос**: 
 
-``PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=value&phone=value``, где:
+.. code-block::
+
+  PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=value&phone=value
+  
+Где:
 
 * phone - объект идентификации, телефон пользователя;
 * serviceUserId - идентификатор пользователя в доверенной системе;
@@ -29,12 +42,17 @@
 * 200(OK) - запрос выполнен успешно.
 * 400(Bad Request) - отсутствуют необходимые параметры.
 * 401(Unauthorized) - api-key не указан.
-* :doc:`403(Forbidden) </auth/403(Forbidden)>`.
+* 403(Forbidden) - возможные коды ошибок при запросе **связывания**:
+    
+    * ForbiddenForTargetUser - пользователь, под которого пытаются войти, является администратором. Вход под администратором запрещен.
+    * InvalidApiKey	- невалидный :doc:`/manuals/api-key`.
+    * NotId	- не указан идентификатор пользователя доверенной системы.
+    * UserNotFound - пользователь Контура не найден.
+    * UserNotUniq	- пользователь с указанным идентификатором не уникален.
+    * UnknownError - неизвестная ошибка.
+
 * 500(InternalServerError).
 
-.. important:: Доверительная аутентификация двухшаговая.
-
-.. image:: /_static/Доверительная.jpg
 
 1. Инициализация
 ----------------
@@ -45,7 +63,11 @@
 
 **Запрос**: 
 
-``POST /auth/v5.13/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value``, где:
+.. code-block::
+
+  POST /auth/v5.13/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value
+  
+Где:
 
 * serviceUserId - идентификатор пользователя в доверенной системе;
 * apiKey - :doc:`/manuals/api-key`;
@@ -90,7 +112,11 @@
 
 **Запрос**:  
 
-``POST /auth/v5.13/approve-truster?key=value&id=value&apiKey=value``, где:
+.. code-block::
+
+  POST /auth/v5.13/approve-truster?key=value&id=value&apiKey=value
+  
+Где:
 
 * key - случайное значение *rnd*;
 * apiKey - :doc:`/manuals/api-key`;
@@ -108,82 +134,5 @@
 * :doc:`403(Forbidden) </auth/403(Forbidden)>`.
 * 500(InternalServerError).
 
-Расшифровка 403(Forbidden)
-==========================
-
-Коды ошибок при запросе **связывания**:
-
-* ForbiddenForTargetUser - пользователь, под которого пытаются войти, является администратором. Вход под администратором запрещен.
-* InvalidApiKey	- невалидный :doc:`/manuals/api-key`.
-* NotId	- не указан идентификатор пользователя доверенной системы.
-* UserNotFound - пользователь Контура не найден.
-* UserNotUniq	- пользователь с указанным идентификатором не уникален.
-* UnknownError - неизвестная ошибка.
-
-Примеры аутентификации
-======================
-
-Доверительная
--------------
-
-0. Связывание пользователей
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-**Запрос**: 
-
-``POST /auth/v5.13/register-external-service-id?api-key=74cc9756-4acb-4daf-9a17-03a38400000f&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1``
-
-**Ответ**:
-
-.. code-block:: http
-
-  HTTP/1.1 200 OK 
-  Content-Type: application/json;charset=UTF-8 
-  Content-Length: xxxx 
-  Server: xxxx  
-
-1. Инициализация
-^^^^^^^^^^^^^^^^
-
-**Запрос**: 
-
-``POST /auth/v5.13/authenticate-by-truster?apiKey=74cc9756-4acb-4daf-9a17-03a38400000f&timestamp=16.08.2016 14:03:10&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&snils=40934200000 HTTP/1.1``
-
-**Тело**:
-
-``file.sig``
-
-**Ответ**:
-
-.. code-block:: http
-
-  HTTP/1.1 200 OK 
-  Content-Type: application/json;charset=UTF-8 
-  Content-Length: xxxx 
-  Server: xxxx  
-  {
-  "Key": "FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000",
-  "Link":
-  {
-  "Rel": "Send key to this link",
-  "Href":  "https://api.dev.kontur/auth/v5/approve-truster?  id=40934200000&key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F10000000000"
-  }
-  }
-
-2. Подтверждение
-^^^^^^^^^^^^^^^^
-
-**Запрос**: 
-``POST /auth/v5.13/approve-truster?key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000&id=40934200000 HTTP/1.1``
-
-**Ответ**:
-
-.. code-block:: http
-
-  HTTP/1.1 200 OK
-  Content-Type: application/json;charset=UTF-8
-  Content-Length: xxxx
-  Server: xxxx
-  {
-	"Sid": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-  }
+.. note:: 
+    :ref:`Пример выполнения запроса доверительной аутентификации<rst-markup-truster>`

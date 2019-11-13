@@ -13,7 +13,11 @@
 
 **Запрос**: 
 
-``POST /auth/v5.13/authenticate-by-cert?free=value&apiKey=value``, где:
+.. code-block::
+
+    POST /auth/v5.13/authenticate-by-cert?free=value&apiKey=value
+    
+Где:
 
 * free - булевый флаг, который говорит проверять или нет валидность сертификата (true - не проверять, по умолчанию - false);
 * apiKey - :doc:`/manuals/api-key`.
@@ -50,7 +54,11 @@
 
  **Запрос**: 
  
- ``POST /auth/v5.13/approve-cert?thumbprint=value&apiKey=value``, где:
+ .. code-block::
+    
+    POST /auth/v5.13/approve-cert?thumbprint=value&apiKey=value
+
+Где:
  
 * thumbprint - отпечаток сертификата, используемого для аутентификации;
 * apiKey - :doc:`/manuals/api-key`.
@@ -61,7 +69,7 @@
 
 **Ответ**:
 
-* Sid - идентификатор сессии :doc:`/manuals/auth.sid`.
+* Sid - идентификатор сессии :doc:`/auth/auth.sid`.
 * RefreshToken - ключ, необходимый для продления созданной сессии.
 
 **Коды ответов**:
@@ -73,6 +81,7 @@
 
 3. Продление сессии
 -------------------- 
+
 При истечении времени жизни auth.sid необходимо его обновить, это можно сделать двумя способами:
 
 * пройти заново предыдущие два шага аутентификации по сертификату;
@@ -80,7 +89,11 @@
 
 **Запрос**: 
 
-``POST /sessions/v5.13/sessions/refresh?auth.sid=value&refresh-token=value&api-key=value``, где:
+.. code-block::
+
+    POST /sessions/v5.13/sessions/refresh?auth.sid=value&refresh-token=value&api-key=value
+
+Где:
 
 * auth.sid - обновляемая сессия;
 * refresh-token - токен, соответствующий обновляемой сессии;
@@ -88,7 +101,7 @@
 
 **Ответ**:
 
-* Sid - идентификатор сессии :doc:`/manuals/auth.sid`.
+* Sid - идентификатор сессии :doc:`/auth/auth.sid`.
 * RefreshToken - ключ, необходимый для продления созданной сессии.
 
 **Коды ответов**:
@@ -111,3 +124,6 @@
 * Время жизни refresh-token 45 дней.
 * Отдельно отметим, что продление сессии (п.3) происходит в отдельном location работы с сессиями.
 * После продления сессии (п.3) auth.sid и refresh-token старой сессии становятся недействительными.
+
+.. note:: 
+    :ref:`Пример выполнения запросов аутентификации по сертификату<rst-markup-bycert>`

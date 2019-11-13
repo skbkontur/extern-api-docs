@@ -52,7 +52,9 @@
 
 **Запрос**: 
 
-``POST /auth/v5.13/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+.. code-block:: http
+   
+   POST /auth/v5.13/authenticate-by-cert?free=true&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
 
 **Тело**:
 
@@ -70,7 +72,9 @@
 
 **Запрос**: 
 
-``POST /auth/v5.13/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1``
+.. code-block:: http
+
+   POST /auth/v5.13/approve-cert?thumbprint=‎dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=5D8E8EF1-DA66-480C-9BAA-032AEFDD5687 HTTP/1.1
 
 **Тело**:
 
