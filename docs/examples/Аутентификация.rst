@@ -11,7 +11,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   POST /auth/v5.13/authenticate-by-cert?free=true&apiKey=value HTTP/1.1
 
@@ -30,7 +30,7 @@
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK 
   Content-Type: application/json;charset=UTF-8 
@@ -51,7 +51,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
   
   POST /auth/v5.13/approve-cert?thumbprint=dbfb548333da2ff5277b06e119248ec03106c14d&apiKey=value HTTP/1.1
 
@@ -69,7 +69,7 @@
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK
   Content-Type: application/json;charset=UTF-8
@@ -85,13 +85,13 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   POST sessions/v5.13/sessions/refresh?auth.sid=value&refresh-token=value&api-key=CAFEBABE-DEAD-BEEF-AAAA-FEEDDEADFACE HTTP/1.1
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK
   Content-Type: application/json;charset=UTF-8
@@ -112,13 +112,13 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   POST /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK 
   Content-Type: application/json;charset=UTF-8 
@@ -130,7 +130,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   POST /auth/v5.13/authenticate-by-truster?apiKey=value&timestamp=16.08.2016 14:03:10&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&snils=40934200000 HTTP/1.1
 
@@ -140,7 +140,7 @@
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK 
   Content-Type: application/json;charset=UTF-8 
@@ -159,13 +159,14 @@
 ~~~~~~~~~~~~~~~~
 
 **Запрос**: 
-.. code-block::
+
+::
 
   POST /auth/v5.13/approve-truster?key=FE4330830FC3253DC0EB2CC9758DED3930FF360344CB27348A09A23AD9BC463908DE17900D9BDD9F1000000000&id=40934200000 HTTP/1.1
 
 **Ответ**:
 
-.. code-block::
+::
 
   HTTP/1.1 200 OK
   Content-Type: application/json;charset=UTF-8

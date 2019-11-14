@@ -13,7 +13,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
     POST /auth/v5.13/authenticate-by-cert?free=value&apiKey=value
     
@@ -54,7 +54,7 @@
 
  **Запрос**: 
  
- .. code-block::
+ ::
     
     POST /auth/v5.13/approve-cert?thumbprint=value&apiKey=value
 
@@ -89,7 +89,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
     POST /sessions/v5.13/sessions/refresh?auth.sid=value&refresh-token=value&api-key=value
 

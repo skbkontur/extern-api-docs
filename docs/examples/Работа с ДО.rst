@@ -68,7 +68,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
    GET /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows/520e9bec-90b3-4d35-ab18-240ee2c72df3 HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -84,7 +84,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
    GET /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/docflows?take=3 HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -105,7 +105,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
    POST v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/generate-reply?documentType=fns534-report-receipt HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -125,7 +125,7 @@
 
 **Запрос**:
 
-.. code-block::
+::
 
    PUT v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/replies/70cd138a-89d5-4ed6-bd4e-a9127f18083f/signature 
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -145,7 +145,7 @@
 
 **Запрос**:
 
-.. code-block::
+::
 
    POST v1/d3cf563c-97b9-4c0a-a593-0723bf591768/docflows/47b8ddff-ce75-4c81-9e46-b36d77b1d579/documents/41806ac4-06c4-4c99-8fc5-53503335ebfc/replies/70cd138a-89d5-4ed6-bd4e-a9127f18083f/send HTTP/1.1
    Authorization: auth.sid AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA

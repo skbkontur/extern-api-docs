@@ -27,7 +27,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=value&phone=value
   
@@ -63,7 +63,7 @@
 
 **Запрос**: 
 
-.. code-block::
+::
 
   POST /auth/v5.13/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value
   
@@ -112,7 +112,7 @@
 
 **Запрос**:  
 
-.. code-block::
+::
 
   POST /auth/v5.13/approve-truster?key=value&id=value&apiKey=value
   
