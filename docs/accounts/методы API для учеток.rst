@@ -1,7 +1,7 @@
-.. _Accounts: http://extern-api.testkontur.ru/swagger/ui/index#/Accounts
-.. _`GET All`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_GetAll
-.. _`POST Account`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Create
-.. _`GET Account`: http://extern-api.testkontur.ru/swagger/ui/index#!/Accounts/Accounts_Get
+.. _Accounts: https://developer.testkontur.ru/#/extern/get-v1
+.. _`GET All`: https://developer.testkontur.ru/#/extern/get-v1
+.. _`POST Account`: https://developer.testkontur.ru/#/extern/post-v1
+.. _`GET Account`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}
 
 Методы для работы с учетными записями
 =====================================

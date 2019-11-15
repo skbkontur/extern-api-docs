@@ -1,5 +1,4 @@
-.. _`Certificates`: http://extern-api.testkontur.ru/swagger/ui/index#/Certificates
-.. _`GET Certificates`: http://extern-api.testkontur.ru/swagger/ui/index#!/Certificates/Certificates_GetCertificatesAsync
+.. _`GET Certificates`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-certificates
 
 Методы для работы с сертификатами учетных записей
 =================================================
