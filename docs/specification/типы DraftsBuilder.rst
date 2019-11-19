@@ -18,4 +18,4 @@
    :header: "Urn", "Тип DraftsBuilder"
    :widths: 20 40
 
-   "urn:drafts-builder:pfr:report", "Сведения ПФР"
+   "urn:drafts-builder:pfr-report", "Сведения ПФР"
