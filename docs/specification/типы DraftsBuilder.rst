@@ -9,7 +9,7 @@
    :widths: 20 40
 
    "urn:drafts-builder:fns534-inventory", "Ответ на требование"
-   "urn:drafts-builder:business-registration:registration","Регистрация бизнеса"
+   "urn:drafts-builder:business-registration","Регистрация бизнеса"
 
 ПФР
 ---
