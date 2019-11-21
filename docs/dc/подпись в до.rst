@@ -1,10 +1,11 @@
-.. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/1044108610821091108410771085109010861086107310861088108610901099/DocflowReplyDocument_SignReplyDocumentAsync
-.. _`GET GetDocflowDocumentTask`: http://extern-api.testkontur.ru/swagger/ui/index#!/1044108610821091108410771085109010861086107310861088108610901099/Docflows_GetDocflowDocumentTask
-.. _`GET GetDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/1044108610821091108410771085109010861086107310861088108610901099/Docflows_GetDocumentSignatureAsync
-.. _`POST DecryptDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/1044108610821091108410771085109010861086107310861088108610901099/Docflows_DecryptDocumentAsync
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-cloud-sign
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-tasks-{apiTaskId}
+.. _`GET GetDocumentSignature`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
+.. _`POST DecryptDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypt-content
+.. _`GET GetDocflowDocumentTask`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-tasks-{apiTaskId}
 
 Подписание и дешифрование документов в документообороте
-=====================
+=======================================================
 
 .. important:: Методы данного раздела позволяют работать только с DSS сертификатами электронной подписи, выпущенными Удостоверяющим центром АО "ПФ "СКБ Контур" (https://ca.kontur.ru).
 
@@ -20,7 +21,7 @@
 
 2. Клиент на своем телефоне в приложении myDSS вводит ПИН-код от своей электронной подписи и подтверждает, что он действительно хочет подписать документ;
 
-3. Проверка статуса задачи подписания документа методом `GET GetDocflowDocumentTask`_
+3. Проверка статуса задачи подписания документа методом `GET GetDocflowReplyDocumentTask`_
 
     * Если состояние ``task-state = failed``, это означает, что на любом этапе подписания возникла ошибка. Описание будет в модели ``Error``.
     * Если состояние ``task-state = running``, это означает, что подпись еще не подтверждена либо еще генерируется.
@@ -29,7 +30,7 @@
 4. Получить подпись `GET GetDocumentSignature`_
 
 .. note::
-   Подпись будет приложена к документу только при вызове метода `GET GetDocflowDocumentTask`_ с результатом ``task-state = succeed``.
+   Подпись будет приложена к документу только при вызове метода `GET GetDocflowReplyDocumentTask`_ с результатом ``task-state = succeed``.
 
 **Процесс работы с API для дешифрования контента документа**
 

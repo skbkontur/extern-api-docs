@@ -3,7 +3,9 @@
 
 Проверено для Windows с версией 1.0.2
 
-**Команда формирования подписи:** ``openssl.exe cms -sign -signer publickey.pem -inkey private.pem -binary -in data.txt -outform der -out data.sig -passin pass:password``, где:
+**Команда формирования подписи:** 
+
+``openssl.exe cms -sign -signer publickey.pem -inkey private.pem -binary -in data.txt -outform der -out data.sig -passin pass:password``, где:
 
 * publickey.pem - открытая часть ключа RSA (публичный сертификат);
 * private.pem - приватная часть ключа RSA;
@@ -11,7 +13,9 @@
 * data.txt - файл содержащий строку инициализации доверительной аутентификации;
 * data.sig - файл в который будет выведен результат формирования подписи.
 
-При необходимости можно **объединить закрытую и открытую часть ключа** для удобства работы с помощь команды: ``openssl.exe pkcs12 -export -in publickey.pem -inkey private.pem -out pkcs12.p12``, где:
+При необходимости можно **объединить закрытую и открытую часть ключа** для удобства работы с помощь команды: 
+
+``openssl.exe pkcs12 -export -in publickey.pem -inkey private.pem -out pkcs12.p12``, где:
 
 * publickey.pem - открытая часть ключа RSA (публичный сертификат),
 * private.pem - приватная часть ключа RSA.
@@ -20,9 +24,9 @@
 
 .. code-block:: http
 
-   using System.Security.Cryptography.Pkcs;
-   using System.Security.Cryptography.X509Certificates;
-   using System.Threading.Tasks;
+  using System.Security.Cryptography.Pkcs;
+  using System.Security.Cryptography.X509Certificates;
+  using System.Threading.Tasks;
     
    namespace SignerApp
    {
@@ -36,6 +40,6 @@
          CmsSigner signer = new CmsSigner(SubjectIdentifierType.IssuerAndSerialNumber, certificateWithPassword);
          signedCms.ComputeSignature(signer);
          return signedCms.Encode();
+         }
        }
      }
-   }

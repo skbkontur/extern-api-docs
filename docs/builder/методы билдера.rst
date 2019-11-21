@@ -2,6 +2,7 @@
 .. _`POST CreateDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_CreateDraftsBuilderAsync
 .. _`GET GetDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetDraftsBuilderAsync
 .. _`GET GetDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetDraftsBuilderMetaAsync
+.. _`PUT UpdateDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/105010861085108910901088109110821090108610883210951077108810851086107410801082108610743240DraftsBuilder41/DraftsBuilders_UpdateDraftsBuilderAsync
 .. _`PUT UpdateDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_UpdateDraftsBuilderMetaAsync
 .. _`POST BuildDrafts`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_BuildDraftsAsync
 .. _`GET GetBuildResult`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetBuildResultAsync
@@ -10,6 +11,7 @@
 .. _`POST CreateDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_CreateDraftsBuilderDocumentAsync
 .. _`GET GetDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentAsync
 .. _`GET GetDraftsBuilderDocumentMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentMetaAsync
+.. _`PUT UpdateDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/105010861085108910901088109110821090108610883210951077108810851086107410801082108610743240DraftsBuilder41/DraftsBuilderDocuments_UpdateDraftsBuilderDocumentMetaAsync
 .. _`PUT UpdateDraftsBuilderDocumentMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_UpdateDraftsBuilderDocumentMetaAsync
 .. _`DELETE RemoveDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_RemoveDraftsBuilderDocumentAsync
 .. _`GET GetDraftsBuilderDocumentFiles`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFilesAsync
@@ -35,6 +37,7 @@
 
 Создание DraftsBuilder
 ----------------------
+
 Метод: `POST CreateDraftsBuilder`_
 
 Метод создает шаблон черновика описи: для этого нужно передать идентификаторы входящего документооборота и документа в нем, а также пункт требования. При создании важно заполнить метаинформацию.
@@ -43,18 +46,28 @@
 
 Получение DraftsBuilder
 -----------------------
+
 Метод: `GET GetDraftsBuilder`_
 
 При помощи данного метода можно просмотреть содержимое созданного DraftsBuilder. Метод вернет метаинформацию и текущий статус DraftsBuilder (new, building, finished).
 
 Получение метаинформации DraftsBuilder
 ---------------------------------------
+
 Метод: `GET GetDraftsBuilderMeta`_
 
 Метод возвращает только метаинформацию DraftsBuilder без статуса.
 
+Редактирование DraftsBuilder
+----------------------------
+
+Метод: `PUT UpdateDraftsBuilder`_
+
+Метод обновляет DraftsBuilder и его метаинформацию на переданные в запросе. Если DraftsBuilder с переданным draftsBuilderId не найден, метод создаст его. 
+
 Редактирование метаинформации DraftsBuilder
 --------------------------------------------
+
 Метод: `PUT UpdateDraftsBuilderMeta`_
 
 Метод обновляет метаинформацию DraftsBuilder.
@@ -63,6 +76,7 @@
 
 Сборка содержимого DraftsBuilder в черновик
 -------------------------------------------
+
 Метод: `POST BuildDrafts`_
 
 Чтобы завершить создание черновика описи необходимо привести все переданные данные к установленному формату. 
@@ -76,12 +90,14 @@
 
 Проверка статуса сборки
 -----------------------
+
 Метод: `GET GetBuildResult`_
 
 По переданным идентификаторам TaskId и DraftsBuilderId метод возвращает статус сборки. Когда сборка завершится, вы получите значение статуса равным succeed. Если в процессе хотя бы в одном документе произошла ошибка, статус сборки вернется также со значением succeed, а документ будет записан в список ошибочных (error-drafts-builder-documents). Идентификаторы сформированных без ошибок черновиков будут в списке draft-ids.
 
 Удаление DraftsBuilder
 ----------------------
+
 Метод: `DELETE RemoveDraftsBuilder`_
 
 Метод удаляет DraftsBuilder и все его содержимое.
@@ -91,6 +107,7 @@
 
 Получение списка документов
 ---------------------------
+
 Метод: `GET GetDraftsBuilderDocuments`_
 
 По идентификатору DraftsBuilderId метод находит список созданных в нем документов, для каждого возвращается: идентификатор документа, идентификатор DraftsBuilder, метаинформация.
@@ -99,30 +116,42 @@
 
 Создание документа
 ------------------
+
 Метод: `POST CreateDraftsBuilderDocument`_
 
 Чтобы добавить файлы, необходимо сначала добавить для них контейнер — документ. Вызываем столько раз, сколько отдельных документов-контейнеров нужно создать.
 
 Получение информации о документе
 --------------------------------
+
 Метод: `GET GetDraftsBuilderDocument`_
 
 Метод возвращает всю информацию о документе по его идентификатору.
 
 Получение метаинформации документа
 -----------------------------------
+
 Метод: `GET GetDraftsBuilderDocumentMeta`_
 
 Метод возвращает метаинформацию документа по его идентификатору. 
 
+Редактирование документа
+------------------------
+
+Метод: `PUT UpdateDraftsBuilderDocument`_
+
+Метод обновляет документ и его метаинформацию на переданные в запросе. Если документ с переданным documentId в DraftBuilder не найден, метод создаст его. 
+
 Редактирование метаинформации документа
 ----------------------------------------
+
 Метод: `PUT UpdateDraftsBuilderDocumentMeta`_
 
 Метод обновляет метаинформацию документа.  
 
 Удаление документа в DraftBuilder
 ---------------------------------
+
 Метод: `DELETE RemoveDraftsBuilderDocument`_
 
 Удаляет документ по его идентификатору в заданном DraftBuilder.
@@ -132,6 +161,7 @@
 
 Получение списка всех файлов документа
 --------------------------------------
+
 Метод: `GET GetDraftsBuilderDocumentFiles`_
 
 По идентификатору DraftsBuilder и документу в нем метод находит список добавленных файлов.
@@ -140,48 +170,56 @@
 
 Создание файла в документе
 --------------------------
+
 Метод: `POST CreateDraftsBuilderDocumentFile`_
 
 Метод создает файл в документе. Вызываем столько раз, сколько файлов нужно положить в документ-контейнер.
 
 Получение файла по идентификатору
 ---------------------------------
+
 Метод: `GET GetDraftsBuilderDocumentFile`_
 
 Метод возвращает всю информацию о файле по его идентификатору.
 
 Редактирование файла в документе
 --------------------------------
+
 Метод: `PUT UpdateDraftsBuilderDocumentFile`_
 
-Метод обновляет файл и подпись в документе на переданные в запросе.
+Метод обновляет файл и подпись в документе на переданные в запросе. Если файл с переданным fileId в документе не найден, метод создаст его. 
 
 Получение содержимого файла
 ---------------------------
+
 Метод: `GET GetDraftsBuilderDocumentFileContent`_
 
 Метод возвращает содержимое файла в формате base64.
 
 Получение подписи к файлу
 -------------------------
+
 Метод: `GET GetDraftsBuilderDocumentFileSignatureContent`_
 
 Метод возвращает подпись контрагента, если она была приложена к файлу, в формате base64.
 
 Получение метаинформации файла
 ------------------------------
+
 Метод: `GET GetDraftsBuilderDocumentFileMeta`_
 
 Метод возвращает метаинформацию файла.
 
 Редактирование меты файла
 -------------------------
+
 Метод: `PUT UpdateDraftsBuilderDocumentFileMeta`_
 
 Метод обновляет метаинформацию файла.
 
 Удаление файла документа
 ------------------------
+
 Метод: `DELETE RemoveDraftsBuilderDocumentFile`_
 
 Метод удаляет файл в документе DraftsBilder по его идентификатору. 

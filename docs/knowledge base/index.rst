@@ -9,10 +9,12 @@
    FSS
    PFR
    filename
+   businessReg
 
 В данном разделе собраны статьи и инструкции для работы с API Контур.Экстерна.
 
 * :ref:`Облачная криптография<rst-markup-сloud_dss>`
 * :ref:`Документооборот с ФСС<rst-marckup-dc-fss>`
 * :doc:`Документооборот с ПФР</knowledge base/PFR>`
+* :doc:`Документооборот регистрации бизнеса с ИФНС</knowledge base/businessReg>`
 * :doc:`Наименование файлов отчетов</knowledge base/filename>`

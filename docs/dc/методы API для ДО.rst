@@ -1,21 +1,21 @@
-.. _Docflows: http://extern-api.testkontur.ru/swagger/ui/index#/Docflows
-.. _`GET Docflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowsAsync
-.. _`GET Docflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocflowAsync
-.. _`GET Documents`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentsAsync
-.. _`GET Document`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentAsync
-.. _`GET DocumentDescription`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentDescriptionAsync
-.. _`GET EncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetEncryptedDocumentContentAsync
-.. _`GET DecryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDecryptedDocumentContentAsync
-.. _`GET DocumentSignatures`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignaturesAsync
-.. _`GET DocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureAsync
-.. _`GET DocumentSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentSignatureContentAsync
-.. _`POST DocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/Docflows_GetDocumentPrintAsync
-.. _`POST RecognizeDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/Docflows/DocflowDocument_RecognizeDocumentAsync
+.. _`GET Docflows`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows
+.. _`GET Docflow`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}
+.. _`GET Documents`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents
+.. _`GET Document`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}
+.. _`GET DocumentDescription`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-description
+.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-encrypted-content
+.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypted-content
+.. _`GET DocumentSignatures`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures
+.. _`GET DocumentSignature`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
+.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}-content
+.. _`POST DocumentPrint`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-print
+.. _`POST RecognizeDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-recognize
+.. _`GET RelatedDocflows`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{relatedDocflowId}-documents-{relatedDocumentId}-related
 
 Методы для работы с документооборотами
 ======================================
 
-Подробная спецификация методов показана в сваггере в разделе Docflows_.
+Подробная спецификация методов показана в сваггере в разделе **Документообороты**.
 
 Список доступных методов:
 
@@ -30,6 +30,8 @@
 * `Получение конкретной подписи под документом`_
 * `Получение контента конкретной подписи под документом`_
 * `Печать документов`_
+* `Распознавание входящего требования`_
+* `Получение связанных документооборотов`_
 
 .. _rst-markup-get-dcs:
 
@@ -75,7 +77,7 @@
 
 Метод: `GET Document`_
 
-C помощью этого метода можно получить отдельный документ, созданный или полученный в ходе документооборота, с его описанием и контентами.
+C помощью этого метода можно получить отдельный документ, созданный или полученный в ходе документооборота, с его описанием и контентами. У каждого документа будет ссылка на контенты (зашифрованный или расшифрованный, либо оба) в текущем состоянии в соответствии с требованиями контролирующих органов.
 
 Получение описания документа 
 ----------------------------
@@ -88,6 +90,8 @@ C помощью этого метода можно получить отдел�
 -------------------------------------------
 
 Метод: `GET EncryptedDocumentContent`_
+
+Зашифрованный контент возвращается в формате base64. Чтобы получить контент, его нужно конвертировать, дешифровать при помощи закрытого ключа, на который он был зашифрован. В результате вы получите архив, который нужно разархивировать.
 
 Получение расшифрованного контента документа 
 --------------------------------------------
@@ -130,3 +134,10 @@ C помощью этого метода можно получить отдел�
 Метод:  `POST RecognizeDocument`_
 
 Данный метод позволяет распознать номер и дату требования, список ИНН из требования. Данные возвращаются в ответ на переданные идентификаторы входящего требования. Само требование передается в теле запроса в формате файла. Результат запроса запишется в мета-информацию документа. 
+
+Получение связанных документооборотов
+-------------------------------------
+
+Метод: `GET RelatedDocflows`_
+
+Метод позволяет получить документообороты типа ответ на требование и письмо, которые могут быть связаны с входящим документооборотом и документом в нем. 

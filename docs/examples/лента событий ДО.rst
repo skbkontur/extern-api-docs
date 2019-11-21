@@ -7,7 +7,7 @@
 
 **Запрос**:
 
-:: http
+.. code-block:: http
 
    GET /v1/events?fromId=0&batchSize=10 HTTP/1.1
    Host: extern-api.testkontur.ru
@@ -18,7 +18,7 @@
   
 **Ответ**:
 
-:: http
+.. code-block:: http
 
    HTTP/1.1 200 OK
    Server: nginx
