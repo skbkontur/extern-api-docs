@@ -1,4 +1,7 @@
 .wy-side-nav-search {background-color: #ff6000}
+.wy-nav-content {
+   max-width: none;
+}
 .highlight .hll { background-color: #ff8000 }
 .highlight  { background: #ffffff; }
 .highlight .pre { font-family: 'Consolas', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono' }
