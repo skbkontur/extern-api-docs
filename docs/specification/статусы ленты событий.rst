@@ -15,19 +15,13 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "report", "Декларация"
-   "report-receipt", "Подтверждение о получении отчета налоговым органом"
-   "receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
-   "receipt-date-confirmation-cu", "Получено подтверждение даты отправки налоговым органом"
-   "acceptance-result-positive", "Отчет принят налоговым органом"
-   "acceptance-result-negative", "Отчет отклонен налоговым органом"
-   "receipt-acceptance-result-abonent", "Подтверждение о принятии отчета абонентом"
-   "receipt-acceptance-result-provider", "Подтверждение о принятии отчета оператором ЭДО"
-   "processing-result-ok", "Отчет обработан успешно"
-   "processing-result-precise", "Отчет обработан требует уточнения"
-   "receipt-processing-result-abonent", "Подтверждение получения результатов обработки отчета абонентом"
-   "receipt-processing-result-provider", "Подтверждение получения результатов обработки отчета оператором ЭДО"
-   "acceptance-result-2ndfl", "Отчет 2-НДФЛ принят"
+   "urn:transaction:report", "Декларация"
+   "urn:transaction:report-receipt", "Подтверждение о получении отчета налоговым органом"
+   "urn:transaction:receipt-date-confirmation-cu", "Получено подтверждение даты отправки налоговым органом"
+   "urn:transaction:acceptance-result-positive", "Отчет принят налоговым органом"
+   "urn:transaction:acceptance-result-negative", "Отчет отклонен налоговым органом"
+   "urn:transaction:processing-result-ok", "Отчет обработан успешно"
+   "urn:transaction:acceptance-result-2ndfl", "Отчет 2-НДФЛ принят"
 
 ИОН
 ~~~
@@ -36,17 +30,17 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "request", "Отправка ИОН-запроса"
-   "receipt-request-cu", "Запрос пришел в инспекцию"
-   "receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
-   "receipt-date-confirmation-cu", "Получено подтверждение даты отправки инспекцией"
-   "acceptance-result-positive", "Запрос принят инспекцией"
-   "acceptance-result-negative", "Запрос не принят инспекцией"
-   "receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема запроса абонентом"
-   "receipt-acceptance-result-provider", "Подтверждение о получении результатов приема запроса оператором ЭДО"
-   "response", "Ответ на запрос"
-   "receipt-response-abonent", "Подтверждение о получении ответа абонентом"
-   "receipt-response-provider", "Подтверждение о получении ответа оператором ЭДО"
+   "urn:transaction:request", "Отправка ИОН-запроса"
+   "urn:transaction:receipt-request-cu", "Запрос пришел в инспекцию"
+   "urn:transaction:receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
+   "urn:transaction:receipt-date-confirmation-cu", "Получено подтверждение даты отправки инспекцией"
+   "urn:transaction:acceptance-result-positive", "Запрос принят инспекцией"
+   "urn:transaction:acceptance-result-negative", "Запрос не принят инспекцией"
+   "urn:transaction:receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема запроса абонентом"
+   "urn:transaction:receipt-acceptance-result-provider", "Подтверждение о получении результатов приема запроса спецоператором"
+   "urn:transaction:response", "Ответ на запрос"
+   "urn:transaction:receipt-response-abonent", "Подтверждение о получении ответа абонентом"
+   "urn:transaction:receipt-response-provider", "Подтверждение о получении ответа спецоператором"
 
 Письмо в ФНС
 ~~~~~~~~~~~~
@@ -55,11 +49,11 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "respondent-letter", "Письмо"
-   "receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
-   "receipt-cu", "Письмо пришло в инспекцию"
-   "decline", "В обработке письма отказано"
-   "receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема запроса абонентом"
+   "urn:transaction:respondent-letter", "Письмо"
+   "urn:transaction:receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
+   "urn:transaction:receipt-cu", "Письмо пришло в инспекцию"
+   "urn:transaction:decline", "В обработке письма отказано"
+   "urn:transaction:receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема запроса абонентом"
 
 
 Письмо из ФНC
@@ -69,29 +63,30 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "cu-letter", "Письмо от инспекции"
-   "date-confirmation", "Подтверждение даты получения письма оператором ЭДО"
-   "letter-receipt-abonent", "Получение письма абонентом"
-   "cu-group-letter", "Групповая рассылка от инспекции"
-   "group-letter-receipt-abonent", "Получение групповой рассылки абонентом"
+   "urn:transaction:cu-letter", "Письмо от инспекции"
+   "urn:transaction:date-confirmation", "Подтверждение даты получения письма спецоператором"
+   "urn:transaction:letter-receipt-abonent", "Получение письма абонентом"
+   "urn:transaction:cu-group-letter", "Групповая рассылка от инспекции"
+   "urn:transaction:group-letter-receipt-abonent", "Получение групповой рассылки абонентом"
 
 
 Представления 
 ~~~~~~~~~~~~~
 
-(заявления, описи, представления) включая ответ на требование
+Заявления, описи и представления, включая ответ на требование.
 
 .. csv-table:: 
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "message", "Отправка представления"
-   "receipt-cu", "Представление пришло в инспекцию"
-   "receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
-   "acceptance-result-positive", "Представление принято инспекцией"
-   "acceptance-result-negative", "Представление не принято инспекцией"
-   "receipt-acceptance-result-provider", "Подтверждение о получении результатов приема представления оператором ЭДО"
-   "receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема представления абонентом"
+   "urn:transaction:message", "Отправка представления"
+   "urn:transaction:receipt-cu", "Представление пришло в инспекцию"
+   "urn:transaction:receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
+   "urn:transaction:receipt-date-confirmation-cu", "Получено подтверждение даты отправки инспекцией"
+   "urn:transaction:acceptance-result-positive", "Представление принято инспекцией"
+   "urn:transaction:acceptance-result-negative", "Представление не принято инспекцией"
+   "urn:transaction:receipt-acceptance-result-provider", "Подтверждение о получении результатов приема представления спецоператором"
+   "urn:transaction:receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема представления абонентом"
 
 Документ (Требование)	
 ~~~~~~~~~~~~~~~~~~~~~
@@ -100,12 +95,12 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "document", "Требование"
-   "date-confirmation", "Подтверждение даты получения требования оператором ЭДО"
-   "receipt-abonent", "Подтверждение прочтения требования абонентом"
-   "receiption-result-abonent-positive", "Отправка квитанциии на требование, говорит о том, что абонент согласен с требованием и будет отвечать на него"
-   "receiption-result-abonent-negative", "Отправка отказа на требование, говорит о том, что абонент не согласен с требованием, причины отказа регламентированы"
-   "receiption-result-cu", "Подтверждение получения квитанции/отказа от инспекции"
+   "urn:transaction:document", "Требование"
+   "urn:transaction:date-confirmation", "Подтверждение даты получения требования спецоператором"
+   "urn:transaction:receipt-abonent", "Подтверждение прочтения требования абонентом"
+   "urn:transaction:receiption-result-abonent-positive", "Отправка квитанциии на требование. Абонент согласен с требованием и будет отвечать на него"
+   "urn:transaction:receiption-result-abonent-negative", "Отправка отказа на требование. Абонент не согласен с требованием, причины отказа регламентированы"
+   "urn:transaction:receiption-result-cu", "Подтверждение получения квитанции/отказа инспекцией"
 
 Заявление
 ~~~~~~~~~
@@ -114,15 +109,15 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "application", "Заявление"
-   "application-receipt-application-cu", "Заявление пришло в инспекцию"
-   "receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
-   "acceptance-result-positive", "Заявление принято инспекцией"
-   "acceptance-result-negative", "Заявление не принято инспекцией"
-   "receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема заявления абонентом"
-   "processing-result-v2-positive", "Заявление обработано успешно"
-   "processing-result-v2-negative", "Получен отказ в проставлении отметки инспекции на заявлении"
-   "receipt-processing-result-v2-abonent", "Подтверждение получения результатов обработки заявления абонентом"
+   "urn:transaction:application", "Заявление"
+   "urn:transaction:receipt-cu", "Заявление пришло в инспекцию"
+   "urn:transaction:receipt-date-confirmation-abonent", "Получено подтверждение даты отправки абонентом"
+   "urn:transaction:acceptance-result-positive", "Заявление принято инспекцией"
+   "urn:transaction:acceptance-result-negative", "Заявление не принято инспекцией"
+   "urn:transaction:receipt-acceptance-result-abonent", "Подтверждение о получении результатов приема заявления абонентом"
+   "urn:transaction:processing-result-v2-positive", "Заявление обработано успешно"
+   "urn:transaction:processing-result-v2-negative", "Получен отказ в проставлении отметки инспекции на заявлении"
+   "urn:transaction:receipt-processing-result-v2-abonent", "Подтверждение получения результатов обработки заявления абонентом"
    
 
 ПФР
@@ -135,15 +130,12 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "report", "Отчет"
-   "report-acknowledgement", "Отчет доставлен в УПФР"
-   "protocol-positive", "Отчет принят УПФР"
-   "protocol-negative", "Отчет не принят УПФР"
-   "protocol-receipt", "Подтверждение получения протокола абонентом"
-   "protocol-atts-delete", "Удаление приложений к протоколу, данная транзакция создается, когда необходимо удалить контент приложений к протоколу после того, как абонента его прочитал"
-   "report-send-error", "Ошибка отправки отчета"
-   "protocol-receipt-send-error", "Ошибка отправки квитанции на протокол"
-   "report-upfr-error", "Ошибка обработки отчета на стороне приемного комплекса УПФР"
+   "urn:transaction:report", "Отчет"
+   "urn:transaction:report-acknowledgement", "Отчет доставлен в УПФР"
+   "urn:transaction:protocol-positive", "Отчет принят УПФР"
+   "urn:transaction:protocol-negative", "Отчет не принят УПФР"
+   "urn:transaction:protocol-receipt", "Подтверждение получения протокола абонентом"
+   "urn:transaction:report-upfr-error", "Ошибка обработки отчета на стороне приемного комплекса УПФР"
 
 
 Письмо в ПФР
@@ -153,11 +145,9 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "respondent-letter", "Письмо в УПФР"
-   "respondent-letter-receipt", "Письмо доставлено в УПФР"
-   "respondent-letter-send-error", "Ошибка отправки письма"
-   "respondent-letter-receipt-send-error", "Ошибка отправки квитанции на письмо"
-   "respondent-upfr-error", "Ошибка от УПФР при приеме письма"
+   "urn:transaction:respondent-letter", "Письмо в УПФР"
+   "urn:transaction:respondent-letter-receipt", "Письмо доставлено в УПФР"
+   "urn:transaction:respondent-upfr-error", "Ошибка от УПФР при приеме письма"
 
 Письмо из ПФР
 ~~~~~~~~~~~~~
@@ -166,25 +156,9 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "cu-letter", "Письмо от УПФР"
-   "cu-letter-receipt", "Письмо прочитано абонентом"
-   "cu-letter-send-error", "Ошибка отправки письма"
-   "cu-letter-receipt-send-error", "Ошибка отправки квитанции на письмо"
-   "cu-upfr-error", "Ошибка от УПФР при приеме квитанции на письмо"
-   
-Уточнение платежей
-~~~~~~~~~~~~~~~~~~
-   
-.. csv-table:: 
-   :header: "Статус", "Описание"
-   :widths: 20 40
-
-   "request", "Запрос на уточнение платежей"
-   "request-receipt", "Запрос доставлен в УПФР"
-   "response", "Ответ на запрос"
-   "response-receipt", "Подтверждение получения ответа абонентом"
-   "request-send-error", "Ошибка отправки запроса"
-   "response-receipt-send-error", "Ошибка отправки квитанции на ответ"
+   "urn:transaction:cu-letter", "Письмо от УПФР"
+   "urn:transaction:cu-letter-receipt", "Письмо прочитано абонентом"
+   "urn:transaction:cu-upfr-error", "Ошибка от УПФР при приеме квитанции на письмо"
 
 
 Росстат
@@ -197,12 +171,15 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "report", "Отчет Росстат"
-   "receipt-report-cu", "Подтверждение доставки отчета до ТОГС"
-   "protocol-v2-receipt-abonent", "Подтверждение получения протокола абонентом"
-   "protocol-v2-success", "Отчет принят ТОГСом"
-   "protocol-v2-fail", "Отчет не принят ТОГСом"
-   "protocol-v2-conditional-success", "Отчет принят, но требует уточнений"
+   "urn:transaction:report", "Отчет Росстат"
+   "urn:transaction:protocol-receipt-abonent", "Подтверждение получения протокола абонентом"
+   "urn:transaction:protocol-v2-receipt-abonent", "Подтверждение получения протокола абонентом"
+   "urn:transaction:protocol-v2-success", "Отчет принят ТОГСом"
+   "urn:transaction:protocol-v2-fail", "Отчет не принят ТОГСом"
+   "urn:transaction:protocol-v2-conditional-success", "Отчет принят, но требует уточнений"
+   "urn:transaction:protocol-fail", "Отчет не принят ТОГСом"
+   "urn:transaction:protocol-success", "Отчет принят ТОГСом"
+
 
 Письмо в Росстат
 ~~~~~~~~~~~~~~~~
@@ -211,8 +188,8 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "letter-respondent", "Письмо в ТОГС"
-   "receipt-letter-cu", "Подтверждение доставки письма до ТОГСа"
+   "urn:transaction:letter-respondent", "Письмо в ТОГС"
+   "urn:transaction:receipt-letter-cu", "Подтверждение доставки письма до ТОГСа"
 
 Письмо из Росстата
 ~~~~~~~~~~~~~~~~~~
@@ -221,9 +198,9 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "letter-cu", "Письмо из ТОГС"
-   "receipt-letter-abonent", "Подтверждение даты получения письма оператором ЭДО"
-   "letter-timeconf","Подтверждение получения письма абонентом"
+   "urn:transaction:letter-cu", "Письмо из ТОГС"
+   "urn:transaction:receipt-letter-abonent", "Подтверждение получения письма абонентом"
+   "urn:transaction:letter-timeconf","Подтверждение даты получения письма спецоператором"
 
 ФСС
 ---
@@ -235,8 +212,8 @@
    :header: "Статус", "Описание"
    :widths: 20 40
 
-   "report", "Отправка файла"
-   "acceptance-result", "Файл доставлен на портал ФСС"
-   "processing-result-negative", "Ошибка на стадиях расшифровки файла или форматного контроля"
-   "processing-result-suppositive", "Ошибка на стадии логического контроля"
-   "processing-result-positive", "Сформирована квитанция"
+   "urn:transaction:report", "Отправка файла"
+   "urn:transaction:acceptance-result", "Файл доставлен на портал ФСС"
+   "urn:transaction:processing-result-negative", "Ошибка на стадиях расшифровки файла или форматного контроля"
+   "urn:transaction:processing-result-suppositive", "Ошибка на стадии логического контроля"
+   "urn:transaction:processing-result-positive", "Сформирована квитанция"
