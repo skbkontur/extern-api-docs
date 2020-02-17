@@ -11,6 +11,12 @@ API Контур.Экстерн
 .. image:: /logo.png
 
 .. toctree::
+   :caption: История изменений 
+   :titlesonly:
+
+   release notes
+
+.. toctree::
    :maxdepth: 2 
    :caption: Подготовка
    :hidden:

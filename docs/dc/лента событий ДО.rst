@@ -3,6 +3,8 @@
 .. _`GET EventPublishers`: https://developer.testkontur.ru/#/extern/get-v1-event-publishers
 .. _`DELETE EventsPublisher`: https://developer.testkontur.ru/#/extern/delete-v1-event-publishers-{publisherId}
 
+.. _rst-markup-events:
+
 Лента событий документооборотов
 ===============================
 
