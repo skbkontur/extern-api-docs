@@ -13,7 +13,8 @@ API Контур.Экстерн
 .. toctree::
    :caption: История изменений 
    :titlesonly:
-
+   :hidden:
+   
    release notes
 
 .. toctree::
