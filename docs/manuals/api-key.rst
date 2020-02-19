@@ -10,7 +10,7 @@ api-key
 
 Пример:
 
-.. code-block:: http
+::
 
   GET /drive/documents?skip=10&take=10
   Host: api.kontur.ru

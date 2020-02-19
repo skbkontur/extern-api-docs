@@ -1,5 +1,5 @@
 Использование OpenSSL
-=======================
+=====================
 
 Проверено для Windows с версией 1.0.2
 
@@ -22,7 +22,7 @@
 
 **Пример использования системной криптографии Windows (с использованием C#)**
 
-.. code-block:: http
+::
 
   using System.Security.Cryptography.Pkcs;
   using System.Security.Cryptography.X509Certificates;
