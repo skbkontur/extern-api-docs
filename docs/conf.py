@@ -258,3 +258,6 @@ htmlhelp_basename = 'docs-extern-api'
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+def setup(app):
+    app.add_stylesheet('custom.css')
