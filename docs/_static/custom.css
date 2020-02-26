@@ -1,12 +1,19 @@
 .toggle .header {
     display: block;
     clear: both;
+    margin-bottom: 20px; 
 }
 
 .toggle .header:after {
-    content: "➝";
+    content: "➝ Раскрыть";
 }
 
 .toggle .header.open:after {
-    content: "↓";
+    content: "↓ Скрыть";
+}
+
+.rst-content p.rubric {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 120%;
 }
