@@ -228,7 +228,7 @@
 
         **Ответ GET DraftDocument:**
 
-    .. code-block::
+    .. code-block:: json
        :linenos:
          
         {
