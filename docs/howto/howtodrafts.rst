@@ -43,7 +43,7 @@
 
         **Пример тела запроса метода CreateDraft в формате json:**
 
-    .. code-block::
+    .. code-block:: json
 
         {
             "sender": {
@@ -74,7 +74,7 @@
 
         **Ответ GET DraftDocument**
 
-    .. code-block::
+    .. code-block:: json
    
         {    
             "id": "990176b7-f9ba-4b63-8b89-43cf4493b24b", //идентификатор черновика
@@ -139,7 +139,7 @@
 
         **Ответ Add document:**
 
-    .. code-block::
+    .. code-block:: json
     
         {
             "id": "6ea75127-abc8-4866-b67d-464f1e678273", //идентификатор документа в черновике

@@ -5,11 +5,16 @@
 }
 
 .toggle .header:after {
-    content: "➝ Раскрыть";
+    content: " ▶";
+    display: block;
+    margin-top: 10px;
+
 }
 
 .toggle .header.open:after {
-    content: "↓ Скрыть";
+    content: " ▼";
+    display: block;
+    margin-top: 10px;
 }
 
 .rst-content p.rubric {
