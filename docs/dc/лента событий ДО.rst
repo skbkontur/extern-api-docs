@@ -1,7 +1,7 @@
-.. _`GET Events`: https://developer.testkontur.ru/#/extern/get-v1-events
-.. _`POST ShareEvents`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-share-events
-.. _`GET EventPublishers`: https://developer.testkontur.ru/#/extern/get-v1-event-publishers
-.. _`DELETE EventsPublisher`: https://developer.testkontur.ru/#/extern/delete-v1-event-publishers-{publisherId}
+.. _`GET Events`: https://developer.testkontur.ru/extern/get-v1-events
+.. _`POST ShareEvents`: https://developer.testkontur.ru/extern/post-v1-{accountId}-share-events
+.. _`GET EventPublishers`: https://developer.testkontur.ru/extern/get-v1-event-publishers
+.. _`DELETE EventsPublisher`: https://developer.testkontur.ru/extern/delete-v1-event-publishers-{publisherId}
 
 .. _rst-markup-events:
 

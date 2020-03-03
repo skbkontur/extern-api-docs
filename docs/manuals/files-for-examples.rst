@@ -1,4 +1,4 @@
-.. _сервисом генерации тестовых данных: https://developer.testkontur.ru/#/extern.test.tools
+.. _сервисом генерации тестовых данных: https://developer.testkontur.ru/extern.test.tools
 
 Примеры файлов отчетов
 ======================

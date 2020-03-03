@@ -1,7 +1,7 @@
-.. _Accounts: https://developer.testkontur.ru/#/extern/get-v1
-.. _`GET All`: https://developer.testkontur.ru/#/extern/get-v1
-.. _`POST Account`: https://developer.testkontur.ru/#/extern/post-v1
-.. _`GET Account`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}
+.. _Accounts: https://developer.testkontur.ru/extern/get-v1
+.. _`GET All`: https://developer.testkontur.ru/extern/get-v1
+.. _`POST Account`: https://developer.testkontur.ru/extern/post-v1
+.. _`GET Account`: https://developer.testkontur.ru/extern/get-v1-{accountId}
 
 Методы для работы с учетными записями
 =====================================

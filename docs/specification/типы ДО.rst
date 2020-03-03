@@ -51,3 +51,4 @@
    :widths: 20 40
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
+   "urn:docflow:oved-confirmation", "Подтверждение основного вида экономической деятельности"

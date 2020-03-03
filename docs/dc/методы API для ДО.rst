@@ -1,16 +1,16 @@
-.. _`GET Docflows`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows
-.. _`GET Docflow`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}
-.. _`GET Documents`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents
-.. _`GET Document`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}
-.. _`GET DocumentDescription`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-description
-.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-encrypted-content
-.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypted-content
-.. _`GET DocumentSignatures`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures
-.. _`GET DocumentSignature`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
-.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}-content
-.. _`POST DocumentPrint`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-print
-.. _`POST RecognizeDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-recognize
-.. _`GET RelatedDocflows`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{relatedDocflowId}-documents-{relatedDocumentId}-related
+.. _`GET Docflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows
+.. _`GET Docflow`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}
+.. _`GET Documents`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents
+.. _`GET Document`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}
+.. _`GET DocumentDescription`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-description
+.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-encrypted-content
+.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypted-content
+.. _`GET DocumentSignatures`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures
+.. _`GET DocumentSignature`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
+.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}-content
+.. _`POST DocumentPrint`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-print
+.. _`POST RecognizeDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-recognize
+.. _`GET RelatedDocflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{relatedDocflowId}-documents-{relatedDocumentId}-related
 
 Методы для работы с документооборотами
 ======================================

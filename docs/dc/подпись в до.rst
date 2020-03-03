@@ -1,8 +1,8 @@
-.. _`POST SignReplyDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-cloud-sign
-.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-tasks-{apiTaskId}
-.. _`GET GetDocumentSignature`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
-.. _`POST DecryptDocument`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypt-content
-.. _`GET GetDocflowDocumentTask`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-tasks-{apiTaskId}
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-cloud-sign
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-tasks-{apiTaskId}
+.. _`GET GetDocumentSignature`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
+.. _`POST DecryptDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypt-content
+.. _`GET GetDocflowDocumentTask`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-tasks-{apiTaskId}
 
 Подписание и дешифрование документов в документообороте
 =======================================================

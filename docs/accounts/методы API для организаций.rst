@@ -1,9 +1,9 @@
-.. _`Organizations`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-organizations
-.. _`GET Organizations`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-organizations
-.. _`POST Organization`: https://developer.testkontur.ru/#/extern/post-v1-{accountId}-organizations
-.. _`PUT Organization`: https://developer.testkontur.ru/#/extern/put-v1-{accountId}-organizations-{orgId}
-.. _`GET Organization`: https://developer.testkontur.ru/#/extern/get-v1-{accountId}-organizations-{orgId}
-.. _`DELETE Organization`: https://developer.testkontur.ru/#/extern/delete-v1-{accountId}-organizations-{orgId}
+.. _`Organizations`: https://developer.testkontur.ru/extern/get-v1-{accountId}-organizations
+.. _`GET Organizations`: https://developer.testkontur.ru/extern/get-v1-{accountId}-organizations
+.. _`POST Organization`: https://developer.testkontur.ru/extern/post-v1-{accountId}-organizations
+.. _`PUT Organization`: https://developer.testkontur.ru/extern/put-v1-{accountId}-organizations-{orgId}
+.. _`GET Organization`: https://developer.testkontur.ru/extern/get-v1-{accountId}-organizations-{orgId}
+.. _`DELETE Organization`: https://developer.testkontur.ru/extern/delete-v1-{accountId}-organizations-{orgId}
 
 Методы для работы с организациями
 =================================

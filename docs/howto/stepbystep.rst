@@ -1,4 +1,4 @@
-.. _`GET All`: https://developer.testkontur.ru/#/extern/get-v1
+.. _`GET All`: https://developer.testkontur.ru/extern/get-v1
 
 Алгоритм работы с API
 =====================

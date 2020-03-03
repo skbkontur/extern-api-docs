@@ -307,4 +307,16 @@
    "urn:document:fss-report-error-receipt","Сообщение об ошибке при проверке отчета (ошибки форматно-логического контроля).","Квитанция о получении Расчета с ошибками"
    "urn:document:fss-report-receipt","Квитанция.","Квитанция о получении Расчета"
   
-   
+Подтверждение основного вида экономической деятельности
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:oved-confirmation-request","xml-файл отчета (не зашифрован и не сжат)"
+      "urn:document:oved-confirmation-request-soap-message", "SOAP-сообщение с отчетом"
+      "urn:document:oved-confirmation-processing-result-request-soap-message", "SOAP-сообщение с запросом на обновление статуса отправленного отчета"
+      "urn:document:oved-confirmation-request-result", "Результат приема"
+      "urn:document:oved-confirmation-processing-result", "Результат обработки"
+
