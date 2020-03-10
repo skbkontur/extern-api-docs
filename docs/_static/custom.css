@@ -1,4 +1,52 @@
-.toggle .header {
+.toggle {
+    position: relative;
+}
+
+.toggle:not(.open) .linenodiv,
+.toggle:not(.open) .highlight {
+    max-height: 200px !important;
+}
+
+.toggle:not(.open) .highlight-json {
+    overflow: hidden;
+}
+
+.toggle:not(.open) .toggle pre {
+    overflow: hidden !important;
+}
+
+.toggle .highlight {
+    position:relative;
+    overflow: hidden;
+}
+
+.toggle .switcher:after {
+    content: 'Раскрыть';
+    z-index: 99999;
+    color: ;
+    bottom: -10px;
+    font-size: 11px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    height: 18px;
+    line-height: 18px;
+    background: white;
+    box-shadow: 0px -10px 15px 0px rgba(0,0,0,.19);
+    transition: all .5s ease;
+    background: #e6e6e6;
+}
+
+.toggle.open .switcher:after {
+    content: 'Свернуть';
+} 
+
+.toggle .switcher:hover:after {
+    background: #f8f8f8;
+}
+
+
+/*.toggle .header {
     display: block;
     clear: both;
     margin-bottom: 20px; 
@@ -21,4 +69,4 @@
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 120%;
-}
+}*/

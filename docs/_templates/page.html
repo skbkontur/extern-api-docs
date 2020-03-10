@@ -2,6 +2,17 @@
 
 {% block footer %}
  <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
     $(document).ready(function() {
         $(".toggle > *").hide();
         $(".toggle .header").show();
@@ -10,5 +21,6 @@
             $(this).parent().children(".header").toggleClass("open");
         })
     });
+    */
 </script>
 {% endblock %}

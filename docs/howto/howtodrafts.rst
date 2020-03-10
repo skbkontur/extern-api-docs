@@ -229,7 +229,6 @@
         **Ответ GET DraftDocument:**
 
     .. code-block:: json
-       :linenos:
          
         {
             "id": "6ea75127-abc8-4866-b67d-464f1e678273", //идентификатор документа в черновике
@@ -327,7 +326,6 @@
         Ответ GET TaskId:
 
     .. code-block:: json
-       :linenos:
 
         {
             "id": "ce0bfb2a-c5db-4b99-92da-9b332bf1073e",
@@ -345,7 +343,7 @@
 
 3. Запрос Prepare
 
-::
+.. code-block:: json
 
   https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/prepare?deferred=true
 
@@ -368,7 +366,6 @@
         Ответ GET TaskId:
 
     .. code-block:: json
-       :linenos:
 
         {
             "id": "02ce6882-2765-457e-aca3-9384f9d3c558",
@@ -416,7 +413,6 @@
        Ответ GET TaskId:
 
     .. code-block:: json
-       :linenos:
 
          {
             "id": "1ad1ee85-6346-4bb5-88de-c83536a08784",
