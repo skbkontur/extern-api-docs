@@ -39,6 +39,7 @@ API Контур.Экстерн
    dc/index
    inventories/index
    builder/index
+   contents/index
    
 .. toctree::
    :maxdepth: 2 
