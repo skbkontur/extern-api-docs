@@ -4,6 +4,8 @@
 ФНС
 ---
 
+.. _rst-markup-fnsreport-status:
+
 Декларации
 ++++++++++
 

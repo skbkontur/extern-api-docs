@@ -114,7 +114,7 @@
 
 ::
 
-  POST /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1
+  PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=0904af30-14d8-421c-9e4b-6b3509e00000&phone=9080000908 HTTP/1.1
 
 **Ответ**:
 

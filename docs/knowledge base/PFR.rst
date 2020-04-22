@@ -40,9 +40,49 @@
 
 1. Если нет файла описи:
 
-   * Создаем :doc:`DraftsBuilder</builder/билдер>` с типом urn:externapi:pfr:report, в метаинформации обязательно заполнить в RecipientInfo поле ``upfr-code``, в AccountInfo поле ``registration-number-pfr`` - это информация, которая должна быть передана в УПФР с отчетом. 
+   * Создаем :doc:`DraftsBuilder</builder/билдер>` с типом urn:drafts-builder:pfr-report, в метаинформации обязательно заполнить в RecipientInfo поле ``upfr-code``, в AccountInfo поле ``registration-number-pfr`` — это информация, которая должна быть передана в УПФР с отчетом. 
    
    Пример регистрационного номера юридического лица в ПФР: 000-000-000000. Пример кода УПФР: 000-000.
+
+   .. container:: toggle
+
+      .. container:: header
+
+         **Пример тела запроса для создания DraftsBuilder**
+   
+      .. code-block:: json
+
+         {
+            "Sender": {
+                "Inn": "7381415822",
+                "Kpp": "111135111",
+                "Name": "",
+                "Certificate": {
+                    "Content": "MIIJyDCCCXW...plBLbm61IfFrgjCSh3pteYQ9XEx2s8eFFg"
+                },
+                "IsRepresentative": false,
+                "IPAddress": "8.8.8.8"
+            },
+            "Payer": {
+                "Inn": "7381415822",
+                "Name": "",
+                "Organization": {
+                    "Kpp": "111135111"
+                },
+                "RegistrationNumberFss": null,
+                "RegistrationNumberPfr": "823-858-020760"
+            },
+            "Recipient": {
+                "IfnsCode": null,
+                "MriCode": null,
+                "TogsCode": null,
+                "UpfrCode": "666-666",
+                "FssCode": null,
+                "RegistrationIfnsCode": null
+            },
+            "BuilderType": "urn:drafts-builder:pfr-report",
+            "BuilderData": null
+         }
 
    * Когда все файлы для отчета с подписями добавлены в документы, запускаем сборку черновика. В результате в черновике будут все добавленные документы и файл "Описание отчетности". :ref:`Подробнее о процессе работы с DraftsBuilder<rst-markup-db-proc>`.
 
@@ -70,7 +110,6 @@
 
 .. note::
    В документообороте с УПФР **ответными документами являются подписи расшифрованных контентов** протокола контроля и всех приложений к протоколу. Подписи должны быть отправлены все вместе. Для этого были реализованы :ref:`методы для работы с ответными документами в ПФР<rst-markup-pfr-reply>`.
-
   
 5. Когда пользователь получает протокол контроля (документ с типом urn:document:pfr-report-protocol), под ним будет сформирована ссылка на создание пакета ответного документа. Метод: :ref:`POST GeneratePfrReply<rst-markup-GeneratePfrReply>`. В результате метод вернет сгенерированную структуру пакета ответных документов. 
 

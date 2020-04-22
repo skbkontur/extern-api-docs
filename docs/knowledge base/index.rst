@@ -11,6 +11,7 @@
    filename
    businessReg
    content
+   print
 
 В данном разделе собраны статьи и инструкции для работы с API Контур.Экстерна.
 
@@ -19,3 +20,5 @@
 * :doc:`Документооборот с ПФР</knowledge base/PFR>`
 * :doc:`Документооборот регистрации бизнеса с ИФНС</knowledge base/businessReg>`
 * :doc:`Наименование файлов отчетов</knowledge base/filename>`
+* :doc:`Сервис контентов</knowledge base/content>`
+* :doc:`Печать документов</knowledge base/print>`

@@ -2,7 +2,8 @@
 .. _`Add document`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents
 .. _`Check`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-check
 .. _`файл отчета ССЧ`: https://developer.testkontur.ru/extern.test.tools/post-test-tools-v1-generate-fuf-ssch
-.. _`Add signature`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-signatures
+.. _`POST AddSignature`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-signatures
+.. _`PUT Signature`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-signature
 .. _`SignDraft`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-cloud-sign
 .. _`GET DraftDocument`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D
 .. _`GET DraftTasks`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-tasks
@@ -25,6 +26,22 @@
     4. `Наполнение черновика подписями документов`_.
     5. `Проверка, подготовка, отправка черновика с помощью задач`_. 
 
+Для удобства тестирования алгоритма создания и отправки черновика можно скачать файл коллекции Postman:
+
+:download:`файл коллекции Postman <../files/Работа с черновиком.postman_collection.json>`
+
+Прежде чем приступить к созданию черновика, нужно подумать о сценарии: чем наполнить черновик? Нужен файл отчета. 
+
+**Где взять файла отчета?**
+
+Вообще, у пользователя уже будут файлы бухгалтерской отчетности, которые он сформирует и заполнит по требованиям контролирующего органа. Но, чтобы настроить отправку, протестировать разные сценарии работы, не нужно обращаться к конечным пользователям за данными файлами. Предлагаем вам взять готовые примеры или сгенерировать свои файлы. 
+
+    На странице :doc:`/manuals/files-for-examples` можно найти и скачать файлы отчетов, но в них нужно будет заполнить данные согласно вашей учетной записи.  
+
+    Также в сервисе генерации тестовых данных ExternTestTools можно сгенерировать файл отчета. При помощи метода генерации файлов получим `файл отчета ССЧ`_ в формате xml. Файл необходимо сохранить с именем из тега Файл, параметра ИдФайл. И в названии, и в теге имя файла должно полностью совпадать, см. рисунок.
+
+    .. image:: /_static/fileName.png
+    :width: 800
 
 Создание черновика
 ------------------
@@ -41,29 +58,36 @@
 
     .. container:: header
 
-        **Пример тела запроса метода CreateDraft в формате json:**
+        **Пример запроса POST CreateDraft**
 
-    .. code-block:: json
+    .. code-block:: http
+
+        POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts HTTP/1.1
+        Host: extern-api.testkontur.ru
+        Authorization: auth.sid ****
+        X-Kontur-Apikey: ****
+        Accept: application/json
+        Content-Type: application/json
+        Content-Type: text/plain
 
         {
             "sender": {
-                "inn": "7757424860",
-                "kpp": "680345565", 
-                "certificate": { 
-                    "content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQICAQExDDAKB...CzAJ" // контент сертификата в формате base64
-                }, 
-                "is-representative": "true",
-                "ipaddress": "8.8.8.8" 
+            "inn": "7757424860",
+            "kpp": "680345565",
+            "certificate": {
+            "content": "MIIJcDCCCR...+/MYE3Xk=" },
+            "is-representative": true, 
+            "ipaddress": "8.8.8.8" 
             },
             "recipient": { 
-                "ifns-code": "0087" // работаем на тестовой, поэтому код тестового робота
-            }, 
-            "payer": { 
-                "inn": "7757424860", 
-                "organization": { 
-                    "kpp": "680345565" 
-                } 
-            } 
+                "ifns-code": "0007"  
+            },
+            "payer": {
+                "inn": "7757424860",
+                "organization": {
+                "kpp": "680345565"
+                    }
+            }
         }
 
 В ответе метод возвращает метаинформацию черновика, которую вы передали, а также его идентификатор и ссылки для работы с черновиком. В данном случае можно перейти по ссылке и выполнить запрос, чтобы посмотреть содержимое черновика.
@@ -74,39 +98,42 @@
 
         **Ответ GET DraftDocument**
 
-    .. code-block:: json
+    .. code-block:: http
    
-        {    
-            "id": "990176b7-f9ba-4b63-8b89-43cf4493b24b", //идентификатор черновика
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+
+        {
+            "id": "d9622b9d-aa31-477b-a399-fc676588bfb5",
             "docflows": [],
             "documents": [],
-            "meta": { //метаинформация черновика, которая была передана в запросе
+            "meta": {
                 "sender": {
-                    "inn": "7757424860",
-                    "kpp": "680345565",
-                    "name": "Тестовая организация",
-                    "certificate": {
-                        "content": "тут будет контент выбранного сертификата в формате base64"
-                    },
-                    "is-representative": true,
-                    "ipaddress": "8.8.8.8"
+                "inn": "7757424860",
+                "kpp": "680345565",
+                "name": "Тестовая организация",
+                "certificate": {
+                    "content": "MIIJcDCCCR...ykqopO+/MYE3Xk="
+                },
+                "is-representative": true,
+                "ipaddress": "8.8.8.8"
                 },
                 "recipient": {
-                    "ifns-code": "0087"
+                "ifns-code": "0007"
                 },
                 "payer": {
-                    "inn": "7757424860",
-                    "name": "Тестовая организация",
-                    "organization": {
-                        "kpp": "680345565"
-                    }
+                "inn": "7757424860",
+                "name": "Тестовая организация",
+                "organization": {
+                    "kpp": "680345565"
+                }
                 }
             },
             "status": "new",
-            "links": [ // ссылки, см. ниже
+            "links": [
                 {
-                    "rel": "self",
-                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/990176b7-f9ba-4b63-8b89-43cf4493b24b"
+                "rel": "self",
+                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5"
                 }
             ]
         }
@@ -114,22 +141,46 @@
 Наполнение черновика файлами документов
 ---------------------------------------
 
-Черновик необходимо наполнить файлом отчета, приложениями к отчету и подписями. Главный файл отчета — это всегда xml-файл. К отчету могут идти также приложения и другие связанные файлы, например, доверенность. Каждый файл отчета нужно конвертировать в `base64`. Для каждого файла в черновике нужно создавать документ при помощи метода `Add document`_. 
+Черновик необходимо наполнить файлом отчета, приложениями к отчету и подписями. Главный файл отчета — это всегда xml-файл. К отчету могут идти также приложения и другие связанные файлы, например, доверенность. Каждый файл в черновике нужно загрузить в сервис контенов, а также для каждого файла нужно создавать отдельный документ в черновике при помощи метода `Add document`_. 
 
-При помощи метода генерации тестовых файлов получим `файл отчета ССЧ`_ в формате xml. Файл необходимо сохранить с именем из тега Файл, параметра ИдФайл. И в названии, и в теге имя файла должно полностью совпадать, см. рисунок.
+Для более гибкой работы с файлами предусмотрена возможность также создать пустой документ в черновике, чтобы в дальнейшем методом PUT положить контент файла.  
 
-.. image:: /_static/fileName.png
-   :width: 800
+.. container:: toggle
 
-Для более гибкой работы с файлами предусмотрена возможность создать пустой документ в черновике, чтобы в дальнейшем методом PUT положить контент файла. В примере мы создаем документ и сразу передаем в него контент файла отчета в формате `base64`. 
+    .. container:: header
 
-**Тело запроса Add document:**
+        **Пример запроса POST UploadContent**
+
+    .. code-block:: http
+
+
+        POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
+        X-Kontur-Apikey: ****
+        Authorization: auth.sid ****
+        Content-Type: application/octet-stream
+        Host: extern-api.testkontur.ru
+        Accept-Encoding: gzip, deflate, br
+        Connection: keep-alive
+        Content-Length: 727
+
+        Контент передан в теле запроса 
+
+В ответе метод загрузки контента вернет идентификатор загруженного контента, который нужно передать в методе создания документа. 
+
+**Пример запроса POST AddDocument:**
 
 .. code-block:: json
    
-   {
-    "base64-content": "PD94bWwgdmVyc2lvbj...s5e3yPg0KPC/U4OnrPg=="
-   }
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents HTTP/1.1
+    X-Kontur-Apikey: ****
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
+    Host: extern-api.testkontur.ru
+
+    {
+        "content-id": "719a73dc-ecf8-49d1-b6be-b4251fd90553"
+    }
 
 Мы намеренно не заполняем метаинформацию об отчете в запросе. Если файл корректный, то метод сам распознает нужную метаинформацию и вернет ее в ответе.
 
@@ -137,39 +188,43 @@
 
     .. container:: header
 
-        **Ответ Add document:**
+        **Ответ POST AddDocument:**
 
-    .. code-block:: json
+    .. code-block:: http
     
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
+
         {
-            "id": "6ea75127-abc8-4866-b67d-464f1e678273", //идентификатор документа в черновике
+            "id": "4b3046fe-cabd-42e5-8618-8e9d9b2466a0",
             "decrypted-content-link": {
                 "rel": "",
-                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/ca50c708-4405-45cb-a594-b9ca7bc1a4ca/documents/6ea75127-abc8-4866-b67d-464f1e678273/decrypted-content"
-            },
-            "signature-content-link": {
-                "rel": "",
-                "href": ""
+                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/decrypted-content"
             },
             "description": {
-                "filename": "NO_SRCHIS_0007_0007_7757424860680345565_20200129_92425a70-4ac9-4680-bada-3666f0c0514d.xml",
+                "filename": "NO_SRCHIS_0007_0007_7757424860680345565_20200129_92425a70-4ac9-4680-bada-3666f0c0514v.xml",
                 "content-type": "application/xml",
                 "properties": {
-                    "Encoding": "windows-1251",
-                    "FormName": "Сведения о среднесписочной численности работников за предшествующий календарный год",
-                    "КНД": "1110018",
-                    "CorrectionNumber": "0",
-                    "IsPrintable": "True",
-                    "Period": "2012 год",
-                    "OriginalFilename": null,
-                    "SvdregCode": null,
-                    "contentType": "Xml",
-                    "AccountingPeriodBegin": "01.01.2012",
-                    "AccountingPeriodEnd": "12.31.2012"
+                "Encoding": "windows-1251",
+                "FormName": "Сведения о среднесписочной численности работников за предшествующий календарный год",
+                "КНД": "1110018",
+                "CorrectionNumber": "0",
+                "IsPrintable": "True",
+                "Period": "2018 год",
+                "OriginalFilename": null,
+                "SvdregCode": null,
+                "contentType": "Xml",
+                "AccountingPeriodBegin": "01.01.2018",
+                "AccountingPeriodEnd": "12.31.2018"
                 }
-            }
+            },
+            "contents": [
+                {
+                "content-id": "a1c26991-1ce9-4d51-8ee2-83303b7dd31d",
+                "encrypted": false
+                }
+            ]
         }
-
 
 Проверка документов
 -------------------
@@ -198,12 +253,11 @@
 Наполнение черновика подписями документов
 -----------------------------------------
 
-Под каждым файлом клиент ставит свою подпись, чтобы подтвердить свою личность как отправителя. Если при добавлении документов подпись не была приложена, ее можно добавить к документу отдельно методом `Add signature`_. 
+Под каждым файлом клиент ставит свою подпись, чтобы подтвердить свою личность как отправителя. Если при добавлении документов подпись не была приложена, ее можно добавить к документу отдельно методами `PUT Signature`_ или `POST AddSignature`_.
 
 Если у пользователя DSS сертификат, то подписи прикладывать не нужно. Все документы подписываются одним методом `SignDraft`_.
 
 .. warning:: Если документы в черновике изменятся, то подписи станут недействительными.
-
 
 Порядок работы с подписью
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -212,52 +266,20 @@
     2. Конвертируем полученную подпись в base64.
     3. Добавляем подпись в формате base64 в черновик. 
 
-**Тело запроса Add signature:**
+**Тело запроса PUT Signature:**
 
-.. code-block:: json
+.. code-block:: http
 
-   {
-    "signature": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQICAQExDDAKB...CzAJ",
-   }
+    PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signature HTTP/1.1
+    Host: extern-api.testkontur.ru
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
+    X-Kontur-Apikey: ****
+    Content-Type: application/pgp-signature
 
-После добавления подписи документ черновика будет выглядеть следующим образом:
+    "<file contents here>"
 
-.. container:: toggle
-
-    .. container:: header
-
-        **Ответ GET DraftDocument:**
-
-    .. code-block:: json
-         
-        {
-            "id": "6ea75127-abc8-4866-b67d-464f1e678273", //идентификатор документа в черновике
-            "decrypted-content-link": {
-                "rel": "",
-                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/ca50c708-4405-45cb-a594-b9ca7bc1a4ca/documents/6ea75127-abc8-4866-b67d-464f1e678273/decrypted-content"
-            },
-            "signature-content-link": {
-                "rel": "",
-                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/ca50c708-4405-45cb-a594-b9ca7bc1a4ca/documents/6ea75127-abc8-4866-b67d-464f1e678273/signature"
-            },
-            "description": {
-                "filename": "NO_SRCHIS_0007_0007_7757424860680345565_20200129_92425a70-4ac9-4680-bada-3666f0c0514d.xml",
-                "content-type": "application/xml",
-                "properties": {
-                    "Encoding": "windows-1251",
-                    "FormName": "Сведения о среднесписочной численности работников за предшествующий календарный год",
-                    "КНД": "1110018",
-                    "CorrectionNumber": "0",
-                    "IsPrintable": "True",
-                    "Period": "2012 год",
-                    "OriginalFilename": null,
-                    "SvdregCode": null,
-                    "contentType": "Xml",
-                    "AccountingPeriodBegin": "01.01.2012",
-                    "AccountingPeriodEnd": "12.31.2012"
-                }
-            }
-        }
 
 Мы убедились, что файл отчета корректный, и подпись документа лежит в черновике. Можно переходить к подготовке черновика и отправке. 
 
@@ -297,64 +319,83 @@
 
 1. Запрос Check
 
-::
+.. code-block:: http
 
-   https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/check?deferred=true
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/check?deferred=true HTTP/1.1
+    X-Kontur-Apikey: ****
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
 
 Ответ:
 
-.. code-block:: json
+.. code-block:: http
 
-   {
-    "id": "ce0bfb2a-c5db-4b99-92da-9b332bf1073e",
-    "task-state": "running",
-    "task-type": "urn:task-type:check"
-   }
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+
+    {
+        "id": "c0620f2f-ea43-465a-ab87-96995e0adcf8",
+        "task-state": "running",
+        "task-type": "urn:task-type:check"
+    }
 
 2. Проверка статуса задачи
 
 Запрос `GET TaskId`_:
 
-::
+.. code-block:: http
 
-   https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/tasks/ce0bfb2a-c5db-4b99-92da-9b332bf1073e
+    GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/tasks/c0620f2f-ea43-465a-ab87-96995e0adcf8 HTTP/1.1
+    X-Kontur-Apikey: ****
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
+    Host: extern-api.testkontur.ru
 
-.. container:: toggle
+Ответ GET TaskId:
 
-    .. container:: header
+.. code-block:: http
 
-        Ответ GET TaskId:
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
+    Content-Length: 285
 
-    .. code-block:: json
-
-        {
-            "id": "ce0bfb2a-c5db-4b99-92da-9b332bf1073e",
-            "task-state": "succeed",
-            "task-type": "urn:task-type:check",
-            "task-result": {
-                "data": {
-                    "documents-errors": {
-                        "b32171d6-9ebc-4c73-b557-5a203b68f8df": []
-                    },
-                    "common-errors": []
-                }
+    {
+        "id": "c0620f2f-ea43-465a-ab87-96995e0adcf8",
+        "task-state": "succeed",
+        "task-type": "urn:task-type:check",
+        "task-result": {
+            "data": {
+            "documents-errors": {
+                "4b3046fe-cabd-42e5-8618-8e9d9b2466a0": []
+            },
+            "common-errors": []
             }
         }
+    }
 
 3. Запрос Prepare
 
-.. code-block:: json
+.. code-block:: http
 
-  https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/prepare?deferred=true
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/prepare?deferred=true HTTP/1.1
+    X-Kontur-Apikey: ****
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
 
 Ответ:
 
-.. code-block:: json
+.. code-block:: http
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json; charset=utf-8
 
    {
-    "id": "02ce6882-2765-457e-aca3-9384f9d3c558",
-    "task-state": "running",
-    "task-type": "urn:task-type:prepare"
+        "id": "02ce6882-2765-457e-aca3-9384f9d3c558",
+        "task-state": "running",
+        "task-type": "urn:task-type:prepare"
    }
 
 4. Проверка статуса задачи подготовки черновика. 
@@ -365,7 +406,10 @@
 
         Ответ GET TaskId:
 
-    .. code-block:: json
+    .. code-block:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json; charset=utf-8
 
         {
             "id": "02ce6882-2765-457e-aca3-9384f9d3c558",
@@ -390,19 +434,25 @@
 
 5. Запрос Send
 
-:: 
+.. code-block:: http
 
-  https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/send?deferred=true
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/send?deferred=true HTTP/1.1
+    X-Kontur-Apikey: ****
+    Authorization: auth.sid ****
+    Accept: application/json
+    Content-Type: application/json
 
 Ответ:
 
-.. code-block:: json
+.. code-block:: http
 
-   {
-    "id": "1ad1ee85-6346-4bb5-88de-c83536a08784",
-    "task-state": "running",
-    "task-type": "urn:task-type:send"
-   }
+    HTTP/1.1 200 OK
+
+    {
+        "id": "1ad1ee85-6346-4bb5-88de-c83536a08784",
+        "task-state": "running",
+        "task-type": "urn:task-type:send"
+    }
 
 6. Проверка статуса задачи отправки черновика. 
 
@@ -412,266 +462,265 @@
 
        Ответ GET TaskId:
 
-    .. code-block:: json
+    .. code-block:: http
 
-         {
-            "id": "1ad1ee85-6346-4bb5-88de-c83536a08784",
+        HTTP/1.1 200 OK
+        Date: Wed, 22 Apr 2020 14:17:35 GMT
+        Content-Type: application/json; charset=utf-8
+
+        {
+            "id": "b54a8c6d-e1f1-4e93-841f-9863f6a90aeb",
             "task-state": "succeed",
             "task-type": "urn:task-type:send",
             "task-result": {
-                "id": "a9bc74bd-311b-43f0-aff7-faba24ce35d9",
+                "id": "0c4e50b5-66ac-4a92-b051-3bc95472dddb",
                 "organization-id": "988b38f1-5580-4ba9-b9f8-3215e7f392ea",
                 "type": "urn:docflow:fns534-report",
                 "status": "urn:docflow-common-status:sent",
                 "success-state": "urn:docflow-state:neutral",
                 "description": {
-                    "form-version": {
-                        "knd": "1110018",
-                        "version": "100501",
-                        "form-fullname": "Сведения о среднесписочной численности работников за предшествующий календарный год",
-                        "form-shortname": "Сведения о среднесписочной численности"
-                    },
-                    "recipient": "0087",
-                    "final-recipient": "0087",
-                    "correction-number": 0,
-                    "period-begin": "2012-01-01T00:00:00.0000000",
-                    "period-end": "2012-12-31T00:00:00.0000000",
-                    "period-code": 34,
-                    "payer-inn": "7757424860-680345565",
-                    "original-draft-id": "74b6e8b9-290a-4d12-b874-c7fb35cad54f"
+                "form-version": {
+                    "knd": "1110018",
+                    "version": "100501",
+                    "form-fullname": "Сведения о среднесписочной численности работников за предшествующий календарный год",
+                    "form-shortname": "Сведения о среднесписочной численности"
+                },
+                "recipient": "0007",
+                "final-recipient": "0007",
+                "correction-number": 0,
+                "period-begin": "2018-01-01T00:00:00.0000000",
+                "period-end": "2018-12-31T00:00:00.0000000",
+                "period-code": "34",
+                "payer-inn": "7757424860-680345565",
+                "original-draft-id": "d9622b9d-aa31-477b-a399-fc676588bfb5"
                 },
                 "documents": [
-                    {
-                        "id": "75d929b9-08a9-4692-961d-111cc87dc2e8",
-                        "description": {
-                            "type": "urn:document:fns534-report",
-                            "filename": "NO_SRCHIS_0007_0007_7757424860680345565_20200129_92425a70-4ac9-4680-bada-3666f0c0514n.xml",
-                            "content-type": "application/xml",
-                            "encrypted-content-size": 2237,
-                            "compressed": true,
-                            "requisites": {},
-                            "related-docflows-count": 0,
-                            "support-recognition": false,
-                            "encrypted-certificates": [
-                                {
-                                    "serial-number": "01D0850043AB3C924A605B8D8661E43E"
-                                },
-                                {
-                                    "serial-number": "33AC7500C3AAAE924839AA8AE6C459FE"
-                                },
-                                {
-                                    "serial-number": "19CCC7C800010000215D"
-                                }
-                            ]
+                {
+                    "id": "111f7485-7e2d-4c81-8017-9edc61835684",
+                    "description": {
+                    "type": "urn:document:fns534-report",
+                    "filename": "NO_SRCHIS_0007_0007_7757424860680345565_20200129_92425a70-4ac9-4680-bada-3666f0c0514v.xml",
+                    "content-type": "application/xml",
+                    "decrypted-content-size": 2233,
+                    "encrypted-content-size": 2233,
+                    "compressed": true,
+                    "requisites": {},
+                    "related-docflows-count": 0,
+                    "support-recognition": false,
+                    "encrypted-certificates": [
+                        {
+                        "serial-number": "01D0850043AB3C924A605B8D8661E43E"
                         },
-                        "content": {
-                            "encrypted": {
-                                "rel": "encrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/encrypted-content"
-                            },
-                            "docflow-document-contents": [
-                                {
-                                    "content-id": "f1facbc3-5d74-498f-a8af-dbfd57f82f1f",
-                                    "encrypted": true,
-                                    "compressed": true
-                                }
-                            ]
+                        {
+                        "serial-number": "33AC7500C3AAAE924839AA8AE6C459FE"
                         },
-                        "send-date": "2020-02-26T06:51:08.4636938Z",
-                        "signatures": [
-                            {
-                                "id": "82d5457d-5297-49fb-949a-f9865a1491b1",
-                                "title": "ООО 'Баланс Плюс' (Марков Георгий Эльдарович)",
-                                "signature-certificate-thumbprint": "20AACA440F33D0C90FBC052108012D3062D44873",
-                                "content-link": {
-                                    "rel": "content",
-                                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/signatures/82d5457d-5297-49fb-949a-f9865a1491b1/content"
-                                },
-                                "links": [
-                                    {
-                                        "rel": "self",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/signatures/82d5457d-5297-49fb-949a-f9865a1491b1/content"
-                                    },
-                                    {
-                                        "rel": "docflow",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                                    }
-                                ]
-                            },
-                            {
-                                "id": "045d9beb-7748-4789-a539-4416fa7969b9",
-                                "title": "ООО 'Баланс Плюс' (Марков Георгий Эльдарович)",
-                                "signature-certificate-thumbprint": "20AACA440F33D0C90FBC052108012D3062D44873",
-                                "content-link": {
-                                    "rel": "content",
-                                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/signatures/045d9beb-7748-4789-a539-4416fa7969b9/content"
-                                },
-                                "links": [
-                                    {
-                                        "rel": "self",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/signatures/045d9beb-7748-4789-a539-4416fa7969b9/content"
-                                    },
-                                    {
-                                        "rel": "docflow",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                                    }
-                                ]
-                            }
-                        ],
-                        "links": [
-                            {
-                                "rel": "docflow",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                            },
-                            {
-                                "rel": "self",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8"
-                            },
-                            {
-                                "rel": "related-docflow",
-                                "href": "https://extern-api.testkontur.ru//v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/related"
-                            },
-                            {
-                                "rel": "encrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/encrypted-content"
-                            },
-                            {
-                                "rel": "decrypt-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/decrypt-content"
-                            }
-                        ]
+                        {
+                        "serial-number": "19CCC7C800010000215D"
+                        }
+                    ]
                     },
-                    {
-                        "id": "4007e30b-0fb4-4acf-ba11-9ac513f51ca0",
-                        "description": {
-                            "type": "urn:document:fns534-report-date-confirmation",
-                            "filename": "PD_NOSRCHIS_7757424860680345565_7757424860680345565_1BM_20200226_af133042-f8c5-490c-ac5a-54b0e5e0fa9a.xml",
-                            "content-type": "application/xml",
-                            "decrypted-content-size": 3024,
-                            "compressed": true,
-                            "requisites": {},
-                            "support-recognition": false,
-                            "encrypted-certificates": []
-                        },
-                        "content": {
-                            "decrypted": {
-                                "rel": "decrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/decrypted-content"
-                            },
-                            "docflow-document-contents": [
-                                {
-                                    "content-id": "8df55933-2cbd-42b2-945c-2a1aa4386ee6",
-                                    "encrypted": false,
-                                    "compressed": true
-                                }
-                            ]
-                        },
-                        "send-date": "2020-02-26T06:51:08.4636938Z",
-                        "signatures": [
-                            {
-                                "id": "f506582c-f228-415b-844e-a78fbb7e645f",
-                                "title": "АО \"ПФ \"СКБ Контур\"",
-                                "signature-certificate-thumbprint": "A875B626A7D182CDCA85164FC0EF15068487A6EF",
-                                "content-link": {
-                                    "rel": "content",
-                                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/signatures/f506582c-f228-415b-844e-a78fbb7e645f/content"
-                                },
-                                "links": [
-                                    {
-                                        "rel": "self",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/signatures/f506582c-f228-415b-844e-a78fbb7e645f/content"
-                                    },
-                                    {
-                                        "rel": "docflow",
-                                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                                    }
-                                ]
-                            }
-                        ],
-                        "links": [
-                            {
-                                "rel": "docflow",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                            },
-                            {
-                                "rel": "self",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0"
-                            },
-                            {
-                                "rel": "reply",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/generate-reply?documentType=fns534-report-receipt",
-                                "name": "fns534-report-receipt"
-                            },
-                            {
-                                "rel": "decrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/decrypted-content"
-                            }
-                        ]
+                    "content": {
+                    "decrypted": {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/decrypted-content"
                     },
+                    "encrypted": {
+                        "rel": "encrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/encrypted-content"
+                    },
+                    "docflow-document-contents": [
+                        {
+                        "content-id": "2e1a8085-875a-471c-881e-9600f6ac96ef",
+                        "encrypted": true,
+                        "compressed": true
+                        },
+                        {
+                        "content-id": "c670c7ab-0849-4536-a7b5-0594ea76212a",
+                        "encrypted": false,
+                        "compressed": false
+                        }
+                    ]
+                    },
+                    "send-date": "2020-04-22T14:16:36.1338472Z",
+                    "signatures": [
                     {
-                        "id": "2ad464ce-5348-444b-a1c2-d96c73aa1100",
-                        "description": {
-                            "type": "urn:document:fns534-report-description",
-                            "filename": "TR_DEKL.xml",
-                            "content-type": "application/xml",
-                            "decrypted-content-size": 366,
-                            "compressed": true,
-                            "requisites": {},
-                            "support-recognition": false,
-                            "encrypted-certificates": []
+                        "id": "920a7f48-9acd-4582-841a-e21df444e06d",
+                        "title": "ООО 'Баланс Плюс' (Марков Георгий Эльдарович)",
+                        "signature-certificate-thumbprint": "20AACA440F33D0C90FBC052108012D3062D44873",
+                        "content-link": {
+                        "rel": "content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/signatures/920a7f48-9acd-4582-841a-e21df444e06d/content"
                         },
-                        "content": {
-                            "decrypted": {
-                                "rel": "decrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/2ad464ce-5348-444b-a1c2-d96c73aa1100/decrypted-content"
-                            },
-                            "docflow-document-contents": [
-                                {
-                                    "content-id": "6a6adf01-c138-48c8-b1fa-432fce4e5c03",
-                                    "encrypted": false,
-                                    "compressed": true
-                                }
-                            ]
-                        },
-                        "send-date": "2020-02-26T06:51:08.4636938Z",
-                        "signatures": [],
                         "links": [
-                            {
-                                "rel": "docflow",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
-                            },
-                            {
-                                "rel": "self",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/2ad464ce-5348-444b-a1c2-d96c73aa1100"
-                            },
-                            {
-                                "rel": "decrypted-content",
-                                "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/2ad464ce-5348-444b-a1c2-d96c73aa1100/decrypted-content"
-                            }
+                        {
+                            "rel": "self",
+                            "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/signatures/920a7f48-9acd-4582-841a-e21df444e06d/content"
+                        },
+                        {
+                            "rel": "docflow",
+                            "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                        }
                         ]
                     }
-                ],
-                "links": [
+                    ],
+                    "links": [
+                    {
+                        "rel": "docflow",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                    },
                     {
                         "rel": "self",
-                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9"
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684"
                     },
                     {
-                        "rel": "organization",
-                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/organizations/988b38f1-5580-4ba9-b9f8-3215e7f392ea"
+                        "rel": "related-docflow",
+                        "href": "https://extern-api.testkontur.ru//v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/related"
                     },
                     {
-                        "rel": "web-docflow",
-                        "href": "https://setter.testkontur.ru/?inn=662909960905&forward_to_rel=/ft/transmission/state.aspx?key=cfOOHYSO4USxIIRIMEKAL%2fE4i5iAValLufgyFefzkuqKJpsKOwY6TorTSpphojA7vXS8qRsx8EOv9%2fq6JM412Q%3d%3d"
+                        "rel": "encrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/encrypted-content"
+                    },
+                    {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/decrypted-content"
+                    },
+                    {
+                        "rel": "decrypt-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/111f7485-7e2d-4c81-8017-9edc61835684/decrypt-content"
+                    }
+                    ]
+                },
+                {
+                    "id": "6076f7bc-a016-4d22-bb63-221df6582906",
+                    "description": {
+                    "type": "urn:document:fns534-report-date-confirmation",
+                    "filename": "PD_NOSRCHIS_7757424860680345565_7757424860680345565_1BM_20200422_b4885f2a-dddb-4484-89f3-e83dc94ea83d.xml",
+                    "content-type": "application/xml",
+                    "decrypted-content-size": 3023,
+                    "compressed": true,
+                    "requisites": {},
+                    "support-recognition": false,
+                    "encrypted-certificates": []
+                    },
+                    "content": {
+                    "decrypted": {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/decrypted-content"
+                    },
+                    "docflow-document-contents": [
+                        {
+                        "content-id": "c5227d5f-7b80-41a3-91a1-34136a99171c",
+                        "encrypted": false,
+                        "compressed": true
+                        }
+                    ]
+                    },
+                    "send-date": "2020-04-22T14:16:36.1338472Z",
+                    "signatures": [
+                    {
+                        "id": "7117bfa4-60b6-4652-942d-7bafe10c476a",
+                        "title": "АО \"ПФ \"СКБ Контур\"",
+                        "signature-certificate-thumbprint": "ADBB03393A5C3F5402A8EFF8F7AAE859076079F8",
+                        "content-link": {
+                        "rel": "content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/signatures/7117bfa4-60b6-4652-942d-7bafe10c476a/content"
+                        },
+                        "links": [
+                        {
+                            "rel": "self",
+                            "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/signatures/7117bfa4-60b6-4652-942d-7bafe10c476a/content"
+                        },
+                        {
+                            "rel": "docflow",
+                            "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                        }
+                        ]
+                    }
+                    ],
+                    "links": [
+                    {
+                        "rel": "docflow",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                    },
+                    {
+                        "rel": "self",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906"
                     },
                     {
                         "rel": "reply",
-                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/4007e30b-0fb4-4acf-ba11-9ac513f51ca0/generate-reply?documentType=fns534-report-receipt",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/generate-reply?documentType=fns534-report-receipt",
                         "name": "fns534-report-receipt"
+                    },
+                    {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/decrypted-content"
                     }
+                    ]
+                },
+                {
+                    "id": "79e6d1db-fbe6-4b00-a447-cc9eb1a90571",
+                    "description": {
+                    "type": "urn:document:fns534-report-description",
+                    "filename": "TR_DEKL.xml",
+                    "content-type": "application/xml",
+                    "decrypted-content-size": 364,
+                    "compressed": true,
+                    "requisites": {},
+                    "support-recognition": false,
+                    "encrypted-certificates": []
+                    },
+                    "content": {
+                    "decrypted": {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/79e6d1db-fbe6-4b00-a447-cc9eb1a90571/decrypted-content"
+                    },
+                    "docflow-document-contents": [
+                        {
+                        "content-id": "ad34e8ab-4518-47e8-b578-b26adc728d1f",
+                        "encrypted": false,
+                        "compressed": true
+                        }
+                    ]
+                    },
+                    "send-date": "2020-04-22T14:16:36.1338472Z",
+                    "signatures": [],
+                    "links": [
+                    {
+                        "rel": "docflow",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                    },
+                    {
+                        "rel": "self",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/79e6d1db-fbe6-4b00-a447-cc9eb1a90571"
+                    },
+                    {
+                        "rel": "decrypted-content",
+                        "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/79e6d1db-fbe6-4b00-a447-cc9eb1a90571/decrypted-content"
+                    }
+                    ]
+                }
                 ],
-                "send-date": "2020-02-26T09:51:08.4636938",
-                "last-change-date": "2020-02-26T06:51:08.4636938Z"
+                "links": [
+                {
+                    "rel": "self",
+                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+                },
+                {
+                    "rel": "organization",
+                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/organizations/988b38f1-5580-4ba9-b9f8-3215e7f392ea"
+                },
+                {
+                    "rel": "web-docflow",
+                    "href": "https://setter.testkontur.ru/?inn=662909960905&forward_to_rel=/ft/transmission/state.aspx?key=cfOOHYSO4USxIIRIMEKAL%2fE4i5iAValLufgyFefzkuqKJpsKOwY6TorTSpphojA7tVBODKxmkkqwUTvJVHLd2w%3d%3d"
+                },
+                {
+                    "rel": "reply",
+                    "href": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb/documents/6076f7bc-a016-4d22-bb63-221df6582906/generate-reply?documentType=fns534-report-receipt",
+                    "name": "fns534-report-receipt"
+                }
+                ],
+                "send-date": "2020-04-22T17:16:36.1338472",
+                "last-change-date": "2020-04-22T14:16:36.1338472Z"
             }
         }
 
