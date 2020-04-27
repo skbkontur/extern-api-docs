@@ -1,10 +1,10 @@
 .. _`шлюз ФСС`: http://f4.fss.ru/fss/office
 .. _`инструкции`: https://www.kontur-extern.ru/support/faq/31/157
-.. _`POST AddDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/106310771088108510861074108010821080/DraftDocuments_AddDocument
-.. _`PUT PutDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/106310771088108510861074108010821080/DraftDocuments_PutDocumentSignature
-.. _`POST Check`: http://extern-api.testkontur.ru/swagger/ui/index#!/106310771088108510861074108010821080/Drafts_Check
-.. _`POST Prepare`: http://extern-api.testkontur.ru/swagger/ui/index#!/106310771088108510861074108010821080/Drafts_Prepare
-.. _`POST Send`: http://extern-api.testkontur.ru/swagger/ui/index#!/106310771088108510861074108010821080/Drafts_Send
+.. _`POST AddDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents
+.. _`PUT PutDocumentSignature`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-signatures-%7BsignatureId%7D
+.. _`POST Check`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-check
+.. _`POST Prepare`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-prepare
+.. _`POST Send`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-send
 
 Документооборот с ФСС
 =====================

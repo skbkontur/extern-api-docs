@@ -1,5 +1,5 @@
-.. _`POST BuildDocument`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/DraftDocumentBuild_CreateDocumentWithBuildContentFromFormat
-.. _`POST BuildDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#/Drafts/DraftDocumentBuild_BuildContentFromFormat
+.. _`POST BuildDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-build
+.. _`POST BuildDocumentContent`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-build-document
 
 
 Методы создания ИОН запросов и декларации УСН в черновике
@@ -12,7 +12,7 @@
 
 По :doc:`контрактам</manuals/contracts>` методы данного раздела формируют документы в черновике. Контракт указывает на тип и формат документа, а также содержит информацию, которая будет передана в ФНС. 
 
-Сущесвтует пять видов ИОН запросов:
+Существует пять видов ИОН запросов:
 
 1. Запрос по справке о состоянии расчетов по налогам, сборам, пеням и штрафам (Форма N39-1);
 2. Запрос по выписке операций по расчетам с бюджетом;

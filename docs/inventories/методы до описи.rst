@@ -1,19 +1,22 @@
-.. _`InventoriesDocflows`: http://extern-api.testkontur.ru/swagger/ui/index#/InventoriesDocflows
-.. _`GET GetAllInventoryDocflows`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetAllInventoryDocflowsAsync
-.. _`GET GetOneInventoryDocflow`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetOneInventoryDocflowAsync
-.. _`GET GetEncryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetEncryptedDocumentContentAsync
-.. _`GET GetDecryptedDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetDecryptedDocumentContentAsync
-.. _`GET GetSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetSignatureContentAsync
-.. _`POST InitDecryptDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_InitDecryptDocumentAsync
-.. _`POST DecryptDocumentConfirmation`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_DecryptDocumentConfirmationAsync
-.. _`POST GetDocumentPrint`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetDocumentPrintAsync
-.. _`POST CreateReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_CreateReplyDocumentAsync
-.. _`GET GetReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_GetReplyDocumentAsync
-.. _`PUT SaveReplyDocumentContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentContentAsync
-.. _`PUT SaveReplyDocumentSignature`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SaveReplyDocumentSignatureAsync
-.. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignReplyDocumentAsync
-.. _`POST SignConfirmReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SignConfirmReplyDocumentAsync
-.. _`POST SendReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/InventoriesDocflows/InventoriesDocflows_SendReplyDocumentAsync
+.. _`InventoriesDocflows`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories
+.. _`GET GetAllInventoryDocflows`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories
+.. _`GET GetOneInventoryDocflow`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D
+.. _`GET GetEncryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-encrypted-content
+.. _`GET GetDecryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-decrypted-content
+.. _`GET InventoryDocflowDocumentTask`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-tasks-%7BapiTaskId%7D
+.. _`GET GetSignatureContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-signatures-%7BsignatureId%7D-content
+.. _`POST InitDecryptDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-decrypt-content
+.. _`POST DecryptDocumentConfirmation`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-decrypt-content-confirm
+.. _`POST ConfirmationDecryptDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-confirm-content-decryption
+.. _`POST GetDocumentPrint`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-print
+.. _`POST CreateReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-generate-reply
+.. _`GET GetReplyDocument`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D
+.. _`PUT SaveReplyDocumentContent`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-content
+.. _`PUT SaveReplyDocumentSignature`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-signature
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-cloud-sign
+.. _`POST SignConfirmReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-cloud-sign-confirm
+.. _`GET DocflowReplyDocumentTask`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-tasks-%7BapiTaskId%7D
+.. _`POST SendReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-send
 
 Методы для работы с документооборотами описи
 ============================================
@@ -24,7 +27,7 @@
 * Идентификатор входящего документооборота, в ответ на которое посылается опись.
 * Идентификатор документа из входящего документооборота, на который была отправлена опись.
 
-Подробная спецификация методов показана в сваггере в разделе InventoriesDocflows_.
+Подробная спецификация методов показана в сваггере в разделе `InventoriesDocflows`_.
 
 .. contents:: Список доступных методов
    :depth: 2
@@ -46,6 +49,7 @@
 
 Получение документооборота ответа на требование
 -----------------------------------------------
+
 Метод: `GET GetOneInventoryDocflow`_
 
 С помощью этого метода можно получить информацию о документообороте:
@@ -60,24 +64,54 @@
 
 Получение зашифрованного контента документа
 -------------------------------------------
+
 Метод: `GET GetEncryptedDocumentContent`_
 
 Зашифрованный контент возвращается в формате base64. Чтобы получить контент, его нужно конвертировать и дешифровать при помощи закрытого ключа, на который он был зашифрован. В результате вы получите архив, который нужно разархивировать.
 
 Получение расшифрованного контента документа
 --------------------------------------------
+
 Метод: `GET GetDecryptedDocumentContent`_
 
 Метод возвращает расшифрованный контент документа. Наличие расшифрованного контента возможно не для всех документов.
 
+Дешифрование содержимого документа по сертификату
+-------------------------------------------------
+
+Метод: `POST InitDecryptDocument`_
+
+Метод инициирует дешифрование документа по переданному контенту сертификата подписи в формате base-64. В результате вызова метод возвращает идентификатор задачи на дешифрование, если у пользователя DSS сертификат.
+
+Подтверждение дешифрования содержимого документа
+------------------------------------------------
+
+Метод: `POST DecryptDocumentConfirmation`_
+
+Подтверждает дешифрование документа, метод возвращает расшифрованный контент документа. 
+
+Подтверждение дешифрования содержимого документа
+------------------------------------------------
+
+Метод: `POST ConfirmationDecryptDocument`_
+
+Подтверждает дешифрование документа, метод возвращает ссылку на расшифрованный контент документа.
+
+Проверка статуса задачи по TaskId
+---------------------------------
+
+Метод: `GET InventoryDocflowDocumentTask`_
+
 Получение контента конкретной подписи под документом
 ----------------------------------------------------
+
 Метод: `GET GetSignatureContent`_
 
 Чтобы получить контент подписи, необходимо передать ее идентификатор. Его можно узнать в :ref:`методе получения документооборота описи<rst-markup-get-inventory-dc>`.
 
 Печать документа 
 ----------------
+
 Метод: `POST GetDocumentPrint`_
 
 При помощи данного метода можно получить печатную форму формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов.
@@ -86,22 +120,26 @@
 
 Методы для работы с ответными документами
 =========================================
+
 На входящие документы от налогового органа налогоплательщик должен отправлять определенные ответные документы. Представленные ниже методы позволяют формировать подобные технологические документы и работать с ними. Также необходимые ссылки для формирования ответных документов будут появляться в работе с :ref:`методом получения документооборота<rst-markup-get-inventory-dc>`.
 
 Генерация ответного документа
 -----------------------------
+
 Метод: `POST CreateReplyDocument`_
 
 Метод генерирует XML-файл документа установленного формата. В результате возвращает идентификатор черновика документа. Также в ответе будет доступна и печатная форма сгенерированного документа.
 
 Просмотр ответного документа
 ----------------------------
+
 Метод: `GET GetReplyDocument`_
 
 Метод возвращает всю информацию об ответном документе по его идентификатору. У каждого документа будет ссылка на контенты (зашифрованный или расшифрованный, либо оба) в текущем состоянии в соответствии с требованиями контролирующих органов.
 
 Обновление контента ответного документа
 ---------------------------------------
+
 Метод: `PUT SaveReplyDocumentContent`_
 
 Метод обновляет контент ответного документа.
@@ -110,12 +148,29 @@
 
 Добавление подписи к ответному документу
 ----------------------------------------
+
 Метод: `PUT SaveReplyDocumentSignature`_
 
 Метод сохраняет файл подписи к ответному документу.
 
+Подписание ответного документа сертификатом
+-------------------------------------------
+
+Метод: `POST SignReplyDocument`_
+
+Подтверждение подписания ответного документа
+--------------------------------------------
+
+Метод: `POST SignConfirmReplyDocument`_
+
 Отправка ответного документа
 ----------------------------
+
 Метод: `POST SendReplyDocument`_
 
 Метод отправляет в контролирующий орган ответный документ с электронной подписью абонента под ним.
+
+Проверка статуса задачи ответного документа по TaskId
+-----------------------------------------------------
+
+Метод: `GET DocflowReplyDocumentTask`_

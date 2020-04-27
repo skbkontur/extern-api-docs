@@ -1,5 +1,5 @@
 .. _`Электронный документооборот`: https://www.diadoc.ru/docs/faq/faq-166
-.. _`Спецификация API`: http://extern-api.testkontur.ru/swagger/ui/index#/
+.. _`Спецификация API`: https://developer.testkontur.ru/extern
 .. _`Тестовая площадка`:  https://extern-api.testkontur.ru/
 .. _`Рабочая площадка`: https://extern-api.kontur.ru/
 .. _`Вопросы и ответы по отчетности`: https://www.kontur-extern.ru/support/faq

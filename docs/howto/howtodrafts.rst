@@ -456,6 +456,7 @@
 
 6. Проверка статуса задачи отправки черновика. 
 
+.. _rst-markup-draftTask:
 .. container:: toggle
 
     .. container:: header

@@ -1,34 +1,33 @@
-.. _DraftsBuilder: http://extern-api.testkontur.ru/swagger/ui/index#/DraftsBuilders
-.. _`POST CreateDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_CreateDraftsBuilderAsync
-.. _`GET GetDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetDraftsBuilderAsync
-.. _`GET GetDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetDraftsBuilderMetaAsync
-.. _`PUT UpdateDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/105010861085108910901088109110821090108610883210951077108810851086107410801082108610743240DraftsBuilder41/DraftsBuilders_UpdateDraftsBuilderAsync
-.. _`PUT UpdateDraftsBuilderMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_UpdateDraftsBuilderMetaAsync
-.. _`POST BuildDrafts`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_BuildDraftsAsync
-.. _`GET GetBuildResult`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_GetBuildResultAsync
-.. _`DELETE RemoveDraftsBuilder`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilders_RemoveDraftsBuilderAsync
-.. _`GET GetDraftsBuilderDocuments`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentsAsync
-.. _`POST CreateDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_CreateDraftsBuilderDocumentAsync
-.. _`GET GetDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentAsync
-.. _`GET GetDraftsBuilderDocumentMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_GetDraftsBuilderDocumentMetaAsync
-.. _`PUT UpdateDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/105010861085108910901088109110821090108610883210951077108810851086107410801082108610743240DraftsBuilder41/DraftsBuilderDocuments_UpdateDraftsBuilderDocumentMetaAsync
-.. _`PUT UpdateDraftsBuilderDocumentMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_UpdateDraftsBuilderDocumentMetaAsync
-.. _`DELETE RemoveDraftsBuilderDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocuments_RemoveDraftsBuilderDocumentAsync
-.. _`GET GetDraftsBuilderDocumentFiles`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFilesAsync
-.. _`POST CreateDraftsBuilderDocumentFile`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_CreateDraftsBuilderDocumentFileAsync
-.. _`GET GetDraftsBuilderDocumentFile`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFileAsync
-.. _`PUT UpdateDraftsBuilderDocumentFile`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_UpdateDraftsBuilderDocumentFileAsync
-.. _`GET GetDraftsBuilderDocumentFileContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFileContentAsync
-.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFileSignatureContentAsync
-.. _`GET GetDraftsBuilderDocumentFileMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_GetDraftsBuilderDocumentFileMetaAsync
-.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_UpdateDraftsBuilderDocumentFileMetaAsync
-.. _`DELETE RemoveDraftsBuilderDocumentFile`: http://extern-api.testkontur.ru/swagger/ui/index#!/DraftsBuilders/DraftsBuilderDocumentFiles_RemoveDraftsBuilderDocumentFileAsync
+.. _`POST CreateDraftsBuilder`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-builders
+.. _`GET GetDraftsBuilder`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderMeta`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-meta
+.. _`PUT UpdateDraftsBuilder`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D
+.. _`PUT UpdateDraftsBuilderMeta`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-meta
+.. _`POST BuildDrafts`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-build
+.. _`GET GetBuildResult`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-tasks-%7BapiTaskId%7D
+.. _`DELETE RemoveDraftsBuilder`: https://developer.testkontur.ru/extern/delete-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderDocuments`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents
+.. _`POST CreateDraftsBuilderDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents
+.. _`GET GetDraftsBuilderDocument`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentMeta`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-meta
+.. _`PUT UpdateDraftsBuilderDocument`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D
+.. _`PUT UpdateDraftsBuilderDocumentMeta`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-meta
+.. _`DELETE RemoveDraftsBuilderDocument`: https://developer.testkontur.ru/extern/delete-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentFiles`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files
+.. _`POST CreateDraftsBuilderDocumentFile`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files
+.. _`GET GetDraftsBuilderDocumentFile`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D
+.. _`PUT UpdateDraftsBuilderDocumentFile`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D
+.. _`GET GetDraftsBuilderDocumentFileContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D-content
+.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D-signature
+.. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D-meta
+.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D-meta
+.. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.testkontur.ru/extern/delete-v1-%7BaccountId%7D-drafts-builders-%7BdraftsBuilderId%7D-documents-%7BdocumentId%7D-files-%7BfileId%7D
 .. _тут: https://www.diadoc.ru/docs/faq/faq-127
 
 Методы для работы с DraftsBuilder
 =================================
 
-Подробная спецификация методов показана в сваггере в разделе DraftsBuilder_.
+Подробная спецификация методов показана в Swagger в разделе DraftsBuilder.
 
 .. contents:: Список доступных методов
    :depth: 2

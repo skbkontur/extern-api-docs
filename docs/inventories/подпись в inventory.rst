@@ -1,7 +1,7 @@
-.. _`POST SignReplyDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/105410901074107710903210851072321090108810771073108610741072108510801077/InventoriesDocflows_SignReplyDocumentAsync
-.. _`GET GetDocflowReplyDocumentTask`: http://extern-api.testkontur.ru/swagger/ui/index#!/105410901074107710903210851072321090108810771073108610741072108510801077/InventoriesDocflows_GetDocflowReplyDocumentTask
-.. _`GET GetSignatureContent`: http://extern-api.testkontur.ru/swagger/ui/index#!/105410901074107710903210851072321090108810771073108610741072108510801077/InventoriesDocflows_GetSignatureContentAsync
-.. _`POST InitDecryptDocument`: http://extern-api.testkontur.ru/swagger/ui/index#!/105410901074107710903210851072321090108810771073108610741072108510801077/InventoriesDocflows_InitDecryptDocumentAsync
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-cloud-sign
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-tasks-%7BapiTaskId%7D
+.. _`GET GetSignatureContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-signatures-%7BsignatureId%7D-content
+.. _`POST InitDecryptDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-decrypt-content
 
 Подписание и дешифрование документов в ответе на требование
 ===========================================================
