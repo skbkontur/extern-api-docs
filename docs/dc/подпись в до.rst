@@ -1,8 +1,8 @@
-.. _`POST SignReplyDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-cloud-sign
-.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-tasks-{apiTaskId}
-.. _`GET GetDocumentSignature`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
-.. _`POST DecryptDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypt-content
-.. _`GET GetDocflowDocumentTask`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-tasks-{apiTaskId}
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`GET GetDocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D
+.. _`POST DecryptDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypt-content
+.. _`GET GetDocflowDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ftasks%2F%7BapiTaskId%7D
 
 Подписание и дешифрование документов в документообороте
 =======================================================

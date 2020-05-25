@@ -1,7 +1,7 @@
-.. _`POST SignReplyDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-replies-%7BreplyId%7D-cloud-sign
-.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-tasks-%7BapiTaskId%7D
-.. _`GET GetSignatureContent`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-signatures-%7BsignatureId%7D-content
-.. _`POST InitDecryptDocument`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BrelatedDocflowId%7D-documents-%7BrelatedDocumentId%7D-inventories-%7BinventoryId%7D-documents-%7BdocumentId%7D-decrypt-content
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`GET GetSignatureContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D%2Fcontent
+.. _`POST InitDecryptDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypt-content
 
 Подписание и дешифрование документов в ответе на требование
 ===========================================================

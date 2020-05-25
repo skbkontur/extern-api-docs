@@ -1,9 +1,9 @@
 .. _`Электронный документооборот`: https://www.diadoc.ru/docs/faq/faq-166
-.. _`Спецификация API`: https://developer.testkontur.ru/extern
+.. _`Спецификация API`: https://developer.testkontur.ru/doc/extern
 .. _`Тестовая площадка`:  https://extern-api.testkontur.ru/
 .. _`Рабочая площадка`: https://extern-api.kontur.ru/
 .. _`Вопросы и ответы по отчетности`: https://www.kontur-extern.ru/support/faq
-.. _`Extern Test Tools`: https://developer.testkontur.ru/extern.test.tools
+.. _`Extern Test Tools`: https://developer.testkontur.ru/doc/extern.test.tools
 .. _`аутентификацию`: https://docs-ke.readthedocs.io/ru/latest/auth/index.html
 
 API Контур.Экстерн

@@ -1,16 +1,16 @@
-.. _`GET Docflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows
-.. _`GET Docflow`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}
-.. _`GET Documents`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents
-.. _`GET Document`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}
-.. _`GET DocumentDescription`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-description
-.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-encrypted-content
-.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypted-content
-.. _`GET DocumentSignatures`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures
-.. _`GET DocumentSignature`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
-.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}-content
-.. _`POST DocumentPrint`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-print
-.. _`POST RecognizeDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-recognize
-.. _`GET RelatedDocflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{relatedDocflowId}-documents-{relatedDocumentId}-related
+.. _`GET Docflows`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
+.. _`GET Docflow`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D
+.. _`GET Documents`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments
+.. _`GET Document`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET DocumentDescription`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdescription
+.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
+.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
+.. _`GET DocumentSignatures`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
+.. _`GET DocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D
+.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D%2Fcontent
+.. _`POST DocumentPrint`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fprint
+.. _`POST RecognizeDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
+.. _`GET RelatedDocflows`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Frelated
 
 Методы для работы с документооборотами
 ======================================
