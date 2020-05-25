@@ -1,13 +1,13 @@
-.. _`POST CreateReplyDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-generate-reply
-.. _`GET ReplyDocument`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}
-.. _`PUT ReplyDocumentContent`: https://developer.testkontur.ru/extern/put-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-content
-.. _`PUT ReplyDocumentSignature`: https://developer.testkontur.ru/extern/put-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-signature
-.. _`POST SendReplyDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-replies-{replyId}-send
-.. _`POST GeneratePfrReply`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-pfr-generate-reply
-.. _`GET GetPfrReplyDocument`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-pfr-replies-{replyId}
-.. _`PUT SavePfrReplyDocumentDecryptedContent`: https://developer.testkontur.ru/extern/put-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-pfr-replies-{replyId}-documents-{replyDocumentId}-decrypted-content
-.. _`PUT SavePfrReplyDocumentSignature`: https://developer.testkontur.ru/extern/put-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-pfr-replies-{replyId}-documents-{replyDocumentId}-signature
-.. _`POST SendPfrReplyDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-pfr-replies-{replyId}-send
+.. _`POST CreateReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fgenerate%2Freply
+.. _`GET ReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D
+.. _`PUT ReplyDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcontent
+.. _`PUT ReplyDocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
+.. _`POST SendReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsend
+.. _`POST GeneratePfrReply`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr%2Fgenerate%2Freply
+.. _`GET GetPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr%2Freplies%2F%7BreplyId%7D
+.. _`PUT SavePfrReplyDocumentDecryptedContent`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr%2Freplies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fdecrypted%2Fcontent
+.. _`PUT SavePfrReplyDocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr%2Freplies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fsignature
+.. _`POST SendPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr%2Freplies%2F%7BreplyId%7D%2Fsend
 
 Методы для работы с ответными документами
 =========================================

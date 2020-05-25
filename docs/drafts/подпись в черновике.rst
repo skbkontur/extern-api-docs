@@ -1,6 +1,6 @@
-.. _`POST Drafts_Sign`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-cloud-sign
-.. _`GET GetDraftTask`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-tasks-%7BapiTaskId%7D
-.. _`GET GetSignature`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-documents-%7BdocumentId%7D-signature
+.. _`POST Drafts_Sign`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcloud%2Fsign
+.. _`GET GetDraftTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`GET GetSignature`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
 
 Подписание документов в черновике
 =================================
