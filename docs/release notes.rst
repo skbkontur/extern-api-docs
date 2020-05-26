@@ -1,7 +1,7 @@
-.. _`поиск документооборотов`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows
-.. _`POST Recognize`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BdocflowId%7D-documents-%7BdocumentId%7D-recognize
-.. _`Send`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-send
-.. _`сервис контентов`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-contents
+.. _`поиск документооборотов`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
+.. _`POST Recognize`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
+.. _`Send`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
+.. _`сервис контентов`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
 
 История изменений API
 =====================
