@@ -1,0 +1,17 @@
+{
+    "for-ul": false,
+    "insurer-ip": {
+        "name": "Иван",
+        "surname": "Иванов",
+        "patronymic": "Иванович",
+        "snils": "75584688371",
+        "phone": "+79999999999",
+        "email": "mail@mail.com"
+    },
+    "representative": {
+        "name": "Иван",
+        "surname": "Иванов",
+        "patronymic": "Иванович",
+        "position": "ИП"
+    }
+}
