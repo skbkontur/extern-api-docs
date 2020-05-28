@@ -12,6 +12,7 @@
    businessReg
    content
    print
+   szvtd
 
 В данном разделе собраны статьи и инструкции для работы с API Контур.Экстерна.
 
@@ -22,3 +23,6 @@
 * :doc:`Наименование файлов отчетов</knowledge base/filename>`
 * :doc:`Сервис контентов</knowledge base/content>`
 * :doc:`Печать документов</knowledge base/print>`
+* :doc:`Отчетность по форме СЗВ-ТД</knowledge base/szvtd>`
+
+

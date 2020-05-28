@@ -233,6 +233,8 @@
 
 .. image:: /_static/status-pfr-report.jpg
 
+.. _rst-markup-szvtd-status:
+
 Отчет СЗВ-ТД
 ++++++++++++
 
@@ -300,6 +302,8 @@
 Процесс изменения статуса:
 
 .. image:: /_static/status-pfr-ios.jpg
+
+.. _rst-markup-ancillary-status:
 
 Заявление на подключение к ЭДОК
 +++++++++++++++++++++++++++++++
