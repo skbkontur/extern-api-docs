@@ -1,21 +1,22 @@
-.. _`GET Docflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows
-.. _`GET Docflow`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}
-.. _`GET Documents`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents
-.. _`GET Document`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}
-.. _`GET DocumentDescription`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-description
-.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-encrypted-content
-.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-decrypted-content
-.. _`GET DocumentSignatures`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures
-.. _`GET DocumentSignature`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}
-.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-signatures-{signatureId}-content
-.. _`POST DocumentPrint`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-print
-.. _`POST RecognizeDocument`: https://developer.testkontur.ru/extern/post-v1-{accountId}-docflows-{docflowId}-documents-{documentId}-recognize
-.. _`GET RelatedDocflows`: https://developer.testkontur.ru/extern/get-v1-{accountId}-docflows-{relatedDocflowId}-documents-{relatedDocumentId}-related
+.. _`GET Docflows`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
+.. _`GET Docflow`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D
+.. _`GET Documents`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments
+.. _`GET Document`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET DocumentDescription`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdescription
+.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
+.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
+.. _`GET DocumentSignatures`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
+.. _`GET DocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D
+.. _`GET DocumentSignatureContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D%2Fcontent
+.. _`POST DocumentPrint`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fprint
+.. _`GET DocflowDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`POST RecognizeDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
+.. _`GET RelatedDocflows`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Frelated
 
 Методы для работы с документооборотами
 ======================================
 
-Подробная спецификация методов показана в сваггере в разделе **Документообороты**.
+Подробная спецификация методов показана в swagger в разделе **Документообороты**.
 
 Список доступных методов:
 
@@ -61,7 +62,7 @@
 * его текущий статус;
 * мета-информацию документооборота;
 * перечень всех документов, созданных в ходе документооборота, на данный момент;
-* и многое другое, полный ответ можно посмотреть в сваггере.
+* и многое другое, полный ответ можно посмотреть в swagger.
 
 Если текущий статус документооборота подразумевает необходимость отправки ответного документа в контролирующий орган, среди ссылок в ответе этого метода будет ссылка на методы для работы с ответными документами :doc:`→ </dc/ответный документ>`.
 
@@ -793,19 +794,42 @@ C помощью этого метода можно получить отдел�
 
 Метод: `GET DocumentSignatureContent`_
 
+.. _rst-markup-dcprint:
+
 Печать документов 
 -----------------
 
 Метод: `POST DocumentPrint`_
 
-Можно получить печатную форму любого формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов.
+Метод позволяет получить печатную форму любого формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов. 
+
+ Метод поддерживает не все типы документов и контентов. Перечень типов документов и контентов, а также пример работы с методом описан в :doc:`Базе знаний</knowledge base/print>`.
+
+**Параметры запроса**
+
+``deferred`` — флаг асинхронного выполнения запроса. Рекомендуется использовать флаг в значении true, в таком случае будет поставлена задача на печать. Если передать влаг в значении false, нужно будет ожидать завершение выполнения запроса. Так как операция печати может быть трудоемкой, вы можете не дождаться ее окончания. 
+
+``printDocumentData`` — расшифрованный и разжатый контент. Рекомендуется передавать в данном параметре идентификатор content-id, полученный после загрузки расшифрованного разжатого контента в :doc:`сервис контентов</contents/index>`.
+
+**Ответ метода**
+
+* 200 OK — печатная форма документа успешно сформирована, возвращается в виде массива байт.
+* 202 Accepted — поставлена задача на печать документа, результат можно получить в методе Get DocflowDocumentTask.
+* 400 documentPrintUnsupported — печать невозможна: тип контента иил тип документа не поддерживается.  
+
+Проверка статуса задачи по TaskId
+---------------------------------
+
+Метод: `GET DocflowDocumentTask`_
+
+Метод возвращает статус и результат поставленной задачи. 
 
 .. _rst-markup-document-recognize:
 
 Распознавание входящего требования
 ----------------------------------
 
-Метод:  `POST RecognizeDocument`_
+Метод: `POST RecognizeDocument`_
 
 Данный метод позволяет распознать номер и дату требования, список ИНН из требования. Данные возвращаются в ответ на переданные идентификаторы входящего требования. Само требование передается в теле запроса в формате файла. Результат запроса запишется в мета-информацию документа. 
 

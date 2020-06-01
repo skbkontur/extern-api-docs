@@ -1,10 +1,23 @@
-.. _`поиск документооборотов`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-docflows
-.. _`POST Recognize`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-docflows-%7BdocflowId%7D-documents-%7BdocumentId%7D-recognize
-.. _`Send`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-send
-.. _`сервис контентов`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-contents
+.. _`поиск документооборотов`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
+.. _`POST Recognize`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
+.. _`Send`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
+.. _`сервис контентов`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
 
 История изменений API
 =====================
+
+Май 2020
+--------
+
+* Добавили в :doc:`методы формирования файлов</drafts/методы для формирования ФУФов>` в черновике возможность генерации заявления на подключение к ЭДОК. Достаточно передать валидный JSON контракт, метод сгенерирует контент файла и положит его в документ черновика.
+* О штампах в печатных формах:
+
+    * Внесли правки в печати штампов на отчетах. 
+    * Добавили в штампы помимо названия инспекции ее код.
+    * Добавили штампы в печатные формы отчета 2-НДФЛ.
+
+* В печатных формах добавили указание общего количества страниц.
+* В документации добавили новый раздел :doc:`Начало работы с API</howto/index>`.
 
 Апрель 2020
 -----------

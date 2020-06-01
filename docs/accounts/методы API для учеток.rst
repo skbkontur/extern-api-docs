@@ -1,18 +1,18 @@
-.. _Accounts: https://developer.testkontur.ru/extern/get-v1
-.. _`GET All`: https://developer.testkontur.ru/extern/get-v1
-.. _`POST Account`: https://developer.testkontur.ru/extern/post-v1
-.. _`GET Account`: https://developer.testkontur.ru/extern/get-v1-{accountId}
+.. _Accounts: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1
+.. _`GET All`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1
+.. _`POST Account`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1
+.. _`GET Account`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D
 
 Методы для работы с учетными записями
 =====================================
 
-Подробная спецификация методов представлена в сваггере в разделе Accounts_.
+Подробная спецификация методов представлена в swagger в разделе Accounts_.
 
 Список доступных методов:
 
 * `Получение списка всех доступных учетных записей`_
 * `Создание новой учетной записи`_
-* `Получение конкретной учетной записи`_
+* `Получение учетной записи по идентификатору`_
 
 Получение списка всех доступных учетных записей
 -----------------------------------------------
@@ -32,7 +32,7 @@
 
 .. important::  Доступно только для работы в сценариях Компаний-Партнеров Контура и дополнительно ещё и УЦ Контура. 
 
-Получение конкретной учетной записи
------------------------------------
+Получение учетной записи по идентификатору
+------------------------------------------
 
 Метод: `GET Account`_

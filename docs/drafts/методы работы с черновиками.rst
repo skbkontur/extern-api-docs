@@ -1,12 +1,12 @@
-.. _Drafts: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts
-.. _`POST Draft`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts
-.. _`DELETE Draft`: https://developer.testkontur.ru/extern/delete-v1-%7BaccountId%7D-drafts-%7BdraftId%7D
-.. _`GET Draft`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D
-.. _`GET Meta`: https://developer.testkontur.ru/extern/get-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-meta
-.. _`PUT Meta`: https://developer.testkontur.ru/extern/put-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-meta
-.. _`POST Check`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-check
-.. _`POST Prepare`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-prepare
-.. _`POST Send`: https://developer.testkontur.ru/extern/post-v1-%7BaccountId%7D-drafts-%7BdraftId%7D-send
+.. _Drafts: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`POST Draft`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`DELETE Draft`: https://developer.testkontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D
+.. _`GET Draft`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D
+.. _`GET Meta`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fmeta
+.. _`PUT Meta`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fmeta
+.. _`POST Check`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
+.. _`POST Prepare`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fprepare
+.. _`POST Send`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
 
 Методы для работы с черновиками
 ===============================
