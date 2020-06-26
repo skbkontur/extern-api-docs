@@ -2,9 +2,18 @@
 .. _`POST Recognize`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
 .. _`Send`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
 .. _`сервис контентов`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
+.. _`POST SignPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`GET DocflowPfrReplyDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`POST SignConfirmPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
 
 История изменений API
 =====================
+
+Июнь 2020
+---------
+
+* Ответные документы (Reply documents) для ПФР теперь можно подписывать DSS сертификатом. Для этого доступны новые методы `POST SignPfrReplyDocument`_, `GET DocflowPfrReplyDocumentTask`_, `POST SignConfirmPfrReplyDocument`_.
+* В методах API добавлена возможность формирования подписи xmlDsig для подписания отчета СЗВ-ТД и заявления на подключение к ЭДОК в ПФР. Подробное описание в документации: :doc:`Подпись XMLDsig для отчетов в ПФР</manuals/xmldsig>`.
 
 Май 2020
 --------
