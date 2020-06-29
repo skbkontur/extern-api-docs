@@ -3,16 +3,27 @@
 .. _`PUT ReplyDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcontent
 .. _`PUT ReplyDocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
 .. _`POST SendReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsend
+.. _`POST SignReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`POST SignConfirmReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+
 .. _`POST GeneratePfrReply`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-generate-reply
 .. _`GET GetPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D
 .. _`PUT SavePfrReplyDocumentDecryptedContent`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fdecrypted-content
 .. _`PUT SavePfrReplyDocumentSignature`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fsignature
 .. _`POST SendPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fsend
+.. _`POST SignPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`GET GetDocflowPfrReplyDocumentTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`POST SignConfirmPfrReplyDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
 
 Методы для работы с ответными документами
 =========================================
 
-Документооборот подразумевает под собой последовательный обмен определенными документами согласно регламенту. Поэтому в ответ на получаемые от контролирующего органа документы необходимо отправлять определенные ответные документы. Эти методы позволяют формировать и  работать с подобными технологическими документами. Также необходимые ссылки для формирования нужных документов будут появляться в работе с методом :ref:`Получения документооборота <rst-markup-get-dc>`.
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+Документооборот подразумевает под собой последовательный обмен определенными документами согласно регламенту. Поэтому в ответ на получаемые от контролирующего органа документы необходимо отправлять определенные ответные документы, нагляднее в разделе :doc:`Статусы и порядок документооборотов</specification/статусы ДО>`. Методы данного раздела позволяют формировать и работать с подобными технологическими документами. Также необходимые ссылки для формирования нужных документов будут появляться в работе с методом :ref:`Получения документооборота <rst-markup-get-dc>`.
 
 Список методов для работы с ответными документами в ФНС и Росстат:
 
@@ -21,6 +32,9 @@
 * `Редактирование контента документа`_
 * `Добавление подписи документа`_
 * `Отправка ответного документа`_
+* `Подписание ответного документа сертификатом`_
+* `Подтверждение подписания ответного документа`_
+* `Проверка статуса задачи подписания ответного документа по TaskId`_
 
 Список методов для работы с ответными документами в ПФР:
 
@@ -29,56 +43,80 @@
 * `Добавление расшифрованного контента документа в ПФР`_
 * `Добавление подписи к ответному документу в ПФР`_
 * `Отправка ответных документов в ПФР`_
+* `Подписание ответных документов сертификатом в ПФР`_
+* `Подтверждение подписания ответных документов в ПФР`_
+* `Проверка статуса задачи подписания ответного документа по TaskId в ПФР`_
 
 .. _rst-markup-post-reply-doc:
 
+Методы для работы с ответными документами в в ФНС и Росстат
+-----------------------------------------------------------
+
 Генерация ответного документа 
------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `POST CreateReplyDocument`_
 
 Метод позволяет сгенерировать xml-файл документа установленного формата. Также в ответе метода доступна и печатная форма сгенерированного документа.
 
 Просмотр документа 
-------------------
+~~~~~~~~~~~~~~~~~~
 
 Метод: `GET ReplyDocument`_
 
 С помощью данного метода можно получить все данные и контенты ответного документа, сгенерированного в методе выше.
 
 Редактирование контента документа
----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `PUT ReplyDocumentContent`_
 
 Добавление подписи документа
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `PUT ReplyDocumentSignature`_
 
 Отправка ответного документа
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `POST SendReplyDocument`_
 
 Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.
 
+Подписание ответного документа сертификатом
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignReplyDocument`_
+
+Метод позволяет подписать ответный документ DSS сертификатом. 
+
+Подтверждение подписания ответного документа
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignConfirmReplyDocument`_
+
+
+Проверка статуса задачи подписания ответного документа по TaskId
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `GET GetDocflowReplyDocumentTask`_
+
 .. _rst-markup-pfr-reply:
 
 Методы для работы с ответными документами в ПФР
-===============================================
+-----------------------------------------------
 
 .. _rst-markup-GeneratePfrReply:
 
 Создание ответных документов в документообороте с ПФР
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `POST GeneratePfrReply`_
 
 Метод позволяет сгенерировать xml-файл документа установленного формата. Также в ответе метода доступна и печатная форма сгенерированного документа.
 
 Просмотр ответных документов в документообороте с ПФР
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `GET GetPfrReplyDocument`_
 
@@ -87,22 +125,39 @@
 .. _rst-markup-SavePfrReplyDocumentDecryptedContent:
 
 Добавление расшифрованного контента документа в ПФР
----------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `PUT SavePfrReplyDocumentDecryptedContent`_
 
 .. _rst-markup-SavePfrReplyDocumentSignature:
 
 Добавление подписи к ответному документу в ПФР
-----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `PUT SavePfrReplyDocumentSignature`_
 
 .. _rst-markup-SendPfrReplyDocument:
 
 Отправка ответных документов в ПФР
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Метод: `POST SendPfrReplyDocument`_
 
 Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.
+
+Подписание ответных документов сертификатом в ПФР
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignPfrReplyDocument`_
+
+Метод позволяет подписать весь набор ответных документов в ПФР DSS сертификатом. 
+
+Подтверждение подписания ответных документов в ПФР
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignConfirmPfrReplyDocument`_
+
+Проверка статуса задачи подписания ответного документа по TaskId в ПФР
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `GET GetDocflowPfrReplyDocumentTask`_
