@@ -2,12 +2,12 @@
 .. _`GET GetDraftTask`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
 .. _`GET GetSignature`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
 
-Подписание документов в черновике
-=================================
+Подписание документов в черновике DSS сертификатом
+==================================================
 
 .. important:: Методы данного раздела позволяют работать только с DSS сертификатами электронной подписи, выпущенными Удостоверяющим центром АО "ПФ "СКБ Контур" (https://ca.kontur.ru).
 
-Подробнее о технологии DSS читайте в разделе :ref:`Облачная подпись<rst-markup-сloud_dss>`
+Подробнее о технологии DSS читайте в разделе :ref:`Облачная подпись<rst-markup-сloud_dss>`.
 
 .. _rst-markup-сloud_draft:
 
