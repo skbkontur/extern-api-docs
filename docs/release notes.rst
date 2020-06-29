@@ -12,8 +12,8 @@
 Июнь 2020
 ---------
 
-* Ответные документы (Reply documents) для ПФР теперь можно подписывать DSS сертификатом. Для этого доступны новые методы `POST SignPfrReplyDocument`_, `GET DocflowPfrReplyDocumentTask`_, `POST SignConfirmPfrReplyDocument`_.
-* В методах API добавлена возможность формирования подписи xmlDsig для подписания отчета СЗВ-ТД и заявления на подключение к ЭДОК в ПФР. Подробное описание в документации: :doc:`Подпись XMLDsig для отчетов в ПФР</manuals/xmldsig>`.
+* Ответные документы (Reply documents) для ПФР теперь можно подписывать DSS сертификатом. Для этого доступны новые методы: `POST SignPfrReplyDocument`_, `GET DocflowPfrReplyDocumentTask`_, `POST SignConfirmPfrReplyDocument`_. Подробнее о :doc:`подписании документов в документообороте</dc/подпись в до>`.
+* В методах API добавлена возможность формирования подписи xmlDsig для подписания :doc:`отчета СЗВ-ТД и заявления на подключение к ЭДОК в ПФР</knowledge base/szvtd>`. Подробное описание в документации: :doc:`Подпись XMLDsig для отчетов в ПФР</manuals/xmldsig>`.
 
 Май 2020
 --------
