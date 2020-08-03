@@ -13,6 +13,7 @@
    content
    print
    szvtd
+   check-demand
 
 В данном разделе собраны статьи и инструкции для работы с API Контур.Экстерна.
 
@@ -24,5 +25,6 @@
 * :doc:`Сервис контентов</knowledge base/content>`
 * :doc:`Печать документов</knowledge base/print>`
 * :doc:`Отчетность по форме СЗВ-ТД</knowledge base/szvtd>`
+* :doc:`Проверка документооборота требования</knowledge base/check-demand>`
 
 
