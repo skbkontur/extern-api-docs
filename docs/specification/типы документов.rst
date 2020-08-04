@@ -158,6 +158,7 @@
    "urn:document:business-registration-application","Заявление о государственной регистрации юридического лица, физического лица в качестве индивидуального предпринимателя","Заявление по установленной форме"
    "urn:document:business-registration-application-usn","Заявление о переходе на упрощенную систему налогообложения (форма №26.2-1)","Заявление о переходе на УСН"
    "urn:document:business-registration-founding-document","Учредительный документ","Учредительный документ"
+   "urn:document:business-registration-founding-document-correction","Изменения в учредительный документ","Изменения в учредительный документ"
    "urn:document:business-registration-attachment","Документы, необходимые для государственной регистрации","Иные документы"
    "**Ответные документы**","",""
    "urn:document:business-registration-check-protocol","Протокол с информацией о выявленных несоответствиях форматно-логического контроля","Сообщение о невозможности обработки электронных документов"
