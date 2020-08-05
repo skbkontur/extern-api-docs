@@ -155,7 +155,7 @@
 
 Процесс изменения статуса:
 
-.. image:: /_static/Схема-ДО-регистрация-бизнеса.jpg
+.. image:: /_static/status-fns534-businessRegistration.jpg
 
 Росстат
 -------

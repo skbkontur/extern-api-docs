@@ -20,7 +20,7 @@
 Где:
 
 * free - булевый флаг, который говорит проверять или нет валидность сертификата (true - не проверять, по умолчанию - false);
-* apiKey - :doc:`/manuals/api-key`.
+* apiKey - :doc:`/auth/api-key`.
 
 **Тело запроса**: 
 
@@ -61,7 +61,7 @@
 Где:
  
 * thumbprint - отпечаток сертификата, используемого для аутентификации;
-* apiKey - :doc:`/manuals/api-key`.
+* apiKey - :doc:`/auth/api-key`.
 
 **Тело запроса**: 
 
@@ -97,7 +97,7 @@
 
 * auth.sid - обновляемая сессия;
 * refresh-token - токен, соответствующий обновляемой сессии;
-* api-key - :doc:`/manuals/api-key`.
+* api-key - :doc:`/auth/api-key`.
 
 **Ответ**:
 
