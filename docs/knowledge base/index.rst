@@ -1,30 +1,38 @@
 База знаний
 ===========
 
+В данном разделе собраны теоретические статьи и инструкции, которые описывают особенности и процесс работы с API Контур.Экстерна.
+
 .. toctree::
-   :maxdepth: 2
-   :hidden:
+   :caption: Устройство и особенности API 
+   :titlesonly:
 
    cloud dss
-   FSS
-   PFR
    filename
-   businessReg
-   content
    print
-   szvtd
+   content
+   DraftsBuilder
+
+.. toctree::
+   :caption: Документооборот с ФНС
+   :titlesonly:
+
+   businessReg
+   demand
    check-demand
+   inventory
 
-В данном разделе собраны статьи и инструкции для работы с API Контур.Экстерна.
+.. toctree::
+   :caption: Документооборот с ФСС
+   :titlesonly:
 
-* :ref:`Облачная криптография<rst-markup-сloud_dss>`
-* :ref:`Документооборот с ФСС<rst-marckup-dc-fss>`
-* :doc:`Документооборот с ПФР</knowledge base/PFR>`
-* :doc:`Документооборот регистрации бизнеса с ИФНС</knowledge base/businessReg>`
-* :doc:`Наименование файлов отчетов</knowledge base/filename>`
-* :doc:`Сервис контентов</knowledge base/content>`
-* :doc:`Печать документов</knowledge base/print>`
-* :doc:`Отчетность по форме СЗВ-ТД</knowledge base/szvtd>`
-* :doc:`Проверка документооборота требования</knowledge base/check-demand>`
+   FSS
+
+.. toctree::
+   :caption: Документооборот с ПФР
+   :titlesonly:
+
+   PFR
+   szvtd
 
 

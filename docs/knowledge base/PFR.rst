@@ -40,7 +40,7 @@
 
 1. Если нет файла описи:
 
-   * Создаем :doc:`DraftsBuilder</builder/билдер>` с типом urn:drafts-builder:pfr-report, в метаинформации обязательно заполнить в RecipientInfo поле ``upfr-code``, в AccountInfo поле ``registration-number-pfr`` — это информация, которая должна быть передана в УПФР с отчетом. 
+   * Создаем :doc:`DraftsBuilder</knowledge base/DraftsBuilder>` с типом urn:drafts-builder:pfr-report, в метаинформации обязательно заполнить в RecipientInfo поле ``upfr-code``, в AccountInfo поле ``registration-number-pfr`` — это информация, которая должна быть передана в УПФР с отчетом. 
    
    Пример регистрационного номера юридического лица в ПФР: 000-000-000000. Пример кода УПФР: 000-000.
 
