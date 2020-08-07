@@ -1,0 +1,15 @@
+{
+  "BuilderType": "urn:externapi:business-registration:registration",
+  "BuilderData": {
+    "SvdregCode": "011011",
+    "signers": [
+      {
+        "fio": {
+          "surname": "Иванов",
+          "name": "Иван",
+          "patronymic": "Иванович"
+        }
+      }
+    ]
+  }
+}

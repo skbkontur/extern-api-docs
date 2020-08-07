@@ -1,0 +1,49 @@
+{
+    "Sender": {
+      "Inn": "5344712220",
+      "Kpp": "653150542",
+      "Certificate": {
+        "Content": "MIIIfzCCCCygAwIBAgIQMuq4AA6...4DcA=="
+      },
+      "IsRepresentative": false,
+      "IPAddress": "8.8.8.8"
+    },
+    "Payer": {
+      "Inn": "5344712220",
+      "Organization": {
+        "Kpp": "653150542"
+      },
+      "RegistrationNumberPfr": null,
+      "RegistrationNumberFss": "8467130235"
+    },
+    "Recipient": {
+      "IfnsCode": null,
+      "MriCode": null,
+      "TogsCode": null,
+      "UpfrCode": null,
+      "FssCode": null,
+      "RegistrationIfnsCode": "0007"
+    },
+    "BuilderType": "urn:externapi:business-registration:registration",
+    "BuilderData": {
+      "RegistrationInfo": {
+        "ApplicationCode": "Р21001",
+        "ApplicantInfos": [
+          {
+            "Inn": null,
+            "Fio": {
+              "Surname": "Фамилия",
+              "Name": "Имя",
+              "Patronymic": "Отчество"
+            },
+            "Email": "e-mail@email.ru"
+          }
+        ],
+        "BusinessType": null,
+        "IpInfo": null,
+        "UlInfo": null
+      },
+      "PaperDocumentsDeliveryType": 0,
+      "AdditionalCertificates": null
+    }
+  }
