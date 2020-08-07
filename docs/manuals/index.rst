@@ -5,7 +5,6 @@
    :maxdepth: 2
    :hidden:
 
-   api-key
    using-OpenSSL-and-RSA
    RSA-certs
    contracts
