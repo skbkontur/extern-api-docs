@@ -35,6 +35,7 @@ compat.make_admonition = BaseAdmonition
 
 #extensions = ['sphinx.ext.autodoc', 'sphinxcontrib.httpdomain', 'sphinxcontrib.images', 'hoverxref.extension']
 extensions = ['sphinx_tabs.tabs']
+
 images_config = {
     'override_image_directive': True
 }
