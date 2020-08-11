@@ -43,42 +43,50 @@
 
 **Параметры Тела запроса** 
 
-* ``Sender`` — информация об отправителе.
-* ``Payer`` — информация о налогоплательщике, организации за которую отправляется отчет.
-* ``Recipient`` — информация о получателе отчетности, налоговом органе.
-* ``Builder-type`` — :doc:`тип DraftsBuilder</specification/типы DraftsBuilder>`.
-* ``Builder-data``  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
+* ``sender`` — информация об отправителе;
+* ``payer`` — информация о налогоплательщике, организации за которую отправляется отчет;
+* ``recipient`` — информация о получателе отчетности, налоговом органе;
+* ``builder-type`` — :doc:`тип DraftsBuilder</specification/типы DraftsBuilder>`;
+* ``builder-data``  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
-*Builder-data для DraftsBuilder типа fns534-inventory*
+   Параметры Builder-data в зависимости от типа DraftsBuilder:
 
-* ``related-document`` — связанный документ (требование или письмо), на который формируется ответ:
-   
-   * ``related-docflow-id`` — идентификатор связанного документооборота.
-   * ``related-document-id`` — идентификатор документа в связанном документообороте (требование или письмо).
+   .. tabs::
 
-*Builder-data для DraftsBuilder типа business-registration*
+      .. tab:: тип fns534-inventory
 
-* ``registration-info`` — сведения для регистрации бизнеса:
-   
-   * ``application-code`` — код заявления по справочнику СФРД. Enums: р21001, р24001, р26001, р11001, р13001, р14001, р16001;
-   * ``applicant-infos`` — информация о заявителе;
-   * ``business-type`` — тип регистрируемого бизнеса. Enums: unknown, ip, ul;
-   * ``ip-info`` — информация об ИП;
-   * ``ul-info`` — информация о ЮЛ.
+         * ``related-document`` — связанный документ (требование или письмо), на который формируется ответ:
+            
+            * ``related-docflow-id`` — идентификатор связанного документооборота;
+            * ``related-document-id`` — идентификатор документа в связанном документообороте (требование или письмо).
 
-* ``paper-documents-delivery-type`` — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:
+         :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`;
 
-   * ``ToApplicant`` — выдать документы лично заявителю;
-   * ``ByPost`` — выслать документы по почте;
-   * ``No`` — если не требуется предоставления документов в письменном (бумажном) виде.
+      .. tab:: тип business-registration
 
-* ``additional-certificates`` — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64. 
+         * ``registration-info`` — сведения для регистрации бизнеса:
+            
+            * ``application-code`` — код заявления по справочнику СФРД. Enums: р21001, р24001, р26001, р11001, р13001, р14001, р16001;
+            * ``applicant-infos`` — информация о заявителе;
+            * ``business-type`` — тип регистрируемого бизнеса. Enums: unknown, ip, ul;
+            * ``ip-info`` — информация об ИП;
+            * ``ul-info`` — информация о ЮЛ.
 
--  :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`;
+         * ``paper-documents-delivery-type`` — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:
 
--  :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`;
+            * ``ToApplicant`` — выдать документы лично заявителю;
+            * ``ByPost`` — выслать документы по почте;
+            * ``No`` — если не требуется предоставления документов в письменном (бумажном) виде.
 
--  :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`.
+         * ``additional-certificates`` — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64. 
+
+         :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`;
+
+      .. tab:: тип pfr-report
+
+         ``null``
+         
+         :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`;
 
 Получение DraftsBuilder
 -----------------------
@@ -163,31 +171,39 @@
 
  * ``meta`` — метаинформация документа:
 
-   * ``Builder-type`` — тип DraftsBuilder;
-   * ``Builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
+   * ``builder-type`` — тип DraftsBuilder;
+   * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
-*Builder-data для DraftsBuilder типа fns534-inventory*
+      Параметры Builder-data в зависимости от типа DraftsBuilder:
 
-* ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
-* ``label-for-grouping`` — метка группы документов для разделения по разным описям;
-* ``scanned-document-name`` — название отсканированного документа;
-* ``type`` — тип документа. Enums: formalized, scanned, warrant;
-* ``background-processing`` — условия для немедленной обработки документа:
+      .. tabs::
 
-   * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве документов.
-   
-      При указании этого параметра документ и его файлы будут заблокированы для изменений!
-   
-      Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
+         .. tab:: тип fns534-inventory
 
-*Builder-data для DraftsBuilder типа business-registration*
+            * ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
+            * ``label-for-grouping`` — метка группы документов для разделения по разным описям;
+            * ``scanned-document-name`` — название отсканированного документа;
+            * ``type`` — Тип документа. Enums: formalized, scanned, warrant;
+            * ``background-processing`` — условия для немедленной обработки документа:
 
-* ``svdreg-code`` — код СВДРЕГ;
-* ``signers`` — данные каждого подписанта.
+               * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве документов.
+               
+                  При указании этого параметра документ и его файлы будут заблокированы для изменений!
+               
+                  Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
 
--  :download:`Пример Request Body для создания документа в DraftsBuilder типа fns534-inventory<../files/мета для создания DraftsBuilderDocument типа fns534-inventory.json>`;
+            :download:`Пример Request Body для создания документа в DraftsBuilder типа fns534-inventory<../files/мета для создания DraftsBuilderDocument типа fns534-inventory.json>`;
 
--  :download:`Пример Request Body для создания документа в DraftsBuilder типа business-registration<../files/мета для создания DraftsBuilderDocument типа business-registration.json>`;
+         .. tab:: тип business-registration
+
+            * ``svdreg-code`` — код СВДРЕГ;
+            * ``signers`` — данные каждого подписанта.
+
+            :download:`Пример Request Body для создания документа в DraftsBuilder типа business-registration<../files/мета для создания DraftsBuilderDocument типа business-registration.json>`;
+
+         .. tab:: тип pfr-report
+
+            ``null``
 
 Получение информации о документе
 --------------------------------
@@ -245,27 +261,59 @@
 
 Метод создает файл в документе. Вызываем столько раз, сколько файлов нужно положить в документ-контейнер.
 
-*Пример метаинформации для создания файла в DraftsBuilder типа fns534-inventory*:
+**Параметры Тела запроса (Request Body)**:
 
-::
+* ``file-name`` — полное имя файла;
+* ``builder-type`` — тип DraftsBuilder;
+* ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
 
-   {
-      "file-name": "Имя документа.pdf",
-      "builder-type": "urn:drafts-builder:fns534-inventory",
-      "builder-data": {
-         "scanned-file-order": "1"
-      }
-   }
+   Параметры builder-data в зависимости от типа DraftsBuilder:
 
-*Пример метаинформации для создания файла в DraftsBuilder типа business-registration*:
+   .. tabs::
 
-::
+      .. tab:: тип fns534-inventory
 
-   {
-      "FileName": "AnyFileName.pdf",
-      "builder-type": "urn:drafts-builder:business-registration",
-      "BuilderData": null
-   }
+         ``scanned-file-order`` — Порядковый номер файла в многостраничном документе. Если документ одностраничный, то файл будет один и передавать в параметре "1" не обязательно. Пример использования параметра: "3" будет означать, что данный файл — третья страница в документе.
+
+         **Пример метаинформации для создания файла**:
+
+         .. code-block::
+
+            {
+               "file-name": "Имя документа.pdf",
+               "builder-type": "urn:drafts-builder:fns534-inventory",
+               "builder-data": {
+                  "scanned-file-order": "3"
+               }
+            }
+
+      .. tab:: тип business-registration
+
+         ``null`` 
+
+         **Пример метаинформации для создания файла**:
+
+         .. code-block::
+
+            {
+               "FileName": "AnyFileName.pdf",
+               "builder-type": "urn:drafts-builder:business-registration",
+               "BuilderData": null
+            }
+
+      .. tab:: тип pfr-report
+
+         ``null``
+
+         **Пример метаинформации для создания файла**:
+
+         .. code-block::
+
+            {
+               "FileName": "AnyFileName.pdf",
+               "builder-type": "urn:drafts-builder:pfr-report",
+               "BuilderData": null
+            }
 
 Получение файла по идентификатору
 ---------------------------------
