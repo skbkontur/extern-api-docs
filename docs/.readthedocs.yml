@@ -23,6 +23,4 @@ python:
   install:
     - requirements: requirements.txt
     - method: pip
-      path: .
-      extra_requirements:
-          - docs
+      path: sphinx-tabs
