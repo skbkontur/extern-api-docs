@@ -44,7 +44,7 @@
 **Параметры Тела запроса** 
 
 * ``sender`` — информация об отправителе;
-* ``payer`` — информация о налогоплательщике, организации за которую отправляется отчет;
+* ``payer`` — информация о налогоплательщике, организации, за которую отправляется отчет;
 * ``recipient`` — информация о получателе отчетности, налоговом органе;
 * ``builder-type`` — :doc:`тип DraftsBuilder</specification/типы DraftsBuilder>`;
 * ``builder-data``  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
@@ -66,11 +66,23 @@
 
          * ``registration-info`` — сведения для регистрации бизнеса:
             
-            * ``application-code`` — код заявления по справочнику СФРД. Enums: р21001, р24001, р26001, р11001, р13001, р14001, р16001;
+            * ``application-code`` — код заявления по справочнику СФРД. Enums:
+               
+               * Р21001, 
+               * Р24001, 
+               * Р26001, 
+               * Р11001, 
+               * Р13001, 
+               * Р14001, 
+               * Р16001;
+
             * ``applicant-infos`` — информация о заявителе;
-            * ``business-type`` — тип регистрируемого бизнеса. Enums: unknown, ip, ul;
+            * ``business-type`` — тип регистрируемого бизнеса. Enums: ip, ul;
             * ``ip-info`` — информация об ИП;
-            * ``ul-info`` — информация о ЮЛ.
+               * ogrn-ip: не используется для заявления типа Р21001
+
+            * ``ul-info`` — информация о ЮЛ
+             * 
 
          * ``paper-documents-delivery-type`` — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:
 
@@ -171,7 +183,6 @@
 
  * ``meta`` — метаинформация документа:
 
-   * ``builder-type`` — тип DraftsBuilder;
    * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
       Параметры Builder-data в зависимости от типа DraftsBuilder:
@@ -197,13 +208,15 @@
          .. tab:: тип business-registration
 
             * ``svdreg-code`` — код СВДРЕГ;
-            * ``signers`` — данные каждого подписанта.
+            * ``signers`` — данные каждого подписанта:
+
+               * ``fio`` — ФИО каждого заявителя
 
             :download:`Пример Request Body для создания документа в DraftsBuilder типа business-registration<../files/мета для создания DraftsBuilderDocument типа business-registration.json>`;
 
          .. tab:: тип pfr-report
 
-            ``null``
+            Для DraftsBuilder типа pfr-report параметр builder-data не передается или указывается со значением null. 
 
 Получение информации о документе
 --------------------------------
@@ -264,7 +277,6 @@
 **Параметры Тела запроса (Request Body)**:
 
 * ``file-name`` — полное имя файла;
-* ``builder-type`` — тип DraftsBuilder;
 * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
 
    Параметры builder-data в зависимости от типа DraftsBuilder:
@@ -277,7 +289,7 @@
 
          **Пример метаинформации для создания файла**:
 
-         .. code-block::
+         .. code-block:: json
 
             {
                "file-name": "Имя документа.pdf",
