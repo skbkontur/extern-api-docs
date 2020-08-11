@@ -33,8 +33,8 @@ compat.make_admonition = BaseAdmonition
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 
-extensions = ['sphinx.ext.autodoc', 'hoverxref.extension', 'sphinx_tabs.tabs']
-
+#extensions = ['sphinx.ext.autodoc', 'sphinxcontrib.httpdomain', 'sphinxcontrib.images', 'hoverxref.extension']
+extensions = ['sphinx_tabs.tabs']
 images_config = {
     'override_image_directive': True
 }
