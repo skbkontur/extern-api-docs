@@ -1,5 +1,4 @@
 {
-  "BuilderType": "urn:externapi:business-registration:registration",
   "BuilderData": {
     "SvdregCode": "011011",
     "signers": [

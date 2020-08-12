@@ -43,7 +43,7 @@
         "IpInfo": null,
         "UlInfo": null
       },
-      "PaperDocumentsDeliveryType": 0,
+      "PaperDocumentsDeliveryType": "No",
       "AdditionalCertificates": null
     }
   }
