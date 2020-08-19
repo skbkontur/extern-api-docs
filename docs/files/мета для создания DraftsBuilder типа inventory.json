@@ -1,28 +1,24 @@
 {
-    "Meta": {
-        "Sender": {
-            "Inn": "6676701665",
-            "Kpp": "667628584",
-            "Certificate": {
-                "Content": "MIIJwzCCCXCgAwIBAgIQc...3odh3kLWu7UF1R/Cs4wdbqzXKUbIwQWD23tg=="
-            },
-            "IPAddress": null
-        },
-        "Payer": {
-            "Inn": "6676701665",
-            "Organization": {
-                "Kpp": "667628584"
-            }
-        },
-        "Recipient": {
-            "IfnsCode": "0087"
-        },
-        "BuilderType": "urn:drafts-builder:fns534-inventory",
-        "BuilderData": {
-            "RelatedDocument": {
-                "RelatedDocflowId": "00000000-0000-0000-0000-000000000000",
-                "RelatedDocumentId": "00000000-0000-0000-0000-000000000000"
-            }
-        }
+    "sender": {
+      "inn": "7757424860",
+      "kpp": "680345565",
+      "certificate": {
+        "content": "MIIJcDCCCR2gAwIBAgIQAdCF...ykqopO+/MYE3Xk="
+      },
+      "is-representative": false,
+      "ipaddress ": "8.8.8.8"
+    },
+    "Payer": {
+      "Inn": "662909960905"
+    },
+    "Recipient": {
+      "ifns-code": "0007"
+    },
+    "builder-type": "urn:drafts-builder:fns534-inventory",
+    "builder-data": {
+      "related-document": {
+      	"related-docflow-id": "7b9edebc-32bc-4317-b4a4-abbc26fe3663",
+      	"related-document-id": "eb312e60-6b26-425c-9917-3b8d2bd59fd0"
+      }
     }
 }

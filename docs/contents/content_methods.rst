@@ -1,6 +1,6 @@
-.. _`POST Upload`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
-.. _`PUT UploadByParts`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
-.. _`GET Download`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
+.. _`POST Upload`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
+.. _`PUT UploadByParts`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
+.. _`GET Download`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
 
 Методы сервиса контентов
 ========================

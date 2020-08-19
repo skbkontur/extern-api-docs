@@ -1,7 +1,7 @@
-.. _Accounts: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1
-.. _`GET All`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1
-.. _`POST Account`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1
-.. _`GET Account`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D
+.. _Accounts: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1
+.. _`GET All`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1
+.. _`POST Account`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1
+.. _`GET Account`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D
 
 Методы для работы с учетными записями
 =====================================
