@@ -60,7 +60,7 @@
             * ``related-docflow-id`` — идентификатор связанного документооборота;
             * ``related-document-id`` — идентификатор документа в связанном документообороте (требование или письмо).
 
-         :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`;
+         :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`
 
       .. tab:: тип business-registration
 
@@ -95,13 +95,13 @@
 
          * ``additional-certificates`` — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64. 
 
-         :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`;
+         :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`
 
       .. tab:: тип pfr-report
 
            Для DraftsBuilder типа pfr-report параметр builder-data не передается. 
          
-         :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`;
+         :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`
 
 Получение DraftsBuilder
 -----------------------
@@ -182,77 +182,75 @@
 
 Чтобы добавить файлы, необходимо сначала добавить для них контейнер — документ. Вызываем столько раз, сколько отдельных документов-контейнеров нужно создать.
 
-**Параметры Тела запроса (Request Body)** 
+**Параметры Тела запроса (Request Body)**
 
- * ``meta`` — метаинформация документа:
+* ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
-   * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
+   Параметры Builder-data в зависимости от типа DraftsBuilder:
 
-      Параметры Builder-data в зависимости от типа DraftsBuilder:
+   .. tabs::
 
-      .. tabs::
+      .. tab:: тип fns534-inventory
 
-         .. tab:: тип fns534-inventory
-
-            * ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
-            * ``label-for-grouping`` — метка группы документов для разделения по разным описям. 
-               
-               Иногда ФНС просит, чтобы налогоплательщик прислал определенные документы в разных описях. По данной метке документы будут разделены в разные черновики с разными файлами описи. В параметре можно передать любую строку, главное — для одной группы указывать одну и ту же строку. Значение null также является меткой. 
-               
-               **Пример**. для документа1 параметр не передан, для документа2 значение параметра "группа 1". Документы будут добавлены в разные черновики и будет сформировано две описи. Если параметр не передавать для всех документов, будет создан один черновик и один файл описи.
-
-            * ``scanned-document-name`` — название отсканированного документа;
-            * ``type`` — Тип документа. Enums: **formalized, scanned, warrant**;
-            * ``background-processing`` — условия для немедленной обработки документа:
-
-               * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве документов.
-               
-                  При указании этого параметра документ и его файлы будут заблокированы для изменений!
-               
-                  Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
+         * ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
+         * ``label-for-grouping`` — метка группы документов для разделения по разным описям. 
             
-            **Пример Request Body для создания документа**:
+            Иногда ФНС просит, чтобы налогоплательщик прислал определенные документы в разных описях. По данной метке документы будут разделены в разные черновики с разными файлами описи. В параметре можно передать любую строку, главное — для одной группы указывать одну и ту же строку. Значение null также является меткой. 
+            
+            **Пример**: для документа1 параметр не передан, для документа2 значение параметра "группа 1". Документы будут добавлены в разные черновики и будет сформировано две описи. Если параметр не передавать для всех документов, будет создан один черновик и один файл описи (:ref:`в соответствии с ограничениями на размер и количество файлов<rst-markup-db-restricting>`).
 
-            .. code-block:: json
+         * ``scanned-document-name`` — название отсканированного документа;
+         * ``type`` — Тип документа. Enums: **formalized, scanned, warrant**;
+         * ``background-processing`` — условия для немедленной обработки документа:
 
-               {
-                  "builder-data": {
-                     "claim-item-number": "1.00",
-                     "label-for-grouping": null,
-                     "scanned-document-name": "Имя документа.pdf",
-                     "type": "scanned"
-                  }
+            * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве или размере файлов в документе.
+            
+               После начала обработки документ и его файлы будут заблокированы для изменений. 
+            
+               Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
+         
+         **Пример Request Body для создания документа**:
+
+         .. code-block:: json
+
+            {
+               "builder-data": {
+                  "claim-item-number": "1.00",
+                  "label-for-grouping": null,
+                  "scanned-document-name": "Имя документа.pdf",
+                  "type": "scanned"
                }
+            }
 
-         .. tab:: тип business-registration
+      .. tab:: тип business-registration
 
-            * ``svdreg-code`` — код СВДРЕГ;
-            * ``signers`` — данные каждого подписанта:
+         * ``svdreg-code`` — код СВДРЕГ;
+         * ``signers`` — данные каждого подписанта:
 
-               * ``fio`` — ФИО каждого заявителя.
+            * ``fio`` — ФИО каждого заявителя.
 
-            **Пример Request Body для создания документа**:
+         **Пример Request Body для создания документа**:
 
-            .. code-block:: json
+         .. code-block:: json
 
-               {
-                  "builder-data": {
-                     "svdreg-code": "011011",
-                     "signers": [
-                        {
-                        "fio": {
-                           "surname": "Иванов",
-                           "name": "Иван",
-                           "patronymic": "Иванович"
-                           }
+            {
+               "builder-data": {
+                  "svdreg-code": "011011",
+                  "signers": [
+                     {
+                     "fio": {
+                        "surname": "Иванов",
+                        "name": "Иван",
+                        "patronymic": "Иванович"
                         }
-                     ]
-                  }
+                     }
+                  ]
                }
+            }
 
-         .. tab:: тип pfr-report
+      .. tab:: тип pfr-report
 
-            Для DraftsBuilder типа pfr-report параметр builder-data не передается. 
+         Для DraftsBuilder типа pfr-report параметр builder-data не передается. 
 
 Получение информации о документе
 --------------------------------
@@ -312,53 +310,70 @@
 
 **Параметры Тела запроса (Request Body)**:
 
-* ``file-name`` — полное имя файла;
-* ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
+* ``base64-content`` — контент файла в формате base64;
+* ``content-id`` — идентификатор контента в сервисе контентов;
+* ``base64-signature-content`` — контент подписи файла в формате base64;
+* ``meta`` — метаинформация файла:
 
-   Параметры builder-data в зависимости от типа DraftsBuilder:
+   * ``file-name`` — полное имя файла;
+   * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
 
-   .. tabs::
+      Параметры builder-data в зависимости от типа DraftsBuilder:
 
-      .. tab:: тип fns534-inventory
+      .. tabs::
 
-         ``scanned-file-order`` — Порядковый номер файла в многостраничном документе. Если документ одностраничный, то файл будет один и передавать в параметре "1" не обязательно. Пример использования параметра: "3" будет означать, что данный файл — третья страница в документе.
+         .. tab:: тип fns534-inventory
 
-         **Пример Request Body для создания файла**:
+            ``scanned-file-order`` — порядковый номер файла в многостраничном документе. Если документ одностраничный, то файл будет один и передавать в параметре "1" не обязательно. Пример использования параметра: "3" будет означать, что данный файл — третья страница в документе.
 
-         .. code-block:: json
+            **Пример Request Body для создания файла**:
 
-            {
-               "file-name": "Имя документа.pdf",
-               "builder-data": {
-                  "scanned-file-order": "3"
+            .. code-block:: json
+
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "Имя документа.pdf",
+                     "builder-data": {
+                        "scanned-file-order": "3"
+                     }
+                  }
                }
-            }
 
-      .. tab:: тип business-registration
+         .. tab:: тип business-registration
 
-         Для DraftsBuilder типа business-registration параметр builder-data не передается. 
+            Для DraftsBuilder типа business-registration параметр builder-data не передается. 
 
-         **Пример Request Body для создания файла**:
+            **Пример Request Body для создания файла**:
 
-         .. code-block:: json
+            .. code-block:: json
 
-            {
-               "file-name": "AnyFileName.pdf",
-               "builder-data": null
-            }
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "AnyFileName.pdf",
+                     "builder-data": null
+                  }
+               }
 
-      .. tab:: тип pfr-report
+         .. tab:: тип pfr-report
 
-         Для DraftsBuilder типа pfr-report параметр builder-data не передается.
+            Для DraftsBuilder типа pfr-report параметр builder-data не передается.
 
-         **Пример Request Body для создания файла**:
+            **Пример Request Body для создания файла**:
 
-         .. code-block:: json
+            .. code-block:: json
 
-            {
-               "file-name": "AnyFileName.pdf",
-               "builder-data": null
-            }
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "AnyFileName.pdf",
+                     "builder-data": null
+                  }
+               }
 
 Получение файла по идентификатору
 ---------------------------------
