@@ -8,10 +8,10 @@
       "is-representative": false,
       "ipaddress ": "8.8.8.8"
     },
-    "Payer": {
-      "Inn": "662909960905"
+    "payer": {
+      "inn": "662909960905"
     },
-    "Recipient": {
+    "recipient": {
       "ifns-code": "0007"
     },
     "builder-type": "urn:drafts-builder:fns534-inventory",
