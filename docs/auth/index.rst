@@ -1,4 +1,4 @@
-.. _API Аутентификатора: https://developer.testkontur.ru/auth
+.. _API Аутентификатора: https://developer.kontur.ru/auth
 
 Аутентификация
 ==============

@@ -1,4 +1,4 @@
-.. _сервисом генерации тестовых данных: https://developer.testkontur.ru/doc/extern.test.tools
+.. _сервисом генерации тестовых данных: https://developer.kontur.ru/doc/extern.test.tools
 
 Наименование файлов
 ===================

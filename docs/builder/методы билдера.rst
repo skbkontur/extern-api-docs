@@ -1,27 +1,27 @@
-.. _`POST CreateDraftsBuilder`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders
-.. _`GET GetDraftsBuilder`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`GET GetDraftsBuilderMeta`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilder`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`PUT UpdateDraftsBuilderMeta`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
-.. _`POST BuildDrafts`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fbuild
-.. _`GET GetBuildResult`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Ftasks%2F%7BapiTaskId%7D
-.. _`DELETE RemoveDraftsBuilder`: https://developer.testkontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`GET GetDraftsBuilderDocuments`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
-.. _`POST CreateDraftsBuilderDocument`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
-.. _`GET GetDraftsBuilderDocument`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`GET GetDraftsBuilderDocumentMeta`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilderDocument`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`PUT UpdateDraftsBuilderDocumentMeta`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
-.. _`DELETE RemoveDraftsBuilderDocument`: https://developer.testkontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`GET GetDraftsBuilderDocumentFiles`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
-.. _`POST CreateDraftsBuilderDocumentFile`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
-.. _`GET GetDraftsBuilderDocumentFile`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
-.. _`PUT UpdateDraftsBuilderDocumentFile`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
-.. _`GET GetDraftsBuilderDocumentFileContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fcontent
-.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fsignature
-.. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
-.. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.testkontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`POST CreateDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders
+.. _`GET GetDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`PUT UpdateDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
+.. _`POST BuildDrafts`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fbuild
+.. _`GET GetBuildResult`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`DELETE RemoveDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderDocuments`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
+.. _`POST CreateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
+.. _`GET GetDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`PUT UpdateDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
+.. _`DELETE RemoveDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentFiles`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
+.. _`POST CreateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
+.. _`GET GetDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`PUT UpdateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`GET GetDraftsBuilderDocumentFileContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fcontent
+.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fsignature
+.. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
+.. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
 .. _тут: https://www.diadoc.ru/docs/faq/faq-127
 
 Методы для работы с DraftsBuilder
@@ -43,42 +43,65 @@
 
 **Параметры Тела запроса** 
 
-* ``Sender`` — информация об отправителе.
-* ``Payer`` — информация о налогоплательщике, организации за которую отправляется отчет.
-* ``Recipient`` — информация о получателе отчетности, налоговом органе.
-* ``Builder-type`` — :doc:`тип DraftsBuilder</specification/типы DraftsBuilder>`.
-* ``Builder-data``  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
+* ``sender`` — информация об отправителе;
+* ``payer`` — информация о налогоплательщике, организации, за которую отправляется отчет;
+* ``recipient`` — информация о получателе отчетности, налоговом органе;
+* ``builder-type`` — :doc:`тип DraftsBuilder</specification/типы DraftsBuilder>`;
+* ``builder-data``  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
-*Builder-data для DraftsBuilder типа fns534-inventory*
+   Параметры Builder-data в зависимости от типа DraftsBuilder:
 
-* ``related-document`` — связанный документ (требование или письмо), на который формируется ответ:
-   
-   * ``related-docflow-id`` — идентификатор связанного документооборота.
-   * ``related-document-id`` — идентификатор документа в связанном документообороте (требование или письмо).
+   .. tabs::
 
-*Builder-data для DraftsBuilder типа business-registration*
+      .. tab:: тип fns534-inventory
 
-* ``registration-info`` — сведения для регистрации бизнеса:
-   
-   * ``application-code`` — код заявления по справочнику СФРД. Enums: р21001, р24001, р26001, р11001, р13001, р14001, р16001;
-   * ``applicant-infos`` — информация о заявителе;
-   * ``business-type`` — тип регистрируемого бизнеса. Enums: unknown, ip, ul;
-   * ``ip-info`` — информация об ИП;
-   * ``ul-info`` — информация о ЮЛ.
+         * ``related-document`` — связанный документ (требование или письмо), на который формируется ответ:
+            
+            * ``related-docflow-id`` — идентификатор связанного документооборота;
+            * ``related-document-id`` — идентификатор документа в связанном документообороте (требование или письмо).
 
-* ``paper-documents-delivery-type`` — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:
+         :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`
 
-   * ``ToApplicant`` — выдать документы лично заявителю;
-   * ``ByPost`` — выслать документы по почте;
-   * ``No`` — если не требуется предоставления документов в письменном (бумажном) виде.
+      .. tab:: тип business-registration
 
-* ``additional-certificates`` — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64. 
+         * ``registration-info`` — сведения для регистрации бизнеса:
+            
+            * ``application-code`` — код заявления по справочнику СФРД. Enums:
+               
+               * **Р21001** — Заявление о государственной регистрации физического лица в качестве индивидуального предпринимателя;
+               * **Р24001** — Заявление о внесении изменений в сведения об индивидуальном предпринимателе, содержащиеся в Едином государственном реестре индивидуальных предпринимателей;
+               * **Р26001** — Заявление о государственной регистрации прекращения физическим лицом деятельности в качестве индивидуального предпринимателя в связи с принятием им решения о прекращении данной деятельности;
+               * **Р11001** — Заявление о государственной регистрации юридического лица; 
+               * **Р13001** — Заявление о государственной регистрации изменений, вносимых в учредительные документы юридического лица;
+               * **Р14001** — Заявление о внесении в Единый государственный реестр юридических лиц изменений в сведения о юридическом лице, не связанных с внесением изменений в учредительные документы;
+               * **Р16001** — Заявление о государственной регистрации юридического лица в связи с его ликвидацией.
 
--  :download:`пример Request Body для создания DraftsBuilder Ответа на требование<../files/мета для создания DraftsBuilder типа inventory.json>`;
+            * ``applicant-infos`` — информация о заявителе;
+            * ``business-type`` — тип регистрируемого бизнеса. Enums: **ip, ul**;
+            * ``ip-info`` — информация об ИП;
 
--  :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`;
+               * ``ogrn-ip`` — ОГРНИП. Не используется для заявления типа Р21001.
 
--  :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`.
+            * ``ul-info`` — информация о ЮЛ:
+
+               * ``ogrn`` — ОГРН. Не используется для заявления типа Р11001.
+               * ``name`` — название организации
+
+         * ``paper-documents-delivery-type`` — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:
+
+            * **ToApplicant** — выдать документы лично заявителю;
+            * **ByPost** — выслать документы по почте;
+            * **No** — если не требуется предоставления документов в письменном (бумажном) виде.
+
+         * ``additional-certificates`` — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64. 
+
+         :download:`пример Request Body для создания DraftsBuilder для регистрации бизнеса <../files/мета для создания DraftsBuilder типа business-registration.json>`
+
+      .. tab:: тип pfr-report
+
+           Для DraftsBuilder типа pfr-report параметр builder-data не передается. 
+         
+         :download:`пример Request Body для создания DraftsBuilder для отчета в ПФР <../files/мета для создания DraftsBuilder типа pfr-report.json>`
 
 Получение DraftsBuilder
 -----------------------
@@ -115,14 +138,14 @@
 
 Метод: `POST BuildDrafts`_
 
-Чтобы завершить создание черновика описи необходимо привести все переданные данные к установленному формату. 
+Чтобы завершить создание черновика описи необходимо привести все переданные данные к установленному формату. Сборку черновиков нужно запускать, когда пользователь добавил все файлы документов, необходимые для отправки отчета в налоговый орган. Если после сборки доложить в черновик новый документ, файл описи станет недействительным. 
 
 В результате работы метод вернет:
 
 * идентификаторы черновиков, в каждом из которых будет находиться: xml-файл описи, файлы, сообщение о представительстве (если есть);
 * информацию о выполнении сборки, которая содержит: идентификатор TaskId, состояние сборки, результат, сообщение об ошибке. 
 
-Время сборки зависит от количества и размера файлов, вы можете отслеживать состояние сборки черновиков по полученному идентификатору задачи TaskId и идентификатору DraftsBuilderId.
+Время сборки зависит от количества и размера файлов. Отследить состояние сборки черновиков можно при помощи метода GetBuildResult по полученному идентификатору задачи TaskId и идентификатору DraftsBuilderId.
 
 Проверка статуса сборки
 -----------------------
@@ -159,35 +182,75 @@
 
 Чтобы добавить файлы, необходимо сначала добавить для них контейнер — документ. Вызываем столько раз, сколько отдельных документов-контейнеров нужно создать.
 
-**Параметры Тела запроса (Request Body)** 
+**Параметры Тела запроса (Request Body)**
 
- * ``meta`` — метаинформация документа:
+* ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
 
-   * ``Builder-type`` — тип DraftsBuilder;
-   * ``Builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder. 
+   Параметры Builder-data в зависимости от типа DraftsBuilder:
 
-*Builder-data для DraftsBuilder типа fns534-inventory*
+   .. tabs::
 
-* ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
-* ``label-for-grouping`` — метка группы документов для разделения по разным описям;
-* ``scanned-document-name`` — название отсканированного документа;
-* ``type`` — тип документа. Enums: formalized, scanned, warrant;
-* ``background-processing`` — условия для немедленной обработки документа:
+      .. tab:: тип fns534-inventory
 
-   * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве документов.
-   
-      При указании этого параметра документ и его файлы будут заблокированы для изменений!
-   
-      Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
+         * ``claim-item-number`` — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;
+         * ``label-for-grouping`` — метка группы документов для разделения по разным описям. 
+            
+            Иногда ФНС просит, чтобы налогоплательщик прислал определенные документы в разных описях. По данной метке документы будут разделены в разные черновики с разными файлами описи. В параметре можно передать любую строку, главное — для одной группы указывать одну и ту же строку. Значение null также является меткой. 
+            
+            **Пример**: для документа1 параметр не передан, для документа2 значение параметра "группа 1". Документы будут добавлены в разные черновики и будет сформировано две описи. Если параметр не передавать для всех документов, будет создан один черновик и один файл описи (:ref:`в соответствии с ограничениями на размер и количество файлов<rst-markup-db-restricting>`).
 
-*Builder-data для DraftsBuilder типа business-registration*
+         * ``scanned-document-name`` — название отсканированного документа;
+         * ``type`` — Тип документа. Enums: **formalized, scanned, warrant**;
+         * ``background-processing`` — условия для немедленной обработки документа:
 
-* ``svdreg-code`` — код СВДРЕГ;
-* ``signers`` — данные каждого подписанта.
+            * ``total-file-count`` — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве или размере файлов в документе.
+            
+               После начала обработки документ и его файлы будут заблокированы для изменений. 
+            
+               Рекомендуется выставлять, если клиент уверен, что документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.
+         
+         **Пример Request Body для создания документа**:
 
--  :download:`Пример Request Body для создания документа в DraftsBuilder типа fns534-inventory<../files/мета для создания DraftsBuilderDocument типа fns534-inventory.json>`;
+         .. code-block:: json
 
--  :download:`Пример Request Body для создания документа в DraftsBuilder типа business-registration<../files/мета для создания DraftsBuilderDocument типа business-registration.json>`;
+            {
+               "builder-data": {
+                  "claim-item-number": "1.00",
+                  "label-for-grouping": null,
+                  "scanned-document-name": "Имя документа.pdf",
+                  "type": "scanned"
+               }
+            }
+
+      .. tab:: тип business-registration
+
+         * ``svdreg-code`` — код СВДРЕГ;
+         * ``signers`` — данные каждого подписанта:
+
+            * ``fio`` — ФИО каждого заявителя.
+
+         **Пример Request Body для создания документа**:
+
+         .. code-block:: json
+
+            {
+               "builder-data": {
+                  "svdreg-code": "011011",
+                  "signers": [
+                     {
+                     "fio": {
+                        "surname": "Иванов",
+                        "name": "Иван",
+                        "patronymic": "Иванович"
+                        }
+                     }
+                  ]
+               }
+            }
+
+      .. tab:: тип pfr-report
+
+         Для DraftsBuilder типа pfr-report параметр builder-data не передается. 
 
 Получение информации о документе
 --------------------------------
@@ -245,27 +308,71 @@
 
 Метод создает файл в документе. Вызываем столько раз, сколько файлов нужно положить в документ-контейнер.
 
-*Пример метаинформации для создания файла в DraftsBuilder типа fns534-inventory*:
+**Параметры Тела запроса (Request Body)**:
 
-::
+* ``content-id`` — идентификатор контента в сервисе контентов;
+* ``base64-signature-content`` — контент подписи файла в формате base64;
+* ``meta`` — метаинформация файла:
 
-   {
-      "file-name": "Имя документа.pdf",
-      "builder-type": "urn:drafts-builder:fns534-inventory",
-      "builder-data": {
-         "scanned-file-order": "1"
-      }
-   }
+   * ``file-name`` — полное имя файла;
+   * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
 
-*Пример метаинформации для создания файла в DraftsBuilder типа business-registration*:
+      Параметры builder-data в зависимости от типа DraftsBuilder:
 
-::
+      .. tabs::
 
-   {
-      "FileName": "AnyFileName.pdf",
-      "builder-type": "urn:drafts-builder:business-registration",
-      "BuilderData": null
-   }
+         .. tab:: тип fns534-inventory
+
+            ``scanned-file-order`` — порядковый номер файла в многостраничном документе. Если документ одностраничный, то файл будет один и передавать в параметре "1" не обязательно. Пример использования параметра: "3" будет означать, что данный файл — третья страница в документе.
+
+            **Пример Request Body для создания файла**:
+
+            .. code-block:: json
+
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "Имя документа.pdf",
+                     "builder-data": {
+                        "scanned-file-order": "3"
+                     }
+                  }
+               }
+
+         .. tab:: тип business-registration
+
+            Для DraftsBuilder типа business-registration параметр builder-data не передается. 
+
+            **Пример Request Body для создания файла**:
+
+            .. code-block:: json
+
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "AnyFileName.pdf",
+                     "builder-data": null
+                  }
+               }
+
+         .. tab:: тип pfr-report
+
+            Для DraftsBuilder типа pfr-report параметр builder-data не передается.
+
+            **Пример Request Body для создания файла**:
+
+            .. code-block:: json
+
+               {
+                  "content-id": "1fa932c7-84c2-4f20-acc5-56917ba85aaa",
+                  "base64-signature-content": "MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=",
+                  "meta": {
+                     "file-name": "AnyFileName.pdf",
+                     "builder-data": null
+                  }
+               }
 
 Получение файла по идентификатору
 ---------------------------------

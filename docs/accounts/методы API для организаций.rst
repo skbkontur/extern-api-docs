@@ -1,9 +1,9 @@
-.. _`Organizations`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
-.. _`GET Organizations`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
-.. _`POST Organization`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
-.. _`PUT Organization`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
-.. _`GET Organization`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
-.. _`DELETE Organization`: https://developer.testkontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
+.. _`Organizations`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
+.. _`GET Organizations`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
+.. _`POST Organization`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations
+.. _`PUT Organization`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
+.. _`GET Organization`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
+.. _`DELETE Organization`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
 
 Методы для работы с организациями
 =================================

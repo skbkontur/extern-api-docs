@@ -1,4 +1,4 @@
-.. _`GET Certificates`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcertificates
+.. _`GET Certificates`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcertificates
 
 Методы для работы с сертификатами учетных записей
 =================================================
