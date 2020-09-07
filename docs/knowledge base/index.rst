@@ -12,6 +12,7 @@
    print
    content
    DraftsBuilder
+   loks
 
 .. toctree::
    :caption: Документооборот с ФНС

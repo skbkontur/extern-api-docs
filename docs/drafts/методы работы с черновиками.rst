@@ -8,6 +8,9 @@
 .. _`POST Check`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
 .. _`POST Prepare`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fprepare
 .. _`POST Send`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
+.. _`GET DraftTasks`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks
+.. _`GET DraftTask`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`модель данных`: https://developer.kontur.ru/doc/extern/models
 
 Методы для работы с черновиками
 ===============================
@@ -25,6 +28,9 @@
 * `Проверка документов в черновике`_
 * `Подготовка документов в черновике к отправке`_
 * `Отправка документов из черновика`_
+* `Получение списка задач черновика`_
+* `Проверка статуса задачи черновика по TaskId`_
+
 
 Создание черновика 
 ------------------
@@ -91,3 +97,15 @@
 Метод: `POST Send`_
 
 На выходе данного метода получается документооборот, с которым продолжается работа с помощью методов блока :doc:`Docflow</dc/index>`.
+
+Получение списка задач черновика
+--------------------------------
+
+Метод: `GET DraftTasks`_
+
+Проверка статуса задачи черновика по TaskId
+-------------------------------------------
+
+Метод: `GET DraftTask`_
+
+Метод  возвращает результат выполнения задачи. Модель ответа зависит от типа поставленной задачи: для задачи проверки вернется `модель данных`_ CheckResult, подготовки - PrepareResult, отправки - Docflow, подписания - CryptOperationStatusResult.
