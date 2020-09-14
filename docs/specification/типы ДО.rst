@@ -53,3 +53,12 @@
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
    "urn:docflow:oved-confirmation", "Подтверждение основного вида экономической деятельности"
+
+ЦБ РФ
+-----
+
+.. csv-table:: 
+   :header: "Urn", "Тип документооборота"
+   :widths: 20 40
+
+   "urn:docflow:cbrf-report", "Отчетность в ЦБ РФ"

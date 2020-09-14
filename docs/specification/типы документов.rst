@@ -351,3 +351,29 @@
       "urn:document:oved-confirmation-request-result", "Результат приема"
       "urn:document:oved-confirmation-processing-result", "Результат обработки"
 
+ЦБ РФ
+-----
+
+Отчетность в ЦБ РФ (документообороты после 01.01.2020)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:cbrf-report-v2","Отчет"
+      "urn:document:cbrf-report-esod-receipt","Результат приема отчета"
+      "urn:document:cbrf-report-status-info","Технологический документ"
+      "urn:document:cbrf-report-processing-status","Результат обработки отчета"
+      "urn:document:cbrf-report-processing-error-protocol","Протокол с перечнем ошибок, возникшими при проверке отчета"
+
+Отчетность в ЦБ РФ (документообороты до 01.01.2020)
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:cbrf-report","Отчет"
+      "urn:document:cbrf-report-reception-result","Сообщение о приеме"
+      "urn:document:cbrf-report-processing-result","Результат обработки"
