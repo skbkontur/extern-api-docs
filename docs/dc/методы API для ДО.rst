@@ -3,8 +3,6 @@
 .. _`GET Documents`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments
 .. _`GET Document`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D
 .. _`GET DocumentDescription`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdescription
-.. _`GET EncryptedDocumentContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
-.. _`GET DecryptedDocumentContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
 .. _`GET DocumentSignatures`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
 .. _`GET DocumentSignature`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D
 .. _`GET DocumentSignatureContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D%2Fcontent
@@ -13,7 +11,8 @@
 .. _`POST RecognizeDocument`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
 .. _`GET RelatedDocflows`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Frelated
 .. _`POST Check-Demand`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fcheck-demand
-
+.. _`GET EncryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
+.. _`GET DecryptedDocumentContent`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
 
 Методы для работы с документооборотами
 ======================================
@@ -22,7 +21,7 @@
    :maxdepth: 1
    :hidden:
 
-Подробная спецификация методов показана в swagger в разделе **Документообороты**.
+Подробная спецификация методов показана в Swagger в разделе **Документообороты**.
 
 Список доступных методов:
 
@@ -31,8 +30,6 @@
 * `Получение списка документов документооборота`_
 * `Получение документа`_
 * `Получение описания документа`_
-* `Получение зашифрованного контента документа`_
-* `Получение расшифрованного контента документа`_
 * `Получение подписей под документом`_
 * `Получение конкретной подписи под документом`_
 * `Получение контента конкретной подписи под документом`_
@@ -40,6 +37,8 @@
 * `Распознавание входящего требования`_
 * `Получение связанных документооборотов`_
 * `Проверка требований ФНС`_
+* `Получение зашифрованного контента документа (deprecated)`_
+* `Получение расшифрованного контента документа (deprecated)`_
 
 .. _rst-markup-get-dcs:
 
@@ -768,20 +767,6 @@ C помощью этого метода можно получить отдел�
 
 Данный метод позволяет отдельно получить описание документа, входящего в документооборот.
 
-Получение зашифрованного контента документа 
--------------------------------------------
-
-Метод: `GET EncryptedDocumentContent`_
-
-Зашифрованный контент возвращается в формате base64. Чтобы получить контент, его нужно конвертировать, дешифровать при помощи закрытого ключа, на который он был зашифрован. В результате вы получите архив, который нужно разархивировать.
-
-Получение расшифрованного контента документа 
---------------------------------------------
-
-Метод: `GET DecryptedDocumentContent`_
-
-Наличие расшифрованного контента возможно не для всех документов.
-
 Получение подписей под документом 
 ---------------------------------
 
@@ -906,3 +891,20 @@ C помощью этого метода можно получить отдел�
 * 404 — документооборот не найден.
 * 500 — произошла внутренняя ошибка.
 
+Получение зашифрованного контента документа (deprecated)
+--------------------------------------------------------
+
+.. attention::  **Метод устарел.** Вместо него используйте :doc:`Сервис контентов</knowledge base/content>`. Идентификатор контента лежит в параметре docflow-document-contents/content-id.
+
+Метод: `GET EncryptedDocumentContent`_
+
+Зашифрованный контент возвращается в формате base64. Чтобы получить контент, его нужно конвертировать, дешифровать при помощи закрытого ключа, на который он был зашифрован. В результате вы получите архив, который нужно разархивировать.
+
+Получение расшифрованного контента документа (deprecated)
+---------------------------------------------------------
+
+.. attention:: **Метод устарел.** Вместо него используйте :doc:`Сервис контентов</knowledge base/content>`. Идентификатор контента лежит в параметре docflow-document-contents/content-id.
+
+Метод: `GET DecryptedDocumentContent`_
+
+Наличие расшифрованного контента возможно не для всех документов.
