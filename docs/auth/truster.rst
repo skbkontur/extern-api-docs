@@ -1,7 +1,7 @@
 .. _RSA: https://ru.wikipedia.org/wiki/RSA
 
-Доверительная 
-=============
+Доверительная (Obsolete)
+========================
 
 .. warning:: Данный вид аутентификации доступен только для **Компаний-Партнеров Удостоверяющего Центра**.  
 
@@ -23,13 +23,13 @@
 Для получения :doc:`/auth/auth.sid` пользователя при помощи доверительной аутентификации необходимо, чтобы пользователь Контура был связан с пользователем доверенной системы. Связь может происходить следующим образом:
 
 * вручную техподдержкой или продуктами на стороне Контура по запросу Компании-Партнера,
-* доверенной системе разрешается самостоятельно связывать определенных пользователей Контура с любым своим пользователем по номеру телефона пользователя - требуется отдельное разрешение, которое проставляется на :doc:`/auth/api-key` Компании-Партнера.
+* доверенной системе разрешается самостоятельно связывать определенных пользователей Контура с любым своим пользователем по номеру телефона пользователя — требуется отдельное разрешение, которое проставляется на :doc:`/auth/api-key` Компании-Партнера.
 
 **Запрос**: 
 
 ::
 
-  PUT /auth/v5.13/register-external-service-id?api-key=value&serviceUserId=value&phone=value
+  PUT /auth/v5.16/register-external-service-id?api-key=value&serviceUserId=value&phone=value
   
 Где:
 
@@ -65,7 +65,7 @@
 
 ::
 
-  POST /auth/v5.13/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value
+  POST /auth/v5.16/authenticate-by-truster?apiKey=value&credential=value&timestamp=value&serviceUserId=value
   
 Где:
 
@@ -114,7 +114,7 @@
 
 ::
 
-  POST /auth/v5.13/approve-truster?key=value&id=value&apiKey=value
+  POST /auth/v5.16/approve-truster?key=value&id=value&apiKey=value
   
 Где:
 

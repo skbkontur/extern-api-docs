@@ -1,0 +1,69 @@
+.. _`Документация OpenID Connect`: https://developer.testkontur.ru/doc/openidconnect
+.. _`OpenID Connect`: https://openid.net/specs/openid-connect-core-1_0.html
+.. _`открытый`: https://identity.testkontur.ru/.well-known/openid-configuration/jwks
+.. _`POST tokenendpoint`: https://developer.testkontur.ru/doc/openidconnect/method?type=post&path=%2Fconnect%2Ftoken
+
+Получение Access Token
+======================
+
+Токен запрашивается через OpenID Connect Provider по адресам:
+
+* Рабочая площадка: https://identity.kontur.ru
+* Тестовая площадка: https://identity.testkontur.ru
+
+`Документация OpenID Connect`_. Для удобства тестирования методов получения Access Token можно скачать файл коллекции Postman:
+
+:download:`файл коллекции аутентификации Postman <../files/auth openid connect.postman_collection.json>`
+
+Основные понятия
+----------------
+
+**OpenID Provider (Провайдер)** — аутентификационный сервер, который реализует протокол `OpenID Connect`_. Провайдер имеет `открытый`_ и закрытый ключи. Также Провайдер выдает токены, которыми оперирует OpenID Connect.
+
+Для работы с Провайдером нужно иметь:
+
+* **client_id** — сервисное имя, выдается вместе с :doc:`api-key</auth_oidc/api-key>`,
+* **client_secret** — api-key.
+
+**Access Token** — некоторый идентификатор, позволяет идентифицировать пользователя и выполнять действия от его имени в API.
+
+    **Время жизни Access Token 24 часа**. Но токен может быть отозван в любой момент пользователем (например, если он сменил пароль) или Контуром. Истечение срока жизни токена не считается отзывом, он просто перестает действовать.
+
+
+Использование Access Token
+--------------------------
+
+Стандартный способ передачи Access Token в API Контур.Экстерна через заголовок (Header parameters) в формате: ``Authorization: Bearer <token>``.
+
+Получение Access Token
+----------------------
+
+Метод: `POST tokenendpoint`_
+
+``POST /connect/token/``
+
+Параметры тела запроса:
+
+* ``client_id`` — сервисное имя, выдается вместе с api-key;
+* ``client_secret`` — api-key;
+* ``grant_type`` — способ получения токена. Может быть один из следующих значений: 
+
+    * ``password`` — :ref:`аутентификация по паролю<rst-markup-password>`,
+    * ``certificate`` — :ref:`аутентификация по сертификату<rst-markup-certificate>`,
+    * ``trusted`` — :ref:`доверительная аутентификация<rst-markup-trusted>` только для Компаний-Партнеров Удостоверяющего Центра.
+
+* ``scope`` — область действия токена, нужно передать строку вида: ``extern.api auth.sid``.
+
+Следующие параметры запроса зависят от способа получения токена:
+
+* ``username`` — логин пользователя, если grand_type = password,
+* ``password`` — пароль пользователя, если grand_type = password,
+* ``decrypted_key`` — расшифрованный ключ в кодировке base64, если grand_type = certificate,
+* ``thumbprint`` — отпечаток сертификата пользователя, если grand_type = certificate,
+* ``token`` — JWT токен с информацией о пользователе, если grand_type = trusted.
+
+Каждый способ аутентификации описан в следующих статьях:
+
+* :ref:`аутентификация по паролю<rst-markup-password>`
+* :ref:`аутентификация по сертификату<rst-markup-certificate>`
+* :ref:`доверительная аутентификация<rst-markup-trusted>`
