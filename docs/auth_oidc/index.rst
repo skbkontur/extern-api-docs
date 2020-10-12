@@ -16,6 +16,12 @@
 
 Аутентификация в API Контур.Экстерна основана на протоколе OpenID Connect. Для работы с API необходимо получить Access Token и передавать его в заголовках запросов (Header parameters). Для получения Access Token необходимо предварительно получить :doc:`api-key и client_id</auth_oidc/api-key>`.
 
+Стандартный способ передачи Access Token в API Контур.Экстерна — через заголовок (Header parameters) в формате: 
+
+::
+
+    Authorization: Bearer <token>
+
 Отдельно стоит отметить, что аутентификация для всех продуктов Контура единая, и получение Access Token происходит вне API Контур.Экстерна, а в отдельном API OpenId Провайдера:
 
 * Рабочая площадка: https://identity.kontur.ru
@@ -45,11 +51,5 @@ OpenID Connect — протокол аутентификации, построе
 .. rubric:: Схема взаимодействия
 
 Приложению интегратора необходимо авторизовываться в Провайдере и получать там Access Token. Затем передавать токен в Extern API с каждым запросом.
-
-Стандартный способ передачи Access Token в API Контур.Экстерна — через заголовок (Header parameters) в формате: 
-
-::
-
-    Authorization: Bearer <token>
 
 .. image:: /_static/oidc.jpg
