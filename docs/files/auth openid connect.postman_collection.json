@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "36f41164-ec54-44ba-987f-320b045707ff",
+		"name": "auth openid connect",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "gettoken password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "extern.api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "extern.api auth.sid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "emial@g.ru",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "qwerty",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.testkontur.ru/connect/token",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "extern.api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "public_key",
+							"value": "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",
+							"type": "text"
+						},
+						{
+							"key": "free",
+							"value": "true",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.testkontur.ru/authentication/certificate",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"authentication",
+						"certificate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gettoken cert",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "extern.api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "certificate",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "extern.api auth.sid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "email@g.ru",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "decrypted_key",
+							"value": "gs1mx/rvAD6MSOpeu64dpNqaW9Bb1SX2yKUyfpt0KzCss9EMmfZduLjypUlnQbzthXuINKN+bDoCntYOFeYIx2RLkY6R+X4nbh/XucZzYhio9xjYptkVOsy+HFMZ+P+pOaandRwBfyOd/QM6SKeI/KiHCnKODpKsy+kaDDOs3l1DDmBhyOokEe1fQB2SK7p5FXvQdlwjLbZn6R+xdfE6MCLdQVHCtaLbYYOkJzbj4vRMXkeI6NKWlZ1ptznLIyAEGwfwuJ0er5H6kpGaFm8r/A6rarfvJVyGg5GIyS6hAYH5uaixrRgHz+J16ilWoAwiDBbvLuC9NWMKeE85rYsGXQ==",
+							"type": "text"
+						},
+						{
+							"key": "thumbprint",
+							"value": "517a26be6b0e2b84d8eb95614ececb121c441c89",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.testkontur.ru/connect/token",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "gettoken trust",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "extern.api",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "123123",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "trusted",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "extern.api auth.sid",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "email@g.ru",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "password",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "decrypted_key",
+							"value": "gs1mx/rvAD6MSOpeu64dpNqaW9Bb1SX2yKUyfpt0KzCss9EMmfZduLjypUlnQbzthXuINKN+bDoCntYOFeYIx2RLkY6R+X4nbh/XucZzYhio9xjYptkVOsy+HFMZ+P+pOaandRwBfyOd/QM6SKeI/KiHCnKODpKsy+kaDDOs3l1DDmBhyOokEe1fQB2SK7p5FXvQdlwjLbZn6R+xdfE6MCLdQVHCtaLbYYOkJzbj4vRMXkeI6NKWlZ1ptznLIyAEGwfwuJ0er5H6kpGaFm8r/A6rarfvJVyGg5GIyS6hAYH5uaixrRgHz+J16ilWoAwiDBbvLuC9NWMKeE85rYsGXQ==",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "thumbprint",
+							"value": "517a26be6b0e2b84d8eb95614ececb121c441c89",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2RDkwRTg3RTUzREE5QkQzNjIxQjRFQkZGQUY1REFCNkI2NTBDRTMiLCJ4NXQiOiJCdGtPaC1VOXFiMDJJYlRyXzY5ZHEydGxET00iLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIwYTliMjY4YS0wNjNiLTRlM2EtOGFkMy00YTlhNjFhMjMwM2IiLCJqdGkiOiIxMmVkMWU1NC0xYjIzLTQzODctODJlNS0xZDEzYmNhNGQ4NjYiLCJuYmYiOjE2MDA3NzcxMzMsImV4cCI6MTYwMDc3NzQzMywiaWF0IjoxNjAwNzc3MTMzLCJpc3MiOiJLZUFwaS5UcnVzdGVkLlNlcnZpY2UifQ.UO4-9OzWj14WTjct1E2_SpB7pfaAdPlTu9r_ocNt9bgfeyMxZuFcfWeWTJd5PpdDQA1vXV1EccMO14Qojry0KawJrZVRC2sXZPwrmF0j0v7vK1prnlabaYBsSeO-1vY0EaboIC3Zr5Igw_4xK8R22e4ysY6TS7gBaSQpGF1yjRCB3I6OWPCSWcj81g8GWTiqkuxAgmkMBO6loHrNqdAeG8b-cMt5ycdA9PeFEjeeMZ3F2-A-CWw92OgfqVKgokrfotjnvpdIVZfQC6mCxvYuI4zhEGO_Qz9s_RgbZHifuKmUc89aZROHmEuzh3PHYP25PQ-2-3NzNLyBfF7b6ZJgXg",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.testkontur.ru/connect/token",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
