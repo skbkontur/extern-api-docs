@@ -24,7 +24,6 @@ API Контур.Экстерн
    
    howto/index
    auth_oidc/index
-   auth/index
    specification/index
    knowledge base/index
    
@@ -49,6 +48,7 @@ API Контур.Экстерн
    manuals/index
    contacts
    SDK
+   auth/index
 
 API позволяет интегрировать сервис отчетности с контролирующими органами в ваши процессы и информационные системы.
 

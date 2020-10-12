@@ -1,7 +1,7 @@
-.. _`API Аутентификатора`: https://developer.kontur.ru/auth
+.. _`API Аутентификатора`: https://developer.testkontur.ru/auth
 
-Аутентификация (obsolete)
-=========================
+Аутентификация по auth.sid (obsolete)
+=====================================
 
 .. toctree::
    :maxdepth: 2
@@ -18,4 +18,6 @@
 - **Тестовая площадка**: https://api.testkontur.ru/auth/v5.16 
 
 - **Рабочая площадка**: https://api.kontur.ru/auth/v5.16
+
+.. important:: Данный способ аутентификации через auth.sid будет поддерживаться для реализованных интеграций. Для новых интеграций нужно использовать :doc:`аутентификацию по протоколу OpenId Connect </auth_oidc/index>`.
 

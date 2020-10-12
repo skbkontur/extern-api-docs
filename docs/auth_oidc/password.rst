@@ -9,13 +9,16 @@
 
 Если вам нужно протестировать аутентификацию, но у вас нет учетной записи в Экстерне, напишите нам *extern-api@skbkontur.ru*, мы выдадим вам тестовые данные. 
 
-Метод `POST tokenendpoint`_. 
+Метод `POST tokenendpoint`_
 
 **Параметры тела запроса:**
 
+**Content-Type: application/x-www-from-urlencoded**
+
 * ``client_id`` — сервисное имя, выдается вместе с api-key;
 * ``client_secret`` — api-key;
-* ``grant_type`` == password;
+* ``grant_type`` = password;
+* ``scope`` = extern.api auth.sid;
 * ``username`` — логин пользователя;
 * ``password`` — пароль пользователя.
 

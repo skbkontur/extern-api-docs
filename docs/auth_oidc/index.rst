@@ -1,8 +1,8 @@
 .. _`OpenID Connect`: https://openid.net/specs/openid-connect-core-1_0.html
 .. _`открытый`: https://identity.testkontur.ru/.well-known/openid-configuration/jwks
 
-Аутентификация
-==============
+Аутентификация OpenID Connect
+=============================
 
 .. toctree::
    :maxdepth: 2
@@ -28,7 +28,7 @@ OpenID Connect — протокол аутентификации, построе
 Почему OpenId:
 
 * Аутентификация пользователя происходит с помощью Access Token.
-* OpenID Connect умеет поддерживать несколько способов получения токенов:
+* OpenID Connect поддерживает несколько способов получения токенов:
 
     * :ref:`аутентификация по паролю<rst-markup-password>`
     * :ref:`аутентификация по сертификату<rst-markup-certificate>`
@@ -46,6 +46,10 @@ OpenID Connect — протокол аутентификации, построе
 
 Приложению интегратора необходимо авторизовываться в Провайдере и получать там Access Token. Затем передавать токен в Extern API с каждым запросом.
 
-Стандартный способ передачи Access Token в API Контур.Экстерна через заголовок (Header parameters) в формате: ``Authorization: Bearer <token>``.
+Стандартный способ передачи Access Token в API Контур.Экстерна — через заголовок (Header parameters) в формате: 
+
+::
+
+    Authorization: Bearer <token>
 
 .. image:: /_static/oidc.jpg
