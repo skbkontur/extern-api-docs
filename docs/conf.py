@@ -62,7 +62,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'extern-api'
-copyright = u'2018, SKB Kontur'
+copyright = u'2020, SKB Kontur'
 author = u'SKB Kontur'
 
 # The version info for the project you're documenting, acts as replacement for
