@@ -1,13 +1,13 @@
-.. _`CreateDraft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
-.. _`Add document`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
-.. _`Check`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
-.. _`файл отчета ССЧ`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-ssch
-.. _`POST AddSignature`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
-.. _`PUT Signature`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
-.. _`SignDraft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcloud-sign
-.. _`GET DraftDocument`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`GET DraftTasks`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks
-.. _`GET TaskId`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`CreateDraft`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`Add document`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
+.. _`Check`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
+.. _`файл отчета ССЧ`: https://developer.testkontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-ssch
+.. _`POST AddSignature`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
+.. _`PUT Signature`: https://developer.testkontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
+.. _`SignDraft`: https://developer.testkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcloud-sign
+.. _`GET DraftDocument`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET DraftTasks`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks
+.. _`GET TaskId`: https://developer.testkontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
 
 .. _rst-markup-howtodraft:
 
@@ -34,11 +34,11 @@
 
 **Где взять файла отчета?**
 
-Вообще, у пользователя уже будут файлы бухгалтерской отчетности, которые он сформирует и заполнит по требованиям контролирующего органа. Но, чтобы настроить отправку, протестировать разные сценарии работы, не нужно обращаться к конечным пользователям за данными файлами. Предлагаем вам взять готовые примеры или сгенерировать свои файлы. 
+Скорее всего у пользователя уже будут файлы бухгалтерской отчетности, которые он сформирует и заполнит по требованиям контролирующего органа. Но, чтобы настроить отправку, протестировать разные сценарии работы, не нужно обращаться к конечным пользователям за данными файлами. Предлагаем вам взять готовые примеры или сгенерировать свои файлы. 
 
     На странице :doc:`/manuals/files-for-examples` можно найти и скачать файлы отчетов, но в них нужно будет заполнить данные согласно вашей учетной записи.  
 
-    Также в сервисе генерации тестовых данных ExternTestTools можно сгенерировать файл отчета. При помощи метода генерации файлов получим `файл отчета ССЧ`_ в формате xml. Файл необходимо сохранить с именем из тега Файл, параметра ИдФайл. И в названии, и в теге имя файла должно полностью совпадать, см. рисунок.
+    В сервисе генерации тестовых данных ExternTestTools можно сгенерировать файл отчета. При помощи метода генерации файлов получим `файл отчета ССЧ`_ в формате xml. Файл необходимо сохранить с именем из тега Файл, параметра ИдФайл. И в названии, и в теге имя файла должно полностью совпадать, см. рисунок.
 
     .. image:: /_static/fileName.png
         :width: 800
