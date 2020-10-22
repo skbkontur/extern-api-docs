@@ -64,11 +64,9 @@
 
         POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts HTTP/1.1
         Host: extern-api.testkontur.ru
-        Authorization: auth.sid ****
-        X-Kontur-Apikey: ****
+        Authorization: Bearer 276f..88
         Accept: application/json
         Content-Type: application/json
-        Content-Type: text/plain
 
         {
             "sender": {
@@ -145,25 +143,20 @@
 
 Для более гибкой работы с файлами предусмотрена возможность также создать пустой документ в черновике, чтобы в дальнейшем методом PUT положить контент файла.  
 
-.. container:: toggle
 
-    .. container:: header
+**Пример запроса POST UploadContent**
 
-        **Пример запроса POST UploadContent**
-
-    .. code-block:: http
+.. code-block:: http
 
 
-        POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
-        X-Kontur-Apikey: ****
-        Authorization: auth.sid ****
-        Content-Type: application/octet-stream
-        Host: extern-api.testkontur.ru
-        Accept-Encoding: gzip, deflate, br
-        Connection: keep-alive
-        Content-Length: 727
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
+    Authorization: Bearer 276f..88
+    Content-Type: application/octet-stream
+    Host: extern-api.testkontur.ru
+    Accept-Encoding: gzip, deflate, br
+    Content-Length: 727
 
-        Контент передан в теле запроса 
+    Контент передан в теле запроса 
 
 В ответе метод загрузки контента вернет идентификатор загруженного контента, который нужно передать в методе создания документа. 
 
@@ -172,8 +165,7 @@
 .. code-block:: json
    
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
     Content-Type: application/json
     Host: extern-api.testkontur.ru
@@ -255,8 +247,6 @@
 
 Под каждым файлом клиент ставит свою подпись, чтобы подтвердить свою личность как отправителя. Если при добавлении документов подпись не была приложена, ее можно добавить к документу отдельно методами `PUT Signature`_ или `POST AddSignature`_.
 
-Если у пользователя DSS сертификат, то подписи прикладывать не нужно. Все документы подписываются одним методом `SignDraft`_.
-
 .. warning:: Если документы в черновике изменятся, то подписи станут недействительными.
 
 Порядок работы с подписью
@@ -272,10 +262,8 @@
 
     PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signature HTTP/1.1
     Host: extern-api.testkontur.ru
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
-    Content-Type: application/json
-    X-Kontur-Apikey: ****
     Content-Type: application/pgp-signature
 
     "<file contents here>"
@@ -323,8 +311,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/check?deferred=true HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
     Content-Type: application/json
 
@@ -348,8 +335,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/tasks/c0620f2f-ea43-465a-ab87-96995e0adcf8 HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
     Content-Type: application/json
     Host: extern-api.testkontur.ru
@@ -381,8 +367,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/prepare?deferred=true HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
     Content-Type: application/json
 
@@ -438,8 +423,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/send?deferred=true HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer 276f..88
     Accept: application/json
     Content-Type: application/json
 

@@ -10,7 +10,6 @@
    DraftDocumentsController
    DraftDocumentBuildController
    DraftSignaturesController
-   подпись в черновике
    
 В этом разделе расскажем про подготовку документов к отправке в контролирующий орган. 
 
