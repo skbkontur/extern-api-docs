@@ -7,7 +7,6 @@
    :caption: Устройство и особенности API 
    :titlesonly:
 
-   cloud dss
    filename
    print
    content
