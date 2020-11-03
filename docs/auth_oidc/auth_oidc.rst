@@ -45,7 +45,7 @@
 
 .. rubric:: Тело запроса:
 
-**Content-Type: application/x-www-from-urlencoded**
+**Content-Type: application/x-www-form-urlencoded**
 
 * ``client_id`` — сервисное имя, выдается вместе с api-key;
 * ``client_secret`` — api-key;
