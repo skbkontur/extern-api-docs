@@ -3,7 +3,7 @@
 .. _`Check`: https://developer.tkontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
 .. _`файл отчета ССЧ`: https://developer.testkontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-ssch
 .. _`POST AddSignature`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
-.. _`PUT Signature`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
+.. _`PUT Signature`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D
 .. _`SignDraft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcloud-sign
 .. _`GET DraftDocument`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
 .. _`GET DraftTasks`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks
@@ -245,9 +245,11 @@
 Наполнение черновика подписями документов
 -----------------------------------------
 
-Под каждым файлом клиент ставит свою подпись, чтобы подтвердить свою личность как отправителя. Если при добавлении документов подпись не была приложена, ее можно добавить к документу отдельно методами `PUT Signature`_ или `POST AddSignature`_.
+Под каждым файлом клиент ставит свою подпись, чтобы подтвердить свою личность как отправителя. Подпись нможно добавить к документу методом `POST AddSignature`_. 
 
 .. warning:: Если документы в черновике изменятся, то подписи станут недействительными.
+
+Если документ изменится, то подпись также нужно будет заменить. Для редактирования подписи текущего документа используйте метод `PUT Signature`_.
 
 Порядок работы с подписью
 ~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -256,18 +258,20 @@
     2. Конвертируем полученную подпись в base64.
     3. Добавляем подпись в формате base64 в черновик. 
 
-**Тело запроса PUT Signature:**
+**Запрос POST AddSignature:**
 
-.. code-block:: http
+.. code-block::
 
-    PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signature HTTP/1.1
+    POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signatures HTTP/1.1
     Host: extern-api.testkontur.ru
     Authorization: Bearer <token>
     Accept: application/json
+    Content-Type: application/json
     Content-Type: application/pgp-signature
 
-    "<file contents here>"
-
+    {
+        "base64-content":"MIINFQYJKoZIhvcNAQcCoIINBjCCD...nOfRonWQdDi4Tavb9CLvI="
+    }
 
 Мы убедились, что файл отчета корректный, и подпись документа лежит в черновике. Можно переходить к подготовке черновика и отправке. 
 
@@ -283,10 +287,10 @@
 Асинхронное выполнение методов
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Все три метода имеют флаг deferrer, который включает асинхронное выполнение методов.
+Все три метода имеют флаг deferred, который включает асинхронное выполнение методов.
 
-- Если флаг `deferrer = false` (по умолчанию), то вы будете ожидать выполнения операции. 
-- Если флаг `deferrer = true`, то метод будет выполняться асинхронно. Для выполнения метода будет создана задача (Task). Статус ее выполнения необходимо смотреть по taskId. 
+- Если флаг `deferred = false` (по умолчанию), то вы будете ожидать выполнения операции. 
+- Если флаг `deferred = true`, то метод будет выполняться асинхронно. Для выполнения метода будет создана задача (Task). Статус ее выполнения необходимо смотреть по taskId. 
 
 .. note:: Работа с черновиком через задачи является более предпочтительной стратегией, так как невозможно предсказать объем отправляемых пользователем данных. 
 
