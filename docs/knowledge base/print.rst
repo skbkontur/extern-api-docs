@@ -231,8 +231,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/print?deferred=true HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer <token>
     Content-Type: application/json
 
     {
@@ -262,8 +261,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/tasks/819ade20-665c-470a-befc-e897a56e1641 HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer <token>
 
 **Ответ**
 

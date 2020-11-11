@@ -64,7 +64,7 @@
 
         POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts HTTP/1.1
         Host: extern-api.testkontur.ru
-        Authorization: Bearer 276f..88
+        Authorization: Bearer <token>
         Accept: application/json
         Content-Type: application/json
 
@@ -150,7 +150,7 @@
 
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Content-Type: application/octet-stream
     Host: extern-api.testkontur.ru
     Accept-Encoding: gzip, deflate, br
@@ -165,7 +165,7 @@
 .. code-block:: json
    
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/json
     Host: extern-api.testkontur.ru
@@ -262,7 +262,7 @@
 
     PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signature HTTP/1.1
     Host: extern-api.testkontur.ru
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/pgp-signature
 
@@ -311,7 +311,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/check?deferred=true HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/json
 
@@ -335,7 +335,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/tasks/c0620f2f-ea43-465a-ab87-96995e0adcf8 HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/json
     Host: extern-api.testkontur.ru
@@ -367,7 +367,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/prepare?deferred=true HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/json
 
@@ -423,7 +423,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/send?deferred=true HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer <token>
     Accept: application/json
     Content-Type: application/json
 

@@ -11,11 +11,6 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
-					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
 						"type": "text"
@@ -57,11 +52,6 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
-					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
 						"type": "text"
@@ -101,11 +91,6 @@
 				"method": "POST",
 				"header": [
 					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
-					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
 						"type": "text"
@@ -144,11 +129,6 @@
 			"request": {
 				"method": "POST",
 				"header": [
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
 					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
@@ -196,11 +176,6 @@
 			"request": {
 				"method": "GET",
 				"header": [
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
 					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",

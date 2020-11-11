@@ -11,11 +11,6 @@
 				"method": "GET",
 				"header": [
 					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
-					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
 						"type": "text"
@@ -23,16 +18,18 @@
 					{
 						"key": "Accept",
 						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					},
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
+						"type": "text",
+						"disabled": true
 					}
 				],
 				"url": {
-					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/0c4e50b5-66ac-4a92-b051-3bc95472dddb",
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows",
 					"protocol": "https",
 					"host": [
 						"extern-api",
@@ -42,23 +39,17 @@
 					"path": [
 						"v1",
 						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
-						"docflows",
-						"0c4e50b5-66ac-4a92-b051-3bc95472dddb"
+						"docflows"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Скачать контент",
+			"name": "Скачать контент документа из документооборота",
 			"request": {
 				"method": "GET",
 				"header": [
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
-					},
 					{
 						"key": "Authorization",
 						"value": "{{Authorization}}",
@@ -76,7 +67,7 @@
 					}
 				],
 				"url": {
-					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/9f6b57db-db9f-4e4c-8375-62a3504e663d",
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/9089d7cf-58d0-4739-ba3f-110ecd4180d7",
 					"protocol": "https",
 					"host": [
 						"extern-api",
@@ -87,7 +78,7 @@
 						"v1",
 						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
 						"contents",
-						"9f6b57db-db9f-4e4c-8375-62a3504e663d"
+						"9089d7cf-58d0-4739-ba3f-110ecd4180d7"
 					]
 				}
 			},
@@ -111,11 +102,6 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
 						"type": "text"
 					}
 				],
@@ -169,11 +155,6 @@
 						"key": "Content-Type",
 						"value": "application/json",
 						"type": "text"
-					},
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
-						"type": "text"
 					}
 				],
 				"body": {
@@ -223,11 +204,6 @@
 					{
 						"key": "Content-Type",
 						"value": "application/json",
-						"type": "text"
-					},
-					{
-						"key": "X-Kontur-Apikey",
-						"value": "{{X-Kontur-Apikey}}",
 						"type": "text"
 					}
 				],
