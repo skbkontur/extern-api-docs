@@ -46,7 +46,7 @@
 .. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
-    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+    Authorization: Bearer <token>
     Content-Type: application/octet-stream
 
     Контент передан в теле запроса 
@@ -77,7 +77,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/d065adea-8b9d-4228-bc17-8f86539e01a3 HTTP/1.1
-    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+    Authorization: Bearer <token>
     Content-Type: application/octet-stream
 
 **Ответ**

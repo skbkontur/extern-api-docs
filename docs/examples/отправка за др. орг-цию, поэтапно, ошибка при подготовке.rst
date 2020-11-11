@@ -99,7 +99,7 @@
 
    GET /v1 HTTP/1.1
    Accept: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Host: extern-api.testkontur.ru
 
 3. Создание черновика документооборота
@@ -113,7 +113,7 @@
 
    POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts HTTP/1.1
    Accept: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Content-Type: application/json
    Host: extern-api.testkontur.ru
    Connection: Keep-Alive
@@ -155,7 +155,7 @@
 
    POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
    Accept: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Content-Type: application/json
    Host: extern-api.testkontur.ru
    Content-Length: 4283
@@ -178,7 +178,7 @@
 .. code-block:: http
 
    POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents HTTP/1.1
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Content-Type: application/json
    Host: extern-api.testkontur.ru
    content-length: 1963
@@ -202,7 +202,7 @@
 .. code-block:: http
 
    POST /v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/check HTTP/1.1
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Host: extern-api.testkontur.ru
    content-length: 0
    Connection: keep-alive
@@ -220,7 +220,7 @@
 
    POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
    Content-Type: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Host: extern-api.testkontur.ru
    accept-encoding: gzip, deflate
    content-length: 0
@@ -239,7 +239,7 @@
 .. code-block:: http
 
    PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/21dbefdd-8c1f-423c-9552-44ee27c245ff/signature HTTP/1.1
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Content-Type: text/plain
    Accept: */*
    Host: extern-api.testkontur.ru
@@ -259,7 +259,7 @@
 .. code-block:: http
 
    PUT http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/documents/1428bf5c-b917-4f34-8c65-2bd1029d8dfb/signature HTTP/1.1
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Content-Type: text/plain
    Accept: */*
    Host: extern-api.testkontur.ru
@@ -281,7 +281,7 @@
 
    POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/prepare HTTP/1.1
    Content-Type: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Accept: */*
    Host: extern-api.testkontur.ru
    accept-encoding: gzip, deflate
@@ -302,7 +302,7 @@
 
    POST http://extern-api.testkontur.ru/v1/ea3a9316-d3c5-4544-a6df-4e8d9aa9f813/drafts/87d4f4f9-b166-417c-b700-44a406e2fdb8/send HTTP/1.1
    Content-Type: application/json
-   Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
+   Authorization: Bearer <token>
    Accept: */*
    Host: extern-api.testkontur.ru
    accept-encoding: gzip, deflate
