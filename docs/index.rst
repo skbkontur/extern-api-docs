@@ -44,7 +44,6 @@ API Контур.Экстерн
    :caption: Дополнительно
    :hidden:
    
-   examples/index
    manuals/index
    contacts
    SDK

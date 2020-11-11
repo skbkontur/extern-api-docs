@@ -64,8 +64,7 @@
 .. code-block::
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9 HTTP/1.1
-    X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Accept: application/json
     Content-Type: application/json
 

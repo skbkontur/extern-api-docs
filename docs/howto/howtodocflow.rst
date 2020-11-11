@@ -101,7 +101,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9 HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Accept: application/json
     Content-Type: application/json
 
@@ -643,7 +643,7 @@
 .. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/d065adea-8b9d-4228-bc17-8f86539e01a3 HTTP/1.1
-    Authorization: Bearer 276f..88
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Content-Type: application/octet-stream
 
 **Ответ**
@@ -685,7 +685,7 @@
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/generate-reply?documentType=fns534-report-receipt HTTP/1.1
     X-Kontur-Apikey: ****
-    Authorization: auth.sid ****
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Accept: application/json
     Content-Type: application/json
 
@@ -745,7 +745,7 @@
 .. code-block:: http
 
     PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/signature HTTP/1.1
-    Authorization: auth.sid ****
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Accept: application/json
     Content-Type: application/pgp-signature
     X-Kontur-Apikey: ****
@@ -807,7 +807,7 @@
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/send HTTP/1.1
     Host: extern-api.testkontur.ru
-    Authorization: auth.sid ****
+    Authorization: Bearer ba833477acc9537b621d6450c9d9a9db20a8c67c688db2521cb1e38d59ba22cb
     Accept: application/json
     Content-Type: application/json
     X-Kontur-Apikey: ****
