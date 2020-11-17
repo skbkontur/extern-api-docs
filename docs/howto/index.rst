@@ -1,6 +1,6 @@
 .. _`swagger`: https://developer.kontur.ru/doc/extern
 .. _`SDK`: https://github.com/skbkontur/extern-java-sdk/
-.. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
+.. _`Extern Test Tools`: https://developer.testkontur.ru/doc/extern.test.tools
 .. _`тестовой площадке`: https://extern-api.testkontur.ru
 
 Начало работы с API
