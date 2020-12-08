@@ -2,7 +2,7 @@
 .. _`Тестовая площадка`:  https://extern-api.testkontur.ru/
 .. _`Рабочая площадка`: https://extern-api.kontur.ru/
 .. _`Вопросы и ответы по отчетности`: https://www.kontur-extern.ru/support/faq
-.. _`Extern Test Tools`: https://developer.testkontur.ru/doc/extern.test.tools
+.. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
 
 API Контур.Экстерн
 ==================

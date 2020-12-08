@@ -67,7 +67,7 @@
 * docflowId — Идентификатор документооборота.
 * documentId — Идентификатор главного документа в документообороте.
 * documentType — :doc:`Тип генерируемого документа</specification/типы документов>`. Нужно указывать без “urn:document:”. Пример: documentType = fns534-report-receipt.
-* declineNoticeErrorCode — :ref:`Коды ошибок<rst-markup-check-demand>`, выявленные в процессе :doc:`проверки требования</knowledge base/check-demand>`. Поле используется только для генерации уведомления об отказе в документообороте требования ФНС (documentType = fns534-demand-acceptance-result-negative). В запросе можно передать несколько кодов, например, declineNoticeErrorCode=0300300001&declineNoticeErrorCode=040010000.
+* declineNoticeErrorCode — Коды ошибок, выявленные в процессе :doc:`проверки требования</knowledge base/check-demand>`. Поле используется только для генерации уведомления об отказе в документообороте требования ФНС (documentType = fns534-demand-acceptance-result-negative). В запросе можно передать несколько кодов, например, ``declineNoticeErrorCode=0300300001&declineNoticeErrorCode=040010000``.
 * request — Параметры для генерации ответного документа.
 
    * certificate-base64 (string) — Сертификат в формате base64.
@@ -89,7 +89,6 @@
 - 404 - Документооборот не найден.
 - 404 - Документ не найден.
 - 500 - Произошла внутренняя ошибка.
-
 
 Просмотр документа 
 ~~~~~~~~~~~~~~~~~~
