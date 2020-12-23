@@ -21,6 +21,7 @@
    "urn:transaction:acceptance-result-positive", "Отчет принят налоговым органом"
    "urn:transaction:acceptance-result-negative", "Отчет отклонен налоговым органом"
    "urn:transaction:processing-result-ok", "Отчет обработан успешно"
+   "urn:transaction:processing-result-precise", "Отчет принят, но требует уточнений"
    "urn:transaction:acceptance-result-2ndfl", "Отчет 2-НДФЛ принят"
 
 ИОН
