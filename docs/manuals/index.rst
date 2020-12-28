@@ -5,6 +5,7 @@
    :maxdepth: 2
    :hidden:
 
+   cryptography
    using-OpenSSL-and-RSA
    RSA-certs
    contracts
