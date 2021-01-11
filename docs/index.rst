@@ -3,10 +3,7 @@
 .. _`Рабочая площадка`: https://extern-api.kontur.ru/
 .. _`Вопросы и ответы по отчетности`: https://www.kontur-extern.ru/support/faq
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
-<<<<<<< HEAD
 .. _`сертификат электронной подписи`: https://kontur.ru/ca/spravka/36-iz_chego_sostoit_sertifikat_elektronnoj_podpisi
-=======
->>>>>>> be0027023a2add7f9d2099b7f25d070f68f18a7f
 
 API Контур.Экстерн
 ==================
