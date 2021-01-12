@@ -321,7 +321,7 @@
 
 Процесс изменения статуса:
 
-.. image:: /_static/status-pfr-ancillary.jpg
+.. image:: /_static/status-pfr-ancillary.png
 
 
 ФСС
