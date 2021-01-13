@@ -113,7 +113,7 @@
 
 **Пример запроса POST tokenendpoint с доверительной аутентификацией**
 
-.. code-block::
+.. code-block:: http
 
     POST https://identity.testkontur.ru/connect/token
 
@@ -136,7 +136,7 @@
     
 **Пример ответа POST tokenendpoint**
 
-.. code-block::
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=UTF-8

@@ -11,7 +11,7 @@
 
 Метод `POST tokenendpoint`_
 
-**Параметры тела запроса:**
+**Параметры тела запроса**
 
 **Content-Type: application/x-www-form-urlencoded**
 
@@ -22,13 +22,13 @@
 * ``username`` — логин пользователя;
 * ``password`` — пароль пользователя.
 
-**Ответ**:
+**Ответ**
 
 В ответ провайдер возвращает приложению Access Token.
 
 **Пример запроса POST tokenendpoint с аутентификацией по паролю**
 
-.. code-block::
+.. code-block:: http
 
     POST https://identity.testkontur.ru/connect/token
 
@@ -52,7 +52,7 @@
 
 **Пример ответа POST tokenendpoint**
 
-.. code-block::
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=UTF-8

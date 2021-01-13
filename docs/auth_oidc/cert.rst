@@ -58,7 +58,7 @@
 
 **1. Инициализация. Пример запроса POST certificate**
 
-.. code-block::
+.. code-block:: http
 
     POST https://identity.testkontur.ru/authentication/certificate
     
@@ -80,7 +80,7 @@
 
 **Пример ответа POST certificate**
 
-.. code-block::
+.. code-block:: http
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -101,7 +101,7 @@
 
 **2. Подтверждение. Пример запроса POST tokenendpoint с аутентификацией по сертификату**
 
-.. code-block::
+.. code-block:: http
 
     POST https://identity.testkontur.ru/connect/token
     

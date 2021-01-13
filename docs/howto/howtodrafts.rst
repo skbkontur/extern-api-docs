@@ -260,7 +260,7 @@
 
 **Запрос POST AddSignature:**
 
-.. code-block::
+.. code-block:: http
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/d9622b9d-aa31-477b-a399-fc676588bfb5/documents/4b3046fe-cabd-42e5-8618-8e9d9b2466a0/signatures HTTP/1.1
     Host: extern-api.testkontur.ru

@@ -61,7 +61,7 @@
 
 **Пример запроса GET Docflow**
 
-.. code-block::
+.. code-block:: http
 
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9 HTTP/1.1
     Authorization: Bearer <token>
