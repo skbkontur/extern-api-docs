@@ -178,6 +178,8 @@
 
 .. image:: /_static/status-stat-report.jpg
 
+..  _rst-markup-stat-letter-status:
+
 Письма в Росстат
 ++++++++++++++++
 

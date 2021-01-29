@@ -35,4 +35,9 @@
    PFR
    szvtd
 
+.. toctree::
+   :caption: Документооборот с Росстат
+   :titlesonly:
+
+   stat-letter
 
