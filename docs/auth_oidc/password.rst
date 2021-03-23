@@ -18,7 +18,7 @@
 * ``client_id`` — сервисное имя, выдается вместе с api-key;
 * ``client_secret`` — api-key;
 * ``grant_type`` = password;
-* ``scope`` = extern.api auth.sid;
+* ``scope`` = extern.api;
 * ``username`` — логин пользователя;
 * ``password`` — пароль пользователя.
 
@@ -46,7 +46,7 @@
     client_id:extern.api
     client_secret:************
     grant_type:password
-    scope:extern.api auth.sid
+    scope:extern.api
     username:user@login.ru
     password:password
 

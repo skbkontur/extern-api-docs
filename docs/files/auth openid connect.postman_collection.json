@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "36f41164-ec54-44ba-987f-320b045707ff",
+		"_postman_id": "a2dc2841-2582-4387-aa33-fc9f08e798d3",
 		"name": "auth openid connect",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -30,17 +30,17 @@
 						},
 						{
 							"key": "scope",
-							"value": "extern.api auth.sid",
+							"value": "extern.api",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "emial@g.ru",
+							"value": "email@g.ru",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "qwerty",
+							"value": "password",
 							"type": "text"
 						}
 					]
@@ -132,7 +132,7 @@
 						},
 						{
 							"key": "scope",
-							"value": "extern.api auth.sid",
+							"value": "extern.api",
 							"type": "text"
 						},
 						{
@@ -200,7 +200,7 @@
 						},
 						{
 							"key": "scope",
-							"value": "extern.api auth.sid",
+							"value": "extern.api",
 							"type": "text"
 						},
 						{
@@ -250,6 +250,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -45,7 +45,7 @@
 * ``client_id`` — сервисное имя, выдается вместе с api-key;
 * ``client_secret`` — api-key;
 * ``grant_type`` = certificate;
-* ``scope`` = extern.api auth.sid;
+* ``scope`` = extern.api;
 * ``decrypted_key`` — расшифрованный ключ в кодировке base64;
 * ``thumbprint`` — отпечаток сертификата пользователя.
 
@@ -119,7 +119,7 @@
     client_id:extern.api
     client_secret:******
     grant_type:certificate
-    scope:extern.api auth.sid
+    scope:extern.api
     decrypted_key:gs1mx/rvAD6MSOpe...DBbvLuC9NWMKeE85rYsGXQ==
     thumbprint:517a26be6b0e2b84d8eb95614ececb121c441c89
 

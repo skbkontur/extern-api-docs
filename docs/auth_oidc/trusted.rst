@@ -48,7 +48,7 @@
 * ``client_id`` — сервисное имя, выдается вместе с api-key;
 * ``client_secret`` — api-key;
 * ``grant_type`` = trusted;
-* ``scope`` = extern.api auth.sid;
+* ``scope`` = extern.api;
 * ``token`` — JWT токен с информации о пользователе. JWT токен доверенная система должна сформировать на своей стороне. Подробнее в `документации OpenID Connect`_ → Доверительная аутентификация.
 
 Требования к JWT токену:
@@ -131,7 +131,7 @@
     client_id:extern.api
     client_secret:*****
     grant_type:trusted
-    scope:extern.api auth.sid
+    scope:extern.api
     token:eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2RDkwRTg3RTUzREE5QkQzNjIxQjRFQkZGQUY1REFCNkI2NTBDRTMiLCJ4NXQiOiJCdGtPaC1VOXFiMDJJYlRyXzY5ZHEydGxET00iLCJ0eXAiOiJKV1QifQ.eyJzdWIiOiIwYTliMjY4YS0wNjNiLTRlM2EtOGFkMy00YTlhNjFhMjMwM2IiLCJqdGkiOiIxMmVkMWU1NC0xYjIzLTQzODctODJlNS0xZDEzYmNhNGQ4NjYiLCJuYmYiOjE2MDA3NzcxMzMsImV4cCI6MTYwMDc3NzQzMywiaWF0IjoxNjAwNzc3MTMzLCJpc3MiOiJLZUFwaS5UcnVzdGVkLlNlcnZpY2UifQ.UO4-9OzWj14WTjct1E2_SpB7pfaAdPlTu9r_ocNt9bgfeyMxZuFcfWeWTJd5PpdDQA1vXV1EccMO14Qojry0KawJrZVRC2sXZPwrmF0j0v7vK1prnlabaYBsSeO-1vY0EaboIC3Zr5Igw_4xK8R22e4ysY6TS7gBaSQpGF1yjRCB3I6OWPCSWcj81g8GWTiqkuxAgmkMBO6loHrNqdAeG8b-cMt5ycdA9PeFEjeeMZ3F2-A-CWw92OgfqVKgokrfotjnvpdIVZfQC6mCxvYuI4zhEGO_Qz9s_RgbZHifuKmUc89aZROHmEuzh3PHYP25PQ-2-3NzNLyBfF7b6ZJgXg
     
 **Пример ответа POST tokenendpoint**
