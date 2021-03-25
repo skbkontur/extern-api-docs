@@ -135,6 +135,3 @@
 * 401(Unauthorized) - api-key не указан.
 * :doc:`403(Forbidden) </auth/403(Forbidden)>`.
 * 500(InternalServerError).
-
-.. note:: 
-    :ref:`Пример выполнения запроса доверительной аутентификации<rst-markup-truster>`
