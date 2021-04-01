@@ -51,6 +51,9 @@
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
    "urn:docflow:oved-confirmation", "Подтверждение основного вида экономической деятельности"
+   "urn:docflow:fss-sedo-sick-report-change-notification", "Уведомления об изменении статуса электронного больничного листа"
+   "urn:docflow:fss-sedo-pvso-notification", "Извещение о прямых выплатах мер социального обеспечения"
+   "urn:docflow:fss-sedo-error", "Сообщения об ошибках в документообортах ФСС через СЭДО"
 
 .. _rst-markup-cbrf:
 

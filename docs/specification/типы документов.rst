@@ -329,6 +329,45 @@
       "urn:document:oved-confirmation-request-result", "Результат приема"
       "urn:document:oved-confirmation-processing-result", "Результат обработки"
 
+Извещение о прямых выплатах мер социального обеспечения
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-pvso-notification-request-message", "Запрос на получение контента извещения ПВСО"
+      "urn:document:fss-sedo-pvso-notification-notification-message", "Извещение ПВСО"
+      "urn:document:fss-sedo-pvso-notification-receipt-notification-message", "Подтверждение прочтения сообщения страхователем"
+      "urn:document:fss-sedo-pvso-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
+      "urn:document:fss-sedo-pvso-notification-error-message", "Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
+      "urn:document:fss-sedo-pvso-notification-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+
+Уведомления об изменении статуса электронного больничного листа
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-sick-report-change-notification-request-message", "Запрос на получение контента уведомления об изменении статуса ЭЛН"
+      "urn:document:fss-sedo-sick-report-change-notification-notification-message", "Уведомление об изменении статуса ЭЛН"
+      "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-message", "Подтверждение прочтения сообщения страхователем"
+      "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
+      "urn:document:fss-sedo-sick-report-change-notification-error-message", "Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
+      "urn:document:fss-sedo-sick-report-change-notification-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+
+Сообщения об ошибках в ДО ФСС через СЭДО
+++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-error-request-message", "Запрос на получение сообщения об ошибке"
+      "urn:document:fss-sedo-error-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+
+
 ЦБ РФ
 -----
 
