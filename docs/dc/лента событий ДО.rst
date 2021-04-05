@@ -1,7 +1,7 @@
-.. _`GET Events`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fevents
-.. _`POST ShareEvents`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fshare-events
-.. _`GET EventPublishers`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fevent-publishers
-.. _`DELETE EventsPublisher`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2Fevent-publishers%2F%7BpublisherId%7D
+.. _`GET Events`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2Fevents
+.. _`POST ShareEvents`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fshare-events
+.. _`GET EventPublishers`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2Fevent-publishers
+.. _`DELETE EventsPublisher`: https://developer.kontur.ru/doc/extern.docflows/method?type=delete&path=%2Fv1%2Fevent-publishers%2F%7BpublisherId%7D
 
 .. _rst-markup-events:
 

@@ -3,7 +3,7 @@
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
 .. _`как установить сертификат, если у Вас есть КриптоПро CSP`: https://ca.kontur.ru/faq/signature/kak-ustanovit-lichnyy-sertifikat
 .. _`Создание подписи документа`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
-.. _`Добавление подписи к ответному документу`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
+.. _`Добавление подписи к ответному документу`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
 
 Криптография
 ============
