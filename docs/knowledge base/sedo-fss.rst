@@ -78,7 +78,7 @@
     * urn:document:fss-sedo-pvso-notification-notification-message — для извещений ПВСО;
     * urn:document:fss-sedo-sick-report-change-notification-notification-message — для уведомлений по изменению ЭЛН.
     
-    Если нужно получить файл документа, то по идентификатору content-id скачать документ из :doc:`Сервиса контентов<contents/content_methods>`. Идентификатор content-id лежит в метаинформации документа, в модели docflow-document-contents.
+    Если нужно получить файл документа, то по идентификатору content-id скачать документ из :doc:`Сервиса контентов</contents/content_methods>`. Идентификатор content-id лежит в метаинформации документа, в модели docflow-document-contents.
 
 5. Сгенерировать ответный документ "Извещение о прочтении" к полученному документу. Для этого нужно взять id найденного документа и подставить его в метод :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. В поле documentType указать тип документа:
 

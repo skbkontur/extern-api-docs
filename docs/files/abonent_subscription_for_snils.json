@@ -1,0 +1,14 @@
+{
+	"subscription-type": "subscribe",
+	"agreement-received": true,
+	"commit-exclude": true,
+	"snils-list": [
+		{
+			"snils": "00000060003"
+		},
+		{
+			"snils": "00000060002",
+			"force": true
+		}
+	]
+}
