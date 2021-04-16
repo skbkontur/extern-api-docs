@@ -28,6 +28,7 @@
 
    FSS
    sedo-fss
+   sedo-subscription
 
 .. toctree::
    :caption: Документооборот с ПФР
