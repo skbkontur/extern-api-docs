@@ -1,5 +1,5 @@
 .. _`сайте ФСС`: https://sedo.fss.ru/sedo.html
-.. _`POST Draft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`POST Create draft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
 .. _`GET Download`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
 .. _`POST AddSignature`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
 .. _`POST Check`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
@@ -9,7 +9,7 @@
 Подписки СЭДО ФСС на получение извещений и уведомлений
 ======================================================
 
-Есть три вида подписок, которые необходимо сделать для получения уведомлений и извещений от ФСС:
+Есть три вида подписок, которые необходимо выполнить для получения уведомлений и извещений от ФСС:
 
 * Подписка оператора на организацию по РНС: urn:docflow:fss-sedo-provider-subscription.
 * Подписка страхователя по РНС: urn:docflow:fss-sedo-abonent-subscription.
@@ -28,7 +28,7 @@
 
 **Алгоритм создания и отправки черновика подписок**
 
-#. Создать черновик. Метод `POST Draft`_. В мета-информации черновика необходимо заполнить поле registration-number-fss — регистрационный номер, по которому производится подписка.
+#. Создать черновик. Метод `POST Create draft`_. В мета-информации черновика необходимо заполнить поле registration-number-fss — регистрационный номер, по которому производится подписка.
 #. Создать документ в черновике по :doc:`json контракту</manuals/contracts>`. Метод :doc:`POST BuildDocumentContent</drafts/DraftDocumentBuildController>`. В ответе метод возвращает вместе с информацией о документе идентификатор контента для подписи в параметре data-to-sign-content-id.
 #. Далее для подписок страхователя нужно добавить в документ подпись (подписка оператора на организацию по РНС подписания не требует): 
 
@@ -41,6 +41,8 @@
 #. Отправить черновик `POST Send`_.
 
 После отправки подписки, ФСС пришлет результат. 
+
+.. important:: Для **тестирования отправки подписок** есть специальный робот, который эмулирует работу приемного комплекса на тестовой площадке. Чтобы проверить работу с подписками на тестовой площадке вам надо в п.2 при создании документа указать **FssCode: SEDO-TEST**.
 
 Получение результата подписки
 -----------------------------

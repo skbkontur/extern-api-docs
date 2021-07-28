@@ -21,6 +21,7 @@
    demand
    check-demand
    inventory
+   rnpt
 
 .. toctree::
    :caption: Документооборот с ФСС
