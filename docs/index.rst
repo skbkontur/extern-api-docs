@@ -24,6 +24,7 @@ API Контур.Экстерн
    :caption: Подготовка
    :hidden:
    
+   recommendations
    howto/index
    auth_oidc/index
    specification/index
