@@ -6,8 +6,8 @@
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
 .. _`сертификат электронной подписи`: https://kontur.ru/ca/spravka/36-iz_chego_sostoit_sertifikat_elektronnoj_podpisi
 
-API Контур.Экстерн
-==================
+API Контур Экстерна
+===================
 
 .. image:: /logo.png
    :width: 550
