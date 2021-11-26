@@ -22,7 +22,7 @@
 .. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
 .. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
 .. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
-.. _тут: https://www.diadoc.ru/docs/faq/faq-127
+.. _`формату`: https://normativ.kontur.ru/document?moduleId=8&documentId=335100
 
 Методы для работы с DraftsBuilder
 =================================
@@ -328,6 +328,9 @@
 * ``meta`` — метаинформация файла:
 
    * ``file-name`` — полное имя файла;
+
+      Для файла доверенности, который прилагается к банковской гарантии, имя должно соответствовать `формату`_ (см. Сведения об уполномоченном представителе Банка (Гаранта) (СвПред). Имя файла документа, подтверждающего полномочия представителя). Иначе метод вернет ошибку 400.  
+
    * ``builder-data`` — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.
 
       Параметры builder-data в зависимости от типа DraftsBuilder:
@@ -386,6 +389,7 @@
                      "builder-data": null
                   }
                }
+
 
 Получение файла по идентификатору
 ---------------------------------

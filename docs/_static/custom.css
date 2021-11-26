@@ -1,3 +1,20 @@
+.rst-content code.literal:not(.download)
+{
+  color: #000;
+  border: #eee 1px solid;
+  border-radius: 5px;
+  background: #f2f2f2;
+  padding: 0.1em 0.2em;
+  font-size: 85%;
+  font-weight: normal;
+}
+
+.rst-content .admonition code.literal
+{
+  background: #fff;
+  border: none;
+}
+
 .toggle {
     position: relative;
 }
@@ -23,7 +40,6 @@
 .toggle .switcher:after {
     content: 'Раскрыть';
     z-index: 99999;
-    color: ;
     bottom: -10px;
     font-size: 11px;
     text-align: center;
