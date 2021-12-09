@@ -59,6 +59,13 @@
    "urn:docflow:fss-sedo-abonent-subscription","Подписка страхователя на документооборот с ФСС"
    "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на документооборот с ФСС по абоненту"
    "urn:docflow:fss-sedo-abonent-subscription-result","Результат приема подписки страхователя"
+   "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия ФСС"
+   "urn:docflow:fss-sedo-proactive-payments-reply","Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
+   "urn:docflow:fss-sedo-proactive-payments-reply-result","Результат обработки ответа на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
+   "urn:docflow:fss-sedo-proactive-payments-benefit","Выплата пособия"
+   "urn:docflow:fss-sedo-insured-person-registration","Сведения о застрахованном лице"
+   "urn:docflow:fss-sedo-insured-person-registration-result","Результат регистрации сведений о застрахованном лице"
+   "urn:docflow:fss-sedo-insured-person-mismatch","Информация о несоответствии сведений о застрахованном лице"
 
 .. _rst-markup-cbrf:
 

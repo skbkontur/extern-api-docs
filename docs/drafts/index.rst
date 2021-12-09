@@ -11,8 +11,6 @@
    DraftDocumentBuildController
    DraftSignaturesController
    
-   
-Ссылка на :doc:`новый файл</drafts/newFile>`.
 
 В этом разделе расскажем про подготовку документов к отправке в контролирующий орган. 
 

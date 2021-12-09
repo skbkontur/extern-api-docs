@@ -436,6 +436,89 @@
       "urn:document:fss-sedo-error-request-message", "Запрос на получение сообщения об ошибке"
       "urn:document:fss-sedo-error-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
 
+Запрос недостающих сведений для назначения пособия ФСС
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-demand-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-payments-demand-demand-message", "Документ запроса"
+      "urn:document:fss-sedo-proactive-payments-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-reply-request", "Запрос на отправку сведений"
+      "urn:document:fss-sedo-proactive-payments-reply-receipt", "Результат приёма запроса порталом"
+      "urn:document:fss-sedo-proactive-payments-reply-response-result", "Результат обработки запроса"
+      "urn:document:fss-sedo-proactive-payments-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Результат обработки ответа на запрос проверки
++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-reply-result-status-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-payments-reply-result-response-result", "Результат обработки запроса"
+      "urn:document:fss-sedo-proactive-payments-reply-result-error-message", "Ошибка обработки"
+
+Выплата пособия
++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-benefit-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "Документ с выплатами"
+      "urn:document:fss-sedo-proactive-payments-benefit-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-benefit-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Сведения о застрахованном лице
+++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-insured-person-registration-request", "Запрос на регистрацию сведений"
+      "urn:document:fss-sedo-insured-person-registration-receipt", "Результат приёма запроса порталом"
+      "urn:document:fss-sedo-insured-person-registration-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-insured-person-registration-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Результат регистрации сведений о застрахованном лице
+++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-insured-person-registration-result-status-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-insured-person-registration-result-response-result", "Результат регистрации сведений"
+      "urn:document:fss-sedo-insured-person-registration-result-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-insured-person-registration-result-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Информация о несоответствии сведений о застрахованном лице
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-insured-person-mismatch-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "Документ с информацией"
+      "urn:document:fss-sedo-insured-person-mismatch-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-insured-person-mismatch-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 ЦБ РФ
 -----
