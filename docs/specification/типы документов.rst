@@ -368,24 +368,7 @@
       "urn:document:fss-sedo-provider-subscription-error-message","Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
       "urn:document:fss-sedo-provider-subscription-exchange-error","Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
 
-Подписка страхователя на документооборот с ФСС
-++++++++++++++++++++++++++++++++++++++++++++++
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-abonent-subscription-subscribe-request-for-snils","Подписка работника(-ов) страхователя на оповещение по изменению статуса ЭЛН"
-      "urn:document:fss-sedo-abonent-subscription-subscribe-request-for-registration-number","Подписка страхователя по регистрационному номеру для получения документов из СЭДО"
-      "urn:document:fss-sedo-abonent-subscription-unsubscribe-request-for-snils","Отписка работника(-ов) страхователя на оповещение по изменению статуса ЭЛН"
-      "urn:document:fss-sedo-abonent-subscription-unsubscribe-request-for-registration-number","Отписка страхователя для прекращения получения документов из СЭДО"
-      "urn:document:fss-sedo-abonent-subscription-receipt","Результат приёма запроса порталом"
-      "urn:document:fss-sedo-abonent-subscription-subscribe-result-for-snils","Результат подписки/отписки страхователя на оповещение об ЭЛН работника"
-      "urn:document:fss-sedo-abonent-subscription-subscribe-result-for-registration-number","Результат подписки страхователя по регистрационному номеру"
-      "urn:document:fss-sedo-abonent-subscription-error-message","Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
-      "urn:document:fss-sedo-abonent-subscription-exchange-error","Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
-
-Результат приема подписки страхователя
+Результат приема подписки страхователя
 ++++++++++++++++++++++++++++++++++++++
 
 .. csv-table::
@@ -397,6 +380,19 @@
       "urn:document:fss-sedo-abonent-subscription-result-subscribe-status-for-registration-number","Результат подписки/отписки работника(-ов) страхователя на уведомления по ЭЛН"
       "urn:document:fss-sedo-abonent-subscription-result-error-message","Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
       "urn:document:fss-sedo-abonent-subscription-result-exchange-error","Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+
+Реестр больничных листов
+++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sick-report","Реестр больничных листов с присоединённой подписью"
+      "urn:document:fss-sick-report-date-confirmation","Подтверждение спецоператора"
+      "urn:document:fss-sick-report-erro","Сообщение об ошибке при проверке реестра"
+      "urn:document:fss-sick-report-error-receipt","Сообщение об ошибке при проверке реестра"
+      "urn:document:fss-sick-report-receipt","Квитанция"
 
 Извещение о прямых выплатах мер социального обеспечения
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
