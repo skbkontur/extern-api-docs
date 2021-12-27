@@ -30,6 +30,7 @@
    FSS
    sedo-fss
    sedo-subscription
+   reestr-pvso
    proactiv
 
 .. toctree::
