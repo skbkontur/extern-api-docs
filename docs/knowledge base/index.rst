@@ -30,6 +30,8 @@
    FSS
    sedo-fss
    sedo-subscription
+   reestr-pvso
+   proactiv
 
 .. toctree::
    :caption: Документооборот с ПФР
