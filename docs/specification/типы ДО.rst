@@ -57,7 +57,7 @@
    "urn:docflow:fss-sedo-pvso-notification", "Извещение о прямых выплатах мер социального обеспечения"
    "urn:docflow:fss-sedo-error", "Сообщения об ошибках в документообортах ФСС через СЭДО"
    "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на документооборот с ФСС по абоненту"
-   "urn:docflow:fss-sick-report", "Реестр больничных листов"
+   "urn:docflow:fss-sick-report", "Реестр ПВСО (прямых выплат страхового обеспечения"
    "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия ФСС"
    "urn:docflow:fss-sedo-proactive-payments-reply","Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
    "urn:docflow:fss-sedo-proactive-payments-reply-result","Результат обработки ответа на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
