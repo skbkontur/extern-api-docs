@@ -7,7 +7,6 @@
 .. _`GET Docflow`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D
 .. _`GET Docflows`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
 .. _`портале ФСС`: http://portal.fss.ru/fss/analytics/gate/error-description
-.. _`спецификации ФСС`: http://fz122.fss.ru/doc/reglrest.pdf
 .. _`GET DraftTask`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D 
 
 Реестр ПВСО
@@ -31,7 +30,7 @@
     * в данном виде документооборота нет ответных документов;
     * у документооборота нет статусов. Необходимо работать со стадиями и статусами стадий;
     * стадии документооборота и статусы стадий аналогичны стадиям 4-ФСС и описаны в :ref:`спецификации<rst-markup_4fss>`;
-    * наименование подписанного реестра должно соответствовать `спецификации ФСС`_.
+    * наименование подписанного реестра должно соответствовать :ref:`спецификации ФСС<rst-markup-name-reestr-pvso>`.
 
 **Как отправить реестр ПВСО**
 

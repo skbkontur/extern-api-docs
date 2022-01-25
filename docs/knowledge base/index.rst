@@ -32,6 +32,7 @@
    sedo-subscription
    reestr-pvso
    proactiv
+   proactive_ algorithm
 
 .. toctree::
    :caption: Документооборот с ПФР
