@@ -428,8 +428,8 @@
       "urn:document:fss-sedo-error-request-message", "Запрос на получение сообщения об ошибке"
       "urn:document:fss-sedo-error-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
 
-Реестр больничных листов
-++++++++++++++++++++++++
+Реестр ПВСО
++++++++++++
 
 Тип документооборота urn:docflow:fss-sick-report.
 
@@ -439,7 +439,7 @@
 
       "urn:document:fss-sick-report","Реестр больничных листов с присоединённой подписью"
       "urn:document:fss-sick-report-date-confirmation","Подтверждение спецоператора"
-      "urn:document:fss-sick-report-erro","Сообщение об ошибке при проверке реестра"
+      "urn:document:fss-sick-report-error","Сообщение об ошибке при проверке реестра"
       "urn:document:fss-sick-report-error-receipt","Сообщение об ошибке при проверке реестра"
       "urn:document:fss-sick-report-receipt","Квитанция"
 
