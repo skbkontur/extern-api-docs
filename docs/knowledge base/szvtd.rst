@@ -1,7 +1,5 @@
 .. _`Справочная информация об отчетности по форме СЗВ-ТД`: https://support.kontur.ru/pages/viewpage.action?pageId=43058621
 .. _`POST Draft`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
-.. _`POST Upload`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
-.. _`GET Download`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fcontents%2F%7Bid%7D
 .. _`POST BuildDocumentContent`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fbuild-document
 .. _`POST Document`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
 .. _`PUT Document`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
@@ -47,7 +45,7 @@
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Создать черновик. `POST Draft`_.
-#. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл заявления с прикрепленной подписью xmlDsig. `POST Upload`_.
+#. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл заявления с прикрепленной подписью xmlDsig. :ref:`POST Upload<rst-markup-post-content>`.
 #. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Document`_.
 #. Проверить, подготовить, отправить черновик. `POST Check`_, `POST Prepare`_, `POST Send`_.
 #. ПФР в течение двух рабочих дней направит «Уведомление о результате рассмотрения», успешно принятым считается уведомление с отметкой об удовлетворении заявления. Документооборот завершен.
@@ -61,9 +59,9 @@
 2. Создать документ в черновике по json контракту. `POST BuildDocumentContent`_.
 3. Добавить в документ подпись XMLDsig:
 
-    #. По content-id скачать сгенерированный файл заявления из сервиса контентов. `GET Download`_.
+    #. По content-id скачать сгенерированный файл заявления из сервиса контентов. :ref:`GET Download<rst-markup-get-content>`.
     #. Добавить в файл подпись в формате xmlDsig. Если нужна помощь в создании подписи, смотри алгоритм :ref:`формирования XMLDsig подписи на стороне API<rst-markup-apiForXmlDsig>`. Если воспользовались алгоритмом, вернуться в п.6.
-    #. Подписанный файл нужно загрузить в сервис контентов. `POST Upload`_.
+    #. Подписанный файл нужно загрузить в сервис контентов. :ref:`POST Upload<rst-markup-post-content>`.
     #. Заменить контент документа на полученный идентификатор сервиса контентов `PUT Document`_. 
 
 4. Проверить черновик `POST Check`_.
@@ -77,7 +75,7 @@
 Отчет по форме СЗВ-ТД нужно отправлять отдельным **документооборотом типа urn:docflow:pfr-report**. Статусы и порядок документооборота описаны в :ref:`спецификации<rst-markup-szvtd-status>`.
 
 #. Создать черновик. `POST Draft`_.
-#. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл отчета с прикрепленной подписью xmlDsig. `POST Upload`_.
+#. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл отчета с прикрепленной подписью xmlDsig. :ref:`POST Upload<rst-markup-post-content>`.
 #. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Document`_.
 #. Проверить, подготовить, отправить черновик. `POST Check`_, `POST Prepare`_, `POST Send`_.
 #. ПФР в течение одного рабочего дня направит "Уведомление о доставке".
