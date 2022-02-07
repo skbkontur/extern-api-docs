@@ -1,33 +1,34 @@
-.. _`POST CreateDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders
-.. _`GET GetDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`GET GetDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`PUT UpdateDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
-.. _`POST BuildDrafts`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fbuild
-.. _`GET GetBuildResult`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Ftasks%2F%7BapiTaskId%7D
-.. _`DELETE RemoveDraftsBuilder`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
-.. _`GET GetDraftsBuilderDocuments`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
-.. _`POST CreateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
-.. _`GET GetDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`GET GetDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`PUT UpdateDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
-.. _`DELETE RemoveDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`GET GetDraftsBuilderDocumentFiles`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
-.. _`POST CreateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
-.. _`GET GetDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
-.. _`PUT UpdateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
-.. _`GET GetDraftsBuilderDocumentFileContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fcontent
-.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fsignature
-.. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
-.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
-.. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`Черновики и конструктор черновиков (draftsbuilder)`: https://developer.kontur.ru/doc/extern.drafts
+.. _`POST CreateDraftsBuilder`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders
+.. _`GET GetDraftsBuilder`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilder`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`PUT UpdateDraftsBuilderMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta
+.. _`POST BuildDrafts`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fbuild
+.. _`GET GetBuildResult`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`DELETE RemoveDraftsBuilder`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D
+.. _`GET GetDraftsBuilderDocuments`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
+.. _`POST CreateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments
+.. _`GET GetDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`PUT UpdateDraftsBuilderDocumentMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta
+.. _`DELETE RemoveDraftsBuilderDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D
+.. _`GET GetDraftsBuilderDocumentFiles`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
+.. _`POST CreateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles
+.. _`GET GetDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`PUT UpdateDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
+.. _`GET GetDraftsBuilderDocumentFileContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fcontent
+.. _`GET GetDraftsBuilderDocumentFileSignatureContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fsignature
+.. _`GET GetDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
+.. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
+.. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
 .. _`формату`: https://normativ.kontur.ru/document?moduleId=8&documentId=335100
 
 Методы для работы с DraftsBuilder
 =================================
 
-Подробная спецификация методов показана в Swagger в разделе DraftsBuilder.
+Подробная спецификация методов показана в Swagger в разделе `Черновики и конструктор черновиков (draftsbuilder)`_.
 
 .. contents:: Список доступных методов
    :depth: 2
