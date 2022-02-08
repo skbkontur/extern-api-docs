@@ -40,7 +40,7 @@
 
 2. Загрузите файл документа в :ref:`Сервис контентов<rst-markup-load>`.
 3. Создайте документ в черновике: :ref:`POST AddDocument<rst-markup-addDocument>`. При создании укажите ссылку на документ в виде идентификатора из :ref:`Сервиса контентов<rst-markup-load>`.
-4. Получите данные для подписи через :ref:`Сервис контентов<rst-markup-dowload>`. Для этого возьмите из метаинформации ответа метода ``AddDocument`` идентификатор подписи в поле ``data-to-sign-content-id``. 
+4. Возьмите идентификатор подписи из метаинформации ответа метода ``AddDocument`` в поле ``data-to-sign-content-id`` и получите данные для подписи через :ref:`Сервис контентов<rst-markup-dowload>`. 
 5. Подпишите эти данные сырой (raw) подписью. 
 6. Приложите подпись к документу: :ref:`POST Add signature<rst-markup-AddSignature>`.
 7. Когда черновик готов, запустите последовательность методов: :ref:`POST Check<rst-markup-check>` -> :ref:`POST Prepare<rst-markup-prepare>` -> :ref:`POST Send<rst-markup-send>`. Укажите флаг ``deferred = true`` для отложенного выполнения задач. 
