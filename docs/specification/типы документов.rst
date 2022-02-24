@@ -365,6 +365,8 @@
    "urn:document:stat-cu-broadcast-attachment","Неформализованное приложение к рассылке","ПриложениеПисьма"
    "urn:document:stat-cu-broadcast-confirmation","Подтверждение даты получения рассылки (установленный формат)","ПодтверждениеОператора"
    
+.. _rst-markup-typedocumentFSS:
+
 ФСС
 ---
 

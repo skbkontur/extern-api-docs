@@ -107,6 +107,8 @@
 
 Метод: `PUT ReplyDocumentSignature`_
 
+.. _rst-markup-sendreply:
+
 Отправка ответного документа
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 

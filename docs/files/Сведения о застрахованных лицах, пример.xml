@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<insuredPerson xmlns="urn:ru:fss:integration:types:rpu:InsuredPerson:v01" xmlns:p="http://www.fss.ru/integration/types/person/v02" xmlns:c="http://www.fss.ru/integration/types/common/v01" xmlns:r="http://www.fss.ru/integration/types/dic/CauseRadiationExposure/v01" xmlns:id="http://www.fss.ru/integration/types/dic/identtityDoc/v01" xmlns:dsz="urn:ru:fss:integration:types:dic:SpecialZone:v01" xmlns:e="http://www.fss.ru/integration/types/dic/errors/v01" xmlns:org="http://www.fss.ru/integration/types/organization/v01">
+	<fullName>
+		<p:firstName>Иван</p:firstName>
+		<p:lastName>Иванов</p:lastName>
+	</fullName>
+	<birthDate>1999-01-10</birthDate>
+	<gender>MALE</gender>
+	<snils>00000000000</snils>
+	<identityDocument>
+		<passport>
+			<series>0000</series>
+			<number>000000</number>
+			<issueDate>2022-01-10</issueDate>
+			<whoIssued>МВД по Свердловской области</whoIssued>
+		</passport>
+	</identityDocument>
+	<regAddress>
+		<fiasAddress>
+			<c:houseGuid>692f7621-4a57-4f65-93ae-05409c1b7931</c:houseGuid>
+		</fiasAddress>
+		<postalCode>242400</postalCode>
+	</regAddress>
+</insuredPerson>

@@ -51,7 +51,15 @@
 - urn:docflow:fss-sedo-provider-subscription,
 - urn:docflow:fss-sedo-abonent-subscription,
 - urn:docflow:fss-sedo-error,
-- urn:docflow:fss-sedo-pvso-notification.
+- urn:docflow:fss-sedo-pvso-notification,
+- urn:docflow:fss-sedo-sick-report-change-notification,
+- urn:docflow:fss-sedo-proactive-payments-demand,
+- urn:docflow:fss-sedo-proactive-payments-reply,
+- urn:docflow:fss-sedo-proactive-payments-reply-result,
+- urn:docflow:fss-sedo-proactive-payments-benefit,
+- urn:docflow:fss-sedo-insured-person-registration,
+- urn:docflow:fss-sedo-insured-person-registration-result,
+- urn:docflow:fss-sedo-insured-person-mismatch.
 
 Для документооборотов типа urn:docflow:fns534-inventory нужно использовать методы из раздела :doc:`Представление документов к требованиям</inventories/index>`.
 

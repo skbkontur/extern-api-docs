@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "ec47bd92-b92e-468e-b8e7-c6a9f0688e25",
+		"name": "СЭДО Работа с черновиком",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Создание черновика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru//v1/{accountId}/drafts",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"",
+						"v1",
+						"{accountId}",
+						"drafts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение черновика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "X-Kontur-Apikey",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Загрузить контент в сервис контентов",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/contents",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"contents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание документа в черновике",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"base64-content\": \"string\",\r\n  \"signature\": \"string\",\r\n  \"content-id\": \"00000000-0000-0000-0000-000000000000\",\r\n  \"description\": {\r\n    \"type\": \"urn:nss:nid\",\r\n    \"filename\": \"string\",\r\n    \"content-type\": \"string\",\r\n    \"svdreg-code\": \"string\",\r\n    \"original-filename\": \"string\"\r\n  }\r\n}"
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/documents",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"documents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Скачать контент",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru//v1/{accountId}/contents/{id}",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"",
+						"v1",
+						"{accountId}",
+						"contents",
+						"{id}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание подписи документа",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"base64-content\": \"string\",\r\n  \"is-third-party-signature\": true\r\n}"
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/documents/{documentId}/signatures",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"documents",
+						"{documentId}",
+						"signatures"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка черновика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/check",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"check"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Подготовка черновика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/prepare",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"prepare"
+					],
+					"query": [
+						{
+							"key": "deferred",
+							"value": "true",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отправка черновика",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/send",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"send"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Проверка статуса задачи черновика по TaskId",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true,
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Kontur-Apikey",
+						"value": "{{x-kontur-apikey}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/{accountId}/drafts/{draftId}/tasks/{apiTaskId}",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"{accountId}",
+						"drafts",
+						"{draftId}",
+						"tasks",
+						"{apiTaskId}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
