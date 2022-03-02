@@ -46,4 +46,5 @@
    :titlesonly:
 
    stat-letter
+   fns-letter
 

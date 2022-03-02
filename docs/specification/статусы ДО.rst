@@ -44,6 +44,8 @@
 
 .. image:: /_static/status-fns534-ion.jpg
 
+.. _rst-markup-spec-fns-letter:
+
 Письма в ФНС
 ++++++++++++
 
