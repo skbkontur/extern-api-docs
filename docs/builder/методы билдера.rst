@@ -293,7 +293,7 @@
 
          **Пример Request Body для создания документа**:
 
-         .. code-block:: json
+         .. sourcecode:: json
 
             {
                "builder-data": {
