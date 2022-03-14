@@ -1,5 +1,5 @@
 .. _`Приказами ФНС от 13 июня 2013 г. N ММВ-7-6/196@`: https://normativ.kontur.ru/document?moduleId=1&documentId=338803
-.. _`09.11.2010 N ММВ-7-6/535@`: https://normativ.kontur.ru/document?moduleId=1&documentId=371143&rangeId=401463#
+.. _`09.11.2010 N ММВ-7-6/535@`: https://normativ.kontur.ru/document?moduleId=1&documentId=411536&cwi=620#h719
 .. _`ФЗ от 02.05.2006 N 59-ФЗ`: https://normativ.kontur.ru/document?moduleId=1&documentId=158860
 
 

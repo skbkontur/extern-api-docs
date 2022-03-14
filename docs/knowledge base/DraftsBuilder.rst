@@ -116,9 +116,9 @@ DraftsBuilder состоит из трех сущностей:
 
 
 .. _rst-markup-db-proc:
+
 Алгоритм работы с DraftsBuilder в API
 -------------------------------------
-
 
 1. Создайте DraftsBuilder: :ref:`POST CreateDraftsBuilder<rst-markup-createDB>`.
 
