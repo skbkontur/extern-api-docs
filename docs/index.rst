@@ -1,3 +1,22 @@
+.. raw:: html
+
+   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           
+      <div itemprop="articleBody">
+            
+         <script> setInterval(function() 
+            {
+               if (document.querySelector("#rtd-sidebar"))
+               {
+                  document.getElementById("rtd-sidebar").hidden = true;
+               }
+            },200);
+         </script>
+
+      </div>
+           
+   </div>
+
 .. _`API Экстерна для работы с учетными записями и организациями`: https://developer.kontur.ru/doc/extern
 .. _`API Экстерна для работы с черновиками и конструктором черновиков (draftsbuilder)`: https://developer.kontur.ru/doc/extern.drafts
 .. _`API Экстерна для работы с документооборотами и лентой событий`: https://developer.kontur.ru/doc/extern.docflows
