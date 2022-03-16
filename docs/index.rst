@@ -5,7 +5,7 @@
       <div itemprop="articleBody">
             
          <script type="text/javascript">
-            window.location.replace('https://developer.kontur.ru/doc/edi');
+            window.location.replace('https://docs-ke.kontur.ru/index.html');
          </script>
 
       </div>
