@@ -4,13 +4,8 @@
            
       <div itemprop="articleBody">
             
-         <script> setInterval(function() 
-            {
-               if (document.querySelector("#rtd-sidebar"))
-               {
-                  document.getElementById("rtd-sidebar").hidden = true;
-               }
-            },200);
+         <script type="text/javascript">
+            window.location.replace('https://developer.kontur.ru/doc/edi');
          </script>
 
       </div>
