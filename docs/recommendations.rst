@@ -1,4 +1,16 @@
+.. raw:: html
 
+   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           
+      <div itemprop="articleBody">
+            
+         <script type="text/javascript">
+            window.location.replace('https://docs-ke.kontur.ru/recommendations.html');
+         </script>
+
+      </div>
+           
+   </div>
 
 Рекомендации по работе c API
 ============================

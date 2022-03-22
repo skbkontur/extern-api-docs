@@ -1,3 +1,16 @@
+.. raw:: html
+
+   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           
+      <div itemprop="articleBody">
+            
+         <script type="text/javascript">
+            window.location.replace('https://docs-ke.kontur.ru/release%20notes.html');
+         </script>
+
+      </div>
+           
+   </div>
 .. _`поиск документооборотов`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
 .. _`POST Recognize`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
 .. _`Send`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend

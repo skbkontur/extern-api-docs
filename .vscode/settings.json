@@ -1,3 +1,5 @@
 {
-    "restructuredtext.confPath": "${workspaceFolder}\\docs"
+    "restructuredtext.confPath": "${workspaceFolder}\\docs",
+    "esbonio.sphinx.confDir": "c:\\Users\\buravova\\Desktop\\public\\extern-api-docs\\docs",
+    "esbonio.server.enabled": true
 }
