@@ -47,4 +47,5 @@
 
    stat-letter
    fns-letter
+   sverkands
 
