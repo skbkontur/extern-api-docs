@@ -1,3 +1,17 @@
+.. raw:: html
+
+   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           
+      <div itemprop="articleBody">
+            
+         <script type="text/javascript">
+            window.location.replace('https://docs-ke.kontur.ru/auth_oidc/trusted.html');
+         </script>
+
+      </div>
+           
+   </div>
+
 .. _`POST tokenendpoint`: https://developer.testkontur.ru/doc/openidconnect/method?type=post&path=%2Fconnect%2Ftoken
 .. _`PUT register-external-service-id`: https://developer.kontur.ru/doc/auth/method?type=put&path=%2Fauth%2Fv5.16%2Fregister-external-service-id
 .. _`RSA`: https://ru.wikipedia.org/wiki/RSA

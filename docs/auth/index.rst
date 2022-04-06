@@ -1,3 +1,17 @@
+.. raw:: html
+
+   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           
+      <div itemprop="articleBody">
+            
+         <script type="text/javascript">
+            window.location.replace('https://docs-ke.kontur.ru/auth/index.html');
+         </script>
+
+      </div>
+           
+   </div>
+
 .. _`API Аутентификатора`: https://developer.testkontur.ru/auth
 
 Аутентификация по auth.sid (obsolete)
