@@ -5,9 +5,39 @@
 .. _`POST SignPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign
 .. _`GET DocflowPfrReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
 .. _`POST SignConfirmPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+.. _`метод для генерации входящих писем Росстат`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-incoming-stat-letter
+
 
 История изменений API
 =====================
+
+Апрель 2022
+-----------
+ 
+* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</knowledge base/fns-letter>` в конструкторе черновиков. 
+
+Январь 2022
+-----------
+
+* Поддержали сценарий работы с :doc:`Проактивными выплатами</knowledge base/proactiv>`.
+
+Ноябрь 2021
+-----------
+
+* В метаинформации документооборота 4-ФСС (модель FssReportRequisites) добавили новое поле ``sender-certificate-thumbprint``. Поле возвращает отпечаток сертификата, которым был подписан отчет.
+* В метаинформации документооборота требований (модель DemandAttachmentRequisites) добавили новые поля:
+
+    * ``tax-department-name`` — наименование налогового органа;
+    * ``tax-event-name`` — наименование мероприятия налогового контроля.
+
+**Обновление в Extern Test Tools:**
+
+* Добавили `метод для генерации входящих писем Росстат`_.
+
+Октябрь 2021
+------------
+
+* Исправлены ошибки по определению признаков зашифрованности ``encrypted`` и сжатости ``compressed`` контента для документов ПФР.
 
 Август 2021
 -----------
