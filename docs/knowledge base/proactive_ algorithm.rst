@@ -83,6 +83,7 @@
    "urn:docflow:fss-sedo-insured-person-mismatch", "urn:document:fss-sedo-insured-person-mismatch-mismatch-message"
    "urn:docflow:fss-sedo-proactive-payments-reply-result", "urn:document:fss-sedo-proactive-payments-reply-result-response-result"
    "urn:docflow:fss-sedo-proactive-payments-benefit", "urn:document:fss-sedo-proactive-payments-benefit-benefit-message"
+   "urn:docflow:fss-sedo-proactive-payments-demand", "urn:document:fss-sedo-proactive-payments-demand-demand-message"
 
 5. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 

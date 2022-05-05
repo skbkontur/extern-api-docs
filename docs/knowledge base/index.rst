@@ -22,6 +22,8 @@
    check-demand
    inventory
    rnpt
+   fns-letter
+   sverkands
 
 .. toctree::
    :caption: Документооборот с ФСС
@@ -46,6 +48,4 @@
    :titlesonly:
 
    stat-letter
-   fns-letter
-   sverkands
 

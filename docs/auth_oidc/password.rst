@@ -1,17 +1,3 @@
-.. raw:: html
-
-   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           
-      <div itemprop="articleBody">
-            
-         <script type="text/javascript">
-            window.location.replace('https://docs-ke.kontur.ru/auth_oidc/password.html');
-         </script>
-
-      </div>
-           
-   </div>
-
 .. _`POST tokenendpoint`: https://developer.testkontur.ru/doc/openidconnect/method?type=post&path=%2Fconnect%2Ftoken
 
 .. _rst-markup-password:

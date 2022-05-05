@@ -312,7 +312,7 @@
    "urn:document:stat-report","Отчет, направляемый в ТОГС (установленный формат)","Отчет"
    "urn:document:stat-report-description*","Служебный документ, в котором передается описание отчета (установленный формат)","ОписаниеОтчета"
    "urn:document:stat-report-date-confirmation*","Подтверждение даты отправки документа (установленный формат)","ПодтверждениеОператора"
-   "urn:document:stat-report-attachment","Неформализованное приложение к отчету","ПриложениеПисьма"
+   "urn:document:stat-report-report-attachment","Неформализованное приложение к отчету","ПриложениеПисьма"
    "urn:document:stat-report-receipt","Извещение о получении документа его получателем (установленный формат)","ИзвещениеОПолучении"
    "urn:document:stat-report-protocol-v2-positive","Уведомление о принятии отчета ТОГСом","УведомлениеОПриемеВОбработку"
    "urn:document:stat-report-protocol-v2-negative","Уведомление об отказе в принятии отчета ТОГСом","УведомлениеОНесоответствииФормату"
@@ -360,7 +360,7 @@
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
    :widths: 20 80 20
 
-   "urn:document:stat-cu-broadcast","Неформализованный текст информационной рассылки","Рассылка"
+   "urn:document:stat-cu-broadcast-letter","Неформализованный текст информационной рассылки","Рассылка"
    "urn:document:stat-cu-broadcast-description","Служебный документ, в котором передается описание рассылки (установленный формат)","ОписаниеПисьма"
    "urn:document:stat-cu-broadcast-attachment","Неформализованное приложение к рассылке","ПриложениеПисьма"
    "urn:document:stat-cu-broadcast-confirmation","Подтверждение даты получения рассылки (установленный формат)","ПодтверждениеОператора"
@@ -586,7 +586,7 @@
    :header: "Urn", "Комментарий (согласно нормативным документам)"
    :widths: 20 80
 
-      "urn:document:cbrf-report-v2","Отчет"
+      "urn:document:cbrf-report-report-v2","Отчет"
       "urn:document:cbrf-report-esod-receipt","Результат приема отчета"
       "urn:document:cbrf-report-status-info","Технологический документ"
       "urn:document:cbrf-report-processing-status","Результат обработки отчета"

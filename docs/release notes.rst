@@ -14,7 +14,13 @@
 Апрель 2022
 -----------
  
-* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</knowledge base/fns-letter>` в конструкторе черновиков. 
+* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</knowledge base/fns-letter>` в конструкторе черновиков.
+* Сделали обязательным :ref:`асинхронное выполнение запросов<rst-markup-deferred>` для методов:
+
+    * :ref:`проверки<rst-markup-check>`, :ref:`подготовки<rst-markup-prepare>`, :ref:`отправки<rst-markup-send>` черновика;
+    * :ref:`печати документа в черновике<rst-markup-draft-print>`;
+    * :ref:`печати документа в документообороте<rst-markup-dcprint>`;
+    * :ref:`сборки DraftsBuilder в черновик<rst-markup-buildDB>`.. 
 
 Январь 2022
 -----------
