@@ -20,7 +20,7 @@
     * :ref:`проверки<rst-markup-check>`, :ref:`подготовки<rst-markup-prepare>`, :ref:`отправки<rst-markup-send>` черновика;
     * :ref:`печати документа в черновике<rst-markup-draft-print>`;
     * :ref:`печати документа в документообороте<rst-markup-dcprint>`;
-    * :ref:`сборки DraftsBuilder в черновик<rst-markup-buildDB>`.. 
+    * :ref:`сборки DraftsBuilder в черновик<rst-markup-buildDB>`. 
 
 Январь 2022
 -----------
