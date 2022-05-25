@@ -12,6 +12,7 @@
    content
    DraftsBuilder
    loks
+   sverkands
 
 .. toctree::
    :caption: Документооборот с ФНС
@@ -23,7 +24,7 @@
    inventory
    rnpt
    fns-letter
-   sverkands
+
 
 .. toctree::
    :caption: Документооборот с ФСС
