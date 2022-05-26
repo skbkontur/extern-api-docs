@@ -42,7 +42,7 @@
 * Получать список документооборотов с использованием фильтра type. За один запрос рекомендуем получать только один тип. Все типы документооборотов указаны в :doc:`спецификации</specification/статусы ДО>`.
 * Вычитывать за один запрос только первую страницу, но с фильтром и сортировкой по дате создания (или изменения)
 
-При получении общего списка документооборотов без фильтра type метод GET Docflows не возвращает документообороты с типами:
+При получении общего списка документооборотов без фильтра ``type`` метод GET Docflows не возвращает документообороты с типами:
 
 - urn:docflow:business-registration,
 - urn:docflow:fns534-cu-broadcast,
@@ -59,9 +59,9 @@
 - urn:docflow:fss-sedo-proactive-payments-benefit,
 - urn:docflow:fss-sedo-insured-person-registration,
 - urn:docflow:fss-sedo-insured-person-registration-result,
-- urn:docflow:fss-sedo-insured-person-mismatch.
+- urn:docflow:fss-sedo-insured-person-mismatch,
+- urn:docflow:fns534-inventory.
 
-Для документооборотов типа urn:docflow:fns534-inventory нужно использовать методы из раздела :doc:`Представление документов к требованиям</inventories/index>`.
 
 Сценарии, в которых можно использовать списки документооборотов:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
