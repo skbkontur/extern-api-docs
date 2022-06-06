@@ -441,8 +441,8 @@
    :header: "Urn", "Короткое имя", "Комментарий"
    :widths: 20 10 50
 
-   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документа"
-   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение документа"
+   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документов"
+   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение документов"
    "urn:docflow-common-status:response-arrived", "Получен ответ", "Запрос недостающих сведений для назначения пособия ФСС"
    "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
 
@@ -486,7 +486,7 @@
    :header: "Urn", "Короткое имя", "Комментарий"
    :widths: 20 10 50
 
-   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документа"
+   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документов"
    "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение документа выплаты пособия ФСС"
    "urn:docflow-common-status:response-arrived", "Получен ответ", "Выплата пособия ФСС"
    "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
