@@ -1,7 +1,8 @@
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
-.. _`GET UploadContent`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fupload-content
-.. _`GET GenerateDemand`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-demand
+.. _`POST UploadContent`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fupload-content
+.. _`POST GenerateDemand`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-demand
 .. _`POST Upload`: https://developer.kontur.ru/doc/extern.contents/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
+.. _`Swagger`: https://extern-api.testkontur.ru/test-tools/swagger/index.html
 
 Требование
 ==========
@@ -60,12 +61,14 @@
 
 **Первый способ**
 
-Сгенирируйте входящее требование с помощью тестового робота: `GET GenerateDemand`_. При вызове метода заполните также параметр ``Knds``.
+Сгенирируйте входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода заполните также параметр ``Knds``.
 
 **Второй способ**
 
-1. Загрузите файлы требования в сервис контентов: `GET UploadContent`_. Метод вернет идентификатор контента загруженного файла. В сервис контентов можно загрузить один документ в формате pdf за раз. 
+1. Загрузите файлы требования в сервис контентов: `POST UploadContent`_. Метод вернет идентификатор контента загруженного файла. В сервис контентов можно загрузить один документ в формате pdf за раз. 
 
-.. warning:: Для генерации тестового входящего требования нельзя использовать метод для инициализации загрузки контента: `POST Upload`_. Для тестовых данных был создан отдельный метод. 
+.. note::  На сайте https://developer.kontur.ru/ пока нет возможности загружать файлы, поэтому рекомендуем воспользоваться методом в `Swagger`_.
 
-2. Сгенирируйте входящее требование с помощью тестового робота: `GET GenerateDemand`_. При вызове метода укажите идентификатор контента в параметре ``Contents``.
+2. Сгенирируйте входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода укажите идентификатор контента и КНД требования в модели ``Contents``.
+
+.. warning:: Загрузить файл требования для генерации входящего документооборота можно только с помощью метода `POST UploadContent`_. Метод `POST Upload`_ не предназначен для работы с тестовыми данными.  
