@@ -1,3 +1,8 @@
+.. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
+.. _`GET UploadContent`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fupload-content
+.. _`GET GenerateDemand`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-demand
+.. _`POST Upload`: https://developer.kontur.ru/doc/extern.contents/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
+
 Требование
 ==========
 
@@ -48,3 +53,19 @@
 Требование о представлении документов (информации) КНД 1165013
     *На требование о представлении документов (информации) нужно отправить опись со списком запрашиваемых документов*.
 
+Тестовые данные
+---------------
+
+С помощью сервиса `Extern Test Tools`_ можно сгенрировать входящие требования. Для этого есть два способа. 
+
+**Первый способ**
+
+Сгенирируйте входящее требование с помощью тестового робота: `GET GenerateDemand`_. При вызове метода заполните также параметр ``Knds``.
+
+**Второй способ**
+
+1. Загрузите файлы требования в сервис контентов: `GET UploadContent`_. Метод вернет идентификатор контента загруженного файла. В сервис контентов можно загрузить один документ в формате pdf за раз. 
+
+.. warning:: Для генерации тестового входящего требования нельзя использовать метод для инициализации загрузки контента: `POST Upload`_. Для тестовых данных был создан отдельный метод. 
+
+2. Сгенирируйте входящее требование с помощью тестового робота: `GET GenerateDemand`_. При вызове метода укажите идентификатор контента в параметре ``Contents``.
