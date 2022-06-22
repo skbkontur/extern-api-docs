@@ -1,8 +1,9 @@
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
-.. _`POST UploadContent`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fupload-content
+.. _`POST UploadContent`: https://extern-api.testkontur.ru/test-tools/swagger/index.html
 .. _`POST GenerateDemand`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-demand
 .. _`POST Upload`: https://developer.kontur.ru/doc/extern.contents/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fcontents
 .. _`Swagger`: https://extern-api.testkontur.ru/test-tools/swagger/index.html
+.. _`Контур.Документации API`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fupload-content
 
 Требование
 ==========
@@ -57,18 +58,21 @@
 Тестовые данные
 ---------------
 
-С помощью сервиса `Extern Test Tools`_ можно сгенрировать входящие требования. Для этого есть два способа. 
+
+Тестовые входящие требования можно сгенерировать двумя способами. Оба способа возможны с помощью сервиса генерации тестовых данных `Extern Test Tools`_. 
 
 **Первый способ**
 
-Сгенирируйте входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода заполните также параметр ``Knds``.
+Можно сгенерировать входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода заполните также параметр ``Knds``.
 
 **Второй способ**
 
-1. Загрузите файлы требования в сервис контентов: `POST UploadContent`_. Метод вернет идентификатор контента загруженного файла. В сервис контентов можно загрузить один документ в формате pdf за раз. 
+Можно загрузить уже имеющиеся файлы требования. Сервис Extern Test Tools распознает строки требования и вернет с помощью тестового робота:
 
-.. note::  На сайте https://developer.kontur.ru/ пока нет возможности загружать файлы, поэтому рекомендуем воспользоваться методом в `Swagger`_.
+1. Загрузите файлы требования в Сервис контентов: `POST UploadContent`_. Метод вернет идентификатор контента загруженного файла. В Сервис контентов можно загрузить один документ в формате pdf за раз. 
 
-2. Сгенирируйте входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода укажите идентификатор контента и КНД требования в модели ``Contents``.
+.. note::  В `Контур.Документации API`_ пока нет возможности загружать файлы, поэтому рекомендуем воспользоваться методом в `Swagger`_.
+
+2. Сгенерируйте входящее требование с помощью тестового робота: `POST GenerateDemand`_. При вызове метода укажите идентификатор контента и КНД требования в модели ``Contents``.
 
 .. warning:: Загрузить файл требования для генерации входящего документооборота можно только с помощью метода `POST UploadContent`_. Метод `POST Upload`_ не предназначен для работы с тестовыми данными.  
