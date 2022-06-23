@@ -57,6 +57,7 @@ API Контур Экстерна
    inventories/index
    builder/index
    contents/index
+   sverkaNds/index
    
 .. toctree::
    :maxdepth: 2 
