@@ -1,0 +1,108 @@
+<urn:powerOfAttorney xmlns:urn="urn:ru:fss:integration:types:mchd:v01" xmlns:v01="http://www.fss.ru/integration/types/common/v01">
+  <urn:systemInfo>
+    <v01:specVersion>string</v01:specVersion>
+    <v01:software>string</v01:software>
+    <v01:softwareVersion>string</v01:softwareVersion>
+  </urn:systemInfo>
+  <urn:generalInfo>
+    <urn:uuid>84cff9ea-de0f-4841-8645-58620adf49b2</urn:uuid>
+    <urn:startDate>2008-09-29</urn:startDate>
+    <urn:endDate>2014-09-19</urn:endDate>
+    <urn:comment>Комментарий</urn:comment>
+  </urn:generalInfo>
+  <urn:owner>
+    <urn:legalOrganization>
+      <urn:fullName>ООО «АТС»</urn:fullName>
+      <urn:jurAddress>111222, г.Москва, ул.Петрова, д.5</urn:jurAddress>
+      <urn:inn>112233445566</urn:inn>
+      <urn:kpp>112233445</urn:kpp>
+      <urn:ogrn>1122334455667</urn:ogrn>
+      <urn:foreign>true</urn:foreign>
+    </urn:legalOrganization>
+    <urn:legalPerson>
+      <urn:firstName>Илья</urn:firstName>
+      <urn:lastName>Иванов</urn:lastName>
+      <urn:middleName>Аркадьевич</urn:middleName>
+      <urn:birthDate>2018-11-01+03:00</urn:birthDate>
+      <urn:snils>34534565489</urn:snils>
+      <urn:inn>665544332211</urn:inn>
+      <urn:ogrnip>123456789876543</urn:ogrnip>
+    </urn:legalPerson>
+    <urn:person>
+      <urn:firstName>Петр</urn:firstName>
+      <urn:lastName>Романов</urn:lastName>
+      <urn:middleName>Алексеевич</urn:middleName>
+      <urn:birthDate>2013-05-22+04:00</urn:birthDate>
+      <urn:snils>12359855425</urn:snils>
+      <urn:inn>123456789876</urn:inn>
+      <urn:insurer>
+        <urn:regNum>1122334455 11223</urn:regNum>
+      </urn:insurer>
+      <urn:volunteer>
+        <urn:regNum>1122334455 11223</urn:regNum>
+        <urn:kpsNum>strin</urn:kpsNum>
+      </urn:volunteer>
+    </urn:person>
+  </urn:owner>
+  <urn:principal>
+    <urn:person>
+      <urn:firstName>Вера</urn:firstName>
+      <urn:lastName>Илюхина</urn:lastName>
+      <urn:middleName>Александровна</urn:middleName>
+      <urn:birthDate>2002-11-05+03:00</urn:birthDate>
+      <urn:snils>12335658721</urn:snils>
+      <urn:inn>123456789876</urn:inn>
+    </urn:person>
+    <urn:signedByNotary>false</urn:signedByNotary>
+    <urn:notaryBasedOn>string</urn:notaryBasedOn>
+  </urn:principal>
+  <urn:representative>
+    <urn:legalOrganization>
+      <urn:fullName>ЗАО «ПИН»</urn:fullName>
+      <urn:jurAddress>873500, г.Великий Новгород, ул.Ленина, д.124, оф.3</urn:jurAddress>
+      <urn:inn>123456789876</urn:inn>
+      <urn:kpp>123456789</urn:kpp>
+      <urn:ogrn>12345678987654</urn:ogrn>
+      <urn:foreign>false</urn:foreign>
+    </urn:legalOrganization>
+    <urn:legalPerson>
+      <urn:firstName>Елена</urn:firstName>
+      <urn:lastName>Рожкова</urn:lastName>
+      <urn:middleName>Петровна</urn:middleName>
+      <urn:birthDate>2009-10-14</urn:birthDate>
+      <urn:snils>12385296374</urn:snils>
+      <urn:inn>1234567898765</urn:inn>
+      <urn:ogrnip>1234567898765432</urn:ogrnip>
+      <urn:personDocument>
+        <urn:identityDocument>Паспорт</urn:identityDocument>
+        <urn:series>5269</urn:series>
+        <urn:number>589632</urn:number>
+        <urn:issuedDate>2010-03-18</urn:issuedDate>
+        <urn:issuedBy>Отдел УФМС РФ по г.Москве</urn:issuedBy>
+        <urn:issuedByCode>271-05</urn:issuedByCode>
+      </urn:personDocument>
+    </urn:legalPerson>
+    <urn:person>
+      <urn:firstName>Максим</urn:firstName>
+      <urn:lastName>Скороходов</urn:lastName>
+      <urn:middleName>Алексеевич</urn:middleName>
+      <urn:birthDate>2018-12-28+03:00</urn:birthDate>
+      <urn:snils>85256957425</urn:snils>
+      <urn:inn>112233445566</urn:inn>
+      <urn:personDocument>
+        <urn:identityDocument>Паспорт</urn:identityDocument>
+        <urn:series>6136</urn:series>
+        <urn:number>582362</urn:number>
+        <urn:issuedDate>2017-11-01+03:00</urn:issuedDate>
+        <urn:issuedBy>Отдел УФМС РФ по г.Москве</urn:issuedBy>
+        <urn:issuedByCode>271-05</urn:issuedByCode>
+      </urn:personDocument>
+    </urn:person>
+    <urn:certificate>9LRcaPeE07C+l6v6CHMRghz0iKXhSw1taPPfigbztD3+AC4iamdMkGp8CHLDAOLJ5W7A8cSkcey2AzLC2yfpsQ==</urn:certificate>
+  </urn:representative>
+  <urn:authorities>
+    <urn:authority>
+      <urn:mnemonic entrustment="false">FSS_000001</urn:mnemonic>
+    </urn:authority>
+  </urn:authorities>
+</urn:powerOfAttorney>

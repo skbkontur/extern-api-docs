@@ -36,6 +36,7 @@
    sedo-subscription
    proactiv
    proactive_ algorithm
+   mchd_fss
 
 .. toctree::
    :caption: Документооборот с ПФР

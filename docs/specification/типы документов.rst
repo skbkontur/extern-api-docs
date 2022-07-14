@@ -574,6 +574,65 @@
       "urn:document:fss-sedo-insured-person-mismatch-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-insured-person-mismatch-exchange-error", "Ошибка взаимодействия с СЭДО"
 
+Инициация выплат пособия
+++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-benefit-payment-initiation.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-benefit-payment-initiation-request", "Запрос на отправку сообщения «Инициация выплаты пособия»"
+      "urn:document:fss-sedo-benefit-payment-initiation-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-document", "Сообщение «Результат обработки сообщения инициации выплат ФСС»"
+      "urn:document:fss-sedo-benefit-payment-initiation-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-benefit-payment-initiation-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+Результат инциации выплат пособия
++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-benefit-payment-initiation-result.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-benefit-payment-initiation-result-request-message", "Запрос на получение «Результата обработки сообщения инициации выплат ФСС»"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-status-document", "Сообщение «Результат обработки сообщения инициации выплат ФСС»"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+Запрос регистрации или отзыва доверенности ФСС
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-warrant-management
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-warrant-management-request-message", "SOAP-сообщение на отправку создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-request-document", "Исходный документ создания или отзыва доверенности ФСС до формирования SOAP-сообщения"
+      "urn:document:fss-warrant-management-error-message", "Ошибка в ходе данного документооборота"
+      "urn:document:fss-warrant-management-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-warrant-management-reception-result", "Результат отправки сообщения на портал СЭДО"
+      "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности ФСС"
+
+Резульатат создания или отзыва доверенности ФСС
++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-warrant-management-result
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-warrant-management-result-request-message", "Запрос на получение результата создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-result-status-document", "Результат обработки создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-result-error-message", "Ошибка в ходе данного документооборота"
+      "urn:document:fss-warrant-management-result-exchange-error", "Ошибка взаимодействия с СЭДО"
+
 ЦБ РФ
 -----
 

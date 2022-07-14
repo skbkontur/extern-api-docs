@@ -29,7 +29,9 @@
 В схеме проактивных выплат работодатель направляет в ФСС следующие исходящие документообороты:
     
     * сведения о застрахованных лицах (urn:docflow:fss-sedo-insured-person-registration);
-    * ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения (urn:docflow:fss-sedo-proactive-payments-reply).
+    * ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения (urn:docflow:fss-sedo-proactive-payments-reply);
+    * иницация выплат пособия (urn:docflow:fss-sedo-benefit-payment-initiation);
+    * запрос на регистрацию и отзыв доверенности ФСС (urn:docflow:fss-warrant-management).
 
 **Создание и отправка черновика**
 
@@ -37,6 +39,11 @@
     
     a. в ``payer`` параметр ``registration-number-fss``;
     b. в ``recipient`` параметр ``fss-code``.
+    
+    Для формирования МЧД в ``payer`` укажите следующие параметры:
+
+    c. ``ogrn`` – ОГРН, заполняется юридическими лицами и индивидуальными предпринимателями;
+    d. ``snils`` – СНИЛС, заполняется индивидуальными предпринимателями и физическими лицами. 
 
 2. Загрузите файл документа в :ref:`Сервис контентов<rst-markup-load>`.
 3. Создайте документ в черновике: :ref:`POST AddDocument<rst-markup-addDocument>`. При создании укажите ссылку на документ в виде идентификатора из :ref:`Сервиса контентов<rst-markup-load>`.
@@ -66,7 +73,7 @@
 
 3. Когда ФСС обработает запрос, он отправит запрошенный документ и статус ДО поменяется:
 
-    a. Для документооборотов urn:docflow:fss-sedo-insured-person-registration-result и urn:docflow:fss-sedo-proactive-payments-reply-result документы появятся в текущих и исходящих ДО. Статус документооборотов поменяется на **finished** и **они будут считаться завершенными**. 
+    a. Для документооборотов urn:docflow:fss-sedo-insured-person-registration-result, urn:docflow:fss-sedo-proactive-payments-reply-result и urn:docflow:fss-warrant-management-result документы появятся в текущих и исходящих ДО. Статус документооборотов поменяется на **finished** и **они будут считаться завершенными**. 
     b. Для остальных входящих документооборотов статус поменяется на **response-arrived**. Документы будут только во входящем ДО. Для данных документооборотов **потребуется отправка ответного документа** "Извещение о прочтении".
 
 .. note:: Рекомендуем для дальнейшей работы каждый документооборот вычитать отдельно методом :ref:`GET Docflow<rst-markup-get-dc>`.
@@ -84,6 +91,7 @@
    "urn:docflow:fss-sedo-proactive-payments-reply-result", "urn:document:fss-sedo-proactive-payments-reply-result-response-result"
    "urn:docflow:fss-sedo-proactive-payments-benefit", "urn:document:fss-sedo-proactive-payments-benefit-benefit-message"
    "urn:docflow:fss-sedo-proactive-payments-demand", "urn:document:fss-sedo-proactive-payments-demand-demand-message"
+   "urn:docflow:fss-sedo-benefit-payment-initiation-result", "urn:document:fss-sedo-benefit-payment-initiation-result-status-document"
 
 5. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -92,7 +100,8 @@
     * urn:docflow:fss-sedo-pvso-notification;
     * urn:docflow:fss-sedo-sick-report-change-notification;
     * urn:docflow:fss-sedo-insured-person-mismatch;
-    * urn:docflow:fss-sedo-proactive-payments-benefit.
+    * urn:docflow:fss-sedo-proactive-payments-benefit;
+    * urn:docflow:fss-sedo-benefit-payment-initiation.
 
 Это можно сделать несколькими способами:
 
