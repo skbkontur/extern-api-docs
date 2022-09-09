@@ -177,6 +177,8 @@
    "urn:document:business-registration-egrul-extract","Выписка или лист записи ЕГРЮЛ","Выписка или лист записи ЕГРЮЛ"
    "urn:document:business-registration-decline-notice","Уведомление об оставлении документов без рассмотрения","Уведомление об оставлении документов без рассмотрения"
    "urn:document:business-registration-acceptance-result-suspension","Решение о приостановлении регистрации","Решение о приостановлении государственной регистрации"
+   "urn:document:business-registration-cu-letter","Информационное письмо", "Информационное письмо"
+   "urn:document:business-registration-incoming-attachment", "Любое приложение, которое содержит дополнительные сведения от ФНС", "Иные документы"
 
 Массовая рассылка от ФНС
 ++++++++++++++++++++++++
