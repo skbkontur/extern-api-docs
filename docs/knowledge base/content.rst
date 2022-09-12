@@ -57,7 +57,7 @@
 
 1. Получаем документ в черновике или документообороте.
 2. Берем значение параметра ``content-id``.
-3. Запрашиваем контент: :ref:`GET Download<rst-markup-get-content>`. В запросе необходимо указать идентификатор контента ``content-id`` и задать байтовый диапазон части контента в параметре ``Content-range``.
+3. Запрашиваем контент: :ref:`GET Download<rst-markup-get-content>`. В запросе необходимо указать идентификатор контента ``content-id`` и задать байтовый диапазон части контента в параметре ``Range``.
 
 **Пример запроса получения контента**
 
@@ -68,7 +68,7 @@
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/78b7d042-4f45-459e-bfe7-f1ba21a717b4 HTTP/1.1
     Authorization: Bearer <token>
     Content-Type: application/octet-stream
-    Content-Range: 0-100/100
+    Range: 0-100/100
 
 **Ответ**
 
