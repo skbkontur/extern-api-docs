@@ -23,7 +23,7 @@
 
     Части контента не обязательно грузить в порядке очередности. Но в итоге все части контента должны быть переданы. 
 
-4. Передаем идентификатор контента в нужном методе, например, добавление документа в черновик.
+4. Передаем идентификатор контента в нужном методе, например, :ref:`добавление документа в черновик<rst-markup-addDocument>`.
 
 **Пример запроса загрузки контента**
 
@@ -34,7 +34,7 @@
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
     Authorization: Bearer <token>
     Content-Type: application/octet-stream
-    Content-Range: 0-100/100
+    Content-Range: bytes=0-100/100
 
     Контент передан в теле запроса 
 
@@ -44,7 +44,7 @@
 
     HTTP/1.1 201 Created
     Content-Type: application/json; charset=utf-8
-    Content-Length: 52
+    Content-Length: 100
     
     {
     "id": "78b7d042-4f45-459e-bfe7-f1ba21a717b4"
@@ -68,7 +68,7 @@
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/78b7d042-4f45-459e-bfe7-f1ba21a717b4 HTTP/1.1
     Authorization: Bearer <token>
     Content-Type: application/octet-stream
-    Range: 0-100/100
+    Range: bytes=0-20/100
 
 **Ответ**
 
@@ -76,7 +76,8 @@
 
     HTTP/1.1 200 OK
     Content-Type: application/octet-stream
-    Content-Length: 984
+    Content-Length: 21
+    Content-Range: bytes 0-20/100
 
     <?xml version="1.0" encoding="windows-1251"?>
         <Файл/>
