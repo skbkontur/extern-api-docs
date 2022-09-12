@@ -2,6 +2,7 @@
 .. _`API Экстерна для работы с черновиками и конструктором черновиков (draftsbuilder)`: https://developer.kontur.ru/doc/extern.drafts
 .. _`API Экстерна для работы с документооборотами и лентой событий`: https://developer.kontur.ru/doc/extern.docflows
 .. _`API Экстерна для работы с сервисом контентов`: https://developer.kontur.ru/doc/extern.contents
+.. _`API Экстерна для работы с сверкой по НДС`: https://developer.kontur.ru/doc/extern.nds
 .. _`SDK`: https://github.com/skbkontur/extern-java-sdk/
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
 .. _`тестовой площадке`: https://extern-api.testkontur.ru
@@ -44,6 +45,7 @@
 *  `API Экстерна для работы с черновиками и конструктором черновиков (draftsbuilder)`_.
 *  `API Экстерна для работы с документооборотами и лентой событий`_.
 *  `API Экстерна для работы с сервисом контентов`_.
+*  `API Экстерна для работы с сверкой по НДС`_.
 
 **Трейсинг запросов в API Контур.Экстерна**
 

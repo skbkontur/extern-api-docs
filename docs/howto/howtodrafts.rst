@@ -157,6 +157,7 @@
     Host: extern-api.testkontur.ru
     Accept-Encoding: gzip, deflate, br
     Content-Length: 727
+    Content-Range: bytes=0-100/727
 
     Контент передан в теле запроса 
 
