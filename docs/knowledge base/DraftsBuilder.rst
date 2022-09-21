@@ -167,11 +167,11 @@ DraftsBuilder состоит из трех сущностей:
 
 3. Загрузите файлы в :ref:`Сервис контентов<rst-markup-load>`.
 
-3. Добавьте файлы: :ref:`POST CreateDraftsBuilderDocumentFile<rst-markup-createfileDB>`.
+4. Добавьте файлы: :ref:`POST CreateDraftsBuilderDocumentFile<rst-markup-createfileDB>`.
  
  Метод создает файл в документе. Для этого укажите идентификатор контента из Сервиса контентов. Вызывайте столько раз, сколько файлов нужно положить в документ-контейнер.
 
-4. Соберите DraftsBuilder в черновик: :ref:`POST BuildDrafts<rst-markup-buildDB>`.
+5. Соберите DraftsBuilder в черновик: :ref:`POST BuildDrafts<rst-markup-buildDB>`.
 
  Метод собирает все добавленные файлы и документы DraftsBuilder шаблона в черновики. В результате метод вернет идентификаторы черновиков, в каждом из которых находится: XML-файл описи или XML-файл обращения, файлы, сообщение о представительстве (если есть).
 
