@@ -11,6 +11,7 @@
 .. _`GET DraftTasks`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks
 .. _`GET DraftTask`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Ftasks%2F%7BapiTaskId%7D
 .. _`модель данных`: https://developer.kontur.ru/doc/extern.drafts/models
+.. _`POST CreateWebDraft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcreate-web-draft 
 
 Методы для работы с черновиками
 ===============================
@@ -121,3 +122,23 @@
 Метод: `GET DraftTask`_
 
 Метод  возвращает результат выполнения задачи. Модель ответа зависит от типа поставленной задачи: для задачи проверки вернется `модель данных`_ CheckResult, подготовки - PrepareResult, отправки - Docflow, подписания - CryptOperationStatusResult.
+
+.. _rst-markup-CreateWebDraft:
+
+Создание черновика в веб-интерфейсе Контур.Экстерна
+---------------------------------------------------
+
+Метод: `POST CreateWebDraft`_
+
+Метод создает общий черновик в веб-интерфейсе Контур.Экстерна и передает метаинформацию черновика из API. В ответе будет возвращена ссылка на созданный черновик в веб-интерфейсе.
+
+**Статусы черновика**
+
+``TransferedToWeb`` – черновик перемещен и создан в веб-интерфейсе. 
+
+``SentViaWeb`` – черновик отправлен в контролирующий орган через веб-интерфейс. 
+
+**Возможные ошибки**
+
+* 400 BadRequest – нельзя загрузить черновик в веб-интерфейс сервиса: выбран неподходящий тип документооборота, добавлены приложения или черновик имеет неподходящий статус (readyToSent, sent).
+

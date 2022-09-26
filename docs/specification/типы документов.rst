@@ -226,6 +226,7 @@
    :widths: 20 80 20
 
    "urn:document:pfr-report-report-v2","Отчет с подписью формата XMLDSig для отправки в ЭДОК","Отчетность"
+   "urn:document:pfr-package-description", "Описание пакета", "Опись содержания пакета (ОСП)"
    "urn:document:pfr-report-attachment","Неформализованное приложение к пакету","Приложение"
    "urn:document:pfr-report-acknowledgement-v2","Подтверждение доставки пакета в ЭДОК","Уведомление о доставке"
    "urn:document:pfr-report-decline-notice","Отказ в приеме пакета по технологическим причинам","Уведомление об отказе в приеме пакета"

@@ -8,6 +8,7 @@
    :titlesonly:
 
    filename
+   general_drafts
    print
    content
    DraftsBuilder
