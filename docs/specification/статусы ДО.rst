@@ -408,9 +408,10 @@
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение извещения ПВСО"
    "urn:docflow-common-status:arrived", "	Получен", "Получен запрос на получение извещения ПВСО"
-   "urn:docflow-common-status:response-arrived", "Получен ответ", "Извещение ПВСО"
-   "urn:docflow-common-status:processed", "Ответ обработан", "Отправлено извещение о прочтении извещения ПВСО"
-   "urn:docflow-common-status:finished", "Завершен", "Получено извещение о прочтении извещения о прочтении"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получено извещение ПВСО и отправлено извещение о прочтении извещения ПВСО"
+   "urn:docflow-common-status:processed", "Ответ обработан", "Отправлена отметка о прочтении извещения ПВСО"
+   "urn:docflow-common-status:delivered", "Доставлен", "Результат приема порталом извещения о прочтении"
+   "urn:docflow-common-status:finished", "Завершен", "Получен результат подтверждения прочтения"
 
 Процесс изменения статуса:
 
@@ -427,10 +428,11 @@
    :widths: 20 10 50
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение уведомления"
-   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение уведомления об ЭЛН"
-   "urn:docflow-common-status:response-arrived", "Получен ответ", "Уведомление о изменении ЭЛН"
-   "urn:docflow-common-status:processed", "Ответ обработан", "Отправлено извещение о прочтении уведомления ЭЛН"
-   "urn:docflow-common-status:finished", "Завершен", "Получено извещение о прочтении извещения о прочтении"
+   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение уведомления об изменении ЭЛН"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получено уведомление об изменении ЭЛН и отправлено извещение о прочтении уведомления"
+   "urn:docflow-common-status:processed", "Ответ обработан", "Отправлена отметка о прочтении уведомления об изменении ЭЛН"
+   "urn:docflow-common-status:delivered", "Доставлен", "Получен результат приема порталом извещения о прочтении"
+   "urn:docflow-common-status:finished", "Завершен", "Получен результат подтверждения прочтения"
 
 Процесс изменения статуса:
 
@@ -445,8 +447,8 @@
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документов"
    "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение документов"
-   "urn:docflow-common-status:response-arrived", "Получен ответ", "Запрос недостающих сведений для назначения пособия ФСС"
-   "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен запрос недостающих сведений для назначения пособия ФСС"
+   "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении"
 
 Процесс изменения статуса:
 
@@ -461,6 +463,7 @@
 
    "urn:docflow-common-status:sent", "Отправлен", "Отправлены сведения для назначения пособия ФСС"
    "urn:docflow-common-status:delivered", "Доставлен", "Получен успешный результат приема порталом запроса отправки сведений для назначения пособий ФСС"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен промежуточный результат обработки"
    "urn:docflow-common-status:finished", "Завершен", "Получен результат обработки"
 
 Процесс изменения статуса:
@@ -490,8 +493,8 @@
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документов"
    "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение документа выплаты пособия ФСС"
-   "urn:docflow-common-status:response-arrived", "Получен ответ", "Выплата пособия ФСС"
-   "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получена выплата пособия ФСС"
+   "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении"
 
 Процесс изменения статуса:
 
@@ -537,8 +540,8 @@
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса на получение документов"
    "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение информации о несоответствии сведений о застрахованном лице"
-   "urn:docflow-common-status:response-arrived", "Получен ответ", "Информация о несоответствии сведений о застрахованном лице"
-   "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получена информация о несоответствии сведений о застрахованном лице"
+   "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении"
 
 Процесс изменения статуса:
 
@@ -554,7 +557,7 @@
    "urn:docflow-common-status:sent", "Отправлен", "Отправлен запрос на отправку сообщения инициации выплаты пособия"
    "urn:docflow-common-status:delivered", "Доставлен", "Получен успешный результат приема порталом запроса отправки инициации выплаты пособия"
    "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен результат обработки сообщения"
-   "urn:docflow-common-status:finished", "Завершен", "Отправлено извещение о прочтении"
+   "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении"
 
 Процесс изменения статуса:
 
@@ -574,7 +577,21 @@
 
  .. image:: /_static/sedo_initiation-result.jpg
 
+Уведомление о статусе выплаты пособия
++++++++++++++++++++++++++++++++++++++
 
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса"
+   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение уведомления о статусе выплаты пособия"
+   "urn:docflow-common-status:response-arrived", "Получен ответ", "Получено уведомление о статусе выплаты пособия"
+   "urn:docflow-common-status:finished", "Завершен", "Получен результат обработки сообщения"
+
+Процесс изменения статуса:
+
+ .. image:: /_static/sedo_payment-status-notice.jpg
 
 Сообщение об ошибке
 +++++++++++++++++++
@@ -584,7 +601,7 @@
    :widths: 20 10 50
 
    "urn:docflow-common-status:received", "Получен", "Получен запрос на получение сообщения об ошибке"
-   "urn:docflow-common-status:finished", "Завершен", "Сообщение об ошибке"
+   "urn:docflow-common-status:finished", "Завершен", "Получено сообщение об ошибке"
 
 Процесс изменения статуса:
 
@@ -597,9 +614,9 @@
    :header: "Urn", "Короткое имя", "Комментарий"
    :widths: 20 10 50
 
-   "urn:docflow-common-status:sent", "Отправлен", "Запрос на отправку создания или отзыва доверенности ФСС"
-   "urn:docflow-common-status:delivered", "Доставлен", "Результат приема порталом запроса создания или отзыва доверенности ФСС"
-   "urn:docflow-common-status:finished", "Завершен", "Результат обработки"
+   "urn:docflow-common-status:sent", "Отправлен", "Отправлен запрос на отправку создания или отзыва доверенности ФСС"
+   "urn:docflow-common-status:delivered", "Доставлен", "Получен результат приема порталом запроса создания или отзыва доверенности ФСС"
+   "urn:docflow-common-status:finished", "Завершен", "Получен результат обработки"
 
 Процесс изменения статуса:
 
@@ -613,8 +630,25 @@
    :widths: 20 10 50
 
    "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса"
-   "urn:docflow-common-status:finished", "Завершен", "Запрос на получение результата создания или отзыва доверенности ФСС и результат обработки"
+   "urn:docflow-common-status:finished", "Завершен", "Получен запрос на получение результата создания или отзыва доверенности ФСС и результат обработки"
 
 Процесс изменения статуса:
 
 .. image:: /_static/mchd_result.jpg
+
+Результат подтверждения прочтения
++++++++++++++++++++++++++++++++++
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+   "urn:docflow-common-status:received", "Получен", "Получена информация для генерации запроса"
+   "urn:docflow-common-status:arrived", "Получен", "Получен запрос на получение результата подтверждения прочтения"
+   "urn:docflow-common-status:finished", "Завершен", "Получен результат подтверждения прочтения"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_receipt.jpg
+
+   

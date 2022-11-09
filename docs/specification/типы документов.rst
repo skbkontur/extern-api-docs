@@ -606,6 +606,21 @@
       "urn:document:fss-sedo-benefit-payment-initiation-result-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-benefit-payment-initiation-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
+Уведомление о статусе выплаты пособия
++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-benefit-payment-status-notice
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-benefit-payment-status-notice-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message", "Документ «Уведомление о статусе выплаты пособия»"
+      "urn:document:fss-sedo-benefit-payment-status-notice-error-message", "Ошибка обработки" 
+      "urn:document:fss-sedo-benefit-payment-status-notice-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+
 Запрос регистрации или отзыва доверенности ФСС
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -622,7 +637,7 @@
       "urn:document:fss-warrant-management-reception-result", "Результат отправки сообщения на портал СЭДО"
       "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности ФСС"
 
-Резульатат создания или отзыва доверенности ФСС
+Результат создания или отзыва доверенности ФСС
 +++++++++++++++++++++++++++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-warrant-management-result
@@ -635,6 +650,19 @@
       "urn:document:fss-warrant-management-result-status-document", "Результат обработки создания или отзыва доверенности ФСС"
       "urn:document:fss-warrant-management-result-error-message", "Ошибка в ходе данного документооборота"
       "urn:document:fss-warrant-management-result-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Результат подтверждения прочтения
++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-receipt-notification-result
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-receipt-notification-result-request-message", "Запрос на получение результата подтверждения прочтения"
+      "urn:document:fss-sedo-receipt-notification-result-status-document", "Результат подтверждения прочтения"
+      "urn:document:fss-sedo-receipt-notification-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
 ЦБ РФ
 -----

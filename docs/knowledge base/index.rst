@@ -14,6 +14,7 @@
    DraftsBuilder
    loks
    sverkands
+   reports_table
 
 .. toctree::
    :caption: Документооборот с ФНС

@@ -28,10 +28,10 @@
 
 В схеме проактивных выплат работодатель направляет в ФСС следующие исходящие документообороты:
     
-    * сведения о застрахованных лицах (urn:docflow:fss-sedo-insured-person-registration);
-    * ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения (urn:docflow:fss-sedo-proactive-payments-reply);
-    * иницация выплат пособия (urn:docflow:fss-sedo-benefit-payment-initiation);
-    * запрос на регистрацию и отзыв доверенности ФСС (urn:docflow:fss-warrant-management).
+    * urn:docflow:fss-sedo-insured-person-registration – сведения о застрахованных лицах;
+    * urn:docflow:fss-sedo-proactive-payments-reply – ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения;
+    * urn:docflow:fss-sedo-benefit-payment-initiation – инициация выплат пособия;
+    * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности ФСС.
 
 **Создание и отправка черновика**
 
@@ -60,25 +60,56 @@
 Работа с входящими документооборотами от ФСС
 --------------------------------------------
 
-1. Найдите входящие документообороты от ФСС: :ref:`GET Docflows<rst-markup-get-dcs>`. В запросе укажите фильтр ``type`` и тип нужного ДО согласно :ref:`спецификации<rst-markup-cbrf>`, например, ``type=fss-sedo-pvso-notification&type=fss-sedo-sick-report-change-notification&type=fss-sedo-error``. Новые документообороты будут отображаться в статусе **received**. Для получения документов и смены статуса ДО нужно отправить запрос на получение документов от ФСС. Далее работайте с каждым ДО по отдельности. 
+Работа с входящими документооборотами от ФСС состоит из нескольких этапов:
+
+1. Поиск входящих документооборотов от ФСС.
+2. Запрос на получение документов в ФСС.
+3. Отправка ответных документов.
+
+Поиск входящих документооборотов от ФСС
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Найдите входящие документообороты от ФСС: :ref:`GET Docflows<rst-markup-get-dcs>`. В запросе укажите фильтр ``type`` и тип нужного ДО согласно :ref:`спецификации<rst-markup-cbrf>`, например, ``type=fss-sedo-pvso-notification&type=fss-sedo-sick-report-change-notification&type=fss-sedo-error``. Новые документообороты будут отображаться в статусе **received**. Для получения документов и смены статуса ДО нужно отправить запрос на получение документов от ФСС. Далее работайте с каждым ДО по отдельности. 
 
 .. important:: В результатах поиска не будет документооборотов с типами ``fss-sedo-*``, если их тип не был указан в параметре ``type``.
 
-2. Для получения документов от ФСС нужно сформировать, подписать и отправить запрос. Для этого используйте :ref:`методы генерации запроса в СЭДО ФСС<rst-markup-sedo>`:
+Запрос на получение документов от ФСС
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Для получения документов от ФСС нужно сформировать, подписать и отправить запрос. Для этого используйте :ref:`методы генерации запроса в СЭДО ФСС<rst-markup-sedo>`:
 
     a. Создайте запрос на получение документов от ФСС: :ref:`POST GenerateDocumentsRequest<rst-markup-sedo>`. В запросе укажите id найденного входящего документооборота. В ответе метод вернет шаблон запроса и хэш для подписи.
     b. Подпишите хэш, который вернется в параметре ``DataToSign`` в формате byte[].
     c. Добавьте необработанную подпись к запросу: :ref:`PUT SaveDocumentsRequestSignature<rst-markup-sedosavedocuments>`.
-    d. Отправьте запрос на получение документов в ФСС: :ref:`POST SendDocumentsRequest<rst-markup-sedosavedocuments>`. 
+    d. Отправьте запрос на получение документов в ФСС: :ref:`POST SendDocumentsRequest<rst-markup-sedosavedocuments>`.
 
-3. Когда ФСС обработает запрос, он отправит запрошенный документ и статус ДО поменяется:
+Когда ФСС обработает запрос, он отправит запрошенный документ и статус ДО поменяется:
 
-    a. Для документооборотов urn:docflow:fss-sedo-insured-person-registration-result, urn:docflow:fss-sedo-proactive-payments-reply-result и urn:docflow:fss-warrant-management-result документы появятся в текущих и исходящих ДО. Статус документооборотов поменяется на **finished** и **они будут считаться завершенными**. 
-    b. Для остальных входящих документооборотов статус поменяется на **response-arrived**. Документы будут только во входящем ДО. Для данных документооборотов **потребуется отправка ответного документа** "Извещение о прочтении".
+    a. Документы появятся в текущих и исходящих ДО в следующих документооборотах:
+    
+        * urn:docflow:fss-sedo-insured-person-registration-result – результат регистрации сведений о застрахованном лице;
+        * urn:docflow:fss-sedo-proactive-payments-reply-result – результат обработки ответа на запрос проверки;
+        * urn:docflow:fss-warrant-management-result – результат создания или отзыва доверенности ФСС.
+    
+    Статус документооборотов поменяется на **finished** и **они будут считаться завершенными**.
+
+    b. Для следующих документооборотов документы появятся только во входящих ДО: 
+
+        * urn:docflow:fss-sedo-pvso-notification – извещение ПВСО;
+        * urn:docflow:fss-sedo-sick-report-change-notification – уведомление об изменении статуса ЭЛН.
+
+    Статус документооборотов поменяется на **response-arrived**. Для данных документооборотов **потребуется отправка ответных документов**: "Отметка о прочтении" и "Извещение о прочтении".
+
+    c. Для остальных входящих документооборотов статус поменяется на **response-arrived**. Документы будут только во входящем ДО. Для данных документооборотов **потребуется отправка ответного документа** "Отметка о прочтении".
 
 .. note:: Рекомендуем для дальнейшей работы каждый документооборот вычитать отдельно методом :ref:`GET Docflow<rst-markup-get-dc>`.
 
-4. Найдите в поле ``documents`` полученного ДО документ с соответствующим типом:
+Отправка ответных документов
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Отметка о прочтении**
+
+1. Найдите в поле ``documents`` полученного ДО документ с соответствующим типом:
 
 .. csv-table:: 
    :header: "Документооборот", "Тип документа"
@@ -86,31 +117,51 @@
 
    "urn:docflow:fss-sedo-pvso-notification", "urn:document:fss-sedo-pvso-notification-notification-message"
    "urn:docflow:fss-sedo-sick-report-change-notification", "urn:document:fss-sedo-sick-report-change-notification-notification-message"
-   "urn:docflow:fss-sedo-insured-person-registration-result", "urn:document:fss-sedo-insured-person-registration-result-response-result"
    "urn:docflow:fss-sedo-insured-person-mismatch", "urn:document:fss-sedo-insured-person-mismatch-mismatch-message"
-   "urn:docflow:fss-sedo-proactive-payments-reply-result", "urn:document:fss-sedo-proactive-payments-reply-result-response-result"
    "urn:docflow:fss-sedo-proactive-payments-benefit", "urn:document:fss-sedo-proactive-payments-benefit-benefit-message"
    "urn:docflow:fss-sedo-proactive-payments-demand", "urn:document:fss-sedo-proactive-payments-demand-demand-message"
    "urn:docflow:fss-sedo-benefit-payment-initiation-result", "urn:document:fss-sedo-benefit-payment-initiation-result-status-document"
 
-5. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
+2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
-6. Сгенерируйте ответный документ «Извещение о прочтении» к полученным документам в следующих ДО:
+3. Сгенерируйте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:
 
-    * urn:docflow:fss-sedo-pvso-notification;
-    * urn:docflow:fss-sedo-sick-report-change-notification;
-    * urn:docflow:fss-sedo-insured-person-mismatch;
-    * urn:docflow:fss-sedo-proactive-payments-benefit;
-    * urn:docflow:fss-sedo-benefit-payment-initiation.
+    a. Сгенерирйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО: 
 
-Это можно сделать несколькими способами:
+    .. csv-table:: 
+        :header: "Документооборот", "Тип документа"
+        :widths: 20 30
 
-    a. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте id найденного документа. В поле ``documentType`` укажите тип документа, который имеет вид ``fss-sedo-*-notification-receipt``, где * - наименование документооборота.
+        "urn:document:fss-sedo-pvso-notification-notification-message", "urn:document:fss-sedo-pvso-notification-receipt"
+        "urn:document:fss-sedo-sick-report-change-notification-notification-message", "urn:document:fss-sedo-sick-report-change-notification-receipt"
+        "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "urn:document:fss-sedo-insured-person-mismatch-receipt-receipt"
+        "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "urn:document:fss-sedo-proactive-payments-benefit-receipt"
+        "urn:document:fss-sedo-proactive-payments-demand-demand-message", "urn:document:fss-sedo-proactive-payments-demand-receipt"
+        "urn:document:fss-sedo-benefit-payment-initiation-result-status-document", "urn:document:fss-sedo-benefit-payment-initiation-read-receipt"
+
     b. Перейдите по ссылке из поля ``links`` в параметре ``rel``, содержащей тип нужного ответного документа. 
 
-Подписывать «Извещение о прочтении» не нужно.
+Подписывать «Отметку о прочтении» не нужно.
 
-7. Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки извещения о прочтении статус документооборота поменяется на **finished**.
+4. Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки отметки о прочтении статус документооборота поменяется на **finished**.
+
+**Извещение о прочтении**
+
+Помимо отметки о прочтении для urn:docflow:fss-sedo-pvso-notification и urn:docflow:fss-sedo-sick-report-change-notification документооборотов нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
+
+Ответный документ можно создать несколькими способами:
+
+1. Сгенерировать ответный документ с помощью метода:
+
+    1. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. При запросе указывает в поле ``documentType`` тип документа, который имеет вид ``fss-sedo-*-notification-receipt-notification-message``, где * - наименование документооборота.
+    2. Возьмите контент подписи из метаинформации сгенерированного документа в параметре ``data-to-sign``.
+    3. Подпишите эти данные необработанной (raw) подписью.
+    4. Добавьте подпись к ответному документу: :ref:`PUT ReplyDocumentSignature<rst-markup-repliSignature>`.
+2. Сгенерируйте ответный документ по ссылке из входящего документооборота. Перейдите по ссылке из поля ``links`` в параметре ``rel``, содержащей тип нужного ответного документа.
+
+Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки отметки о прочтении  статус документооборота поменяется на **finished**. 
+
+Результат принятия извещения о прочтения появится в текущем и во входящем документообороте urn:docflow:fss-sedo-receipt-notification-result – результат подтверждения прочтения.
 
 Работа с ошибками
 -----------------

@@ -67,8 +67,10 @@
    "urn:docflow:fss-sedo-insured-person-mismatch","Информация о несоответствии сведений о застрахованном лице"
    "urn:docflow:fss-sedo-benefit-payment-initiation","Инициация выплаты пособия"
    "urn:docflow:fss-sedo-benefit-payment-initiation-result", "Результат инициации выплаты пособия"
+   "urn:docflow:fss-sedo-benefit-payment-status-notice", "Уведомление о статусе выплаты пособия"
    "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности ФСС"
    "urn:docflow:fss-warrant-management-result", "Результат создания или отзыва доверенности ФСС"
+   "urn:docflow:fss-sedo-receipt-notification-result", "Результат подтверждения прочтения"
 
 .. _rst-markup-cbrf:
 
