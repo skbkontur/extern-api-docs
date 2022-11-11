@@ -48,12 +48,14 @@
 2. Загрузите файл документа в :ref:`Сервис контентов<rst-markup-load>`.
 3. Создайте документ в черновике: :ref:`POST AddDocument<rst-markup-addDocument>`. При создании укажите ссылку на документ в виде идентификатора из :ref:`Сервиса контентов<rst-markup-load>`.
 4. Возьмите идентификатор подписи из метаинформации ответа метода ``AddDocument`` в поле ``data-to-sign-content-id`` и получите данные для подписи через :ref:`Сервис контентов<rst-markup-dowload>`. 
-5. Подпишите эти данные сырой (raw) подписью. 
+5. Подпишите эти данные необработанной (raw) подписью. 
 6. Приложите подпись к документу: :ref:`POST Add signature<rst-markup-AddSignature>`.
 7. Когда черновик готов, запустите последовательность методов: :ref:`POST Check<rst-markup-check>` -> :ref:`POST Prepare<rst-markup-prepare>` -> :ref:`POST Send<rst-markup-send>`. Укажите флаг ``deferred = true`` для отложенного выполнения задач. 
 8. Проверьте результат выполнения методов ``Check``, ``Prepare``, ``Send`` в задачах: :ref:`GET DraftTask<rst-markup-DraftTasks>`. Если запрос по методу ``Send`` завершился успешно, то в ответе вернется информация о созданном документообороте (ДО).
 
-В рамках проактивных выплат ДО считается завершенным после отправки черновика. Необходимо ожидать входящие документообороты от ФСС. Документы входящих ДО также будут отображаться в исходящих ДО. 
+В рамках проактивных выплат ДО считается завершенным после отправки черновика. Однако после получения документа с результатом обработки или приема сообщения в исходящих документооборотах, необходимо отправить ответный документ "Отметка о прочтении". О том, как сформировать и отправить отметку о прочтении читайте в разделе :ref:`Отправка ответных документов<rst-markup-reply-docs>`. 
+
+После необходимо ожидать входящие документообороты от ФСС. Документы входящих ДО также будут отображаться в исходящих ДО. 
 
 .. _rst-markup-sedo-incoming-dc:
 
@@ -69,9 +71,11 @@
 Поиск входящих документооборотов от ФСС
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Найдите входящие документообороты от ФСС: :ref:`GET Docflows<rst-markup-get-dcs>`. В запросе укажите фильтр ``type`` и тип нужного ДО согласно :ref:`спецификации<rst-markup-cbrf>`, например, ``type=fss-sedo-pvso-notification&type=fss-sedo-sick-report-change-notification&type=fss-sedo-error``. Новые документообороты будут отображаться в статусе **received**. Для получения документов и смены статуса ДО нужно отправить запрос на получение документов от ФСС. Далее работайте с каждым ДО по отдельности. 
+Найдите входящие документообороты от ФСС: :ref:`GET Docflows<rst-markup-get-dcs>`. В запросе укажите фильтр ``type`` и тип нужного ДО согласно :ref:`спецификации<rst-markup-cbrf>`, например, ``type=fss-sedo-pvso-notification&type=fss-sedo-sick-report-change-notification&type=fss-sedo-error``.
 
 .. important:: В результатах поиска не будет документооборотов с типами ``fss-sedo-*``, если их тип не был указан в параметре ``type``.
+
+Новые документообороты будут отображаться в статусе **received**. Для получения документов и смены статуса ДО нужно отправить запрос на получение документов от ФСС. Далее работайте с каждым ДО по отдельности.
 
 Запрос на получение документов от ФСС
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -98,11 +102,13 @@
         * urn:docflow:fss-sedo-pvso-notification – извещение ПВСО;
         * urn:docflow:fss-sedo-sick-report-change-notification – уведомление об изменении статуса ЭЛН.
 
-    Статус документооборотов поменяется на **response-arrived**. Для данных документооборотов **потребуется отправка ответных документов**: "Отметка о прочтении" и "Извещение о прочтении".
+    Статус ДО поменяется на **response-arrived**. Для данных документооборотов **потребуется отправка ответных документов**: "Отметка о прочтении" и "Извещение о прочтении".
 
     c. Для остальных входящих документооборотов статус поменяется на **response-arrived**. Документы будут только во входящем ДО. Для данных документооборотов **потребуется отправка ответного документа** "Отметка о прочтении".
 
 .. note:: Рекомендуем для дальнейшей работы каждый документооборот вычитать отдельно методом :ref:`GET Docflow<rst-markup-get-dc>`.
+
+.. _rst-markup-reply-docs: 
 
 Отправка ответных документов
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -120,7 +126,10 @@
    "urn:docflow:fss-sedo-insured-person-mismatch", "urn:document:fss-sedo-insured-person-mismatch-mismatch-message"
    "urn:docflow:fss-sedo-proactive-payments-benefit", "urn:document:fss-sedo-proactive-payments-benefit-benefit-message"
    "urn:docflow:fss-sedo-proactive-payments-demand", "urn:document:fss-sedo-proactive-payments-demand-demand-message"
-   "urn:docflow:fss-sedo-benefit-payment-initiation-result", "urn:document:fss-sedo-benefit-payment-initiation-result-status-document"
+   "urn:docflow:fss-sedo-insured-person-registration", "urn:document:fss-sedo-insured-person-registration-receipt"
+   "urn:docflow:fss-sedo-proactive-payments-reply", "urn:document:fss-sedo-proactive-payments-reply-receipt"
+   "urn:docflow:fss-sedo-benefit-payment-initiation", "urn:document:fss-sedo-benefit-payment-initiation-result-document"
+   "urn:docflow:fss-warrant-management", "urn:document:fss-warrant-management-response-message"
 
 2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -129,15 +138,18 @@
     a. Сгенерирйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО: 
 
     .. csv-table:: 
-        :header: "Документооборот", "Тип документа"
+        :header: "Тип входящего документа", "Тип ответного документа"
         :widths: 20 30
-
+        
         "urn:document:fss-sedo-pvso-notification-notification-message", "urn:document:fss-sedo-pvso-notification-receipt"
         "urn:document:fss-sedo-sick-report-change-notification-notification-message", "urn:document:fss-sedo-sick-report-change-notification-receipt"
         "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "urn:document:fss-sedo-insured-person-mismatch-receipt-receipt"
         "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "urn:document:fss-sedo-proactive-payments-benefit-receipt"
         "urn:document:fss-sedo-proactive-payments-demand-demand-message", "urn:document:fss-sedo-proactive-payments-demand-receipt"
-        "urn:document:fss-sedo-benefit-payment-initiation-result-status-document", "urn:document:fss-sedo-benefit-payment-initiation-read-receipt"
+        "urn:document:fss-sedo-benefit-payment-initiation-result-document", "urn:document:fss-sedo-benefit-payment-initiation-read-receipt"
+        "urn:document:fss-sedo-insured-person-registration-receipt", "urn:document:fss-sedo-insured-person-registration-read-receipt"
+        "urn:document:fss-sedo-proactive-payments-reply-receipt", "urn:document:fss-sedo-proactive-payments-reply-read-receipt"
+        "urn:document:fss-warrant-management-response-message", "urn:document:fss-warrant-management-response-read-receipt"
 
     b. Перейдите по ссылке из поля ``links`` в параметре ``rel``, содержащей тип нужного ответного документа. 
 
@@ -153,7 +165,7 @@
 
 1. Сгенерировать ответный документ с помощью метода:
 
-    1. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. При запросе указывает в поле ``documentType`` тип документа, который имеет вид ``fss-sedo-*-notification-receipt-notification-message``, где * - наименование документооборота.
+    1. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. При запросе указывает в поле ``documentType`` тип документа, который имеет вид ``fss-sedo-*-receipt-notification-message``, где * - наименование документооборота.
     2. Возьмите контент подписи из метаинформации сгенерированного документа в параметре ``data-to-sign``.
     3. Подпишите эти данные необработанной (raw) подписью.
     4. Добавьте подпись к ответному документу: :ref:`PUT ReplyDocumentSignature<rst-markup-repliSignature>`.
