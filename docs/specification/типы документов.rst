@@ -551,7 +551,8 @@
 
       "urn:document:fss-sedo-insured-person-registration-request", "Запрос на регистрацию сведений"
       "urn:document:fss-sedo-insured-person-registration-receipt", "Результат приема запроса порталом"
-      "urn:document:fss-sedo-insured-person-registraton-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-insured-person-registration-response-result", "Результат регистрации сведений"
+      "urn:document:fss-sedo-insured-person-registration-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-insured-person-registration-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-insured-person-registration-exchange-error", "Ошибка взаимодействия с СЭДО"
 
