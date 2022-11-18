@@ -2,7 +2,7 @@
 .. _`сайте налогового органа`: https://www.nalog.gov.ru/rn77/service/traceability/
 .. _`от 09.11.2020 № 371-ФЗ`: https://normativ.kontur.ru/document?moduleId=1&documentId=375041&p=1210&utm_source=google&utm_medium=organic&utm_referer=www.google.com&utm_startpage=kontur.ru%2Farticles%2F6085&utm_orderpage=kontur.ru%2Farticles%2F6085
 .. _`POST Create draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
-.. _`POST AddDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
+.. _`POST Add Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
 .. _`POST Add Signature`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures
 .. _`POST Check`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
 .. _`POST Prepare`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fprepare
@@ -56,7 +56,7 @@
 
 1. Создать черновик: `POST Create draft`_.  Обязательно указать ``ifns-code`` — код ИФНС.
 2. Загрузить файл уведомления в Сервис контентов :ref:`POST Upload<rst-markup-post-content>`.
-3. Создать документ в черновика `POST AddDocument`_ и указать в ``content-id`` идентификатор из Сервиса контентов. 
+3. Создать документ в черновика `POST Add Document`_ и указать в ``content-id`` идентификатор из Сервиса контентов. 
 4. Приложить подпись к документу `POST Add Signature`_.
 5. Когда черновик готов, запускаем последовательность методов: `POST Check`_ -> `POST Prepare`_ -> `POST Send`_ с флагом ``deferred`` равным true. 
 6. Результат выполнения методов Check, Prepare, Send нужно проверять в задачах: `GET DraftTask`_.

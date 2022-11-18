@@ -1,5 +1,5 @@
 .. _`POST Create draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
-.. _`POST AddDocument`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
+.. _`POST Add Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
 .. _`POST Add signature`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures 
 .. _`POST Check`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
 .. _`POST Prepare`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fprepare
@@ -41,7 +41,7 @@
         * в ``recipient`` параметр ``fss-code``.
 
     2. Загрузите файл реестра в :doc:`Сервис контентов</contents/content_methods>`.
-    3. Создайте документ в черновике: `POST AddDocument`_. При создании укажите ссылку на документ в виде идентификатора из :doc:`Сервиса контентов</contents/content_methods>`.
+    3. Создайте документ в черновике: `POST Add Document`_. При создании укажите ссылку на документ в виде идентификатора из :doc:`Сервиса контентов</contents/content_methods>`.
     4. Приложите подпись к документу: `POST Add signature`_.
     5. Когда черновик готов, запустите последовательность методов: `POST Check`_ -> `POST Prepare`_ -> `POST Send`_. Метод ``Prepare`` объединит подпись и документ.
     6. Проверьте результат выполнения методов Check, Prepare, Send в задачах: `GET DraftTask`_.

@@ -1,5 +1,5 @@
 .. _`Черновики и конструктор черновиков (draftsbuilder)`: https://developer.kontur.ru/doc/extern.drafts
-.. _`POST Draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`POST Create draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
 .. _`PUT Draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D
 .. _`DELETE Draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D
 .. _`GET Draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D
@@ -41,7 +41,7 @@
 Создание черновика 
 ------------------
 
-Метод: `POST Draft`_
+Метод: `POST Create draft`_
 
 С помощью этого метода создается черновик с минимально необходимым набором мета-информации, который в будущем можно при необходимости отредактировать или дополнить, используя метод `Редактирование описания черновика`_.
 

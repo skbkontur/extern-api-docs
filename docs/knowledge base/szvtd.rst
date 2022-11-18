@@ -1,7 +1,7 @@
 .. _`Справочная информация об отчетности по форме СЗВ-ТД`: https://support.kontur.ru/pages/viewpage.action?pageId=43058621
-.. _`POST Draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
+.. _`POST Create draft`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts
 .. _`POST BuildDocumentContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fbuild-document
-.. _`POST Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
+.. _`POST Add Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
 .. _`PUT Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
 .. _`POST Check`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fcheck
 .. _`POST Prepare`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fprepare
@@ -29,7 +29,7 @@
 
 **Особенности подписи**
 
-Заявление и отчет должны быть подписаны подписью в формате XMLDsig. Подробнее в :doc:`Подпись XMLDsig для отчетов в ПФР</manuals/xmldsig>`.
+Заявление и отчет должны быть подписаны подписью в формате XMLDsig. Подробнее в :doc:`Подпись XMLDsig</manuals/xmldsig>`.
 
 Порядок действий для отправки заявления на подключение к ЭДОК
 -------------------------------------------------------------
@@ -39,9 +39,9 @@
 Если есть файл заявления на подключение к ЭДОК с прикрепленной подписью xmlDsig
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Создать черновик. `POST Draft`_.
+#. Создать черновик. `POST Create draft`_.
 #. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл заявления с прикрепленной подписью xmlDsig. :ref:`POST Upload<rst-markup-post-content>`.
-#. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Document`_.
+#. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Add Document`_.
 #. Проверить, подготовить, отправить черновик. `POST Check`_, `POST Prepare`_, `POST Send`_.
 #. ПФР в течение двух рабочих дней направит «Уведомление о результате рассмотрения», успешно принятым считается уведомление с отметкой об удовлетворении заявления. Документооборот завершен.
 
@@ -50,7 +50,7 @@
 
 Если нет файла заявления на подключение, его можно сгенерировать при помощи :doc:`методов формирования файлов</drafts/DraftDocumentBuildController>` в черновике. Сценарий работы **с черновиком** в таком случае будет следующий:
 
-1. Создать черновик. `POST Draft`_.
+1. Создать черновик. `POST Create draft`_.
 2. Создать документ в черновике по json контракту. `POST BuildDocumentContent`_.
 3. Добавить в документ подпись XMLDsig:
 
@@ -69,9 +69,9 @@
 
 Отчет по форме СЗВ-ТД нужно отправлять отдельным **документооборотом типа urn:docflow:pfr-report**. Статусы и порядок документооборота описаны в :ref:`спецификации<rst-markup-szvtd-status>`.
 
-#. Создать черновик. `POST Draft`_.
+#. Создать черновик. `POST Create draft`_.
 #. Загрузить в :doc:`сервис контентов</knowledge base/content>` подписанный файл отчета с прикрепленной подписью xmlDsig. :ref:`POST Upload<rst-markup-post-content>`.
-#. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Document`_.
+#. Создать документ в черновике, в теле запроса передать идентификатор контента content-id. `POST Add Document`_.
 #. Проверить, подготовить, отправить черновик. `POST Check`_, `POST Prepare`_, `POST Send`_.
 #. ПФР в течение одного рабочего дня направит "Уведомление о доставке".
 #. ПФР в течение трех рабочих дней с момента отправки "Уведомления о доставке":

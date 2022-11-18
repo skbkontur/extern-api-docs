@@ -163,7 +163,7 @@
 
 В ответе метод загрузки контента вернет идентификатор загруженного контента, который нужно передать в методе создания документа. 
 
-**Пример запроса POST AddDocument:**
+**Пример запроса POST Add Document:**
 
 .. code-block:: json
    
@@ -183,7 +183,7 @@
 
     .. container:: header
 
-        **Ответ POST AddDocument:**
+        **Ответ POST Add Document:**
 
     .. code-block:: http
     
