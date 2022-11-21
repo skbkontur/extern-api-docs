@@ -33,6 +33,8 @@
     * urn:docflow:fss-sedo-benefit-payment-initiation – инициация выплат пособия;
     * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности ФСС.
 
+Далее для каждого документооборота создайте черновик и отправьте его. 
+
 **Создание и отправка черновика**
 
 1. Создайте черновик: :ref:`POST Create draft<rst-markup-createdraft>`. При создании черновика в теле запроса обязательно укажите:
@@ -51,11 +53,11 @@
 5. Подпишите эти данные необработанной (raw) подписью. 
 6. Приложите подпись к документу: :ref:`POST Add signature<rst-markup-AddSignature>`.
 7. Когда черновик готов, запустите последовательность методов: :ref:`POST Check<rst-markup-check>` -> :ref:`POST Prepare<rst-markup-prepare>` -> :ref:`POST Send<rst-markup-send>`. Укажите флаг ``deferred = true`` для отложенного выполнения задач. 
-8. Проверьте результат выполнения методов ``Check``, ``Prepare``, ``Send`` в задачах: :ref:`GET DraftTask<rst-markup-DraftTasks>`. Если запрос по методу ``Send`` завершился успешно, то в ответе вернется информация о созданном документообороте (ДО).
+8. Проверьте статус выполнения задач для методов ``Check``, ``Prepare``, ``Send``: :ref:`GET DraftTask<rst-markup-DraftTasks>`. Если запрос по методу ``Send`` завершился успешно, то в ответе вернется информация о созданном документообороте (ДО).
 
-В рамках проактивных выплат ДО считается завершенным после отправки черновика. После получения документа с результатом обработки или приема сообщения в исходящих документооборотах, необходимо отправить ответный документ "Отметка о прочтении". О том, как сформировать и отправить отметку о прочтении читайте в разделе :ref:`Отправка ответных документов<rst-markup-reply-docs>`. 
+В рамках проактивных выплат ДО считается завершенным после отправки черновика. Когда ФСС обработает данные, отправит документ с результатом обработки или приема сообщения. На него нужно отправить ответный документ "Отметка о прочтении". О том, как сформировать и отправить отметку о прочтении читайте в разделе :ref:`Отправка ответных документов<rst-markup-reply-docs>`.  
 
-После необходимо ожидать входящие документообороты от ФСС. Документы входящих ДО также будут отображаться в исходящих ДО. 
+Для каждого документооборота поступит соответствующий входящий документооборот от ФСС. Документы отобразяться в исходящем и входящем ДО. 
 
 .. _rst-markup-sedo-incoming-dc:
 
@@ -89,13 +91,15 @@
 
 Когда ФСС обработает запрос, он отправит запрошенный документ и статус ДО поменяется:
 
-1. Документы появятся во входящих и исходящих ДО в следующих документооборотах:
-    
+1. Для следующих документооборотов документы появятся во входящих ДО:
+
     * urn:docflow:fss-sedo-insured-person-registration-result – результат регистрации сведений о застрахованном лице;
     * urn:docflow:fss-sedo-proactive-payments-reply-result – результат обработки ответа на запрос проверки;
     * urn:docflow:fss-warrant-management-result – результат создания или отзыва доверенности ФСС.
-    
-Статус документооборотов поменяется на **finished** и **они будут считаться завершенными**.
+
+Документы также отобразяться в соответствующих исходящих документооборотах. 
+
+Статус ДО поменяется на **finished** и **они будут считаться завершенными**.
 
 2. Для следующих документооборотов документы появятся только во входящих ДО: 
 
@@ -135,23 +139,24 @@
 
 3. Создайте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:
 
-    a. Сгенерирйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО: 
-
-    .. csv-table:: 
-        :header: "Тип входящего документа", "Тип ответного документа"
-        :widths: 20 30
-        
-        "urn:document:fss-sedo-pvso-notification-notification-message", "urn:document:fss-sedo-pvso-notification-receipt"
-        "urn:document:fss-sedo-sick-report-change-notification-notification-message", "urn:document:fss-sedo-sick-report-change-notification-receipt"
-        "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "urn:document:fss-sedo-insured-person-mismatch-receipt-receipt"
-        "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "urn:document:fss-sedo-proactive-payments-benefit-receipt"
-        "urn:document:fss-sedo-proactive-payments-demand-demand-message", "urn:document:fss-sedo-proactive-payments-demand-receipt"
-        "urn:document:fss-sedo-benefit-payment-initiation-result-document", "urn:document:fss-sedo-benefit-payment-initiation-read-receipt"
-        "urn:document:fss-sedo-insured-person-registration-receipt", "urn:document:fss-sedo-insured-person-registration-read-receipt"
-        "urn:document:fss-sedo-proactive-payments-reply-receipt", "urn:document:fss-sedo-proactive-payments-reply-read-receipt"
-        "urn:document:fss-warrant-management-response-message", "urn:document:fss-warrant-management-response-read-receipt"
-
+    a. Сгенерирйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО из таблицы ниже.
     b. Перейдите по ссылке из поля ``links`` в параметре ``rel``, содержащей тип нужного ответного документа. 
+
+    Типы ответных документов для генерации отметки о прочтении:
+
+.. csv-table:: 
+    :header: "Тип входящего документа", "Тип ответного документа"
+    :widths: 20 30
+    
+    "urn:document:fss-sedo-pvso-notification-notification-message", "urn:document:fss-sedo-pvso-notification-receipt"
+    "urn:document:fss-sedo-sick-report-change-notification-notification-message", "urn:document:fss-sedo-sick-report-change-notification-receipt"
+    "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "urn:document:fss-sedo-insured-person-mismatch-receipt-receipt"
+    "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "urn:document:fss-sedo-proactive-payments-benefit-receipt"
+    "urn:document:fss-sedo-proactive-payments-demand-demand-message", "urn:document:fss-sedo-proactive-payments-demand-receipt"
+    "urn:document:fss-sedo-benefit-payment-initiation-result-document", "urn:document:fss-sedo-benefit-payment-initiation-read-receipt"
+    "urn:document:fss-sedo-insured-person-registration-receipt", "urn:document:fss-sedo-insured-person-registration-read-receipt"
+    "urn:document:fss-sedo-proactive-payments-reply-receipt", "urn:document:fss-sedo-proactive-payments-reply-read-receipt"
+    "urn:document:fss-warrant-management-response-message", "urn:document:fss-warrant-management-response-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 
@@ -159,7 +164,7 @@
 
 **Извещение о прочтении**
 
-Помимо отметки о прочтении для urn:docflow:fss-sedo-pvso-notification и urn:docflow:fss-sedo-sick-report-change-notification документооборотов нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
+Помимо отметки о прочтении для документооборотов urn:docflow:fss-sedo-pvso-notification и urn:docflow:fss-sedo-sick-report-change-notification нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
 
 1. Создайте ответный документ. Это можно сделать несколькими способоми:
 
