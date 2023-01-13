@@ -26,6 +26,7 @@
    inventory
    rnpt
    fns-letter
+   ens
 
 
 .. toctree::

@@ -674,6 +674,99 @@
       "urn:document:fss-sedo-receipt-notification-result-status-document", "Результат подтверждения прочтения"
       "urn:document:fss-sedo-receipt-notification-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
+Требование ФСС
+++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-demand-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-demand-message", "Документ с требованием ФСС"
+      "urn:document:fss-sedo-demand-receipt-notification-message", "Извещение о прочтении сообщения страхователя"
+      "urn:document:fss-sedo-demand-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения"
+      "urn:document:fss-sedo-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-demand-error-message", "Ошибка в ходе данного документооборота"
+      "urn:document:fss-sedo-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на требование ФСС
++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-demand-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-demand-reply-request", "Запрос на отправку ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-reception-result", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-demand-reply-result-document", "Результат обработки ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-demand-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-demand-reply-attachment", "Приложение"
+
+Результат ответа на требование ФСС
+++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-demand-reply-result
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-demand-reply-result-request-message", "Запрос на получение результата обработки ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-result-status-document", "Результат обработки ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+Запрос на формирование справки о расчетах ФСС
++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-billing-information-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-billing-information-demand-request", "Запрос на отправку сведений"
+      "urn:document:fss-sedo-billing-information-demand-reception-result", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-billing-information-demand-result-document", "Результат обработки запроса справки о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-billing-information-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-billing-information-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+
+Результат обработки запроса справки о расчетах ФСС
+++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-billing-information-demand-result
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-billing-information-demand-result-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-billing-information-demand-result-status-document", "Результат обработки запроса справки о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+
+Справка о расчетах ФСС
+++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-billing-information
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-billing-information-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-billing-information-exchange-error", "Ошибка взаимодействия с СЭДО"
+
 ЦБ РФ
 -----
 

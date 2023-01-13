@@ -31,7 +31,9 @@
     * urn:docflow:fss-sedo-insured-person-registration – сведения о застрахованных лицах;
     * urn:docflow:fss-sedo-proactive-payments-reply – ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения;
     * urn:docflow:fss-sedo-benefit-payment-initiation – инициация выплат пособия;
-    * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности ФСС.
+    * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности ФСС;
+    * urn:docflow:fss-sedo-demand-reply – ответ на требование ФСС;
+    * urn:docflow:fss-sedo-billing-information-demand – запрос на формирование справки о расчетах ФСС.
 
 Далее для каждого документооборота создайте черновик и отправьте его. 
 
@@ -57,7 +59,7 @@
 
 В рамках проактивных выплат ДО считается завершенным после отправки черновика. Когда ФСС обработает данные, отправит документ с результатом обработки или приема сообщения. На него нужно отправить ответный документ "Отметка о прочтении". О том, как сформировать и отправить отметку о прочтении читайте в разделе :ref:`Отправка ответных документов<rst-markup-reply-docs>`.  
 
-Для каждого документооборота поступит соответствующий входящий документооборот от ФСС. Документы отобразяться в исходящем и входящем ДО. 
+Для каждого документооборота поступит соответствующий входящий документооборот от ФСС. Документы отобразятся в исходящем и входящем ДО. 
 
 .. _rst-markup-sedo-incoming-dc:
 
@@ -95,16 +97,19 @@
 
     * urn:docflow:fss-sedo-insured-person-registration-result – результат регистрации сведений о застрахованном лице;
     * urn:docflow:fss-sedo-proactive-payments-reply-result – результат обработки ответа на запрос проверки;
-    * urn:docflow:fss-warrant-management-result – результат создания или отзыва доверенности ФСС.
+    * urn:docflow:fss-warrant-management-result – результат создания или отзыва доверенности ФСС;
+    * urn:docflow:fss-sedo-demand-reply-result – резульат ответа на требование ФСС;
+    * urn:docflow:fss-sedo-billing-information-demand-result – результат обработки запроса справки о расчетах ФСС.
 
-Документы также отобразяться в соответствующих исходящих документооборотах. 
+Документы также отобразятся в соответствующих исходящих документооборотах. 
 
 Статус ДО поменяется на **finished** и **они будут считаться завершенными**.
 
 2. Для следующих документооборотов документы появятся только во входящих ДО: 
 
     * urn:docflow:fss-sedo-pvso-notification – извещение ПВСО;
-    * urn:docflow:fss-sedo-sick-report-change-notification – уведомление об изменении статуса ЭЛН.
+    * urn:docflow:fss-sedo-sick-report-change-notification – уведомление об изменении статуса ЭЛН;
+    * urn:docflow:fss-sedo-demand – требование ФСС.
 
 Статус ДО поменяется на **response-arrived**. Для данных документооборотов **потребуется отправка ответных документов**: "Отметка о прочтении" и "Извещение о прочтении".
 
@@ -123,7 +128,7 @@
 
 .. csv-table:: 
    :header: "Документооборот", "Тип документа"
-   :widths: 20 30
+   :widths: 28 30
 
    "urn:docflow:fss-sedo-pvso-notification", "urn:document:fss-sedo-pvso-notification-notification-message"
    "urn:docflow:fss-sedo-sick-report-change-notification", "urn:document:fss-sedo-sick-report-change-notification-notification-message"
@@ -134,6 +139,10 @@
    "urn:docflow:fss-sedo-proactive-payments-reply", "urn:document:fss-sedo-proactive-payments-reply-response-result"
    "urn:docflow:fss-sedo-benefit-payment-initiation", "urn:document:fss-sedo-benefit-payment-initiation-result-document"
    "urn:docflow:fss-warrant-management", "urn:document:fss-warrant-management-response-message"
+   "urn:docflow:fss-sedo-demand", "urn:document:fss-sedo-demand-message"
+   "urn:docflow:fss-sedo-demand-reply", "urn:document:fss-sedo-demand-reply-result-document"
+   "urn:docflow:fss-sedo-billing-information-demand", "urn:document:fss-sedo-billing-information-demand-result-document"
+   "urn:docflow:fss-sedo-billing-information", "urn:document:fss-sedo-billing-information-message"
 
 2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -157,6 +166,10 @@
     "urn:document:fss-sedo-insured-person-registration-receipt", "urn:document:fss-sedo-insured-person-registration-read-receipt"
     "urn:document:fss-sedo-proactive-payments-reply-receipt", "urn:document:fss-sedo-proactive-payments-reply-read-receipt"
     "urn:document:fss-warrant-management-response-message", "urn:document:fss-warrant-management-response-read-receipt"
+    "urn:document:fss-sedo-demand-message", "urn:document:fss-sedo-demand-read-receipt"
+    "urn:document:fss-sedo-demand-reply-result-document", "urn:document:fss-sedo-demand-reply-read-receipt"
+    "urn:document:fss-sedo-billing-information-demand-result-document", "urn:document:fss-sedo-billing-information-demand-read-receipt"
+    "urn:document:fss-sedo-billing-information-message", "urn:document:fss-sedo-billing-information-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 
@@ -164,7 +177,7 @@
 
 **Извещение о прочтении**
 
-Помимо отметки о прочтении для документооборотов urn:docflow:fss-sedo-pvso-notification и urn:docflow:fss-sedo-sick-report-change-notification нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
+Помимо отметки о прочтении для документооборотов urn:docflow:fss-sedo-pvso-notification, urn:docflow:fss-sedo-sick-report-change-notification и urn:docflow:fss-sedo-demand нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
 
 1. Создайте ответный документ. Это можно сделать несколькими способоми:
 

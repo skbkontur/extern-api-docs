@@ -71,6 +71,12 @@
    "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности ФСС"
    "urn:docflow:fss-warrant-management-result", "Результат создания или отзыва доверенности ФСС"
    "urn:docflow:fss-sedo-receipt-notification-result", "Результат подтверждения прочтения"
+   "urn:docflow:fss-sedo-demand", "Требование ФСС"
+   "urn:docflow:fss-sedo-demand-reply", "Ответ на требование ФСС"
+   "urn:docflow:fss-sedo-demand-reply-result", "Результат ответа на требование ФСС"
+   "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах ФСС"
+   "urn:docflow:fss-sedo-billing-information-demand-result", "Результат обработки запроса справки о расчетах ФСС"
+   "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
 
 .. _rst-markup-cbrf:
 
