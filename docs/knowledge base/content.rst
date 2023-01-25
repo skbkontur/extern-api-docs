@@ -1,4 +1,5 @@
 .. _rst-markup-content:
+
 Сервис контентов
 ================
 
@@ -35,7 +36,7 @@
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents HTTP/1.1
     Authorization: Bearer <token>
     Content-Type: application/octet-stream
-    Content-Range: bytes=0-100/100
+    Content-Range: bytes 0-100/100
 
     Контент передан в теле запроса 
 
@@ -69,7 +70,7 @@
     GET /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/78b7d042-4f45-459e-bfe7-f1ba21a717b4 HTTP/1.1
     Authorization: Bearer <token>
     Content-Type: application/octet-stream
-    Range: bytes=0-20/100
+    Range: bytes 0-20/100
 
 **Ответ**
 

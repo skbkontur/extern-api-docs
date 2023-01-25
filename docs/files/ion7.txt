@@ -1,10 +1,12 @@
 {
   "version": "2",
-
-  "period": { "year": "2023" },
-
+  
+  "period": {
+    "year": "2023"
+  },
+  
   "data": {
-    "ФормОтв": 2
+    "ФормОтв": 4
   },
 
   "additional-org-info": {
