@@ -1,17 +1,3 @@
-.. raw:: html
-
-   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           
-      <div itemprop="articleBody">
-            
-         <script type="text/javascript">
-            window.location.replace('https://docs-ke.kontur.ru/auth_oidc/index.html');
-         </script>
-
-      </div>
-           
-   </div>
-
 .. _`OpenID Connect`: https://openid.net/specs/openid-connect-core-1_0.html
 .. _`открытый`: https://identity.testkontur.ru/.well-known/openid-configuration/jwks
 

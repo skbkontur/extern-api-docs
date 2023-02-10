@@ -1,1 +1,1 @@
-Актуальная документация находится на https://docs-ke.kontur.ru/index.html
+Актуальная документация находится на https://developer.kontur.ru/Docs/extern-api/index.html

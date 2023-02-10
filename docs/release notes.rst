@@ -1,16 +1,3 @@
-.. raw:: html
-
-   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           
-      <div itemprop="articleBody">
-            
-         <script type="text/javascript">
-            window.location.replace('https://docs-ke.kontur.ru/release%20notes.html');
-         </script>
-
-      </div>
-           
-   </div>
 .. _`поиск документооборотов`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows
 .. _`POST Recognize`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize
 .. _`Send`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend
@@ -18,9 +5,54 @@
 .. _`POST SignPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign
 .. _`GET DocflowPfrReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
 .. _`POST SignConfirmPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+.. _`метод для генерации входящих писем Росстат`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-incoming-stat-letter
+
 
 История изменений API
 =====================
+
+Июнь 2022
+---------
+
+* Поддержали в методе :ref:`Получение списка документооборотов<rst-markup-get-dcs>` поиск документооборотов описи urn:docflow:fns534-inventory через фильтр ``type``.
+
+Май 2022
+--------
+
+* Сделали обязательным :ref:`асинхронное выполнение запросов<rst-markup-deferred>` для методов:
+
+    * :ref:`проверки<rst-markup-check>`, :ref:`подготовки<rst-markup-prepare>`, :ref:`отправки<rst-markup-send>` черновика;
+    * :ref:`печати документа в черновике<rst-markup-draft-print>`;
+    * :ref:`печати документа в документообороте<rst-markup-dcprint>`;
+    * :ref:`сборки DraftsBuilder в черновик<rst-markup-buildDB>`. 
+
+Апрель 2022
+-----------
+ 
+* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</knowledge base/fns-letter>` в конструкторе черновиков.
+
+Январь 2022
+-----------
+
+* Поддержали сценарий работы с :doc:`Проактивными выплатами</knowledge base/proactiv>`.
+
+Ноябрь 2021
+-----------
+
+* В метаинформации документооборота 4-ФСС (модель FssReportRequisites) добавили новое поле ``sender-certificate-thumbprint``. Поле возвращает отпечаток сертификата, которым был подписан отчет.
+* В метаинформации документооборота требований (модель DemandAttachmentRequisites) добавили новые поля:
+
+    * ``tax-department-name`` — наименование налогового органа;
+    * ``tax-event-name`` — наименование мероприятия налогового контроля.
+
+**Обновление в Extern Test Tools:**
+
+* Добавили `метод для генерации входящих писем Росстат`_.
+
+Октябрь 2021
+------------
+
+* Исправлены ошибки по определению признаков зашифрованности ``encrypted`` и сжатости ``compressed`` контента для документов ПФР.
 
 Август 2021
 -----------
@@ -108,7 +140,7 @@
 * Доработали `поиск документооборотов`_: теперь можно запрашивать сразу несколько типов в параметре type. Например, type=fns534-report&type=pfr-report.
 * Новый вид отчетности в ПФР: отправка отчета СЗВ-ТД и готового заявления на подключение к ЭДОК.
 * Добавили в description документооборота ИНН-КПП реорганизованных и ликвидированных организаций, которые лежат внутри отчетов по таким организациям.
-* В рамках :doc:`документооборота регистрации бизнеса</knowledge base/businessReg>`реализовали регистрацию ЮЛ, отправку документов на ликвидацию ИП.
+* В рамках :doc:`документооборота регистрации бизнеса</knowledge base/businessReg>` реализовали регистрацию ЮЛ, отправку документов на ликвидацию ИП.
 
 Март 2020
 ---------

@@ -2,7 +2,7 @@
 .. _`DELETE Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
 .. _`GET Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
 .. _`PUT Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D
-.. _`POST Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
+.. _`POST Add Document`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments
 .. _`GET DocumentContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
 .. _`GET EncryptedDocumentContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
 .. _`GET SignatureContent`: https://developer.kontur.ru/doc/extern.drafts/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignature
@@ -13,7 +13,7 @@
 Методы для работы c документами в черновике
 ===========================================
 
-Данный раздел посвящен методам, с помощью которых можно работать с документами в черновике. Для работы с этими методами черновик должен быть предварительно создан :doc:`→ </drafts/методы работы с черновиками>`.
+Данный раздел посвящен методам, с помощью которых можно работать с документами в черновике. Для работы с этими методами должен быть предварительно создан :doc:`черновик </drafts/методы работы с черновиками>`.
 
 Подробная спецификация методов показана в Swagger в разделе `Черновики и конструктор черновиков (draftsbuilder)`_.
 
@@ -25,7 +25,7 @@
 Добавление документа 
 --------------------
 
-Метод: `POST Document`_
+Метод: `POST Add Document`_
 
 Допускается добавление документа без подписи. Например, вы не уверены в валидности сформированного xml-файла документа, и чтобы не генерировать лишний раз подпись к нему, хотите сначала его проверить отдельно. И если проверка прошла успешно, то подпись можно отдельно добавить к документу с помощью метода :doc:`Создание подписи к документу</drafts/DraftSignaturesController>`.
 
@@ -75,14 +75,14 @@
 
 **Параметры запроса**
 
-``deferred`` — флаг :ref:`асинхронного выполнения запроса<rst-markup-print-async>`. Рекомендуется выполнять запрос асинхронно, т.е. использовать флаг в значении true. Если флаг deferred = false или не передан, нужно будет ожидать завершение выполнения запроса. Так как операция печати может быть трудоемкой, вы можете не дождаться ее окончания. 
+``deferred`` — флаг :ref:`асинхронного выполнения запроса<rst-markup-print-async>`. Принимает только значение *true*. Тогда запрос будет выполнен асинхронно: будет создана задача, статус выполнения которой можно посмотреть по ``task-id``. 
+
+.. warning:: Значение *false* для синхронного вызова метода устарело и больше не используется в методах API. При таком значении вернется ошибка 400 BadRequest. 
 
 **Возможные коды ответов**
 
-* 200 OK — печатная форма документа успешно сформирована, результат печати возвращается в виде строки base64.
 * 202 Accepted — поставлена задача на печать документа, результат можно получить в методе :ref:`Get DraftDocumentTask<rst-markup-DraftDocumentTask>`.
-* 400 documentPrintUnsupported — печать невозможна: тип контента или тип документа не поддерживается.
-.. * 400 contentIsTooLarge — превышено ограничение на размер передаваемого контента для синхронного выполнения запроса. Выполните запрос асинхронно, см. описание параметра deferred.
+* 400 BadRequest — печать невозможна: тип контента или тип документа не поддерживается, либо передано значение флага асинхронного вызова метода deferred — false.
 
 .. _rst-markup-DraftDocumentTask:
 

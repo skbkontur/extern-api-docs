@@ -1,17 +1,3 @@
-.. raw:: html
-
-   <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           
-      <div itemprop="articleBody">
-            
-         <script type="text/javascript">
-            window.location.replace('https://docs-ke.kontur.ru/knowledge%20base/index.html');
-         </script>
-
-      </div>
-           
-   </div>
-
 База знаний
 ===========
 
@@ -22,10 +8,13 @@
    :titlesonly:
 
    filename
+   general_drafts
    print
    content
    DraftsBuilder
    loks
+   sverkands
+   reports_table
 
 .. toctree::
    :caption: Документооборот с ФНС
@@ -36,6 +25,9 @@
    check-demand
    inventory
    rnpt
+   fns-letter
+   ens
+
 
 .. toctree::
    :caption: Документооборот с ФСС
@@ -47,6 +39,7 @@
    sedo-subscription
    proactiv
    proactive_ algorithm
+   mchd_fss
 
 .. toctree::
    :caption: Документооборот с ПФР

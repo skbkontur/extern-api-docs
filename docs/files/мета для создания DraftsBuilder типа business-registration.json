@@ -17,7 +17,7 @@
   "builder-data": {
     "registration-info": {
       "application-code": "Р21001",
-      "applicant-infos": [
+      "applicant-infos":
         {
           "inn": "855691531561",
           "fio": {
@@ -27,8 +27,6 @@
           },
           "email": "e-mail@email.ru"
         }
-      ],
-      "business-type": "ip"
     },
     "paper-documents-delivery-type": "No"
   }

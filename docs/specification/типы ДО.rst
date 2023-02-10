@@ -53,11 +53,11 @@
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
    "urn:docflow:oved-confirmation", "Подтверждение основного вида экономической деятельности"
-   "urn:docflow:fss-sedo-sick-report-change-notification", "Уведомления об изменении статуса электронного больничного листа"
+   "urn:docflow:fss-sedo-sick-report-change-notification", "Уведомление об изменении статуса электронного больничного листа"
    "urn:docflow:fss-sedo-pvso-notification", "Извещение о прямых выплатах мер социального обеспечения"
    "urn:docflow:fss-sedo-error", "Сообщения об ошибках в документообортах ФСС через СЭДО"
    "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на документооборот с ФСС по абоненту"
-   "urn:docflow:fss-sick-report", "Реестр ПВСО (прямых выплат страхового обеспечения"
+   "urn:docflow:fss-sick-report", "Реестр ПВСО (прямых выплат страхового обеспечения)"
    "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия ФСС"
    "urn:docflow:fss-sedo-proactive-payments-reply","Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
    "urn:docflow:fss-sedo-proactive-payments-reply-result","Результат обработки ответа на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
@@ -65,6 +65,18 @@
    "urn:docflow:fss-sedo-insured-person-registration","Сведения о застрахованном лице"
    "urn:docflow:fss-sedo-insured-person-registration-result","Результат регистрации сведений о застрахованном лице"
    "urn:docflow:fss-sedo-insured-person-mismatch","Информация о несоответствии сведений о застрахованном лице"
+   "urn:docflow:fss-sedo-benefit-payment-initiation","Инициация выплаты пособия"
+   "urn:docflow:fss-sedo-benefit-payment-initiation-result", "Результат инициации выплаты пособия"
+   "urn:docflow:fss-sedo-benefit-payment-status-notice", "Уведомление о статусе выплаты пособия"
+   "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности ФСС"
+   "urn:docflow:fss-warrant-management-result", "Результат создания или отзыва доверенности ФСС"
+   "urn:docflow:fss-sedo-receipt-notification-result", "Результат подтверждения прочтения"
+   "urn:docflow:fss-sedo-demand", "Требование ФСС"
+   "urn:docflow:fss-sedo-demand-reply", "Ответ на требование ФСС"
+   "urn:docflow:fss-sedo-demand-reply-result", "Результат ответа на требование ФСС"
+   "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах ФСС"
+   "urn:docflow:fss-sedo-billing-information-demand-result", "Результат обработки запроса справки о расчетах ФСС"
+   "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
 
 .. _rst-markup-cbrf:
 

@@ -10,6 +10,7 @@
 
    "urn:drafts-builder:fns534-inventory", "Ответ на требование"
    "urn:drafts-builder:business-registration","Регистрация бизнеса"
+   "urn:drafts-builder:fns534-letter", "Письма в ФНС"
 
 ПФР
 ---
