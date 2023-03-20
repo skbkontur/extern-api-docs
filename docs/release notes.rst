@@ -11,6 +11,28 @@
 История изменений API
 =====================
 
+Январь 2023
+-----------
+
+* Поддержали :doc:`работу</knowledge base/proactive_ algorithm>` с новыми документооборотами СЭДО:
+
+    - требования ФСС (urn:docflow:fss-sedo-demand);
+    - ответ на требование ФСС (urn:docflow:fss-sedo-demand-reply);
+    - результат ответа на требование ФСС (urn:docflow:fss-sedo-demand-reply-result);
+    - запрос на формирование справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand);
+    - результат обработки запроса справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand-result);
+    - справка о расчетах ФСС (urn:docflow:fss-sedo-billing-information).
+
+Сентябрь 2022
+-------------
+
+* Добавили :doc:`возможность</knowledge base/general_drafts>` передавать созданные в API черновики в веб-интерфейс Контур.Экстерна. 
+
+Июль 2022
+---------
+
+* Поддержали работу с :doc:`машиночитаемой доверенность в ФСС</knowledge base/mchd_fss>`. Алгоритм работы в API смотрите в :doc:`статье</knowledge base/proactive_ algorithm>`. 
+
 Июнь 2022
 ---------
 

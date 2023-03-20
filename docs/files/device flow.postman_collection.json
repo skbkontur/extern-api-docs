@@ -1,0 +1,101 @@
+{
+	"info": {
+		"_postman_id": "0301f1da-37cf-4975-b9a1-5f5e687fb8f9",
+		"name": "device flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST DeviceAuthorization",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "extern.api",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.kontur.ru/connect/deviceauthorization",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"kontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"deviceauthorization"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST TokenEndpoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "urn:ietf:params:oauth:grant-type:device_code",
+							"type": "default"
+						},
+						{
+							"key": "client_id",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "default"
+						},
+						{
+							"key": "scope",
+							"value": "extern.api",
+							"type": "default"
+						},
+						{
+							"key": "device_code",
+							"value": "DeviceCode",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.kontur.ru/connect/token",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"kontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
