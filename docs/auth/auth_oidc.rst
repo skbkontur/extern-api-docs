@@ -3,8 +3,8 @@
 .. _`открытый`: https://identity.testkontur.ru/.well-known/openid-configuration/jwks
 .. _`POST tokenendpoint`: https://developer.testkontur.ru/doc/openidconnect/method?type=post&path=%2Fconnect%2Ftoken
 
-Получение и использование Access Token
-======================================
+Получение и использование Access Token (obsolete)
+=================================================
 
 Использование Access Token
 --------------------------
