@@ -54,7 +54,7 @@
     Content-type: application/x-www-form-urlencoded
     
     client_id=awesome_device_client
-    client_secret=01234567-89ab-0000-0000-000000000000
+    client_secret=yourClientSecret
     scopes=extern.api
 
 **Пример ответа**
@@ -113,7 +113,7 @@
     
     grant_type=urn:ietf:params:oauth:grant-type:device_code
     client_id=awesome_device_client
-    client_secret=01234567-89ab-0000-0000-000000000000
+    client_secret=yourClientSecret
     device_code=NGU5OWFiNjQ5YmQwNGY3YTdmZTEyNzQ3YzQ1YSA
     scope=extern.api
 
