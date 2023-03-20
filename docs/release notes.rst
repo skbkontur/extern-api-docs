@@ -14,7 +14,7 @@
 Январь 2023
 -----------
 
-* Поддержали работу с новыми документооборотами СЭДО:
+* Поддержали :doc:`работу</knowledge base/proactive_ algorithm>` с новыми документооборотами СЭДО:
 
     - требования ФСС (urn:docflow:fss-sedo-demand);
     - ответ на требование ФСС (urn:docflow:fss-sedo-demand-reply);

@@ -1,5 +1,6 @@
 .. _`документации OpenID Провайдера`: https://developer.kontur.ru/Docs/html/schemes/auth_and_authorize.html#rst-murkup-authorize-by-code
 .. _`POST TokenEndpoint`: https://developer.testkontur.ru/doc/openidconnect/method?type=post&path=%2Fconnect%2Ftoken
+
 Аутентификация по коду подтверждения
 ====================================
 
