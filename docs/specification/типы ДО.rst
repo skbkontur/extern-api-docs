@@ -77,6 +77,7 @@
    "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах ФСС"
    "urn:docflow:fss-sedo-billing-information-demand-result", "Результат обработки запроса справки о расчетах ФСС"
    "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
+   "urn:docflow:fss-sedo-baby-care-vacation-close-notice", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
 
 .. _rst-markup-cbrf:
 
