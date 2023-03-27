@@ -33,7 +33,8 @@
     * urn:docflow:fss-sedo-benefit-payment-initiation – инициация выплат пособия;
     * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности ФСС;
     * urn:docflow:fss-sedo-demand-reply – ответ на требование ФСС;
-    * urn:docflow:fss-sedo-billing-information-demand – запрос на формирование справки о расчетах ФСС.
+    * urn:docflow:fss-sedo-billing-information-demand – запрос на формирование справки о расчетах ФСС;
+    * urn:docflow:fss-sedo-baby-care-vacation-close-notice – уведомление о прекращении отпуска по уходу за ребенком до полутора лет.
 
 Далее для каждого документооборота создайте черновик и отправьте его. 
 
@@ -99,7 +100,8 @@
     * urn:docflow:fss-sedo-proactive-payments-reply-result – результат обработки ответа на запрос проверки;
     * urn:docflow:fss-warrant-management-result – результат создания или отзыва доверенности ФСС;
     * urn:docflow:fss-sedo-demand-reply-result – резульат ответа на требование ФСС;
-    * urn:docflow:fss-sedo-billing-information-demand-result – результат обработки запроса справки о расчетах ФСС.
+    * urn:docflow:fss-sedo-billing-information-demand-result – результат обработки запроса справки о расчетах ФСС;
+    * urn:docflow:fss-sedo-benefit-payment-status-notice – уведомление о статусе выплаты пособия.
 
 Документы также отобразятся в соответствующих исходящих документооборотах. 
 
@@ -143,6 +145,7 @@
    "urn:docflow:fss-sedo-demand-reply", "urn:document:fss-sedo-demand-reply-result-document"
    "urn:docflow:fss-sedo-billing-information-demand", "urn:document:fss-sedo-billing-information-demand-result-document"
    "urn:docflow:fss-sedo-billing-information", "urn:document:fss-sedo-billing-information-message"
+   "urn:document:fss-sedo-baby-care-vacation-close-notice", "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document"
 
 2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -170,6 +173,7 @@
     "urn:document:fss-sedo-demand-reply-result-document", "urn:document:fss-sedo-demand-reply-read-receipt"
     "urn:document:fss-sedo-billing-information-demand-result-document", "urn:document:fss-sedo-billing-information-demand-read-receipt"
     "urn:document:fss-sedo-billing-information-message", "urn:document:fss-sedo-billing-information-read-receipt"
+    "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document", "urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 
@@ -179,7 +183,7 @@
 
 Помимо отметки о прочтении для документооборотов urn:docflow:fss-sedo-pvso-notification, urn:docflow:fss-sedo-sick-report-change-notification и urn:docflow:fss-sedo-demand нужно дополнительно создать, подписать и отправить в ФСС ответный документ "Извещение о прочтении". 
 
-1. Создайте ответный документ. Это можно сделать несколькими способоми:
+1. Создайте ответный документ. Это можно сделать несколькими способами:
 
     a. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. При запросе указывает в поле ``documentType`` тип документа, который имеет вид ``fss-sedo-*-receipt-notification-message``, где * - наименование документооборота.
 

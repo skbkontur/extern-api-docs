@@ -31,7 +31,7 @@
 Июль 2022
 ---------
 
-* Поддержали работу с :doc:`машиночитаемой доверенность в ФСС</knowledge base/mchd_fss>`. Алгоритм работы в API смотрите в :doc:`статье</knowledge base/proactive_ algorithm>`. 
+* Поддержали работу с :doc:`машиночитаемой доверенностью в ФСС</knowledge base/mchd_fss>`. Алгоритм работы в API смотрите в :doc:`статье</knowledge base/proactive_ algorithm>`. 
 
 Июнь 2022
 ---------
