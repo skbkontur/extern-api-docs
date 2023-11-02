@@ -1,6 +1,8 @@
 .. _`OpenID Connect`: https://openid.net/specs/openid-connect-core-1_0.html
 .. _`открытый`: https://identity.testkontur.ru/.well-known/openid-configuration/jwks
 
+.. _rst-markup-access-token:
+
 Аутентификация OpenID Connect
 =============================
 

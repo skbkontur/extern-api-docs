@@ -7,6 +7,8 @@
    :caption: Устройство и особенности API 
    :titlesonly:
 
+   rp
+   mpr
    filename
    general_drafts
    print

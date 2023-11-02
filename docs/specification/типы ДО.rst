@@ -32,6 +32,17 @@
    "urn:docflow:pfr-ios", "Уточнение платежей", "Документооборот по проверке правильности и полноты уплаты Абонентом страховых взносов в орган ПФР"
    "urn:docflow:pfr-ancillary","Служебный документ ПФР","Заявление на подключение к системе электронного документооборота ПФР"
 
+.. _rst-markup-sfr:
+
+СФР
+---
+
+.. csv-table:: 
+   :header: "Urn", "Тип документооборота"
+   :widths: 20 40
+
+   "urn:docflow:sfr-report", "Отчетность в Социальный фонд России (ЕФС-1)"
+
 Росстат
 -------
 
@@ -78,6 +89,7 @@
    "urn:docflow:fss-sedo-billing-information-demand-result", "Результат обработки запроса справки о расчетах ФСС"
    "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
    "urn:docflow:fss-sedo-baby-care-vacation-close-notice", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
+   "urn:docflow:fss-sedo-employee-salary-information", "Сведения о зарплате сотрудника"
 
 .. _rst-markup-cbrf:
 

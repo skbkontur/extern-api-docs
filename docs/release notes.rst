@@ -10,6 +10,11 @@
 
 История изменений API
 =====================
+Апрель 2023
+-----------
+
+* Добавили методы для просмотра :doc:`реквизитов плательщика</knowledge base/rp>` и пользователей :doc:`многопользовательского режима</knowledge base/mpr>`.
+* Поддержали работу с :ref:`новым документооборотов в СФР<rst-markup-sfr>`.
 
 Январь 2023
 -----------
@@ -21,7 +26,8 @@
     - результат ответа на требование ФСС (urn:docflow:fss-sedo-demand-reply-result);
     - запрос на формирование справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand);
     - результат обработки запроса справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand-result);
-    - справка о расчетах ФСС (urn:docflow:fss-sedo-billing-information).
+    - справка о расчетах ФСС (urn:docflow:fss-sedo-billing-information);
+    - уведомление о прекращении отпуска по уходу за ребенком до полутора лет (urn:docflow:fss-sedo-baby-care-vacation-close-notice).
 
 Сентябрь 2022
 -------------

@@ -146,6 +146,7 @@
    "urn:docflow:fss-sedo-billing-information-demand", "urn:document:fss-sedo-billing-information-demand-result-document"
    "urn:docflow:fss-sedo-billing-information", "urn:document:fss-sedo-billing-information-message"
    "urn:document:fss-sedo-baby-care-vacation-close-notice", "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document"
+   "urn:docflow:fss-sedo-employee-salary-information", "urn:document:fss-sedo-employee-salary-information-result-document"
 
 2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -174,6 +175,7 @@
     "urn:document:fss-sedo-billing-information-demand-result-document", "urn:document:fss-sedo-billing-information-demand-read-receipt"
     "urn:document:fss-sedo-billing-information-message", "urn:document:fss-sedo-billing-information-read-receipt"
     "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document", "urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt"
+    "urn:document:fss-sedo-employee-salary-information-result-document", "urn:document:fss-sedo-employee-salary-information-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 

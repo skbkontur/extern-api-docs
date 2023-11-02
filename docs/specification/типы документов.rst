@@ -299,7 +299,31 @@
    "urn:document:pfr-ancillary-reception-result-positive","Положительный результат рассмотрения","Уведомление о результате рассмотрения"
    "urn:document:pfr-ancillary-reception-result-negative","Результат рассмотрения с перечнем выявленных ошибок в предоставленном документе","Уведомление о результате рассмотрения"
    "urn:document:pfr-ancillary-reception-result-receipt","Подтверждение получения результата рассмотрения оператором","Уведомление о доставке"
+
+
+СФР
+---
+
+Отчетность в СФР (ЕФС-1)
+++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:sfr-report
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
    
+   "urn:document:stat-report","Отчет, направляемый в ТОГС (установленный формат)","Отчет"
+   "urn:document:sfr-report-report-document", "Отчет", ""
+   "urn:document:sfr-report-attachment", "Приложение", ""
+   "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
+   "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
+   "urn:document:sfr-report-protocol-check", "Протокол проверки", "УППО"
+   "urn:document:sfr-report-protocol-refinement-notice", "Уведомление об устранении ошибок и (или) несоответствий", "УУОН-ПУ"
+   "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
+   "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
+   "urn:document:sfr-report-protocol-refinement-notice-receipt", "Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки", "УОД"
+
 Росстат
 -------
 
@@ -793,11 +817,26 @@
 
       "urn:document:fss-sedo-baby-care-vacation-close-notice-request", "Запрос на отправку сообщения «Уведомление о прекращении отпуска по уходу за ребенком до полутора лет»"
       "urn:document:fss-sedo-baby-care-vacation-close-notice-reception-result", "Результат отправки сообщения на портал"
-      "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document", "Сообщение «Уведомление о прекращении отпуска по уходу за ребенком до полутора лет»"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
       "urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-baby-care-vacation-close-notice-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-baby-care-vacation-close-notice-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
+Сведения о зарплате сотрудника
+++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-employee-salary-information
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-employee-salary-information-request", "Запрос на отправку запроса сведений о зарплате сотрудника"
+      "urn:document:fss-sedo-employee-salary-information-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-employee-salary-information-result-document", "Результат обработки запроса сведений о зарплате сотрудника"
+      "urn:document:fss-sedo-employee-salary-information-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-employee-salary-information-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-employee-salary-information-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 ЦБ РФ
 -----
