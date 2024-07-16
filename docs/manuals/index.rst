@@ -6,8 +6,6 @@
    :hidden:
 
    cryptography
-   using-OpenSSL-and-RSA
-   RSA-certs
    contracts
    files-for-examples
    xmldsig

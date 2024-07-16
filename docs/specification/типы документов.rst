@@ -3,6 +3,7 @@
 
 .. important:: Документы, помеченные "*" формирует оператор ЭДО при отправке документооборота.  
 
+.. _rst-markup-type_document:
 ФНС
 ---
 
@@ -657,7 +658,7 @@
    :widths: 20 80
 
       "urn:document:fss-sedo-benefit-payment-status-notice-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с уведомлением о статусе выплаты пособия"
+      "urn:document:sedo-message-response", "Исходный документ ответа на запрос, содержит документ с уведомлением о статусе выплаты пособия"
       "urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message", "Документ «Уведомление о статусе выплаты пособия»"
       "urn:document:fss-sedo-benefit-payment-status-notice-error-message", "Ошибка обработки" 
       "urn:document:fss-sedo-benefit-payment-status-notice-exchange-error", "Ошибка взаимодействия с СЭДО"

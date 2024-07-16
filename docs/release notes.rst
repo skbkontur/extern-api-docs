@@ -6,20 +6,43 @@
 .. _`GET DocflowPfrReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
 .. _`POST SignConfirmPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
 .. _`метод для генерации входящих писем Росстат`: https://developer.kontur.ru/doc/extern.test.tools/method?type=post&path=%2Ftest-tools%2Fv1%2Fgenerate-incoming-stat-letter
-
+.. _`ГОСТу 34.12-2018`: https://normativ.kontur.ru/document?moduleId=9&documentId=388001
+.. _`ГОСТу 34.13-2018`: https://normativ.kontur.ru/document?moduleId=9&documentId=383534 
+.. _`Контур.Диагностика`: https://help.kontur.ru/
 
 История изменений API
 =====================
+
+Июль 2024
+---------
+
+* Поддержали работу с новым алгоритмом шифрованиям по `ГОСТу 34.12-2018`_ и `ГОСТу 34.13-2018`_ для документов ФНС. Для работы с новым алгоритмом обновите программное обеспечение для работы с электронными подписями до версий:
+
+    * КриптоПРО 5.0 R2;
+    * Контур.Плагин 4.4;
+    * Рутокен 3.0.
+                
+        Обновить программное обеспечение можно с помощью сервиса `Контур.Диагностика`_.  
+
+* Добавили метод для :ref:`изменения реквизитов документооборота<rst-markup-patch_docflow>`.
+* Добавили метод для :ref:`изменения реквизитов документа требования<rst-markup-patch_docunent>`.
+
+Май 2023
+--------
+
+* Поддержали работу с документооборотом Сведения о зарплате (urn:docflow:fss-sedo-employee-salary-information). 
+
+
 Апрель 2023
 -----------
 
-* Добавили методы для просмотра :doc:`реквизитов плательщика</knowledge base/rp>` и пользователей :doc:`многопользовательского режима</knowledge base/mpr>`.
-* Поддержали работу с :ref:`новым документооборотов в СФР<rst-markup-sfr>`.
+* Добавили методы для просмотра :doc:`реквизитов плательщика</org/rp>` и пользователей :doc:`многопользовательского режима</org/mpr>`.
+* Поддержали работу с :ref:`новым документооборотом в СФР<rst-markup-sfr>`.
 
 Январь 2023
 -----------
 
-* Поддержали :doc:`работу</knowledge base/proactive_ algorithm>` с новыми документооборотами СЭДО:
+* Поддержали :doc:`работу</FSS/proactive_ algorithm>` с новыми документооборотами СЭДО:
 
     - требования ФСС (urn:docflow:fss-sedo-demand);
     - ответ на требование ФСС (urn:docflow:fss-sedo-demand-reply);
@@ -32,12 +55,12 @@
 Сентябрь 2022
 -------------
 
-* Добавили :doc:`возможность</knowledge base/general_drafts>` передавать созданные в API черновики в веб-интерфейс Контур.Экстерна. 
+* Добавили :doc:`возможность</device_api/general_drafts>` передавать созданные в API черновики в веб-интерфейс Контур.Экстерна. 
 
 Июль 2022
 ---------
 
-* Поддержали работу с :doc:`машиночитаемой доверенностью в ФСС</knowledge base/mchd_fss>`. Алгоритм работы в API смотрите в :doc:`статье</knowledge base/proactive_ algorithm>`. 
+* Поддержали работу с :doc:`машиночитаемой доверенностью в ФСС</FSS/mchd_fss>`. Алгоритм работы в API смотрите в :doc:`статье</FSS/proactive_ algorithm>`. 
 
 Июнь 2022
 ---------
@@ -57,12 +80,12 @@
 Апрель 2022
 -----------
  
-* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</knowledge base/fns-letter>` в конструкторе черновиков.
+* Добавили новый тип DraftsBuilder для работы с :doc:`письмами ФНС</FNS/fns-letter>` в конструкторе черновиков.
 
 Январь 2022
 -----------
 
-* Поддержали сценарий работы с :doc:`Проактивными выплатами</knowledge base/proactiv>`.
+* Поддержали сценарий работы с :doc:`Проактивными выплатами</FSS/proactiv>`.
 
 Ноябрь 2021
 -----------
@@ -97,7 +120,7 @@
 Февраль 2021
 ------------
 
-* Новый документооборот для отправки писем в Росстат, подробнее в статье :doc:`Отправка писем в Росстат</knowledge base/stat-letter>`.
+* Новый документооборот для отправки писем в Росстат, подробнее в статье :doc:`Отправка писем в Росстат</Rosstat/stat-letter>`.
 * В метаинформации документоооборота письма в ФНС (модель LetterDescription) добавлено новое поле ``sender-inn``.
 * В метаинформации документоооборота письма из ФНС (модель CuLetterDescription) добавлено новое поле ``recipient-inn``.
 

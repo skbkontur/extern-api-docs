@@ -3,7 +3,7 @@
 .. _`API Экстерна для работы с документооборотами и лентой событий`: https://developer.kontur.ru/doc/extern.docflows
 .. _`API Экстерна для работы с сервисом контентов`: https://developer.kontur.ru/doc/extern.contents
 .. _`API Экстерна для работы с сверкой по НДС`: https://developer.kontur.ru/doc/extern.nds
-.. _`SDK`: https://github.com/skbkontur/extern-java-sdk/
+.. _`SDK`: https://github.com/skbkontur/extern-csharp-sdk 
 .. _`Extern Test Tools`: https://developer.kontur.ru/doc/extern.test.tools
 .. _`тестовой площадке`: https://extern-api.testkontur.ru
 .. _`сертификат электронной подписи`: https://kontur.ru/ca/spravka/36-iz_chego_sostoit_sertifikat_elektronnoj_podpisi
@@ -35,7 +35,7 @@
 
 * **Возвращаемые значения** — json, кроме сервиса контентов. Даже если в методе возвращаются байты, то они вернутся в виде Json-строки. Внутри строки контент возвращается в формате base64. Напротив, **принимаемые значения** контентов ожидаются как application/octet-stream. 
 * **Работа с методами.** Все доступные методы можно смотреть через Swagger. Это упрощает создание http клиентов для вашего языка программирования. Если хотите отправлять запросы через Postman, то вы можете скачать JSON файл swagger’a и импортировать его в Postman.
-* Для Java есть официальный `SDK`_.
+* Для C# есть официальный `SDK`_.
 * **Аутентификация** реализована на базе протокола :doc:`OpenId Connect</auth_oidc/index>`. Для получения токена нужен :doc:`api-key и client_id</auth_oidc/api-key>`.
 * Для **генерации тестовых данных** мы разработали сервис `Extern Test Tools`_, который позволяет сгенерировать данные пользователя, а также примеры отчетов в ФНС.
 

@@ -55,7 +55,7 @@
     
     client_id=awesome_device_client
     client_secret=yourClientSecret
-    scopes=extern.api
+    scope=extern.api
 
 **Пример ответа**
 

@@ -27,11 +27,82 @@ API Контур Экстерна
    :caption: Подготовка
    :hidden:
    
-   recommendations
    howto/index
+   recommendations
    auth_oidc/index
-   specification/index
-   knowledge base/index
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Спецификация
+   :hidden:
+   
+   specification/типы ДО
+   specification/типы документов
+   specification/типы DraftsDuilder
+   specification/статусы ДО
+   specification/состояния ДО
+   specification/статусы ленты событий
+
+
+.. toctree::
+   :maxdepth: 2  
+   :caption: Устройство и особенности API
+   :hidden:
+   
+   device_api/content
+   device_api/DraftsBuilder
+   device_api/loks
+   device_api/general_drafts
+   device_api/print
+   device_api/sverkands
+   device_api/reports_table
+
+.. toctree::
+   :maxdepth: 2  
+   :caption: Организации и учетные записи
+   :hidden:
+   
+   org/rp 
+   org/mpr 
+
+.. toctree::
+   :maxdepth: 2  
+   :caption: ФНС
+   :hidden:
+   
+   FNS/report/index
+   FNS/demand/index 
+   FNS/fns-letter
+   
+.. toctree::
+   :maxdepth: 2  
+   :caption: Росстат
+   :hidden:
+   
+   Rosstat/stat-letter 
+   
+   
+.. toctree::
+   :maxdepth: 2  
+   :caption: ПФР
+   :hidden:
+   
+   PFR/PFR 
+   PFR/szvtd
+
+.. toctree::
+   :maxdepth: 2  
+   :caption: ФСС
+   :hidden:
+   
+   FSS/FSS 
+   FSS/filename
+   FSS/reestr-pvso 
+   FSS/sedo-fss
+   FSS/sedo-subscription
+   FSS/proactiv
+   FSS/proactive_ algorithm
+   FSS/mchd_fss
    
 .. toctree::
    :maxdepth: 2  
@@ -52,8 +123,14 @@ API Контур Экстерна
    :hidden:
    
    manuals/index
-   contacts
    SDK
+   contacts
+
+.. toctree::
+   :maxdepth: 2 
+   :caption: Устаревшая документация
+   :hidden:
+   
    auth/index
 
 API позволяет интегрировать сервис отчетности с контролирующими органами в ваши процессы и информационные системы.
