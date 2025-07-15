@@ -4,6 +4,7 @@
 .. important:: Документы, помеченные "*" формирует оператор ЭДО при отправке документооборота.  
 
 .. _rst-markup-type_document:
+
 ФНС
 ---
 
@@ -305,8 +306,8 @@
 СФР
 ---
 
-Отчетность в СФР (ЕФС-1)
-++++++++++++++++++++++++
+Отчетность в СФР
+++++++++++++++++
 
 Тип документооборота urn:docflow:sfr-report
 
@@ -314,19 +315,20 @@
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
    :widths: 20 80 20
    
-   "urn:document:stat-report","Отчет, направляемый в ТОГС (установленный формат)","Отчет"
    "urn:document:sfr-report-report-document", "Отчет", ""
    "urn:document:sfr-report-attachment", "Приложение", ""
    "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
    "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
-   "urn:document:sfr-report-protocol-check", "Протокол проверки", "УППО"
-   "urn:document:sfr-report-protocol-refinement-notice", "Уведомление об устранении ошибок и (или) несоответствий", "УУОН-ПУ"
+   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
+   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
    "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
    "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
-   "urn:document:sfr-report-protocol-refinement-notice-receipt", "Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки", "УОД"
+   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
 
 Росстат
 -------
+
+.. _rst-markup-stat-report-type-document:
 
 Отчет в Росстат
 +++++++++++++++
@@ -413,20 +415,26 @@
    "urn:document:fss-report-error-receipt","Сообщение об ошибке при проверке отчета (ошибки форматно-логического контроля)","Квитанция о получении Расчета с ошибками"
    "urn:document:fss-report-receipt","Квитанция","Квитанция о получении Расчета"
   
+
 Подтверждение основного вида экономической деятельности
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-Тип документооборота urn:docflow:oved-confirmation.
+Тип документооборота urn:docflow:fss-sedo-oved-confirmation.
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
    :widths: 20 80
 
-      "urn:document:oved-confirmation-request","xml-файл отчета (не зашифрован и не сжат)"
-      "urn:document:oved-confirmation-request-soap-message", "SOAP-сообщение с отчетом"
-      "urn:document:oved-confirmation-processing-result-request-soap-message", "SOAP-сообщение с запросом на обновление статуса отправленного отчета"
-      "urn:document:oved-confirmation-request-result", "Результат приема"
-      "urn:document:oved-confirmation-processing-result", "Результат обработки"
+      "urn:document:fss-sedo-oved-confirmation-request", "Запрос на отправку Заявления на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-request-fuf", "Заявление на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-attachment", "Приложение (пояснительная записка)"
+      "urn:document:fss-sedo-oved-confirmation-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-oved-confirmation-result-document", "Уведомление об изменении статуса запроса на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-read-receipt", "Отметка о прочтении пользователем"
+      "urn:document:fss-sedo-oved-confirmation-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-oved-confirmation-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document", "Уведомление о размере страховых взносов юридического лица"
+
 
 Подписка оператора на документооборот с ФСС по абоненту
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -441,20 +449,8 @@
       "urn:document:fss-sedo-provider-subscription-unsubscribe-request-for-registration-number","Отписка оператора на страхователя для прекращения получения документов из СЭДО"
       "urn:document:fss-sedo-provider-subscription-receipt","Результат приёма запроса порталом"
       "urn:document:fss-sedo-provider-subscription-subscribe-result","Результат подписки оператора на страхователя"
-      "urn:document:fss-sedo-provider-subscription-error-message","Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
-      "urn:document:fss-sedo-provider-subscription-exchange-error","Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
-
-Сообщения об ошибках в ДО ФСС через СЭДО
-++++++++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-error.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-error-request-message", "Запрос на получение сообщения об ошибке"
-      "urn:document:fss-sedo-error-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+      "urn:document:fss-sedo-provider-subscription-error-message","Ошибка обработки документа"
+      "urn:document:fss-sedo-provider-subscription-exchange-error","Ошибка взаимодействия с СЭДО"
 
 Реестр ПВСО
 +++++++++++
@@ -486,8 +482,9 @@
       "urn:document:fss-sedo-pvso-notification-receipt-notification-message", "Извещение о прочтении сообщения страхователем"
       "urn:document:fss-sedo-pvso-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
       "urn:document:fss-sedo-pvso-notification-receipt", "Отметка о прочтении"
-      "urn:document:fss-sedo-pvso-notification-error-message", "Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
-      "urn:document:fss-sedo-pvso-notification-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+      "urn:document:fss-sedo-pvso-notification-error-message", "Ошибка обработки документа"
+      "urn:document:fss-sedo-pvso-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
 
 Уведомления об изменении статуса электронного больничного листа
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -504,8 +501,8 @@
       "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-message", "Извещение о прочтении сообщения страхователем"
       "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
       "urn:document:fss-sedo-sick-report-change-notification-receipt", "Отметка о прочтении"
-      "urn:document:fss-sedo-sick-report-change-notification-error-message", "Ошибка обработки документа (асинхронная ошибка, приходит в urn:docflow:fss-sedo-error)"
-      "urn:document:fss-sedo-sick-report-change-notification-exchange-error", "Ошибка взаимодействия с СЭДО (синхронная ошибка обработки запроса в СЭДО)"
+      "urn:document:fss-sedo-sick-report-change-notification-error-message", "Ошибка обработки документа"
+      "urn:document:fss-sedo-sick-report-change-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 
 Запрос недостающих сведений для назначения пособия ФСС
@@ -540,20 +537,6 @@
       "urn:document:fss-sedo-proactive-payments-reply-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-proactive-payments-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
 
-Результат обработки ответа на запрос проверки
-+++++++++++++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-proactive-payments-reply-result.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-proactive-payments-reply-result-status-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом обработки запроса"
-      "urn:document:fss-sedo-proactive-payments-reply-result-response-result", "Результат обработки запроса"
-      "urn:document:fss-sedo-proactive-payments-reply-result-error-message", "Ошибка обработки"
-
 Выплата пособия
 +++++++++++++++
 
@@ -586,20 +569,6 @@
       "urn:document:fss-sedo-insured-person-registration-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-insured-person-registration-exchange-error", "Ошибка взаимодействия с СЭДО"
 
-Результат регистрации сведений о застрахованном лице
-++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-insured-person-registration-result.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-insured-person-registration-result-status-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом регистрации сведений"
-      "urn:document:fss-sedo-insured-person-registration-result-response-result", "Результат регистрации сведений"
-      "urn:document:fss-sedo-insured-person-registration-result-error-message", "Ошибка обработки"
-      "urn:document:fss-sedo-insured-person-registration-result-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 Информация о несоответствии сведений о застрахованном лице
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -633,20 +602,6 @@
       "urn:document:fss-sedo-benefit-payment-initiation-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-benefit-payment-initiation-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
-Результат инциации выплат пособия
-+++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-benefit-payment-initiation-result.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-benefit-payment-initiation-result-request-message", "Запрос на получение «Результата обработки сообщения инициации выплат ФСС»"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с резульатом обработки сообщения инициации выплат ФСС"
-      "urn:document:fss-sedo-benefit-payment-initiation-result-status-document", "Сообщение «Результат обработки сообщения инициации выплат ФСС»"
-      "urn:document:fss-sedo-benefit-payment-initiation-result-error-message", "Ошибка обработки"
-      "urn:document:fss-sedo-benefit-payment-initiation-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
 Уведомление о статусе выплаты пособия
 +++++++++++++++++++++++++++++++++++++
@@ -681,34 +636,6 @@
       "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности ФСС"
       "urn:document:fss-warrant-management-read-receipt", "Отметка о прочтении"
 
-Результат создания или отзыва доверенности ФСС
-+++++++++++++++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-warrant-management-result.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-warrant-management-result-request-message", "Запрос на получение результата создания или отзыва доверенности ФСС"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом обработки создания или отзыва доверенности ФСС"
-      "urn:document:fss-warrant-management-result-status-document", "Результат обработки создания или отзыва доверенности ФСС"
-      "urn:document:fss-warrant-management-result-error-message", "Ошибка в ходе данного документооборота"
-      "urn:document:fss-warrant-management-result-exchange-error", "Ошибка взаимодействия с СЭДО"
-
-Результат подтверждения прочтения
-+++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-receipt-notification-result.
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-receipt-notification-result-request-message", "Запрос на получение результата подтверждения прочтения"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом подтверждения прочтения"
-      "urn:document:fss-sedo-receipt-notification-result-status-document", "Результат подтверждения прочтения"
-      "urn:document:fss-sedo-receipt-notification-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
 Требование ФСС
 ++++++++++++++
@@ -721,12 +648,15 @@
 
       "urn:document:fss-sedo-demand-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с требованием ФСС"
-      "urn:document:fss-sedo-demand-message", "Документ с требованием ФСС"
+      "urn:document:fss-sedo-demand-demand-message", "Документ с требованием ФСС"
       "urn:document:fss-sedo-demand-receipt-notification-message", "Извещение о прочтении сообщения страхователя"
       "urn:document:fss-sedo-demand-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения"
       "urn:document:fss-sedo-demand-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-demand-error-message", "Ошибка в ходе данного документооборота"
       "urn:document:fss-sedo-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+      "urn:document:sedo-application", "Приложение к вложению"
+      "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
 
 Ответ на требование ФСС
 +++++++++++++++++++++++
@@ -745,19 +675,6 @@
       "urn:document:fss-sedo-demand-reply-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-demand-reply-attachment", "Приложение"
 
-Результат ответа на требование ФСС
-++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-demand-reply-result
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-demand-reply-result-request-message", "Запрос на получение результата обработки ответа на требование ФСС"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом обработки ответа на требование ФСС"
-      "urn:document:fss-sedo-demand-reply-result-status-document", "Результат обработки ответа на требование ФСС"
-      "urn:document:fss-sedo-demand-reply-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
 Запрос на формирование справки о расчетах ФСС
 +++++++++++++++++++++++++++++++++++++++++++++
@@ -775,21 +692,9 @@
       "urn:document:fss-sedo-billing-information-demand-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-billing-information-demand-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-billing-information-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
-
-
-Результат обработки запроса справки о расчетах ФСС
-++++++++++++++++++++++++++++++++++++++++++++++++++
-
-Тип документооборота urn:docflow:fss-sedo-billing-information-demand-result
-
-.. csv-table::
-   :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
-
-      "urn:document:fss-sedo-billing-information-demand-result-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с результатом обработки запроса справки о расчетах ФСС"
-      "urn:document:fss-sedo-billing-information-demand-result-status-document", "Результат обработки запроса справки о расчетах ФСС"
-      "urn:document:fss-sedo-billing-information-demand-result-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+      "urn:document:sedo-application", "Приложение к вложению"
+      "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
 
 
 Справка о расчетах ФСС
@@ -838,6 +743,123 @@
       "urn:document:fss-sedo-employee-salary-information-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-employee-salary-information-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-employee-salary-information-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-proactive-process-events-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-process-events-notification-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message", "Документ «Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству»"
+      "urn:document:fss-sedo-proactive-process-events-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-proactive-expire-notice
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-expire-notice-request-message", "Запрос на получение документа"
+      "urn:document:fss-sedo-proactive-expire-notice-document", "Документ уведомления"
+      "urn:document:fss-sedo-proactive-expire-notice-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-expire-notice-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Обращение СФР к страхователю
+++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-appeal
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-appeal-request-message", "Запрос на получение документа"
+      "urn:document:fss-sedo-appeal-document", "Документ письма"
+      "urn:document:fss-sedo-appeal-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-appeal-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+
+Ответ страхователя на обращение СФР
++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-appeal-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-appeal-reply-request", "Запрос на отправку сообщения"
+      "urn:document:fss-sedo-appeal-reply-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-appeal-reply-result-document", "Сообщение"
+      "urn:document:fss-sedo-appeal-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-appeal-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-appeal-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-appeal-reply-attachment", "Вложение"
+
+Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-disability-children-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-disability-children-demand-request", "Запрос на отправку сообщения"
+      "urn:document:fss-sedo-disability-children-demand-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-disability-children-demand-result-document", "Сообщение"
+      "urn:document:fss-sedo-disability-children-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-disability-children-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-disability-children-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+
+Широковещательное сообщение СЭДО от СФР
++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-broadcast-message
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-broadcast-message-document", "Широковещательное сообщение СЭДО от СФР"
+
+Запрос платежных реквизитов
++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-payment-details-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-payment-details-demand-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-payment-details-demand-document", "Документ с запросом платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-payment-details-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на запрос платежных реквизитов
+++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-payment-details-demand-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-payment-details-demand-reply-request", "Запрос на отправку ответа на запрос платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-reply-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-payment-details-demand-reply-result-document", "Результат ответа на запрос платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-payment-details-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-payment-details-demand-reply-error-message", "Ошибка обработки"
 
 ЦБ РФ
 -----

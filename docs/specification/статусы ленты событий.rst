@@ -173,6 +173,7 @@
    :widths: 20 40
 
    "urn:transaction:report", "Отчет Росстат"
+   "urn:transaction:stat-report-receipt-report-cu", "Подтверждение доставки отчета до ТОГС. Отчет Извещение"
    "urn:transaction:protocol-receipt-abonent", "Подтверждение получения протокола абонентом"
    "urn:transaction:protocol-v2-receipt-abonent", "Подтверждение получения протокола абонентом"
    "urn:transaction:protocol-v2-success", "Отчет принят ТОГСом"

@@ -13,7 +13,6 @@
    api-key
    authorization_code_flow
    device_flow
-   trusted
 
 Для работы с API Контур.Экстерна необходимо:
 

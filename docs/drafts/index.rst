@@ -5,7 +5,7 @@
    :maxdepth: 2
    :hidden:
 
-   порядок работы с черновиками
+   work-order-drafts
    методы работы с черновиками
    DraftDocumentsController
    DraftDocumentBuildController

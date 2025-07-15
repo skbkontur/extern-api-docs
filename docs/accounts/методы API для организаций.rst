@@ -4,6 +4,8 @@
 .. _`PUT Organization`: https://developer.kontur.ru/doc/extern/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
 .. _`GET Organization`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
 .. _`DELETE Organization`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
+.. _`POST UpdateSigner`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D%2Fupdate-signer
+.. _`POST ControlUnitSubscriptions`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D%2Fcontrol-unit-subscriptions
 
 Методы для работы с организациями
 =================================
@@ -17,6 +19,8 @@
 * `Получение списка доступных организаций`_
 * `Получение организации по ее идентификатору`_
 * `Добавление организации`_
+* `Установка подписанта`_
+* `Поиск подписок на контролирующие органы`_
 * `Редактирование организации`_
 * `Удаление организации`_
 
@@ -45,6 +49,19 @@
 
 В рамках :ref:`многопользовательского режима<rst-markup-mpr>` администратор может добавить организацию для всех пользователей. Дополнительный пользователь, при наличии прав доступа, может добавить организацию в учетную запись. Если операция завершилась успешно, то организация появится и у пользователя, и у администратора. Количество организаций определяется тарифным планом.
 
+Установка подписанта
+--------------------
+
+Метод: `POST UpdateSigner`_
+
+С помощью метода можно выбрать сертификат для подписи и тип подписанта для отчетности в один из контролирующих органов. 
+
+Поиск подписок на контролирующие органы
+---------------------------------------
+
+Метод: `POST ControlUnitSubscriptions`_
+
+Метод вернет информацию о подписках на контролирующие органы организации по ее идентификатору.
 
 Редактирование организации
 --------------------------

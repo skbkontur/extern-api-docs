@@ -41,7 +41,7 @@
    :header: "Urn", "Тип документооборота"
    :widths: 20 40
 
-   "urn:docflow:sfr-report", "Отчетность в Социальный фонд России (ЕФС-1)"
+   "urn:docflow:sfr-report", "Отчетность в Социальный фонд России"
 
 Росстат
 -------
@@ -55,6 +55,8 @@
    "urn:docflow:stat-cu-letter", "Письмо из Росстата", "Документооборот по осуществлению индивидуального информирования респондентов со стороны органов ФСГС"
    "urn:docflow:stat-cu-broadcast", "Массовая рассылка из Росстата", "Документооборот по осуществлению информационной рассылки со стороны налоговых органов"
 
+.. _rst-markup-sedo:
+
 ФСС
 ---
 
@@ -63,33 +65,33 @@
    :widths: 20 40
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
-   "urn:docflow:oved-confirmation", "Подтверждение основного вида экономической деятельности"
+   "urn:docflow:fss-sedo-oved-confirmation", "Подтверждение основного вида экономической деятельности"
    "urn:docflow:fss-sedo-sick-report-change-notification", "Уведомление об изменении статуса электронного больничного листа"
    "urn:docflow:fss-sedo-pvso-notification", "Извещение о прямых выплатах мер социального обеспечения"
-   "urn:docflow:fss-sedo-error", "Сообщения об ошибках в документообортах ФСС через СЭДО"
-   "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на документооборот с ФСС по абоненту"
+   "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на организацию по РНС"
    "urn:docflow:fss-sick-report", "Реестр ПВСО (прямых выплат страхового обеспечения)"
    "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия ФСС"
    "urn:docflow:fss-sedo-proactive-payments-reply","Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
-   "urn:docflow:fss-sedo-proactive-payments-reply-result","Результат обработки ответа на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
    "urn:docflow:fss-sedo-proactive-payments-benefit","Выплата пособия"
    "urn:docflow:fss-sedo-insured-person-registration","Сведения о застрахованном лице"
-   "urn:docflow:fss-sedo-insured-person-registration-result","Результат регистрации сведений о застрахованном лице"
    "urn:docflow:fss-sedo-insured-person-mismatch","Информация о несоответствии сведений о застрахованном лице"
    "urn:docflow:fss-sedo-benefit-payment-initiation","Инициация выплаты пособия"
-   "urn:docflow:fss-sedo-benefit-payment-initiation-result", "Результат инициации выплаты пособия"
    "urn:docflow:fss-sedo-benefit-payment-status-notice", "Уведомление о статусе выплаты пособия"
    "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности ФСС"
-   "urn:docflow:fss-warrant-management-result", "Результат создания или отзыва доверенности ФСС"
-   "urn:docflow:fss-sedo-receipt-notification-result", "Результат подтверждения прочтения"
    "urn:docflow:fss-sedo-demand", "Требование ФСС"
    "urn:docflow:fss-sedo-demand-reply", "Ответ на требование ФСС"
-   "urn:docflow:fss-sedo-demand-reply-result", "Результат ответа на требование ФСС"
    "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах ФСС"
-   "urn:docflow:fss-sedo-billing-information-demand-result", "Результат обработки запроса справки о расчетах ФСС"
    "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
    "urn:docflow:fss-sedo-baby-care-vacation-close-notice", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
    "urn:docflow:fss-sedo-employee-salary-information", "Сведения о зарплате сотрудника"
+   "urn:docflow:fss-sedo-proactive-process-events-notification","Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству"
+   "urn:docflow:fss-sedo-proactive-expire-notice", "Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки"
+   "urn:docflow:fss-sedo-appeal", "Обращение СФР к страхователю"
+   "urn:docflow:fss-sedo-appeal-reply", "Ответ страхователя на обращение СФР"
+   "urn:docflow:fss-sedo-disability-children-demand", "Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами"
+   "urn:docflow:fss-sedo-broadcast-message", "Широковещательное сообщение СЭДО от СФР"
+   "urn:docflow:fss-sedo-payment-details-demand", "Запрос платежных реквизитов"
+   "urn:docflow:fss-sedo-payment-details-demand-reply", "Ответ на запрос платежных реквизитов"
 
 .. _rst-markup-cbrf:
 

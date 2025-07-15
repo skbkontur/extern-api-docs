@@ -6,8 +6,6 @@
    :hidden:
 
    cryptography
-   contracts
-   files-for-examples
    xmldsig
 
 В данном разделе собраны полезные материалы, инструкции и файлы для работы с API Контур.Экстерна.
