@@ -891,3 +891,24 @@
       "urn:document:cbrf-report","Отчет"
       "urn:document:cbrf-report-reception-result","Сообщение о приеме"
       "urn:document:cbrf-report-processing-result","Результат обработки"
+
+МВД
+---
+
+Уведомление в МВД
++++++++++++++++++
+
+Тип документооборота: urn:docflow:mvd-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:mvd-notification-epgu-notification", "Уведомление в МВД"
+      "urn:document:mvd-notification-description", "Описание уведомления"
+      "urn:document:mvd-notificaiton-epgu-receipt", "Квитанция о получении"
+      "urn:document:mvd-notification-epgu-protocol", "Результат обработки уведомления:"
+         * Положительный результат: уведомление принято в МВД
+         * Отрицательный результат: уведомление не принято в МВД
+            * Детализированный отказ: уведомление не принято в МВД. Содержит причину отказа
+            * Недетализированный отказ: уведомление не принято в МВД. Не содержит причину отказа

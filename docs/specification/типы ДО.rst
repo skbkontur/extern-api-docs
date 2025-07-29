@@ -103,3 +103,14 @@
    :widths: 20 40
 
    "urn:docflow:cbrf-report", "Отчетность в ЦБ РФ"
+
+.. _rst-markup-mvd:
+
+МВД
+---
+
+.. csv-table:: 
+   :header: "Urn", "Тип документооборота"
+   :widths: 20 40
+
+   "urn:docflow:mvd-notification", "Уведомление в МВД" 

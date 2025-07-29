@@ -990,3 +990,28 @@
 
 .. image:: /_static/fss-sedo-payment-details-demand-reply.png
    :width: 600px
+
+МВД
+---
+
+.. _rst-markup_mvd:
+
+Уведомление в МВД
++++++++++++++++++
+
+Тип документооборота: urn:docflow:mvd-notification
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+      "urn:docflow-common-status:sent", "Отправлен", "Отправлено уведомление в МВД"
+      "urn:docflow-common-status:delivered", "Доставлен", "Поступила квитанция о получении от МВД"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Пришел результат обработки от МВД"
+
+Процесс изменения статуса:
+
+..image:: /_static/mvd-notification.png
+   :width: 600px
