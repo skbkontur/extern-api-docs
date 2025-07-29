@@ -1,0 +1,292 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аутентификация по коду подтверждения &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Аутентификация по веб-ссылке" href="device_flow.html" />
+    <link rel="prev" title="Получение api-key" href="api-key.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Аутентификация OpenID Connect</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api-key.html">Получение api-key</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Аутентификация по коду подтверждения</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Алгоритм аутентификации</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#authorization-code">Получение authorization code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-token">Получение Access Token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="device_flow.html">Аутентификация по веб-ссылке</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Аутентификация OpenID Connect</a></li>
+      <li class="breadcrumb-item active">Аутентификация по коду подтверждения</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/auth_oidc/authorization_code_flow.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id2">
+<h1>Аутентификация по коду подтверждения<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
+<p>Для приложений с серверной частью можно получить Access Token с помощью <strong>authorization code flow</strong>.</p>
+<p>Конечный пользователь использует свою учетную запись Контура для аутентификации и выдает разрешение на доступ к выбранным данным. После получения разрешений, приложение отправляет запрос в API Контур.Экстерна.</p>
+<section id="id3">
+<h2>Алгоритм аутентификации<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Аутентификация выполняется в два этапа:</p>
+<ol class="arabic simple">
+<li><p>Получение authorization code.</p></li>
+<li><p>Получение Access Token.</p></li>
+</ol>
+<section id="authorization-code">
+<h3>Получение authorization code<a class="headerlink" href="#authorization-code" title="Ссылка на этот заголовок"></a></h3>
+<p>Для получения authorization code отправьте запрос.</p>
+<p>Метод: GET AuthorizationEndpoint.</p>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В документации Контур.API пока не реализован метод GET AuthorizationEndpoint. Рекомендуем использовать <a class="reference download internal" download="" href="../_downloads/946adad47d83046f5e12b32b3bd2c015/authorization%20code%20flow.postman_collection.json"><code class="xref download docutils literal notranslate"><span class="pre">коллекцию</span> <span class="pre">Postman</span></code></a> для запросов.</p>
+</div>
+<p><strong>Параметры запроса</strong></p>
+<p>Content-type: application/x-www-form-urlencoded</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">response_type</span></code> – ответ, который нужно получить от OpenID Провайдера. Укажите значение: <code class="docutils literal notranslate"><span class="pre">code</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">client_id</span></code> – сервисное имя, выдается вместе с api-key;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scope</span></code> – область действия токена. Укажите следующие значения через пробел: <code class="docutils literal notranslate"><span class="pre">openid</span> <span class="pre">extern.api</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> – URL-адрес, на который будет перенаправлен конечный пользователь после аутентификации;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonce</span></code> – строка для удостоверения, что запрос связан с будущим Access Token. Данная строка вернется при получении Access Token.</p></li>
+</ul>
+<p>Все параметры имееют тип данных string.</p>
+<p><strong>Ответ</strong></p>
+<p>OpenID Провайдер сначала отправит конечного пользователя на <a class="reference external" href="http://auth.kontur.ru/">страницу входа</a>, чтобы пользователь мог ввести данные своей учетной записи и выдать разрешения на доступ к данным. После OpenID Провайдер перенаправит пользователя на URL-адрес, указанный в параметре <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code>, с временным кодом подтверждения <code class="docutils literal notranslate"><span class="pre">code</span></code>.</p>
+<p>Подробнее про получение authoriztion code смотрите в <a class="reference external" href="https://developer.kontur.ru/Docs/html/schemes/code_flow.html">документации OpenID Провайдера</a>.</p>
+<p><strong>Пример запроса</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="err">GET /connect/authorize</span>
+<span class="err">    ?response_type=code</span>
+<span class="err">    &amp;client_id={{client_id}}</span>
+<span class="err">    &amp;scope=openid extern.api</span>
+<span class="err">    &amp;redirect_uri=http://www.example.com/</span>
+<span class="err">    &amp;nonce=n-0S6_WzA2Mj</span>
+<span class="err">    &amp;state=af0ifjsldkj HTTP/1.1</span>
+<span class="err">Host: identity.kontur.ru</span>
+<span class="err">Content-type: application/x-www-form-urlencoded</span>
+</pre></div>
+</div>
+<p><strong>Пример ответа</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">302</span> <span class="ne">Found</span>
+<span class="na">Location</span><span class="o">:</span> <span class="l">https://www.example.com</span>
+    <span class="l">?code=SplxlOBeZQQYbYS6WxSbIA</span>
+    <span class="l">&amp;state=af0ifjsldkj</span>
+    <span class="l">&amp;scope=openid extern.api</span>
+</pre></div>
+</div>
+</section>
+<section id="access-token">
+<h3>Получение Access Token<a class="headerlink" href="#access-token" title="Ссылка на этот заголовок"></a></h3>
+<p>Полученный временный код подтверждения нужно обменять на Access Token.</p>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/openidconnect/method?type=post&amp;path=%2Fconnect%2Ftoken">POST TokenEndpoint</a>.</p>
+<p><strong>Параметры запроса</strong></p>
+<p>Content-type: application/x-www-form-urlencoded</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">grant_type</span></code> – тип аутентификации. Укажите значение: <code class="docutils literal notranslate"><span class="pre">authorization_code</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">code</span></code> – временный код подтверждения;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">client_id</span></code> – сервисное имя, выдается вместе с api-key;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">client_secret</span></code> – api-key;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code> – ссылка, на которую получен код подтверждения.</p></li>
+</ul>
+<p>Все параметры имеют тип данных string.</p>
+<p><strong>Ответ</strong></p>
+<p>OpenID Провайдер вернет в ответ Access Token.</p>
+<p><strong>Пример запроса</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/connect/token</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">identity.kontur.ru</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/x-www-form-urlencoded</span>
+
+<span class="nt">grant_type</span><span class="o">=</span><span class="s">authorization_code</span>
+<span class="s">code</span><span class="o">=</span><span class="s">SplxlOBeZQQYbYS6WxSbIA</span>
+<span class="s">client_id</span><span class="o">=</span><span class="s">{{client_id}}</span>
+<span class="s">client_secret</span><span class="o">=</span><span class="s">{{client_secret}}</span>
+<span class="s">redirect_uri</span><span class="o">=</span><span class="s">http://www.example.com</span>
+</pre></div>
+</div>
+<p><strong>Пример ответа</strong></p>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="err">200 OK</span>
+<span class="err">Content-type: application/json</span>
+
+<span class="err">{</span>
+<span class="err">    &quot;access_token&quot;: &quot;AAAAAAAAAAAAAAAAA&quot;,</span>
+<span class="err">    &quot;token_type&quot;: &quot;Bearer&quot;,</span>
+<span class="err">    &quot;expires_in&quot;: 3600,</span>
+<span class="err">    &quot;id_token&quot;: &quot;eyJhbGciOifQ.ewogI3pAKfQ.ggW8hq-rvKMzqg&quot;</span>
+<span class="err">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="api-key.html" class="btn btn-neutral float-left" title="Получение api-key" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="device_flow.html" class="btn btn-neutral float-right" title="Аутентификация по веб-ссылке" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

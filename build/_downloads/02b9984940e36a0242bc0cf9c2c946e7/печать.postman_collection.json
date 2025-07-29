@@ -1,0 +1,209 @@
+{
+	"info": {
+		"_postman_id": "d069cd90-e372-4bc1-9ec5-da0bca4dfbe1",
+		"name": "печать",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Получение документа в документообороте",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"a9bc74bd-311b-43f0-aff7-faba24ce35d9",
+						"documents",
+						"75d929b9-08a9-4692-961d-111cc87dc2e8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Скачать контент",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/9f6b57db-db9f-4e4c-8375-62a3504e663d",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"contents",
+						"9f6b57db-db9f-4e4c-8375-62a3504e663d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Загрузить контент в сервис контентов",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/buravova/Desktop/file"
+					}
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"contents"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Печать (асинхронный вызов)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"content-id\": \"d065adea-8b9d-4228-bc17-8f86539e01a3\"\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/print?deferred=true",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"a9bc74bd-311b-43f0-aff7-faba24ce35d9",
+						"documents",
+						"75d929b9-08a9-4692-961d-111cc87dc2e8",
+						"print"
+					],
+					"query": [
+						{
+							"key": "deferred",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Получение статуса задачи",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/a9bc74bd-311b-43f0-aff7-faba24ce35d9/documents/75d929b9-08a9-4692-961d-111cc87dc2e8/tasks/819ade20-665c-470a-befc-e897a56e1641",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"a9bc74bd-311b-43f0-aff7-faba24ce35d9",
+						"documents",
+						"75d929b9-08a9-4692-961d-111cc87dc2e8",
+						"tasks",
+						"819ade20-665c-470a-befc-e897a56e1641"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

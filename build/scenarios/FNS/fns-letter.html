@@ -1,0 +1,277 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Письма в ФНС &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon2.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Росстат" href="../Rosstat/index.html" />
+    <link rel="prev" title="Сверка с ФНС" href="ION.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">ФНС</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="report/index.html">Работа с отчетами</a></li>
+<li class="toctree-l3"><a class="reference internal" href="demand/index.html">Работа с требованиями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ION.html">Сверка с ФНС</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Письма в ФНС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">Порядок взаимодействия</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#draftsbuilder">Работа с письмами ФНС в DraftsBuilder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">Алгоритм работы с методами API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SFR/index.html">СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="index.html">ФНС</a></li>
+      <li class="breadcrumb-item active">Письма в ФНС</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scenarios/FNS/fns-letter.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Письма в ФНС<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Отправка писем осуществляется в соответствии с <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=338803">Приказами ФНС от 13 июня 2013 г. N ММВ-7-6/196&#64;</a> и от <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=411536&amp;cwi=620#h719">09.11.2010 N ММВ-7-6/535&#64;</a>. Согласно приказам для обмена письмами с ФНС с помощью электронного документооборота (ЭДО) нужно соблюдать требования:</p>
+<ul class="simple">
+<li><p>если письмо подписано уполномоченным представителем, то к письму нужно приложить доверенность или сообщение о представительстве;</p></li>
+<li><p>наименование каждого файла во вложении не должно превышать 100 символов;</p></li>
+<li><p>формат вложений может быть любым;</p></li>
+<li><p>отсканированные изображения должны быть черно-белыми, иметь разрешение не менее 150 и не более 300 точек на дюйм и использоваться 256 градаций серого цвета;</p></li>
+<li><p>к письму можно приложить не более 99 файлов;</p></li>
+<li><p>размер одного транспортного контейнера не должен превышать 5 Мб. В транспортный контейнер входят файлы с суммарным объемом не больше 4 Мб и служебные данные, которые формируются оператором ЭДО.</p></li>
+</ul>
+<section id="id2">
+<h2>Порядок взаимодействия<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic simple">
+<li><p>После отправки письма поступит документ <em>Подтверждение даты отправки</em>. Этот документ формируется оператором связи ЭДО, содержит данные о дате и времени отправки письма. Подтверждение даты отправки поступит каждому участнику документооборота: налогоплательщику и налоговому органу.</p></li>
+<li><p>Когда письмо будет загружено в приемный комплекс ФНС, налогоплательщику поступит один из документов:</p></li>
+</ol>
+<ul class="simple">
+<li><p><strong>Извещение о получении</strong>. Документ подтверждает факт получения письма налоговым органом. На этом документооборот не заканчивается. Необходимо дождаться результатов дальнейшей проверки письма ФНС.</p></li>
+<li><p><strong>Сообщение об ошибке</strong>. Документ содержит информацию об ошибках. Документооборот на этом прекращается. Необходимо исправить указанные в сообщении ошибки и повторно отправить письмо.</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>ФНС регистрирует письмо и готовит на него ответ (если потребуется), либо формирует <em>Уведомление об отказе</em> с указанием причин отказа. Согласно <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=158860">ФЗ от 02.05.2006 N 59-ФЗ</a> ответ от налогового органа на письмо, содержащий запрос, должен быть предоставлен в течение 30 дней со дня регистрации запроса в ФНС.</p></li>
+</ol>
+</section>
+<section id="draftsbuilder">
+<h2>Работа с письмами ФНС в DraftsBuilder<a class="headerlink" href="#draftsbuilder" title="Ссылка на этот заголовок"></a></h2>
+<p>Работа с письмами в API Контур.Экстерн состоит из двух этапов: создание черновика и работа с документооборотом. Черновик можно создать с помощью конструктора черновиков — <a class="reference internal" href="../device_api/DraftsBuilder.html"><span class="doc">DraftsBuilder</span></a>. DraftsBuilder помогает облегчить подготовку черновика:</p>
+<ul class="simple">
+<li><p>приводит приложенные файлы к требованиям ФНС;</p></li>
+<li><p>файлы в формате pdf, jpeg, tiff, png более 4 Мб делит на несколько черновиков. Но для других форматов один файл не должен быть более 4 Мб;</p></li>
+<li><p>если название файла длиннее 100 символом, то DraftsBuilder сократит название;</p></li>
+<li><p>подтягивает сообщение о представительстве из учетной записи в Контур.Экстрен при сборке черновика, либо позволяет загрузить доверенность самостоятельно в виде файла.</p></li>
+</ul>
+<p>Для подготовки черновика в DraftsBuilder приложите текст сообщения в <strong>формате txt в кодировке Windows 1251</strong> и файлы, которые планируете направить в ФНС. На основании приложенных файлов DraftsBuilder сформирует XML-файл обращения:</p>
+<ul class="simple">
+<li><p>текст обращения из txt-файла будет записан в блок &#64;ОбращИнф → Текст сообщения;</p></li>
+<li><p>приложенные файлы будут перечислены в блоке &#64;ОбращИнф/Прил.</p></li>
+</ul>
+</section>
+<section id="api">
+<h2>Алгоритм работы с методами API<a class="headerlink" href="#api" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Если все файлы приведены к нужному формату и есть файл обращения, то работу с черновиком можно начинать с 5 пункта.</p>
+</div>
+<ol class="arabic">
+<li><p>Создайте DraftsBuilder:  <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createdb"><span class="std std-ref">POST CreateDraftsBuilder</span></a>. При создание DraftsBuilder укажите в теле запроса:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-type</span></code> — <a class="reference internal" href="../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html"><span class="doc">тип DraftsBuilder</span></a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-data</span></code> — данные для указанного типа DraftsBuilder:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">region</span></code> — регион.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Для ответа на входящее письмо ФНС передайте в метаинформации следующие параметры:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">related-docflow-id</span></code> — идентификатор входящего документооборота;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">related-document-id</span></code> — идентификатор главного документа.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Добавьте документ: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createdocdb"><span class="std std-ref">POST CreateDraftsBuilderDocument</span></a>.</p></li>
+<li><p>Добавьте файл: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createfiledb"><span class="std std-ref">POST CreateDraftsBuilderDocumentFile</span></a>.</p></li>
+<li><p>Запустите сборку DraftsBuilder в черновик: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-builddb"><span class="std std-ref">POST BuildDrafts</span></a>.</p></li>
+<li><p>Подготовьте черновик к отправке с помощью методов для <a class="reference internal" href="../../drafts/work-order-drafts.html#rst-markup-drafts"><span class="std std-ref">работы с черновиком</span></a>.</p></li>
+<li><p>Отслеживайте документооборот, ориентируясь на <a class="reference internal" href="../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-spec-fns-letter"><span class="std std-ref">статусы и порядок документооборота</span></a>.</p></li>
+</ol>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="ION.html" class="btn btn-neutral float-left" title="Сверка с ФНС" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../Rosstat/index.html" class="btn btn-neutral float-right" title="Росстат" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

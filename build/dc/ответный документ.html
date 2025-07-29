@@ -1,0 +1,292 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Методы для работы с ответными документами &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Лента событий документооборотов" href="%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%20%D0%94%D0%9E.html" />
+    <link rel="prev" title="Методы для работы с документооборотами" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Работа с документооборотами</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html">Методы для работы с документооборотами</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Методы для работы с ответными документами</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-post-reply-doc">Методы для работы с ответными документами в ФНС и Росстат</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rst-markup-createreplydocument">Генерация ответного документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Просмотр документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Редактирование контента документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rst-markup-replisignature">Добавление подписи документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rst-markup-sendreply">Отправка ответного документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Подписание ответного документа сертификатом</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Подтверждение подписания ответного документа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#taskid">Проверка статуса задачи подписания ответного документа по TaskId</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%20%D0%94%D0%9E.html">Лента событий документооборотов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sedo-request-methods.html">Запрос на получение документов через СЭДО СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Работа с документооборотами</a></li>
+      <li class="breadcrumb-item active">Методы для работы с ответными документами</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/dc/ответный документ.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Методы для работы с ответными документами<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Документооборот подразумевает под собой последовательный обмен определенными документами согласно регламенту. Поэтому в ответ на получаемые от контролирующего органа документы необходимо отправлять определенные ответные документы, нагляднее в разделе <a class="reference internal" href="../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html"><span class="doc">Статусы и порядок документооборотов</span></a>. Методы данного раздела позволяют формировать и работать с подобными технологическими документами. Также необходимые ссылки для формирования нужных документов будут появляться в работе с методом <a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">Получения документооборота</span></a>.</p>
+<p>Список методов для работы с ответными документами в ФНС и Росстат:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id3">Генерация ответного документа</a></p></li>
+<li><p><a class="reference internal" href="#id4">Просмотр документа</a></p></li>
+<li><p><a class="reference internal" href="#id5">Редактирование контента документа</a></p></li>
+<li><p><a class="reference internal" href="#id6">Добавление подписи документа</a></p></li>
+<li><p><a class="reference internal" href="#id7">Отправка ответного документа</a></p></li>
+<li><p><a class="reference internal" href="#id8">Подписание ответного документа сертификатом</a></p></li>
+<li><p><a class="reference internal" href="#id9">Подтверждение подписания ответного документа</a></p></li>
+<li><p><a class="reference internal" href="#taskid">Проверка статуса задачи подписания ответного документа по TaskId</a></p></li>
+</ul>
+<section id="rst-markup-post-reply-doc">
+<span id="id2"></span><h2>Методы для работы с ответными документами в ФНС и Росстат<a class="headerlink" href="#rst-markup-post-reply-doc" title="Ссылка на этот заголовок"></a></h2>
+<section id="rst-markup-createreplydocument">
+<span id="id3"></span><h3>Генерация ответного документа<a class="headerlink" href="#rst-markup-createreplydocument" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fgenerate-reply">POST CreateReplyDocument</a></p>
+<p>Метод позволяет сгенерировать ответный документ в документооборотах ФНС, СФР и Росстата.</p>
+<p>Ответный документ — это  xml-файл документа установленного формата. Он создается в ответ на конкретный документ, поступивший налогоплательщику от ФНС. В методе необходимо указать тип документа, который нужно сгенерировать. Чтобы понять, какой именно <a class="reference internal" href="../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.html"><span class="doc">тип документа</span></a> нужно сформировать, см. <a class="reference internal" href="../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html"><span class="doc">Статусы и порядок документооборотов</span></a>.</p>
+<p><strong>Параметры запроса:</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">accountId</span></code> — идентификатор учетной записи;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">docflowId</span></code> — идентификатор документооборота;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentId</span></code> — идентификатор главного документа в документообороте;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">documentType</span></code> — <a class="reference internal" href="../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.html"><span class="doc">тип генерируемого документа</span></a>. Нужно указывать без “<a class="reference external" href="urn:document">urn:document</a>:”. Пример: documentType = fns534-report-receipt;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">declineNoticeErrorCode</span></code> — коды ошибок, выявленные в процессе <a class="reference internal" href="../scenarios/FNS/demand/check-demand.html#rst-markup-fns-check-demand"><span class="std std-ref">проверки требования</span></a>. Поле используется только для генерации уведомления об отказе в документообороте требования ФНС (documentType = fns534-demand-acceptance-result-negative). В запросе можно передать несколько кодов, например, <code class="docutils literal notranslate"><span class="pre">declineNoticeErrorCode=0300300001&amp;declineNoticeErrorCode=040010000</span></code>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">request</span></code> — параметры для генерации ответного документа:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">certificate-base64</span></code> (string) — сертификат в формате base64.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>В ответе метод возвращает модель ответного документа. Контент можно будет скачать по идентификатору из сервиса контентов. Также в ответе метода доступна печатная форма сгенерированного документа.</p>
+<p><strong>Возможные коды ответов:</strong></p>
+<ul class="simple">
+<li><p>400 - Передан один или несколько неизвестных <a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-check-demand"><span class="std std-ref">кодов ошибок для создания уведомления об отказе</span></a>.</p></li>
+<li><p>400 - Создание ответного документа недоступно для этого документа.</p></li>
+<li><p>400 - Ответный документ уже отправлен для этого документа, его можно посмотреть в <a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">документообороте</span></a>.</p></li>
+<li><p>400 - Передан сертификат не в формате base64.</p></li>
+<li><p>400 - Данные, переданные в параметре certificate-base64, не удалось преобразовать в сертификат.</p></li>
+<li><p>400 - Передан невалидный сертификат.</p></li>
+<li><p>400 - Передан неквалифицированный сертификат.</p></li>
+<li><p>400 - Передан сертификат, принадлежащий ликвидированной организации.</p></li>
+<li><p>400 - ИНН в сертификате не соответствует ИНН отправителя.</p></li>
+<li><p>404 - Организация не найдена.</p></li>
+<li><p>404 - Документооборот не найден.</p></li>
+<li><p>404 - Документ не найден.</p></li>
+<li><p>500 - Произошла внутренняя ошибка.</p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Просмотр документа<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D">GET ReplyDocument</a></p>
+<p>С помощью данного метода можно получить все данные и контенты ответного документа, сгенерированного в методе выше.</p>
+</section>
+<section id="id5">
+<h3>Редактирование контента документа<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcontent">PUT ReplyDocumentContent</a></p>
+</section>
+<section id="rst-markup-replisignature">
+<span id="id6"></span><h3>Добавление подписи документа<a class="headerlink" href="#rst-markup-replisignature" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature">PUT ReplyDocumentSignature</a></p>
+</section>
+<section id="rst-markup-sendreply">
+<span id="id7"></span><h3>Отправка ответного документа<a class="headerlink" href="#rst-markup-sendreply" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsend">POST SendReplyDocument</a></p>
+<p>Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.</p>
+</section>
+<section id="id8">
+<h3>Подписание ответного документа сертификатом<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign">POST SignReplyDocument</a></p>
+</section>
+<section id="id9">
+<h3>Подтверждение подписания ответного документа<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign-confirm">POST SignConfirmReplyDocument</a></p>
+</section>
+<section id="taskid">
+<h3>Проверка статуса задачи подписания ответного документа по TaskId<a class="headerlink" href="#taskid" title="Ссылка на этот заголовок"></a></h3>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D">GET GetDocflowReplyDocumentTask</a></p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html" class="btn btn-neutral float-left" title="Методы для работы с документооборотами" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%20%D0%94%D0%9E.html" class="btn btn-neutral float-right" title="Лента событий документооборотов" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

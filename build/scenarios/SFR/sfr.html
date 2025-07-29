@@ -1,0 +1,278 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Отправка отчетности в СФР &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon2.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Заявление на подключение к электронному документообороту с СФР" href="zped.html" />
+    <link rel="prev" title="СФР" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">СФР</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Отправка отчетности в СФР</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">АДВ-1, АДВ-2, АДВ-3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">ЕФС-1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Алгоритм работы с методами для отправки отчета в СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="zped.html">Заявление на подключение к электронному документообороту с СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="poved.html">Подтверждение основного вида экономической деятельности</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mchd_sfr.html">МЧД СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FSS/index.html">Проактивные выплаты</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="index.html">СФР</a></li>
+      <li class="breadcrumb-item active">Отправка отчетности в СФР</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scenarios/SFR/sfr.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Отправка отчетности в СФР<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>С 1 января 2023 года ПФР и ФСС объединились в один контролируюший орган – Социальный фонд России (СФР). Через API Контур.Экстерна можно отправить следующие формы отчетности:</p>
+<ul class="simple">
+<li><p>АДВ-1, АДВ-2, АДВ-3 (тип документооборота <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a>);</p></li>
+<li><p>ЕФС-1 (тип документооборота <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a>);</p></li>
+<li><p>Подтверждение экономического вида деятельности(тип документооборота <a class="reference external" href="urn:docflow:oved-confirmation">urn:docflow:oved-confirmation</a>);</p></li>
+<li><p>Отчетность по проактивным выплатам.</p></li>
+</ul>
+<p>В этой статье подробно расскажем про особенности отчетов АДВ-1, АДВ-2, АДВ-3 и ЕФС-1 и алгоритм отправки отчетов с помощью методов API Контур.Экстерна. Подробнее про отчетность по схеме <a class="reference internal" href="FSS/proactiv.html"><span class="doc">Проактивных выплат</span></a> и <a class="reference internal" href="poved.html"><span class="doc">Подтверждение экономического вида деятельности</span></a> смотрите в соответствующих статьях.</p>
+<section id="id2">
+<h2>АДВ-1, АДВ-2, АДВ-3<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Формы АДВ-1, АДВ-2, АДВ-3 (тип документооборота <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a>) направляются в СФР для регистрации граждан в системе индивидуального (персонифицированного) учета.</p>
+<p>Формат и порядок заполнения форм утверждены <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=439722&amp;utm_source=google&amp;utm_medium=organic&amp;utm_referer=www.google.com&amp;utm_startpage=support.kontur.ru%2Fextern%2F44224-formy_adv1_adv2_adv3&amp;utm_orderpage=support.kontur.ru%2Fextern%2F44224-formy_adv1_adv2_adv3#h2084">Постановлением Правления ПФ РФ от 31.10.2022 № 243П</a>. По текущему формату в одном файле должен быть только один сотрудник.</p>
+<p>В ответ на АДВ-1, АДВ-2, АДВ-3 поступят:</p>
+<ul class="simple">
+<li><p>Форма АДИ-РЕГ (тип документа <a class="reference external" href="urn:document:sfr-report-protocol-check">urn:document:sfr-report-protocol-check</a>) – если переданные по сотруднику данные успешно зарегистрированы со стороны СФР.</p></li>
+<li><p>Форма АДИ-8 (тип документа <a class="reference external" href="urn:document:sfr-report-protocol-refinement-notice">urn:document:sfr-report-protocol-refinement-notice</a>) – если СФР отказал в регистрации переданных по сотруднику данных.</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>ЕФС-1<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>ЕФС-1 (тип документооборота <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a>) – форма сведений для ведения индивидуального (персонифицированного) учета и сведений о начисленных страховых взносах на обязательное социальное страхование от несчастных случаев на производстве и профессиональных заболеваний. Разделы формы соответствуют старым отчетам в ПФР и ФСС: СЗВ-ТД, СЗВ-СТАЖ, ДСВ-3, 4-ФСС и СИоЗП. Последний раз их сдавали за периоды 2022 года.</p>
+<p>Форма и порядок заполнения ЕФС-1 утверждены <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=462943#h1714">Приказом СФР от 17.11.2023 №2281</a>. Отчет состоит из титульного листа и двух разделов:</p>
+<ul class="simple">
+<li><p>Сведения о трудовой (иной) деятельности, страховом стаже, заработной плате и дополнительных страховых взносах на накопительную пенсию.</p></li>
+<li><p>Сведения о начисленных страховых взносах на обязательное социальное страхование от несчастных случаев на производстве и профессиональных заболеваний.</p></li>
+</ul>
+<p>Сдавать отчет нужно частями по разделам, а не весь сразу. Каждый раздел ЕФС-1 нужно сдавать до 25 числа месяца, следующего за отчетным периодом. При этом для разделов и подразделов сохраняется прежняя периодичность сдачи:</p>
+<ul>
+<li><p>подраздел 1.1. (СЗВ-ТД):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>не позднее следующего дня – при приеме на работу, увольнении, приостановлении и возобновлении трудового договора, заключении и расторжении договора ГПХ;</p></li>
+<li><p>не позднее 25-го числа месяца, следующего за отчетным – при переводе, переименовании, установлении (присвоении), запрете занимать должность.</p></li>
+</ul>
+<p><strong>Важно:</strong> если никаких кадровых изменений в отчетном периоде не было, то Подраздел 1.1. отправлять не нужно.</p>
+</div></blockquote>
+</li>
+<li><p>подраздел 1.3. (СИоЗП) – ежемесячно, не позднее 25-го числа месяца, следующего за отчетным;</p></li>
+<li><p>подраздел 3 (ДСВ-3) – ежеквартально, до 25-го числа месяца, следующего за отчетным кварталом;</p></li>
+<li><p>раздел 2 (4-ФСС) – ежеквартально, до 25-го числа месяца, следующего за отчетным кварталом;</p></li>
+<li><p>подразделы 1.2. и 2 (СЗВ-СТАЖ) – ежегодно, не позднее 25 января года, следующего за отчетным.</p></li>
+</ul>
+<p>Форма ЕФС-1 нужно представлять в электронном виде, если численность организации свыше 10 человек.</p>
+</section>
+<section id="id4">
+<h2>Алгоритм работы с методами для отправки отчета в СФР<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>При отправке отчетов ЕФС-1, АДВ-1,2,3 и УПУП не обязательно указывать код СФР, достаточно передать единый регистрационный номер (ЕРН).</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Прежде, чем отправлять формы в СФР, нужно направить <a class="reference internal" href="zped.html"><span class="doc">заявление на подключение к электронному документообороту с контролирующим органом</span></a>.</p>
+</div>
+<ol class="arabic">
+<li><p>Создайте черновик: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-createdraft"><span class="std std-ref">POST Create draft</span></a>. При создании черновика в теле запроса обязательно укажите:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>в <code class="docutils literal notranslate"><span class="pre">payer</span></code> параметр <code class="docutils literal notranslate"><span class="pre">registration-number-sfr</span></code>;</p></li>
+<li><p>в <code class="docutils literal notranslate"><span class="pre">additional-info</span></code> параметр <code class="docutils literal notranslate"><span class="pre">machine-readable-warrant-id</span></code> – укажите идентификатор машиночиамой доверенности, если отправляете отчет через уполномоченного представителя.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Загрузите в сервис контентов подписанный файл отчета с прикрепленной подписью XMLDsig: <a class="reference internal" href="../../contents/content_methods.html#rst-markup-post-content"><span class="std std-ref">POST Upload</span></a>. Подробнее о подписи в статье <a class="reference internal" href="../../manuals/xmldsig.html"><span class="doc">Подпись XMLDsig</span></a>.</p></li>
+<li><p>Создайте документ в черновике, в теле запроса передайте идентификатор загруженного контента content-id: <a class="reference internal" href="../../drafts/DraftDocumentsController.html#rst-markup-adddocument"><span class="std std-ref">POST Add Document</span></a>.</p></li>
+<li><p>Запустите последовательность методов, когда черновик будет готов к отправке: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a> -&gt; <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-prepare"><span class="std std-ref">POST Prepare</span></a> -&gt;  <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-send"><span class="std std-ref">POST Send</span></a>. Укажите флаг <code class="docutils literal notranslate"><span class="pre">deferred</span> <span class="pre">=</span> <span class="pre">true</span></code> для отложенного выполнения задач.</p></li>
+<li><p>Проверьте статус выполнения задач для методов <code class="docutils literal notranslate"><span class="pre">Check</span></code>, <code class="docutils literal notranslate"><span class="pre">Prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">Send</span></code>: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-drafttasks"><span class="std std-ref">GET DraftTask</span></a>. Если задача по методу <code class="docutils literal notranslate"><span class="pre">Send</span></code> завершилась успешно, то в ответе вернется информация о созданном документообороте (ДО).</p></li>
+</ol>
+<p>Созданный документооборот будет иметь тип <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a>. Далее отслеживайте статусы документооборота методом <a class="reference internal" href="../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">GET Docflow</span></a>.</p>
+<p>Статусы и порядок взаимодействия описаны в <a class="reference internal" href="../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-sfrspec"><span class="std std-ref">спецификации</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="СФР" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="zped.html" class="btn btn-neutral float-right" title="Заявление на подключение к электронному документообороту с СФР" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

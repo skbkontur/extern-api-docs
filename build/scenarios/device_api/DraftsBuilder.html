@@ -1,0 +1,366 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DraftsBuilder &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon2.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Блокировки" href="loks.html" />
+    <link rel="prev" title="Сервис контентов" href="content.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Устройство и особенности API</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="content.html">Сервис контентов</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">DraftsBuilder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Что такое DraftsBuilder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Процесс работы с DraftsBuilder</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#draftsbuilder-api">Алгоритм работы с DraftsBuilder в API</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="loks.html">Блокировки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="general_drafts.html">Передача черновика в веб-интерфейс Контур.Экстерна</a></li>
+<li class="toctree-l3"><a class="reference internal" href="print.html">Печать документов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="reports_table.html">Таблица отчетности</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SFR/index.html">СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Устройство и особенности API</a></li>
+      <li class="breadcrumb-item active">DraftsBuilder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scenarios/device_api/DraftsBuilder.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="draftsbuilder">
+<h1>DraftsBuilder<a class="headerlink" href="#draftsbuilder" title="Ссылка на этот заголовок"></a></h1>
+<section id="id4">
+<h2>Что такое DraftsBuilder<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>DraftsBuilder — конструктор черновиков. Он помогает создать из переданных документов пользователя черновик.</p>
+<p>DraftsBuilder можно использовать для получения черновиков следующих типов документооборотов:</p>
+<ul class="simple">
+<li><p>ответ на требование (<a class="reference external" href="urn:docflow:fns534-inventory">urn:docflow:fns534-inventory</a>);</p></li>
+<li><p>письмо в ФНС (<a class="reference external" href="urn:docflow:fns534-letter">urn:docflow:fns534-letter</a>);</p></li>
+<li><p>регистрация бизнеса (<a class="reference external" href="urn:docflow:business-registration">urn:docflow:business-registration</a>).</p></li>
+</ul>
+<p>Эти виды документооборотов отличаются большим количеством файлов, которые пользователи отправляют в контролирующие органы (далее — КО). Чаще всего такими файлами являются сканы документов. КО имеют требования к размеру, типу и количеству файлов в одном контейнере при работе с электронным документооборотом. DraftsBuilder упрощает процесс формирования черновика, помогает не нагружать излишней логикой системы пользователей и выполнять требования КО.</p>
+<p><strong>Функции DraftsBuilder:</strong></p>
+<ul>
+<li><p>приводит приложенные файлы к установленному КО формату;</p></li>
+<li><p>разбивает файлы на черновики;</p></li>
+<li><p>подкладывает в каждый черновик сообщение о представительстве, переданное налогоплательщиком;</p></li>
+<li><p>формирует xml-файл описи к каждому черновику;</p></li>
+<li><p>формирует xml-файл обращения для черновиков писем ФНС;</p></li>
+<li><p>задает документам уникальное название:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>для документооборотов с ФНС все имена приложений и документов DraftsBuilder приводит к установленному ФНС формату и задает уникальный гуид;</p></li>
+<li><p>для писем ФНС наименование каждого файла во вложении не должно превышать 100 символов. DraftsBuilder сократит название, если будет приложен файл с названием длиннее 100 символов.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h2>Процесс работы с DraftsBuilder<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<a class="reference internal image-reference" href="../../_images/work_process_DB.png"><img alt="../../_images/work_process_DB.png" src="../../_images/work_process_DB.png" style="width: 1000px;" />
+</a>
+<p>Процесс работы с DraftsBuilder сводится к трем шагам:</p>
+<ol class="arabic simple">
+<li><p>Создание DraftsBuilder — создается контейнер, который наполняется документами-контейнерами с файлами.</p></li>
+<li><p>Наполнение контейнера —  в DraftsBuilder создаются документы, в которые загружаются файлы.</p></li>
+<li><p>Запуск сборки черновика — контейнер преобразуется в черновик или набор черновиков.</p></li>
+</ol>
+<p>Данные шаги определяют дальнейший алгоритм работы с методами. Каждый шаг имеет свои правила и логику. Чтобы понять их, сначала нужно разобраться в структуре DraftsBuilder и его сущностях.</p>
+<section id="id6">
+<h3>Структура DraftsBuilder<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<a class="reference internal image-reference" href="../../_images/structure_DB.png" id="rst-markup-db-restricting"><img alt="../../_images/structure_DB.png" id="rst-markup-db-restricting" src="../../_images/structure_DB.png" style="width: 800px;" />
+</a>
+<p>DraftsBuilder состоит из трех сущностей:</p>
+<ul class="simple">
+<li><p><strong>DraftsBuilder</strong> — базовый контейнер, в который загружаются документы;</p></li>
+<li><p><strong>документ</strong> — контейнер для файлов;</p></li>
+<li><p><strong>файл</strong> — исходные файлы пользователя, которые он отправляет в КО в составе документа. Файлы могут быть формализованные и неформализованные, подробнее об этом читайте в <a class="reference external" href="https://www.diadoc.ru/docs/faq/faq-127">справке</a>.</p></li>
+</ul>
+<p>Налогоплательщики предоставляют в КО документы, которые могут состоять из нескольких файлов. В DraftsBuilder документ является контейнером для этих файлов. В один документ-контейнер можно положить:</p>
+<ul class="simple">
+<li><p>один или несколько файлов одного неформализованного документа;</p></li>
+<li><p>формализованный файл и подпись контрагента;</p></li>
+<li><p>файлы титульных страниц формализованного документа с подписями контрагента.</p></li>
+</ul>
+<p>Таким образом, DraftsBuilder будет содержать набор документов-контейнеров, которые при сборке преобразуются в один черновик или несколько, согласно ограничениям для файлов.</p>
+<p><strong>Ограничения для файлов:</strong></p>
+<ul class="simple">
+<li><p>файлы должны быть с расширением: jpg, png, pdf, tif, tiff. Для писем возможен любой формат;</p></li>
+<li><p>можно приложить не больше 99 файлов;</p></li>
+<li><p>суммарный объем черновика может быть не более 60 Мб (для писем ФНС суммарный объем должен быть не более 5 Мб).</p></li>
+</ul>
+<p>Для ответа на требования нужно приложить <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=291280&amp;rangeId=180910">документы, представленные в виде скан-образа</a> и указать номер приказа.</p>
+</section>
+<section id="id7">
+<h3>Сборка контейнера в черновик<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>При сборке DraftsBuilder преобразуется в черновик или несколько черновиков. Например, если суммарный объем приложенных файлов будет больше 60 МБ или пользователь приложит больше 99 файлов, то DraftsBuilder создаст несколько черновиков.</p>
+<p>Каждый черновик будет отправлен как отдельный документооборот.</p>
+<blockquote id="rst-markup-invent-file">
+<div><a class="reference internal image-reference" href="../../_images/assembly_DB.png"><img alt="../../_images/assembly_DB.png" src="../../_images/assembly_DB.png" style="width: 800px;" />
+</a>
+</div></blockquote>
+<p>Для некоторых документооборотов нужно соблюдать требования к составу отправляемых документов в КО. Для писем ФНС в составе должен быть файл обращения, для других документооборотов в составе должен быть файл описи.</p>
+<p><strong>Файл обращения</strong> в DraftsBuilder — это xml-файл с текстом обращения и сведениями о налогоплательщике. Формируется для писем ФНС (<a class="reference external" href="urn:docflow:fns534-letter">urn:docflow:fns534-letter</a>).</p>
+<p>Ограничения по размеру: если текст обращения больше 1 Мб, то будет создано несколько черновиков. Один из черновиков будет содержать только файл обращения, который содержит в себе приложенный текст обращения. Другие черновики будут содержать файл обращения без текста и файлы приложений.</p>
+<p><strong>Файл описи</strong> в DraftsBuilder — это xml-файл с перечислением документов, которые налогоплательщик отправляет в КО. Это формализованный файл установленного формата. Формируется для следующих документооборотов:</p>
+<ul class="simple">
+<li><p>ответ на требования (<a class="reference external" href="urn:docflow:fns534-inventory">urn:docflow:fns534-inventory</a>);</p></li>
+<li><p>регистрация бизнеса (<a class="reference external" href="urn:docflow:business-registration">urn:docflow:business-registration</a>).</p></li>
+</ul>
+<p>Особенности:</p>
+<ul class="simple">
+<li><p>для требований ФНС файл состоит из списка документов с привязкой пункта требования. В документах будут перечислены файлы для налогового органа и подписи.</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>Во время сборки DraftsBuilder автоматически сформирует файлы описи и обращений на основании всех переданных документов.</p>
+</div>
+</section>
+<section id="id8">
+<h3>Работа с подписями<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>При работе с документооборотами часто нужно прикладывать формализованные или неформализованные файлы. Вместе с формализованными файлами, помимо нескольких форм КНД, нужно прикладывать файл подписи контрагента. Если подписи контрагента нет, то необходимо приложить файл подписи отправителя. Формализованный файл и файл подписи подписываются КЭП отправителя описи.</p>
+<p>К неформализованным файлам файл подписи прикладывать не надо. Достаточно, подписать неформализованный файл перед отправкой.</p>
+<p><strong>Когда нужно прикладывать файл подпси</strong></p>
+<p>Файл подписи нужно прикладывать для многих формализованных файлов. Например, для некоторых документооборотов нужно прикладывать счета-фактуры и накладные. Счет-фактура состоит из xml-файла и sgn-файла <strong>подписи контрагента</strong>. При работе с DraftsBuilder необходимо прикладывать оба файла.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/DB_sf.png"><img alt="../../_images/DB_sf.png" src="../../_images/DB_sf.png" style="width: 1000px;" />
+</a>
+</div></blockquote>
+<p>Некоторые документообороты, как <em>Ответ на требование о предоставлении пояснений к налоговой декларации по налогу на добавленную стоимость (КНД 1160200)</em>, включают в себя только xml-файлы. Для таких файлов необходимо прикладывать также файл <strong>подписи отправителя</strong> в формате sgn.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/DB_treb.png"><img alt="../../_images/DB_treb.png" src="../../_images/DB_treb.png" style="width: 1000px;" />
+</a>
+</div></blockquote>
+<p>Файлы в каждом черновике нужно подписывать КЭП отправителя описи. Файлы можно подписать перед отправкой черновика или загрузить уже подписанные файлы в документ DraftsBuilder.</p>
+<p><strong>Когда не нужно прикладывать подпись</strong></p>
+<p>При отправке неформализованных файлов с помощью DraftsBuilder не нужно прикладывать файл подписи. Достаточно подписать неформализованный файл КЭП отправителя описи. Это можно сделать перед отправкой черновика, либо загрузить в документ уже подписанные файлы. Если подписанные файлы сканов, например, не соответствуют требованиям КО, то DraftsBuilder приведет файлы к установленному формату. В таком случае, подпись может стать невалидной и перед отправкой черновика потребуется загружать файл подписи заново.</p>
+<p>Прикладывать подпись также не нужно для следующих форм КНД:</p>
+<ol class="arabic">
+<li><p>Для разделов декларации НДС:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1115102 - книга покупок;</p></li>
+<li><p>1115103 - книга продаж;</p></li>
+<li><p>1115104 - журнал учета выставленных и полученных счетов-фактур;</p></li>
+<li><p>1115105 - дополнительный лист книги покупок;</p></li>
+<li><p>1115106 - дополнительный лист книги продаж;</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>1167005 - информационное сообщение о представительстве в отношениях, регулируемых законодательством о налогах и сборах.</p></li>
+</ol>
+</section>
+</section>
+<section id="draftsbuilder-api">
+<span id="rst-markup-db-proc"></span><h2>Алгоритм работы с DraftsBuilder в API<a class="headerlink" href="#draftsbuilder-api" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic simple">
+<li><p>Создайте DraftsBuilder: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createdb"><span class="std std-ref">POST CreateDraftsBuilder</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><p>Метод создает шаблон черновика. В результате метод возвращает идентификатор созданного DraftsBuilder и все его содержимое.</p>
+<p>При создании DraftsBuilder укажите:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html"><span class="doc">тип DraftsBuilder</span></a>;</p></li>
+<li><p>флаг <code class="docutils literal notranslate"><span class="pre">generate-warrant=true</span></code> в параметре <code class="docutils literal notranslate"><span class="pre">draft-options</span></code>, чтобы сформировать сообщение о представительстве на основании заполненных реквизитов в учетной записи Контур.Экстерн.</p></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><p>Добавьте документ: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createdocdb"><span class="std std-ref">POST CreateDraftsBuilderDocument</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><p>Чтобы добавить файлы, необходимо сначала добавить для них контейнер — документ. Вызывайте столько раз, сколько документов нужно передать.</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><p>Загрузите файлы в <a class="reference internal" href="content.html#rst-markup-load"><span class="std std-ref">Сервис контентов</span></a>.</p></li>
+<li><p>Добавьте файлы: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createfiledb"><span class="std std-ref">POST CreateDraftsBuilderDocumentFile</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><p>Метод создает файл в документе. Для этого укажите идентификатор контента из Сервиса контентов. Вызывайте столько раз, сколько файлов нужно положить в документ-контейнер.</p>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><p>Соберите DraftsBuilder в черновик: <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-builddb"><span class="std std-ref">POST BuildDrafts</span></a>.</p></li>
+</ol>
+<blockquote>
+<div><p>Метод собирает все добавленные файлы и документы DraftsBuilder шаблона в черновики. В результате метод вернет идентификаторы черновиков, в каждом из которых находится: XML-файл описи или XML-файл обращения, файлы, сообщение о представительстве (если есть).</p>
+</div></blockquote>
+<p>Для редактирования содержимого DraftsBuilder смотрите описание <a class="reference internal" href="../../builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html"><span class="doc">методов</span></a>.</p>
+<p>Чтобы предотвратить появление коллизий, в работе методов предусмотрены ограничения — <a class="reference internal" href="loks.html"><span class="doc">блокировки</span></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="content.html" class="btn btn-neutral float-left" title="Сервис контентов" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="loks.html" class="btn btn-neutral float-right" title="Блокировки" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

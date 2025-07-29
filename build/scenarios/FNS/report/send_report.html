@@ -1,0 +1,885 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Отправка отчетности в ФНС &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon2.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" />
+    <link rel="next" title="Получение входящих и отправка ответных документов в ФНС" href="get_report.html" />
+    <link rel="prev" title="Работа с отчетами" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">ФНС</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Работа с отчетами</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Отправка отчетности в ФНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="get_report.html">Получение входящих и отправка ответных документов в ФНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="filenameFNS.html">Наименование файлов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rnpt.html">Прослеживаемость товаров. РНПТ</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../demand/index.html">Работа с требованиями</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../ION.html">Сверка с ФНС</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../fns-letter.html">Письма в ФНС</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../SFR/index.html">СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">ФНС</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Работа с отчетами</a></li>
+      <li class="breadcrumb-item active">Отправка отчетности в ФНС</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/scenarios/FNS/report/send_report.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id5">
+<h1>Отправка отчетности в ФНС<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h1>
+<p>С помощью API Контур.Экстерн можно передавать отчетность в контролирующие органы (КО) сразу из своей учетной системы. Мы проверим файлы отчета на наличие ошибок перед отправкой их в ФНС. Для этого потребуется готовый файл отчета и электронная подпись, которой будут подписаны файлы отчета и его приложения.</p>
+<p>В ФНС можно отправить:</p>
+<ul class="simple">
+<li><p>декларации, 2-НДФЛ и 6-НДФЛ (<a class="reference external" href="urn:docflow:fns534-report">urn:docflow:fns534-report</a>);</p></li>
+<li><p>заявления в ФНС (<a class="reference external" href="urn:docflow:fns534-application">urn:docflow:fns534-application</a>);</p></li>
+<li><p>представления в ФНС (<a class="reference external" href="urn:docflow:fns534-submission">urn:docflow:fns534-submission</a>).</p></li>
+</ul>
+<p>Особенности файлов отчетов:</p>
+<ul class="simple">
+<li><p>файл отчета должен быть сформирован и заполнен по требованиям контролирующего органа;</p></li>
+<li><p>файл отчета должен быть в формате xml;</p></li>
+<li><p>приложения, дополнения к отчету или файл доверенности могут быть в форматах xml, txt, xsl;</p></li>
+<li><p><a class="reference internal" href="filenameFNS.html#rst-markup-namefilefns"><span class="std std-ref">наименование файлов</span></a> отчета должно совпадать с именем внутри файла в параметре ИдФайл тега Файл.</p></li>
+</ul>
+<p>Для отправки отчета в КО необходимо создать черновик и наполнить его документами. Подробнее об этом в разделе Алгоритм работы с методами.</p>
+<section id="id6">
+<h2>Подписание документов<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Каждый файл в отправляемом черновике должен быть подписан закрытым ключом сертификата отправителя. Электронная подпись должна быть выпущена на организацию. Если подпись выпущена на физическое лицо, то потребуется доверенность на это лицо от организации.</p>
+</section>
+<section id="id7">
+<h2>Алгоритм работы с методами<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<ol class="arabic">
+<li><p>Создайте черновик: <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-createdraft"><span class="std std-ref">POST Create draft</span></a>. В метаинформации укажите:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">payer</span></code> — сведения о налогоплательщике или организации, за которую отправляется отчетность;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> — отправитель или организация, которая общается с КО, отправляет и получает документы;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipeint</span></code> — сведения о получателе документооборота, то есть о контролирующем органе.</p>
+<blockquote>
+<div><p>Метод вернет идентификатор черновика <code class="docutils literal notranslate"><span class="pre">draftId</span></code>, метаинформацию черновика и ссылки для работы с ним.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Загрузите файл отчета и приложения к нему в <a class="reference internal" href="../../device_api/content.html#rst-markup-load"><span class="std std-ref">Сервис контентов</span></a>. В ответ метод загрузки вернет идентификатор загруженного контента <code class="docutils literal notranslate"><span class="pre">content-id</span></code>.</p></li>
+<li><p>Создайте для каждого файла отдельный документ в черновике: <a class="reference internal" href="../../../drafts/DraftDocumentsController.html#rst-markup-adddocument"><span class="std std-ref">POST Add Document</span></a>. Укажите идентификатор контента в параметре <code class="docutils literal notranslate"><span class="pre">content-id</span></code>.</p></li>
+<li><p>Проверьте документы: <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a>.</p></li>
+<li><p>Добавьте подпись к документам: <a class="reference internal" href="../../../drafts/DraftSignaturesController.html#rst-markup-addsignature"><span class="std std-ref">POST Add signature</span></a>.</p></li>
+<li><p>Запустите последовательность методов, когда черновик будет готов: <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a> -&gt; <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-prepare"><span class="std std-ref">POST Prepare</span></a> -&gt; <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-send"><span class="std std-ref">POST Send</span></a>. Укажите флаг <code class="docutils literal notranslate"><span class="pre">deferred</span> <span class="pre">=</span> <span class="pre">true</span></code> для отложенного выполнения задач.</p></li>
+<li><p>Проверьте статус выполнения задач для методов <code class="docutils literal notranslate"><span class="pre">Check</span></code>, <code class="docutils literal notranslate"><span class="pre">Prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">Send</span></code>: <a class="reference internal" href="../../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-drafttasks"><span class="std std-ref">GET DraftTask</span></a>. Если задача по методу <code class="docutils literal notranslate"><span class="pre">Send</span></code> завершилась успешно, то в ответе вернется информация о созданном документообороте (ДО).</p></li>
+</ol>
+<p>После отправки черновика появляется документооборот. Дальнейшая работа с ДО состоит в мониторинге статусов ДО, получение входящих документов и отправке ответных документов. Подробнее об этом в <a class="reference internal" href="get_report.html#rst-markup-get-report"><span class="std std-ref">следующей статье</span></a>.</p>
+</section>
+<section id="id8">
+<h2>Тестирование сценария<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Для тестирования сценария отправки отчета в ФНС можно сгенерировать тестовые файлы отчетов с помощью сервиса <a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools">Extern Test Tools</a>:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools/method?type=post&amp;path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-profit-tax">налог на прибыль</a>;</p></li>
+<li><p><a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools/method?type=post&amp;path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-nds-with-attachments">НДС с приложениями</a>;</p></li>
+<li><p><a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools/method?type=post&amp;path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-rsv">РСВ</a>;</p></li>
+<li><p><a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools/method?type=post&amp;path=%2Ftest-tools%2Fv1%2Fgenerate-fuf-3ndfl">3-НДФЛ</a>.</p></li>
+</ul>
+<p>Для удобства тестирования алгоритма создания и отправки черновика можно скачать файл коллекции Postman:</p>
+<p><a class="reference download internal" download="" href="../../../_downloads/cbac2eb6fbb7e66547e5685a525c63aa/%D0%9A%D0%BE%D0%BB%D0%BB%D0%B5%D0%BA%D1%86%D0%B8%D1%8F%20%D0%B4%D0%BB%D1%8F%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0.postman_collection.json"><code class="xref download docutils literal notranslate"><span class="pre">Файл</span> <span class="pre">коллекции</span> <span class="pre">Postman.</span></code></a></p>
+<section id="id9">
+<h3>Примеры запросов и ответов<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<p><strong>Создание черновика</strong></p>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Пример запроса POST CreateDraft</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">extern-api.testkontur.ru</span>
+<span class="na">Authorization</span><span class="o">:</span> <span class="l">Bearer &lt;token&gt;</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;inn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6676130154&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;kpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;667601001&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;certificate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIIJoDCCCU2...+gkMb1HXNfNc=&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;is-representative&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;ipaddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.8.8.8&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;recipient&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;ifns-code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0087&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;payer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;inn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6676130154&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;kpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;667601001&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Ответ POST CreateDraft</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">Created</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;57a3c02c-45bd-48f2-9d68-bfaac4a7bb26&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;docflows&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">    </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;sender&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;inn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6676130154&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;kpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;667601001&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Тестовая Коннектор АО&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;certificate&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIIJ...+gkMb1HXNfNc=&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;is-representative&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;ipaddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8.8.8.8&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;recipient&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;ifns-code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0087&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;payer&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;inn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6676130154&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Тестовая Коннектор АО&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;organization&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;kpp&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;667601001&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;new&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Загрузка файла отчета в Сервис контентов</strong></p>
+<p>Запрос POST UploadContent</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/co</span><span class="kc">ntents</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/oc</span><span class="kc">tet</span><span class="mi">-</span><span class="err">s</span><span class="kc">trea</span><span class="err">m</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="mf">-E</span><span class="kc">n</span><span class="err">codi</span><span class="kc">n</span><span class="err">g</span><span class="p">:</span><span class="w"> </span><span class="err">gzip</span><span class="p">,</span><span class="w"> </span><span class="err">de</span><span class="kc">flate</span><span class="p">,</span><span class="w"> </span><span class="err">br</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span><span class="w"> </span><span class="mi">52</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Ra</span><span class="kc">n</span><span class="err">ge</span><span class="p">:</span><span class="w"> </span><span class="err">by</span><span class="kc">tes</span><span class="w"> </span><span class="mi">0-1901</span><span class="err">/</span><span class="mi">1902</span>
+
+<span class="err">Контент</span><span class="w"> </span><span class="err">передан</span><span class="w"> </span><span class="err">в</span><span class="w"> </span><span class="err">теле</span><span class="w"> </span><span class="err">запроса</span>
+</pre></div>
+</div>
+<p>Ответ POST UploadContent</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">201</span><span class="w"> </span><span class="err">Crea</span><span class="kc">te</span><span class="err">d</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1816fdca-e743-4eb9-8221-b26b0762e015&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Создания документа в черновике</strong></p>
+<p>Запрос POST Add Document</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/docume</span><span class="kc">nts</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1816fdca-e743-4eb9-8221-b26b0762e015&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Ответ POST Add Document</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;decrypted-content-link&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents/ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e/decrypted-content&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO_PRIB_0087_0087_6676130154667601001_20240605_d6d369c3-2cbc-4090-b3ad-ea69ce62f74d.xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;content-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;properties&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;Encoding&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;windows-1251&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;FormName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Налоговая декларация по налогу на прибыль организаций&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;КНД&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1151006&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;CorrectionNumber&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;IsPrintable&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;True&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;Period&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I кв. 2024&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;OriginalFilename&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;SvdregCode&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;contentType&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Xml&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;AccountingPeriodBegin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;01.01.2024&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;AccountingPeriodEnd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;03.31.2024&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1804ef59-ba18-4f4c-bfcc-7f4134ae429f&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Добавление подписи к документам</strong></p>
+<p>Запрос POST AddSignature</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/docume</span><span class="kc">nts</span><span class="err">/ea</span><span class="mi">7</span><span class="err">cd</span><span class="kc">f</span><span class="mf">3e-6</span><span class="kc">f</span><span class="mi">80-4</span><span class="err">b</span><span class="mi">94-</span><span class="err">be</span><span class="mi">0</span><span class="err">d</span><span class="mf">-e36</span><span class="kc">f</span><span class="mi">1</span><span class="kc">ff</span><span class="mi">84</span><span class="err">d</span><span class="mf">8e</span><span class="err">/sig</span><span class="kc">natures</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/pgp</span><span class="mi">-</span><span class="err">sig</span><span class="kc">nature</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;base64-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIINYQYJK...JmPNEqCaE+h&quot;</span><span class="p">,</span>
+<span class="nt">&quot;is-third-party-signature&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Ответ POST AddSignature</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;536d1a44-3469-48aa-99db-b19e012d2906&quot;</span><span class="p">,</span>
+<span class="nt">&quot;signature-certificate-thumbprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0778B8EFD8B4C49040494C15355B2556D2957774&quot;</span><span class="p">,</span>
+<span class="nt">&quot;content-link&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents/ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e/signatures/536d1a44-3469-48aa-99db-b19e012d2906/content&quot;</span>
+<span class="p">},</span>
+<span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents/ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e/signatures/536d1a44-3469-48aa-99db-b19e012d2906&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;document&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents/ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;draft&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">],</span>
+<span class="nt">&quot;signer-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;organization-representative&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Проверка черновика</strong></p>
+<p>Запрос POST Check</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/check?de</span><span class="kc">ferre</span><span class="err">d=</span><span class="kc">true</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</pre></div>
+</div>
+<p>Ответ POST Check</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4e686a8a-5dce-4dd0-ba51-d474cc0e20b1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:check&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Подготовка черновика</strong></p>
+<p>Запрос POST Prepare</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/prepare?de</span><span class="kc">ferre</span><span class="err">d=</span><span class="kc">true</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</pre></div>
+</div>
+<p>Ответ POST Prepare</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cace972c-b3b5-420c-ac4f-c7074080ec48&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:prepare&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Отправка черновика</strong></p>
+<p>Запрос POST Send</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">POST</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/se</span><span class="kc">n</span><span class="err">d?de</span><span class="kc">ferre</span><span class="err">d=</span><span class="kc">true</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+</pre></div>
+</div>
+<p>Ответ POST Send</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;408b2dcf-bc6e-45da-907e-43ec90b92d0e&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;running&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:send&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Проверка задачи Check</strong></p>
+<p>Запрос GET TaskId</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">GET</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/</span><span class="kc">tas</span><span class="err">ks/</span><span class="mf">4e686</span><span class="err">a</span><span class="mi">8</span><span class="err">a</span><span class="mi">-5</span><span class="err">dce</span><span class="mi">-4</span><span class="err">dd</span><span class="mi">0-</span><span class="err">ba</span><span class="mi">51-</span><span class="err">d</span><span class="mi">474</span><span class="err">cc</span><span class="mf">0e20</span><span class="err">b</span><span class="mi">1</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+</pre></div>
+</div>
+<p>Ответ GET TaskId</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">HTTP/</span><span class="mf">1.1</span><span class="w"> </span><span class="mi">200</span><span class="w"> </span><span class="err">OK</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span><span class="err">;</span><span class="w"> </span><span class="err">charse</span><span class="kc">t</span><span class="err">=u</span><span class="kc">tf</span><span class="mi">-8</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Le</span><span class="kc">n</span><span class="err">g</span><span class="kc">t</span><span class="err">h</span><span class="p">:</span><span class="w"> </span><span class="mi">285</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;4e686a8a-5dce-4dd0-ba51-d474cc0e20b1&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:check&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;documents-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;4b3046fe-cabd-42e5-8618-8e9d9b2466a0&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;common-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Проверка задачи Prepare</strong></p>
+<p>Запрос GET TaskId</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">GET</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/</span><span class="kc">tas</span><span class="err">ks/cace</span><span class="mi">972</span><span class="err">c</span><span class="mi">-</span><span class="err">b</span><span class="mi">3</span><span class="err">b</span><span class="mi">5-420</span><span class="err">c</span><span class="mi">-</span><span class="err">ac</span><span class="mi">4</span><span class="kc">f</span><span class="mi">-</span><span class="err">c</span><span class="mf">7074080e</span><span class="err">c</span><span class="mi">48</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+</pre></div>
+</div>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Ответ GET TaskId</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cace972c-b3b5-420c-ac4f-c7074080ec48&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeed&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:prepare&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;task-result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;check-result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;documents-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;b32171d6-9ebc-4c73-b557-5a203b68f8df&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;common-errors&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;next&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/drafts/74b6e8b9-290a-4d12-b874-c7fb35cad54f/send?force=false&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ok&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<p><strong>Проверка задачи Send</strong></p>
+<p>Запрос GET TaskId</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="err">GET</span><span class="w"> </span><span class="err">/v</span><span class="mi">1</span><span class="err">/c</span><span class="mi">5217</span><span class="err">c</span><span class="mi">6</span><span class="err">d</span><span class="mi">-</span><span class="err">a</span><span class="mi">8</span><span class="kc">f</span><span class="err">d</span><span class="mi">-4</span><span class="err">ac</span><span class="kc">f</span><span class="mi">-997</span><span class="err">c</span><span class="mi">-6</span><span class="err">da</span><span class="mi">64</span><span class="err">a</span><span class="mi">9</span><span class="err">b</span><span class="mi">5</span><span class="kc">f</span><span class="mi">74</span><span class="err">/dra</span><span class="kc">fts</span><span class="err">/</span><span class="mi">57</span><span class="err">a</span><span class="mi">3</span><span class="err">c</span><span class="mi">02</span><span class="err">c</span><span class="mi">-45</span><span class="err">bd</span><span class="mi">-48</span><span class="kc">f</span><span class="mi">2-9</span><span class="err">d</span><span class="mi">68-</span><span class="err">b</span><span class="kc">faa</span><span class="err">c</span><span class="mi">4</span><span class="err">a</span><span class="mi">7</span><span class="err">bb</span><span class="mi">26</span><span class="err">/</span><span class="kc">tas</span><span class="err">ks/</span><span class="mi">8</span><span class="err">be</span><span class="mi">51112-</span><span class="err">d</span><span class="mf">4ee-4</span><span class="err">c</span><span class="mi">8</span><span class="err">c</span><span class="mi">-8</span><span class="err">bc</span><span class="mi">6-7</span><span class="err">cd</span><span class="mf">46e369</span><span class="err">a</span><span class="mi">68</span><span class="w"> </span><span class="err">HTTP/</span><span class="mf">1.1</span>
+<span class="err">Au</span><span class="kc">t</span><span class="err">horiza</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="p">:</span><span class="w"> </span><span class="err">Bearer</span><span class="w"> </span><span class="err">&lt;</span><span class="kc">t</span><span class="err">oke</span><span class="kc">n</span><span class="err">&gt;</span>
+<span class="err">Accep</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Co</span><span class="kc">ntent</span><span class="mi">-</span><span class="err">Type</span><span class="p">:</span><span class="w"> </span><span class="err">applica</span><span class="kc">t</span><span class="err">io</span><span class="kc">n</span><span class="err">/jso</span><span class="kc">n</span>
+<span class="err">Hos</span><span class="kc">t</span><span class="p">:</span><span class="w"> </span><span class="err">ex</span><span class="kc">tern</span><span class="mi">-</span><span class="err">api.</span><span class="kc">test</span><span class="err">ko</span><span class="kc">ntur</span><span class="err">.ru</span>
+</pre></div>
+</div>
+<div class="toggle docutils container">
+<div class="header docutils container">
+<p>Ответ GET TaskId</p>
+</div>
+<div class="highlight-http notranslate"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json; charset=utf-8</span>
+
+<span class="p">{</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8be51112-d4ee-4c8c-8bc6-7cd46e369a68&quot;</span><span class="p">,</span>
+<span class="nt">&quot;task-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;succeed&quot;</span><span class="p">,</span>
+<span class="nt">&quot;task-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:task-type:send&quot;</span><span class="p">,</span>
+<span class="nt">&quot;task-result&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;organization-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;493fae9e-bb7e-4083-92b8-dbf0d3fe251f&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:docflow:fns534-report&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:docflow-common-status:sent&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;success-state&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:docflow-state:neutral&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;form-version&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;knd&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1151006&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;version&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;101420&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;form-fullname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Налоговая декларация по налогу на прибыль организаций&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;form-shortname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Налог на прибыль&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;recipient&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0087&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;final-recipient&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0087&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;correction-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;period-begin&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-01-01T00:00:00.0000000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;period-end&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-03-31T00:00:00.0000000&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;period-code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;21&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;payer-inn&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6676130154-667601001&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;original-draft-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;57a3c02c-45bd-48f2-9d68-bfaac4a7bb26&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;documents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e4069c18-e7a6-46dc-83f2-c2ac00ed6acf&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:document:fns534-report&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NO_PRIB_0087_0087_6676130154667601001_20240605_d6d369c3-2cbc-4090-b3ad-ea69ce62f74d.xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;content-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;decrypted-content-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1902</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted-content-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2758</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;requisites&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">        </span><span class="nt">&quot;related-docflows-count&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;support-recognition&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted-certificates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;serial-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0162F46C0052B049B7479E873C7CD2D53A&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;serial-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;019AD8430015B1AAB345942CB5AB07ACCA&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;serial-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;19CCC7C800010000215D&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;support-print&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;decrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;encrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/encrypted-content&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;docflow-document-contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;622a2575-cb6e-456d-b62f-f2795bcb63f3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zip&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;8ee4656b-534d-48c9-a829-82602e962a63&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;send-date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T07:27:58.5805863Z&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;signatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;536d1a44-3469-48aa-99db-b19e012d2906&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Тестовая Коннектор АО (Коннект АО Коннекторович)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;signature-certificate-thumbprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0778B8EFD8B4C49040494C15355B2556D2957774&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;content-link&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/signatures/536d1a44-3469-48aa-99db-b19e012d2906/content&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/signatures/536d1a44-3469-48aa-99db-b19e012d2906/content&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docflow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;signer-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;organization-representative&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docflow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;related-docflow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/related&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;encrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/encrypted-content&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/e4069c18-e7a6-46dc-83f2-c2ac00ed6acf/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7b089709-0e76-40fd-96e1-f5155ed069ea&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:document:fns534-report-date-confirmation&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;PD_NOPRIB_6676130154667601001_6676130154667601001_1BM_20240605_c333f747-7c26-44cc-bc47-1057f7716eed.xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;content-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;decrypted-content-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2808</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;requisites&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">        </span><span class="nt">&quot;support-recognition&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted-certificates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;support-print&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;yes&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;decrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;docflow-document-contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;63513998-d1d7-4211-a6c4-3880a8d3a1e8&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zip&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;141d879a-7077-4708-bced-d43539d12b9a&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;send-date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T07:27:58.5805863Z&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;signatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2f1c98e2-559f-4b15-a5fa-e7d861a55575&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;АО «ПФ «СКБ Контур»&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;signature-certificate-thumbprint&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;DE32892038096F6A1932EEC6316AF05C7EF042B3&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;content-link&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/signatures/2f1c98e2-559f-4b15-a5fa-e7d861a55575/content&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/signatures/2f1c98e2-559f-4b15-a5fa-e7d861a55575/content&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docflow&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="p">],</span>
+<span class="w">            </span><span class="nt">&quot;signer-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;provider-representative&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">],</span>
+<span class="w">        </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docflow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reply&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/generate-reply?documentType=fns534-report-receipt&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fns534-report-receipt&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;6383d098-8ad7-4641-8eb6-dee07ff8508d&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;urn:document:fns534-report-description&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;filename&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;TR_DEKL.xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;content-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;application/xml&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;decrypted-content-size&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">348</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;requisites&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+<span class="w">        </span><span class="nt">&quot;support-recognition&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;encrypted-certificates&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;support-print&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;no&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;content&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;decrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/6383d098-8ad7-4641-8eb6-dee07ff8508d/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;docflow-document-contents&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65d567b8-c814-4c80-921d-f7198ecbe1c6&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;zip&quot;</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;9a8fe739-6b91-47e0-b25c-9e9d3de9ef86&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;encrypted&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compressed&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;compression-type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;send-date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T07:27:58.5805863Z&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;signatures&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span>
+<span class="w">        </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docflow&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/6383d098-8ad7-4641-8eb6-dee07ff8508d&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;decrypted-content&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/6383d098-8ad7-4641-8eb6-dee07ff8508d/decrypted-content&quot;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;links&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;self&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;organization&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/organizations/493fae9e-bb7e-4083-92b8-dbf0d3fe251f&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;web-docflow&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://setter.testkontur.ru/?inn=6676130154-667601001&amp;forward_to_rel=/ft/transmission/state.aspx?key=jtxgDj59ckiXMjZoszIOU56uP0l%2bu4NAkrjb8NP%2bJR9tfCHF%2fajPSpl8baZKm1900VYbNYFdhkCHYw3TzlW81A%3d%3d&quot;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;rel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;reply&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;href&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;https://extern-api.testkontur.ru/v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4/documents/7b089709-0e76-40fd-96e1-f5155ed069ea/generate-reply?documentType=fns534-report-receipt&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;fns534-report-receipt&quot;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="p">],</span>
+<span class="w">    </span><span class="nt">&quot;send-date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T10:27:58.5805863&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;last-change-date&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-06-05T07:27:58.5805863Z&quot;</span>
+<span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Работа с отчетами" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="get_report.html" class="btn btn-neutral float-right" title="Получение входящих и отправка ответных документов в ФНС" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

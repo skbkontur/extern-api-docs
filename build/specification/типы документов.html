@@ -1,0 +1,2457 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Типы документов &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Типы DraftsBuilder" href="%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html" />
+    <link rel="prev" title="Типы документооборотов" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Спецификация</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html">Типы документооборотов</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Типы документов</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-type-document">ФНС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Декларация и 2-НДФЛ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">ИОН</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Письмо в ФНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Письмо из ФНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Представление</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Документ (Требование)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Опись (Ответ на требование)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Заявление</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Регистрация бизнеса</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Массовая рассылка от ФНС</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">ПФР</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Сведения ПФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Сведения ПФР (для ЭДОК)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Письмо в ПФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Письмо из ПФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Уточнение платежей</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Служебный документ ПФР</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">СФР</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id21">Отчетность в СФР</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Росстат</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#rst-markup-stat-report-type-document">Отчет в Росстат</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rst-markup-stat-letter-documents">Письмо в Росстат</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id25">Письмо из Росстата</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id26">Массовая рассылка из Росстата</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-typedocumentfss">ФСС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id28">Расчёт 4-ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id29">Подтверждение основного вида экономической деятельности</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id30">Подписка оператора на документооборот с ФСС по абоненту</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id31">Реестр ПВСО</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id32">Извещение о прямых выплатах мер социального обеспечения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id33">Уведомления об изменении статуса электронного больничного листа</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id34">Запрос недостающих сведений для назначения пособия ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id35">Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id36">Выплата пособия</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id37">Сведения о застрахованном лице</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id38">Информация о несоответствии сведений о застрахованном лице</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id39">Инициация выплат пособия</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id40">Уведомление о статусе выплаты пособия</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id41">Запрос регистрации или отзыва доверенности ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id42">Требование ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id43">Ответ на требование ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id44">Запрос на формирование справки о расчетах ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id45">Справка о расчетах ФСС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id46">Уведомление о прекращении отпуска по уходу за ребенком до полутора лет</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id47">Сведения о зарплате сотрудника</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id48">Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id49">Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id50">Обращение СФР к страхователю</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id51">Ответ страхователя на обращение СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id52">Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id53">Широковещательное сообщение СЭДО от СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id54">Запрос платежных реквизитов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id55">Ответ на запрос платежных реквизитов</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id56">ЦБ РФ</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id57">Отчетность в ЦБ РФ (документообороты после 01.01.2020)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id58">Отчетность в ЦБ РФ (документообороты до 01.01.2020)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id59">МВД</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id60">Уведомление в МВД</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html">Типы DraftsBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html">Статусы и порядок документооборотов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%20%D0%94%D0%9E.html">Состояния документооборота</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html">Типы сообщений СЭДО</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%BB%D0%B5%D0%BD%D1%82%D1%8B%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9.html">Статусы ленты событий</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Спецификация</a></li>
+      <li class="breadcrumb-item active">Типы документов</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/specification/типы документов.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Типы документов<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>Документы, помеченные «*» формирует оператор ЭДО при отправке документооборота.</p>
+</div>
+<section id="rst-markup-type-document">
+<span id="id2"></span><h2>ФНС<a class="headerlink" href="#rst-markup-type-document" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h3>Декларация и 2-НДФЛ<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-report">urn:docflow:fns534-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report">urn:document:fns534-report</a></p></td>
+<td><p>Налоговая декларация или бухгалтерская отчетность (установленный формат).</p></td>
+<td><p>Декларация</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-description*">urn:document:fns534-report-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание декларации (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report-warrant">urn:document:fns534-report-warrant</a></p></td>
+<td><p>Информационное сообщение о доверенности уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-date-confirmation*">urn:document:fns534-report-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report-acceptance-result-positive">urn:document:fns534-report-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме налоговой декларации (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-acceptance-result-negative">urn:document:fns534-report-acceptance-result-negative</a></p></td>
+<td><p>Уведомление об отказе в приеме налоговой декларации (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report-processing-result-ok">urn:document:fns534-report-processing-result-ok</a></p></td>
+<td><p>Извещение о вводе декларации в информационную систему налогового органа (установленный формат).</p></td>
+<td><p>ИзвещениеОВводе</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-processing-result-precise">urn:document:fns534-report-processing-result-precise</a></p></td>
+<td><p>Уведомление о необходимости внесения уточнений (установленный формат).</p></td>
+<td><p>УведомлениеОбУточнении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report-receipt">urn:document:fns534-report-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-acceptance-result-2ndfl-protocol">urn:document:fns534-report-acceptance-result-2ndfl-protocol</a></p></td>
+<td><p>Протокол приема сведений о доходах физических лиц от налоговых агентов (установленный формат).</p></td>
+<td><p>ПротоколПриема2НДФЛ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-report-acceptance-result-2ndfl-registry">urn:document:fns534-report-acceptance-result-2ndfl-registry</a></p></td>
+<td><p>Реестр сведений о доходах физических лиц (установленный формат).</p></td>
+<td><p>РеестрПринятыхДокументов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-report-attachment">urn:document:fns534-report-attachment</a></p></td>
+<td><p>Неформализованное приложение или формализованное приложение (установленный формат).</p></td>
+<td><p>Приложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>ИОН<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-ion">urn:docflow:fns534-ion</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-ion-request">urn:document:fns534-ion-request</a></p></td>
+<td><p>Запрос на предоставление информации (установленный формат).</p></td>
+<td><p>Запрос</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-ion-date-confirmation*">urn:document:fns534-ion-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-ion-description*">urn:document:fns534-ion-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание запроса (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-ion-acceptance-result-positive">urn:document:fns534-ion-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-ion-acceptance-result-negative">urn:document:fns534-ion-acceptance-result-negative</a></p></td>
+<td><p>Уведомление, содержащее отказ абоненту в предоставлении запрошенных сведений с описанием выявленных ошибок и причин отказа в приеме (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-ion-response">urn:document:fns534-ion-response</a></p></td>
+<td><p>Документ, содержащий запрошенный абонентом документ (установленный формат) и/или Уведомление об отказе, как ответ об отсутствии данных по запрашиваемому абоненту (установленный формат).</p></td>
+<td><p>Ответ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-ion-warrant">urn:document:fns534-ion-warrant</a></p></td>
+<td><p>Информационное сообщение о доверенности уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-ion-receipt">urn:document:fns534-ion-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>Письмо в ФНС<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-letter">urn:docflow:fns534-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-letter">urn:document:fns534-letter</a></p></td>
+<td><p>Текст обращения (установленный формат).</p></td>
+<td><p>Обращение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-letter-descriptiont*">urn:document:fns534-letter-descriptiont*</a></p></td>
+<td><p>Служебный документ, в котором передается описание (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-letter-attachment">urn:document:fns534-letter-attachment</a></p></td>
+<td><p>Неформализованное приложение к письму.</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-letter-date-confirmation*">urn:document:fns534-letter-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-letter-decline-notice">urn:document:fns534-letter-decline-notice</a></p></td>
+<td><p>Уведомление об отказе в приеме обращения (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-letter-receipt">urn:document:fns534-letter-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-letter-warrant">urn:document:fns534-letter-warrant</a></p></td>
+<td><p>Информационное сообщение о доверенности уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Письмо из ФНС<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-cu-letter">urn:docflow:fns534-cu-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-cu-letter">urn:document:fns534-cu-letter</a></p></td>
+<td><p>Текст письма (установленный формат).</p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-cu-letter-description">urn:document:fns534-cu-letter-description</a></p></td>
+<td><p>Служебный документ, в котором передается описание (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-cu-letter-attachment">urn:document:fns534-cu-letter-attachment</a></p></td>
+<td><p>Неформализованное приложение к письму.</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-cu-letter-date-confirmation*">urn:document:fns534-cu-letter-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-cu-letter-receipt">urn:document:fns534-cu-letter-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>Представление<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-submission">urn:docflow:fns534-submission</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-submission-message">urn:document:fns534-submission-message</a></p></td>
+<td><p>Документ (установленный формат).</p></td>
+<td><p>Представление</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-submission-description*">urn:document:fns534-submission-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание документа представление (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-submission-attachment">urn:document:fns534-submission-attachment</a></p></td>
+<td><p>Документы, которые могут идти в составе с основным документом.</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-submission-warrant">urn:document:fns534-submission-warrant</a></p></td>
+<td><p>Информационное сообщение о доверенности уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-submission-date-confirmation*">urn:document:fns534-submission-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-submission-receipt">urn:document:fns534-submission-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-submission-acceptance-result-positive">urn:document:fns534-submission-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме налоговой декларации (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-submission-acceptance-result-negative">urn:document:fns534-submission-acceptance-result-negative</a></p></td>
+<td><p>Уведомление об отказе в приеме налоговой декларации (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>Документ (Требование)<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-demand">urn:docflow:fns534-demand</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-demand">urn:document:fns534-demand</a></p></td>
+<td><p>Файл-описание к требованиям (установленный формат).</p></td>
+<td><p>Документ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-demand-description">urn:document:fns534-demand-description</a></p></td>
+<td><p>Служебный документ, в котором передается описание документа (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-demand-attachment">urn:document:fns534-demand-attachment</a></p></td>
+<td><p>Требование.</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-demand-date-confirmation*">urn:document:fns534-demand-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-demand-receipt">urn:document:fns534-demand-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-demand-acceptance-result-negative">urn:document:fns534-demand-acceptance-result-negative</a></p></td>
+<td><p>Уведомление об отказе в приеме документа (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-demand-acceptance-result-positive">urn:document:fns534-demand-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме документа (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id9">
+<h3>Опись (Ответ на требование)<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-inventory">urn:docflow:fns534-inventory</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-inventory-message">urn:document:fns534-inventory-message</a></p></td>
+<td><p>Документ (установленный формат).</p></td>
+<td><p>Представление</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-inventory-description*">urn:document:fns534-inventory-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание документа представление (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-inventory-attachment">urn:document:fns534-inventory-attachment</a></p></td>
+<td><p>Документы, которые могут идти в составе с основным документом.</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-inventory-warrant">urn:document:fns534-inventory-warrant</a></p></td>
+<td><p>Информационное сообщение о представительстве уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-inventory-date-confirmation*">urn:document:fns534-inventory-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-inventory-receipt">urn:document:fns534-inventory-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-inventory-acceptance-result-positive">urn:document:fns534-inventory-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме налоговой декларации (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-inventory-acceptance-result-negative">urn:document:fns534-inventory-acceptance-result-negative</a></p></td>
+<td><p>Уведомление об отказе в приеме налоговой декларации (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id10">
+<h3>Заявление<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-application">urn:docflow:fns534-application</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-application">urn:document:fns534-application</a></p></td>
+<td><p>Заявление российского покупателя о ввозе товаров и уплате косвенных налогов (установленный формат).</p></td>
+<td><p>Заявление</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-application-description*">urn:document:fns534-application-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание заявления (установленный формат).</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-application-warrant">urn:document:fns534-application-warrant</a></p></td>
+<td><p>Информационное сообщение о доверенности уполномоченного лица (установленный формат).</p></td>
+<td><p>Доверенность</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-application-date-confirmation*">urn:document:fns534-application-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат).</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-application-acceptance-result-negative">urn:document:fns534-application-acceptance-result-negative</a></p></td>
+<td><p>Уведомление об отказе в приеме заявления (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказе</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-application-acceptance-result-positive">urn:document:fns534-application-acceptance-result-positive</a></p></td>
+<td><p>Квитанция о приеме заявления (установленный формат).</p></td>
+<td><p>КвитанцияОПриеме</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-application-receipt">urn:document:fns534-application-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат).</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-application-processing-result-positive">urn:document:fns534-application-processing-result-positive</a></p></td>
+<td><p>Сообщение о проставлении отметки налогового органа (установленный формат).</p></td>
+<td><p>СообщениеОПростОтметки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-application-processing-result-negative">urn:document:fns534-application-processing-result-negative</a></p></td>
+<td><p>Уведомление об отказе в проставлении на заявлении о ввозе товаров и уплате косвенных налогов отметки налогового органа об уплате косвенных налогов (установленный формат).</p></td>
+<td><p>УведомлениеОбОтказеОтметки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>Регистрация бизнеса<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:business-registration">urn:docflow:business-registration</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-inventory">urn:document:business-registration-inventory</a></p></td>
+<td><p>Служебный документ, в котором передается описание документа (установленный формат)</p></td>
+<td><p>Опись представляемого пакета документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-duty">urn:document:business-registration-duty</a></p></td>
+<td><p>Документ об уплате государственной пошлины</p></td>
+<td><p>Госпошлина</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-application">urn:document:business-registration-application</a></p></td>
+<td><p>Заявление о государственной регистрации юридического лица, физического лица в качестве индивидуального предпринимателя</p></td>
+<td><p>Заявление по установленной форме</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-application-usn">urn:document:business-registration-application-usn</a></p></td>
+<td><p>Заявление о переходе на упрощенную систему налогообложения (форма №26.2-1)</p></td>
+<td><p>Заявление о переходе на УСН</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-founding-document">urn:document:business-registration-founding-document</a></p></td>
+<td><p>Учредительный документ</p></td>
+<td><p>Учредительный документ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-founding-document-correction">urn:document:business-registration-founding-document-correction</a></p></td>
+<td><p>Изменения в учредительный документ</p></td>
+<td><p>Изменения в учредительный документ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-attachment">urn:document:business-registration-attachment</a></p></td>
+<td><p>Документы, необходимые для государственной регистрации</p></td>
+<td><p>Иные документы</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>Ответные документы</strong></p></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-check-protocol">urn:document:business-registration-check-protocol</a></p></td>
+<td><p>Протокол с информацией о выявленных несоответствиях форматно-логического контроля</p></td>
+<td><p>Сообщение о невозможности обработки электронных документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-receipt">urn:document:business-registration-receipt</a></p></td>
+<td><p>Расписка о принятии заявления</p></td>
+<td><p>Расписка в получении налоговым (регистрирующим) органом документов в электронном виде</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-acceptance-result-negative">urn:document:business-registration-acceptance-result-negative</a></p></td>
+<td><p>Решение об отказе в регистрации</p></td>
+<td><p>Решение об отказе в государственной регистрации</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-registration-notice">urn:document:business-registration-registration-notice</a></p></td>
+<td><p>Уведомление о постановке на учёт</p></td>
+<td><p>Уведомление о постановке на учет в качестве индивидуального предпринимателя в налоговом органе</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-registration-certificate">urn:document:business-registration-registration-certificate</a></p></td>
+<td><p>Свидетельство о постановке на учет</p></td>
+<td><p>Свидетельство о постановке на учет в налоговом органе</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-deregistration-notice">urn:document:business-registration-deregistration-notice</a></p></td>
+<td><p>Уведомление о снятии с учета</p></td>
+<td><p>Уведомление о снятии с учета в налоговом органе</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-egrip-extract">urn:document:business-registration-egrip-extract</a></p></td>
+<td><p>Выписка или лист записи ЕГРИП</p></td>
+<td><p>Выписка или лист записи ЕГРИП</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-egrul-extract">urn:document:business-registration-egrul-extract</a></p></td>
+<td><p>Выписка или лист записи ЕГРЮЛ</p></td>
+<td><p>Выписка или лист записи ЕГРЮЛ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-decline-notice">urn:document:business-registration-decline-notice</a></p></td>
+<td><p>Уведомление об оставлении документов без рассмотрения</p></td>
+<td><p>Уведомление об оставлении документов без рассмотрения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-acceptance-result-suspension">urn:document:business-registration-acceptance-result-suspension</a></p></td>
+<td><p>Решение о приостановлении регистрации</p></td>
+<td><p>Решение о приостановлении государственной регистрации</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:business-registration-cu-letter">urn:document:business-registration-cu-letter</a></p></td>
+<td><p>Информационное письмо</p></td>
+<td><p>Информационное письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:business-registration-incoming-attachment">urn:document:business-registration-incoming-attachment</a></p></td>
+<td><p>Любое приложение, которое содержит дополнительные сведения от ФНС</p></td>
+<td><p>Иные документы</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Массовая рассылка от ФНС<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fns534-cu-broadcast">urn:docflow:fns534-cu-broadcast</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:error">urn:document:error</a></p></td>
+<td><p>Сообщение об ошибке от КО</p></td>
+<td><p>СообщениеОбОшибке</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-cu-broadcast">urn:document:fns534-cu-broadcast</a></p></td>
+<td><p>Неформализованный текст информационной рассылки налогового органа</p></td>
+<td><p>Рассылка</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-cu-broadcast-attachment">urn:document:fns534-cu-broadcast-attachment</a></p></td>
+<td><p>Неформализованное приложение к рассылке</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fns534-cu-broadcast-date-confirmation*">urn:document:fns534-cu-broadcast-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки рассылки (установленный формат)</p></td>
+<td><p>ПодтверждениеДатыОтправки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fns534-cu-broadcast-description*">urn:document:fns534-cu-broadcast-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание (установленный формат)</p></td>
+<td><p>Описание</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:error-description-for-abonent">urn:document:error-description-for-abonent</a></p></td>
+<td><p>Описание действий для абонента для решения причины ошибки</p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id13">
+<h2>ПФР<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<section id="id14">
+<h3>Сведения ПФР<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-report">urn:docflow:pfr-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report">urn:document:pfr-report</a></p></td>
+<td><p>Пачка или пачки отчетности (установленный формат)</p></td>
+<td><p>Тип пачки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-description">urn:document:pfr-report-description</a></p></td>
+<td><p>Описание передаваемых сведений (установленный формат)</p></td>
+<td><p>ОписаниеСведений</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-attachment">urn:document:pfr-report-attachment</a></p></td>
+<td><p>Неформализованное приложение к сведениям</p></td>
+<td><p>СведенияПриложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-acknowledgement">urn:document:pfr-report-acknowledgement</a></p></td>
+<td><p>уведомление о доставке сведений в орган ПФР (установленный формат)</p></td>
+<td><p>ПодтверждениеПолучения</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-protocol">urn:document:pfr-report-protocol</a></p></td>
+<td><p>Протокол входного контроля, содержит информацию о том, приняты отправленные сведения или нет (установленный формат)</p></td>
+<td><p>Протокол</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-protocol-appendix">urn:document:pfr-report-protocol-appendix</a></p></td>
+<td><p>Приложение к протоколу (обычно это результаты проверки проверочных программ ПФР)</p></td>
+<td><p>ПротоколПриложение</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-error-description">urn:document:pfr-report-error-description</a></p></td>
+<td><p>Описание ошибки, возникшей в ходе ДО</p></td>
+<td><p>описаниеОшибки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Сведения ПФР (для ЭДОК)<a class="headerlink" href="#id15" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-report">urn:docflow:pfr-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-report-v2">urn:document:pfr-report-report-v2</a></p></td>
+<td><p>Отчет с подписью формата XMLDSig для отправки в ЭДОК</p></td>
+<td><p>Отчетность</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-package-description">urn:document:pfr-package-description</a></p></td>
+<td><p>Описание пакета</p></td>
+<td><p>Опись содержания пакета (ОСП)</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-attachment">urn:document:pfr-report-attachment</a></p></td>
+<td><p>Неформализованное приложение к пакету</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-acknowledgement-v2">urn:document:pfr-report-acknowledgement-v2</a></p></td>
+<td><p>Подтверждение доставки пакета в ЭДОК</p></td>
+<td><p>Уведомление о доставке</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-decline-notice">urn:document:pfr-report-decline-notice</a></p></td>
+<td><p>Отказ в приеме пакета по технологическим причинам</p></td>
+<td><p>Уведомление об отказе в приеме пакета</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-protocol-check">urn:document:pfr-report-protocol-check</a></p></td>
+<td><p>Результат успешно пройденных проверок</p></td>
+<td><p>Унифицированный протокол проверок</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-protocol-refinement-notice">urn:document:pfr-report-protocol-refinement-notice</a></p></td>
+<td><p>Результат выявленных ошибок при проверке отчетности</p></td>
+<td><p>Уведомление об устранении ошибок и (или) несоответствий</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-report-protocol-appendix">urn:document:pfr-report-protocol-appendix</a></p></td>
+<td><p>Приложение к протоколу (к Positive либо Suppositive)</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-report-protocol-refinement-notice-receipt">urn:document:pfr-report-protocol-refinement-notice-receipt</a></p></td>
+<td><p>Подтверждение получения уведомления об устранении ошибок и (или) несоответствий оператором</p></td>
+<td><p>Уведомление о доставке</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id16">
+<h3>Письмо в ПФР<a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-letter">urn:docflow:pfr-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-letter">urn:document:pfr-letter</a></p></td>
+<td><p>Текст письма</p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-letter-description">urn:document:pfr-letter-description</a></p></td>
+<td><p>Описание передаваемого письма (установленный формат)</p></td>
+<td><p>ОписаниеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-letter-attachment">urn:document:pfr-letter-attachment</a></p></td>
+<td><p>Произвольное приложение к письму</p></td>
+<td><p>ПисьмоПриложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-letter-transport-info">urn:document:pfr-letter-transport-info</a></p></td>
+<td><p>Транспортная информация о передаваемом письме (установленный формат)</p></td>
+<td><p>ТранспортнаяИнформация</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-letter-letter-acknowledgement">urn:document:pfr-letter-letter-acknowledgement</a></p></td>
+<td><p>Документ, подтверждающий получение письма и приложений к нему УПФР</p></td>
+<td><p>ПодтверждениеПолучения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-letter-error-description">urn:document:pfr-letter-error-description</a></p></td>
+<td><p>Описание ошибки, возникшей в ходе ДО</p></td>
+<td><p>описаниеОшибки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id17">
+<h3>Письмо из ПФР<a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-cu-letter">urn:docflow:pfr-cu-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-cu-letter">urn:document:pfr-cu-letter</a></p></td>
+<td><p>Текст письма</p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-cu-letter-description">urn:document:pfr-cu-letter-description</a></p></td>
+<td><p>Описание передаваемого письма (установленный формат)</p></td>
+<td><p>ОписаниеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-cu-letter-attachment">urn:document:pfr-cu-letter-attachment</a></p></td>
+<td><p>Произвольное приложение к письму</p></td>
+<td><p>ПисьмоПриложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-cu-letter-transport-info">urn:document:pfr-cu-letter-transport-info</a></p></td>
+<td><p>Транспортная информация о передаваемом письме (установленный формат)</p></td>
+<td><p>ТранспортнаяИнформация</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-cu-letter-letter-acknowledgement">urn:document:pfr-cu-letter-letter-acknowledgement</a></p></td>
+<td><p>Документ, подтверждающий получение письма и приложений к нему абонентом</p></td>
+<td><p>ПодтверждениеПолучения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-cu-letter-error-description">urn:document:pfr-cu-letter-error-description</a></p></td>
+<td><p>Описание ошибки, возникшей в ходе ДО</p></td>
+<td><p>описаниеОшибки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id18">
+<h3>Уточнение платежей<a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-ios">urn:docflow:pfr-ios</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ios-request">urn:document:pfr-ios-request</a></p></td>
+<td><p>Документ с запросом информации по платежам в орган ПФР (установленный формат)</p></td>
+<td><p>Запрос</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ios-description">urn:document:pfr-ios-description</a></p></td>
+<td><p>Описание передаваемого запроса (установленный формат)</p></td>
+<td><p>ОписаниеЗапроса</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ios-request-acknowledgement">urn:document:pfr-ios-request-acknowledgement</a></p></td>
+<td><p>Подтвержение получения запроса УПФР</p></td>
+<td><p>ПодтверждениеПолучения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ios-response">urn:document:pfr-ios-response</a></p></td>
+<td><p>Ответ на запрос информации по платежам в орган ПФР, в котором указано, удалось предоставить запрашиваемую информацию или нет</p></td>
+<td><p>Ответ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ios-response-attachment">urn:document:pfr-ios-response-attachment</a></p></td>
+<td><p>Приложение к документу ответ: если ответ положительный, то в нем содержится информация о платежах в орган ПФР; если ответ отрицательный, то в нем содержится описание причины, по которой не удалось предоставить запрашиваемую информацию</p></td>
+<td><p>ОтветПриложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ios-error-description">urn:document:pfr-ios-error-description</a></p></td>
+<td><p>Описание ошибки, возникшей в ходе ДО</p></td>
+<td><p>описаниеОшибки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id19">
+<h3>Служебный документ ПФР<a class="headerlink" href="#id19" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:pfr-ancillary">urn:docflow:pfr-ancillary</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ancillary-document">urn:document:pfr-ancillary-document</a></p></td>
+<td><p>Служебный документ</p></td>
+<td><p>Служебный документ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ancillary-attachment">urn:document:pfr-ancillary-attachment</a></p></td>
+<td><p>Не формализованное приложение в пакете</p></td>
+<td><p>Приложение</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ancillary-delivery-notice">urn:document:pfr-ancillary-delivery-notice</a></p></td>
+<td><p>Подтверждение доставки пакета в ЭДОК</p></td>
+<td><p>Уведомление о доставке</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ancillary-rejection-notice">urn:document:pfr-ancillary-rejection-notice</a></p></td>
+<td><p>Отказ в приеме пакета</p></td>
+<td><p>Уведомление об отказе в приеме пакета</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ancillary-reception-result-positive">urn:document:pfr-ancillary-reception-result-positive</a></p></td>
+<td><p>Положительный результат рассмотрения</p></td>
+<td><p>Уведомление о результате рассмотрения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:pfr-ancillary-reception-result-negative">urn:document:pfr-ancillary-reception-result-negative</a></p></td>
+<td><p>Результат рассмотрения с перечнем выявленных ошибок в предоставленном документе</p></td>
+<td><p>Уведомление о результате рассмотрения</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:pfr-ancillary-reception-result-receipt">urn:document:pfr-ancillary-reception-result-receipt</a></p></td>
+<td><p>Подтверждение получения результата рассмотрения оператором</p></td>
+<td><p>Уведомление о доставке</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id20">
+<h2>СФР<a class="headerlink" href="#id20" title="Ссылка на этот заголовок"></a></h2>
+<section id="id21">
+<h3>Отчетность в СФР<a class="headerlink" href="#id21" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:sfr-report">urn:docflow:sfr-report</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sfr-report-report-document">urn:document:sfr-report-report-document</a></p></td>
+<td><p>Отчет</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sfr-report-attachment">urn:document:sfr-report-attachment</a></p></td>
+<td><p>Приложение</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sfr-report-package-description">urn:document:sfr-report-package-description</a></p></td>
+<td><p>Описание пакета</p></td>
+<td><p>ОСП</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sfr-report-acknowledgement">urn:document:sfr-report-acknowledgement</a></p></td>
+<td><p>Уведомление о доставке</p></td>
+<td><p>УОД</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sfr-report-protocol-check">urn:document:sfr-report-protocol-check</a></p></td>
+<td><p><strong>Для ЕФС-1:</strong> Протокол проверки. <strong>Для АДВ-1,2,3:</strong> Уведомление о регистрации в системе индивидуального персонифицированного учета</p></td>
+<td><p>УППО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sfr-report-protocol-refinement-notice">urn:document:sfr-report-protocol-refinement-notice</a></p></td>
+<td><p><strong>Для ЕФС-1:</strong> Уведомление об устранении ошибок и (или) несоответствий. <strong>Для АДВ-1,2,3:</strong> Решение об отказе в регистрации зарегистрированного лица или Протокол проверки</p></td>
+<td><p>УУОН-ПУ</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sfr-report-decline-notice">urn:document:sfr-report-decline-notice</a></p></td>
+<td><p>Уведомление об отказе в приеме пакета</p></td>
+<td><p>УОПП</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sfr-report-impossible-delivery-notice">urn:document:sfr-report-impossible-delivery-notice</a></p></td>
+<td><p>Уведомление о невозможности доставки документа</p></td>
+<td><p>УОНД</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sfr-report-protocol-refinement-notice-receipt">urn:document:sfr-report-protocol-refinement-notice-receipt</a></p></td>
+<td><p><strong>Для ЕФС-1:</strong> Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. <strong>Для АДВ-1,2,3:</strong> Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица</p></td>
+<td><p>УОД</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id22">
+<h2>Росстат<a class="headerlink" href="#id22" title="Ссылка на этот заголовок"></a></h2>
+<section id="rst-markup-stat-report-type-document">
+<span id="id23"></span><h3>Отчет в Росстат<a class="headerlink" href="#rst-markup-stat-report-type-document" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:stat-report">urn:docflow:stat-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-report">urn:document:stat-report</a></p></td>
+<td><p>Отчет, направляемый в ТОГС (установленный формат)</p></td>
+<td><p>Отчет</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-report-description*">urn:document:stat-report-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание отчета (установленный формат)</p></td>
+<td><p>ОписаниеОтчета</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-report-date-confirmation*">urn:document:stat-report-date-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки документа (установленный формат)</p></td>
+<td><p>ПодтверждениеОператора</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-report-report-attachment">urn:document:stat-report-report-attachment</a></p></td>
+<td><p>Неформализованное приложение к отчету</p></td>
+<td><p>ПриложениеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-report-receipt">urn:document:stat-report-receipt</a></p></td>
+<td><p>Извещение о получении документа его получателем (установленный формат)</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-report-protocol-v2-positive">urn:document:stat-report-protocol-v2-positive</a></p></td>
+<td><p>Уведомление о принятии отчета ТОГСом</p></td>
+<td><p>УведомлениеОПриемеВОбработку</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-report-protocol-v2-negative">urn:document:stat-report-protocol-v2-negative</a></p></td>
+<td><p>Уведомление об отказе в принятии отчета ТОГСом</p></td>
+<td><p>УведомлениеОНесоответствииФормату</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-report-protocol-v2-precise">urn:document:stat-report-protocol-v2-precise</a></p></td>
+<td><p>Уведомление о наличии несоответствий в предоставленном отчете и необходимости его повторной отправки</p></td>
+<td><p>УведомлениеОбУточнении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-report-protocol-v2-reject">urn:document:stat-report-protocol-v2-reject</a></p></td>
+<td><p>Уведомление о невозможности принятия отчета по причине его сдачи другим способом отчетности</p></td>
+<td><p>уведомлениеОбОтклонении</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="rst-markup-stat-letter-documents">
+<span id="id24"></span><h3>Письмо в Росстат<a class="headerlink" href="#rst-markup-stat-letter-documents" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:stat-letter">urn:docflow:stat-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-letter">urn:document:stat-letter</a></p></td>
+<td><p>Неформализованный текст письма</p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-letter-description*">urn:document:stat-letter-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание письма (установленный формат)</p></td>
+<td><p>ОписаниеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-letter-attachment">urn:document:stat-letter-attachment</a></p></td>
+<td><p>Неформализованное приложение к письму</p></td>
+<td><p>ПриложениеПисьма</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-letter-receipt">urn:document:stat-letter-receipt</a></p></td>
+<td><p>Извещение о получении письма его получателем (установленный формат)</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-letter-confirmation*">urn:document:stat-letter-confirmation*</a></p></td>
+<td><p>Подтверждение даты отправки письма (установленный формат)</p></td>
+<td><p>ПодтверждениеОператора</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id25">
+<h3>Письмо из Росстата<a class="headerlink" href="#id25" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:stat-cu-letter">urn:docflow:stat-cu-letter</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-cu-letter">urn:document:stat-cu-letter</a></p></td>
+<td><p>Неформализованный текст письма</p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-cu-letter-attachment">urn:document:stat-cu-letter-attachment</a></p></td>
+<td><p>Неформализованное приложение к письму</p></td>
+<td><p>ПриложениеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-cu-letter-receipt">urn:document:stat-cu-letter-receipt</a></p></td>
+<td><p>Извещение о получении письма его получателем (установленный формат)</p></td>
+<td><p>ИзвещениеОПолучении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-cu-letter-confirmation">urn:document:stat-cu-letter-confirmation</a></p></td>
+<td><p>Подтверждение даты получения письма (установленный формат)</p></td>
+<td><p>ПодтверждениеОператора</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-cu-letter-description*">urn:document:stat-cu-letter-description*</a></p></td>
+<td><p>Служебный документ, в котором передается описание письма (установленный формат)</p></td>
+<td><p>ОписаниеПисьма</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id26">
+<h3>Массовая рассылка из Росстата<a class="headerlink" href="#id26" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:stat-cu-broadcast">urn:docflow:stat-cu-broadcast</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-cu-broadcast-letter">urn:document:stat-cu-broadcast-letter</a></p></td>
+<td><p>Неформализованный текст информационной рассылки</p></td>
+<td><p>Рассылка</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-cu-broadcast-description">urn:document:stat-cu-broadcast-description</a></p></td>
+<td><p>Служебный документ, в котором передается описание рассылки (установленный формат)</p></td>
+<td><p>ОписаниеПисьма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:stat-cu-broadcast-attachment">urn:document:stat-cu-broadcast-attachment</a></p></td>
+<td><p>Неформализованное приложение к рассылке</p></td>
+<td><p>ПриложениеПисьма</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:stat-cu-broadcast-confirmation">urn:document:stat-cu-broadcast-confirmation</a></p></td>
+<td><p>Подтверждение даты получения рассылки (установленный формат)</p></td>
+<td><p>ПодтверждениеОператора</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="rst-markup-typedocumentfss">
+<span id="id27"></span><h2>ФСС<a class="headerlink" href="#rst-markup-typedocumentfss" title="Ссылка на этот заголовок"></a></h2>
+<section id="id28">
+<h3>Расчёт 4-ФСС<a class="headerlink" href="#id28" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-report">urn:docflow:fss-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16.7%" />
+<col style="width: 66.7%" />
+<col style="width: 16.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+<th class="head"><p>Имя (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-report">urn:document:fss-report</a></p></td>
+<td><p>Исходный отчет с присоединенной подписью</p></td>
+<td><p>Файл Расчета</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-report-date-confirmation">urn:document:fss-report-date-confirmation</a></p></td>
+<td><p>Подтверждение спецоператора (не утверждено форматом, формирует Контур.Экстерн при отправке из веб-приложения, юридической силы не имеет)</p></td>
+<td><p>&lt;нет соответствия&gt;</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-report-error">urn:document:fss-report-error</a></p></td>
+<td><p>Сообщение об ошибке при проверке отчета, возможные типы указаны на Портале ФСС (ошибки на стадии криптографических проверок)</p></td>
+<td><p>&lt;нет соответствия&gt;</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-report-error-receipt">urn:document:fss-report-error-receipt</a></p></td>
+<td><p>Сообщение об ошибке при проверке отчета (ошибки форматно-логического контроля)</p></td>
+<td><p>Квитанция о получении Расчета с ошибками</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-report-receipt">urn:document:fss-report-receipt</a></p></td>
+<td><p>Квитанция</p></td>
+<td><p>Квитанция о получении Расчета</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id29">
+<h3>Подтверждение основного вида экономической деятельности<a class="headerlink" href="#id29" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-oved-confirmation">urn:docflow:fss-sedo-oved-confirmation</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-request">urn:document:fss-sedo-oved-confirmation-request</a></p></td>
+<td><p>Запрос на отправку Заявления на подтверждение основного вида экономической деятельности</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-request-fuf">urn:document:fss-sedo-oved-confirmation-request-fuf</a></p></td>
+<td><p>Заявление на подтверждение основного вида экономической деятельности</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-attachment">urn:document:fss-sedo-oved-confirmation-attachment</a></p></td>
+<td><p>Приложение (пояснительная записка)</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-reception-result">urn:document:fss-sedo-oved-confirmation-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-result-document">urn:document:fss-sedo-oved-confirmation-result-document</a></p></td>
+<td><p>Уведомление об изменении статуса запроса на подтверждение основного вида экономической деятельности</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-read-receipt">urn:document:fss-sedo-oved-confirmation-read-receipt</a></p></td>
+<td><p>Отметка о прочтении пользователем</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-exchange-error">urn:document:fss-sedo-oved-confirmation-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-error-message">urn:document:fss-sedo-oved-confirmation-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document">urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document</a></p></td>
+<td><p>Уведомление о размере страховых взносов юридического лица</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id30">
+<h3>Подписка оператора на документооборот с ФСС по абоненту<a class="headerlink" href="#id30" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-provider-subscription">urn:docflow:fss-sedo-provider-subscription</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-subscribe-request-for-registration-number">urn:document:fss-sedo-provider-subscription-subscribe-request-for-registration-number</a></p></td>
+<td><p>Подписка оператора на страхователя для получения документов из СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-unsubscribe-request-for-registration-number">urn:document:fss-sedo-provider-subscription-unsubscribe-request-for-registration-number</a></p></td>
+<td><p>Отписка оператора на страхователя для прекращения получения документов из СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-receipt">urn:document:fss-sedo-provider-subscription-receipt</a></p></td>
+<td><p>Результат приёма запроса порталом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-subscribe-result">urn:document:fss-sedo-provider-subscription-subscribe-result</a></p></td>
+<td><p>Результат подписки оператора на страхователя</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-error-message">urn:document:fss-sedo-provider-subscription-error-message</a></p></td>
+<td><p>Ошибка обработки документа</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-provider-subscription-exchange-error">urn:document:fss-sedo-provider-subscription-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id31">
+<h3>Реестр ПВСО<a class="headerlink" href="#id31" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sick-report">urn:docflow:fss-sick-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sick-report">urn:document:fss-sick-report</a></p></td>
+<td><p>Реестр больничных листов с присоединённой подписью</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sick-report-date-confirmation">urn:document:fss-sick-report-date-confirmation</a></p></td>
+<td><p>Подтверждение спецоператора</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sick-report-error">urn:document:fss-sick-report-error</a></p></td>
+<td><p>Сообщение об ошибке при проверке реестра</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sick-report-error-receipt">urn:document:fss-sick-report-error-receipt</a></p></td>
+<td><p>Сообщение об ошибке при проверке реестра</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sick-report-receipt">urn:document:fss-sick-report-receipt</a></p></td>
+<td><p>Квитанция</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id32">
+<h3>Извещение о прямых выплатах мер социального обеспечения<a class="headerlink" href="#id32" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-pvso-notification">urn:docflow:fss-sedo-pvso-notification</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-request-message">urn:document:fss-sedo-pvso-notification-request-message</a></p></td>
+<td><p>Запрос на получение контента извещения ПВСО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с извещением ПВСО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-notification-message">urn:document:fss-sedo-pvso-notification-notification-message</a></p></td>
+<td><p>Извещение ПВСО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-receipt-notification-message">urn:document:fss-sedo-pvso-notification-receipt-notification-message</a></p></td>
+<td><p>Извещение о прочтении сообщения страхователем</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-receipt-notification-receipt-message">urn:document:fss-sedo-pvso-notification-receipt-notification-receipt-message</a></p></td>
+<td><p>Результат подтверждения прочтения сообщения от СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-receipt">urn:document:fss-sedo-pvso-notification-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-error-message">urn:document:fss-sedo-pvso-notification-error-message</a></p></td>
+<td><p>Ошибка обработки документа</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-exchange-error">urn:document:fss-sedo-pvso-notification-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-attachment">urn:document:sedo-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id33">
+<h3>Уведомления об изменении статуса электронного больничного листа<a class="headerlink" href="#id33" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-sick-report-change-notification">urn:docflow:fss-sedo-sick-report-change-notification</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-request-message">urn:document:fss-sedo-sick-report-change-notification-request-message</a></p></td>
+<td><p>Запрос на получение контента уведомления об изменении статуса ЭЛН</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с уведомлением об изменении статуса ЭЛН</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-notification-message">urn:document:fss-sedo-sick-report-change-notification-notification-message</a></p></td>
+<td><p>Уведомление об изменении статуса ЭЛН</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-receipt-notification-message">urn:document:fss-sedo-sick-report-change-notification-receipt-notification-message</a></p></td>
+<td><p>Извещение о прочтении сообщения страхователем</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-receipt-notification-receipt-message">urn:document:fss-sedo-sick-report-change-notification-receipt-notification-receipt-message</a></p></td>
+<td><p>Результат подтверждения прочтения сообщения от СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-receipt">urn:document:fss-sedo-sick-report-change-notification-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-error-message">urn:document:fss-sedo-sick-report-change-notification-error-message</a></p></td>
+<td><p>Ошибка обработки документа</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-exchange-error">urn:document:fss-sedo-sick-report-change-notification-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id34">
+<h3>Запрос недостающих сведений для назначения пособия ФСС<a class="headerlink" href="#id34" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-demand">urn:docflow:fss-sedo-proactive-payments-demand</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-request-message">urn:document:fss-sedo-proactive-payments-demand-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с запросом недостающих сведений</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-demand-message">urn:document:fss-sedo-proactive-payments-demand-demand-message</a></p></td>
+<td><p>Документ запроса</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-receipt">urn:document:fss-sedo-proactive-payments-demand-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-error-message">urn:document:fss-sedo-proactive-payments-demand-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-exchange-error">urn:document:fss-sedo-proactive-payments-demand-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id35">
+<h3>Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения<a class="headerlink" href="#id35" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-reply">urn:docflow:fss-sedo-proactive-payments-reply</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-request">urn:document:fss-sedo-proactive-payments-reply-request</a></p></td>
+<td><p>Запрос на отправку сведений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-receipt">urn:document:fss-sedo-proactive-payments-reply-receipt</a></p></td>
+<td><p>Результат приема запроса порталом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-response-result">urn:document:fss-sedo-proactive-payments-reply-response-result</a></p></td>
+<td><p>Результат обработки запроса</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-read-receipt">urn:document:fss-sedo-proactive-payments-reply-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-error-message">urn:document:fss-sedo-proactive-payments-reply-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-exchange-error">urn:document:fss-sedo-proactive-payments-reply-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id36">
+<h3>Выплата пособия<a class="headerlink" href="#id36" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-benefit">urn:docflow:fss-sedo-proactive-payments-benefit</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-request-message">urn:document:fss-sedo-proactive-payments-benefit-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ выплаты пособия</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-benefit-message">urn:document:fss-sedo-proactive-payments-benefit-benefit-message</a></p></td>
+<td><p>Документ с выплатами</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-receipt">urn:document:fss-sedo-proactive-payments-benefit-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-error-message">urn:document:fss-sedo-proactive-payments-benefit-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-exchange-error">urn:document:fss-sedo-proactive-payments-benefit-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id37">
+<h3>Сведения о застрахованном лице<a class="headerlink" href="#id37" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-insured-person-registration">urn:docflow:fss-sedo-insured-person-registration</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-request">urn:document:fss-sedo-insured-person-registration-request</a></p></td>
+<td><p>Запрос на регистрацию сведений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-receipt">urn:document:fss-sedo-insured-person-registration-receipt</a></p></td>
+<td><p>Результат приема запроса порталом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-response-result">urn:document:fss-sedo-insured-person-registration-response-result</a></p></td>
+<td><p>Результат регистрации сведений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-read-receipt">urn:document:fss-sedo-insured-person-registration-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-error-message">urn:document:fss-sedo-insured-person-registration-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-exchange-error">urn:document:fss-sedo-insured-person-registration-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id38">
+<h3>Информация о несоответствии сведений о застрахованном лице<a class="headerlink" href="#id38" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-insured-person-mismatch">urn:docflow:fss-sedo-insured-person-mismatch</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-request-message">urn:document:fss-sedo-insured-person-mismatch-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с информацией о несоответствии сведений о застрахованном лице</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-mismatch-message">urn:document:fss-sedo-insured-person-mismatch-mismatch-message</a></p></td>
+<td><p>Документ с информацией</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-receipt">urn:document:fss-sedo-insured-person-mismatch-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-error-message">urn:document:fss-sedo-insured-person-mismatch-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-exchange-error">urn:document:fss-sedo-insured-person-mismatch-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id39">
+<h3>Инициация выплат пособия<a class="headerlink" href="#id39" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-benefit-payment-initiation">urn:docflow:fss-sedo-benefit-payment-initiation</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-request">urn:document:fss-sedo-benefit-payment-initiation-request</a></p></td>
+<td><p>Запрос на отправку сообщения «Инициация выплаты пособия»</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-reception-result">urn:document:fss-sedo-benefit-payment-initiation-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-read-receipt">urn:document:fss-sedo-benefit-payment-initiation-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-result-document">urn:document:fss-sedo-benefit-payment-initiation-result-document</a></p></td>
+<td><p>Сообщение «Результат обработки сообщения инициации выплат ФСС»</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-error-message">urn:document:fss-sedo-benefit-payment-initiation-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-exchange-error">urn:document:fss-sedo-benefit-payment-initiation-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с порталом СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id40">
+<h3>Уведомление о статусе выплаты пособия<a class="headerlink" href="#id40" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-benefit-payment-status-notice">urn:docflow:fss-sedo-benefit-payment-status-notice</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-request-message">urn:document:fss-sedo-benefit-payment-status-notice-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-response">urn:document:sedo-message-response</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с уведомлением о статусе выплаты пособия</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message">urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message</a></p></td>
+<td><p>Документ «Уведомление о статусе выплаты пособия»</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-error-message">urn:document:fss-sedo-benefit-payment-status-notice-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-exchange-error">urn:document:fss-sedo-benefit-payment-status-notice-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id41">
+<h3>Запрос регистрации или отзыва доверенности ФСС<a class="headerlink" href="#id41" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-warrant-management">urn:docflow:fss-warrant-management</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-warrant-management-request-message">urn:document:fss-warrant-management-request-message</a></p></td>
+<td><p>SOAP-сообщение на отправку создания или отзыва доверенности ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-warrant-management-request-document">urn:document:fss-warrant-management-request-document</a></p></td>
+<td><p>Исходный документ создания или отзыва доверенности ФСС до формирования SOAP-сообщения</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-warrant-management-error-message">urn:document:fss-warrant-management-error-message</a></p></td>
+<td><p>Ошибка в ходе данного документооборота</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-warrant-management-exchange-error">urn:document:fss-warrant-management-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-warrant-management-reception-result">urn:document:fss-warrant-management-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-warrant-management-response-message">urn:document:fss-warrant-management-response-message</a></p></td>
+<td><p>Результат обработки создания или отзыва доверенности ФСС</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-warrant-management-read-receipt">urn:document:fss-warrant-management-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id42">
+<h3>Требование ФСС<a class="headerlink" href="#id42" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-demand">urn:docflow:fss-sedo-demand</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-request-message">urn:document:fss-sedo-demand-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ с требованием ФСС</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-demand-message">urn:document:fss-sedo-demand-demand-message</a></p></td>
+<td><p>Документ с требованием ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-receipt-notification-message">urn:document:fss-sedo-demand-receipt-notification-message</a></p></td>
+<td><p>Извещение о прочтении сообщения страхователя</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-receipt-notification-receipt-message">urn:document:fss-sedo-demand-receipt-notification-receipt-message</a></p></td>
+<td><p>Результат подтверждения прочтения сообщения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-read-receipt">urn:document:fss-sedo-demand-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-error-message">urn:document:fss-sedo-demand-error-message</a></p></td>
+<td><p>Ошибка в ходе данного документооборота</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-exchange-error">urn:document:fss-sedo-demand-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-attachment">urn:document:sedo-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-application">urn:document:sedo-application</a></p></td>
+<td><p>Приложение к вложению</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-application-printed-form">urn:document:sedo-application-printed-form</a></p></td>
+<td><p>Печатная форма приложения к вложению</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id43">
+<h3>Ответ на требование ФСС<a class="headerlink" href="#id43" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-demand-reply">urn:docflow:fss-sedo-demand-reply</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-request">urn:document:fss-sedo-demand-reply-request</a></p></td>
+<td><p>Запрос на отправку ответа на требование ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-reception-result">urn:document:fss-sedo-demand-reply-reception-result</a></p></td>
+<td><p>Результат приема запроса порталом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-result-document">urn:document:fss-sedo-demand-reply-result-document</a></p></td>
+<td><p>Результат обработки ответа на требование ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-read-receipt">urn:document:fss-sedo-demand-reply-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-exchange-error">urn:document:fss-sedo-demand-reply-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-error-message">urn:document:fss-sedo-demand-reply-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-attachment">urn:document:fss-sedo-demand-reply-attachment</a></p></td>
+<td><p>Приложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id44">
+<h3>Запрос на формирование справки о расчетах ФСС<a class="headerlink" href="#id44" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-billing-information-demand">urn:docflow:fss-sedo-billing-information-demand</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-request">urn:document:fss-sedo-billing-information-demand-request</a></p></td>
+<td><p>Запрос на отправку сведений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-reception-result">urn:document:fss-sedo-billing-information-demand-reception-result</a></p></td>
+<td><p>Результат приема запроса порталом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-result-document">urn:document:fss-sedo-billing-information-demand-result-document</a></p></td>
+<td><p>Результат обработки запроса справки о расчетах ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-billing-information-message">urn:document:fss-sedo-billing-information-demand-billing-information-message</a></p></td>
+<td><p>Справка о расчетах ФСС</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-read-receipt">urn:document:fss-sedo-billing-information-demand-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-error-message">urn:document:fss-sedo-billing-information-demand-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-exchange-error">urn:document:fss-sedo-billing-information-demand-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-attachment">urn:document:sedo-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-application">urn:document:sedo-application</a></p></td>
+<td><p>Приложение к вложению</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-application-printed-form">urn:document:sedo-application-printed-form</a></p></td>
+<td><p>Печатная форма приложения к вложению</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id45">
+<h3>Справка о расчетах ФСС<a class="headerlink" href="#id45" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-billing-information">urn:docflow:fss-sedo-billing-information</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-request-message">urn:document:fss-sedo-billing-information-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:sedo-message-responce">urn:document:sedo-message-responce</a></p></td>
+<td><p>Исходный документ ответа на запрос, содержит документ со справкой о расчетах ФСС</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-message">urn:document:fss-sedo-billing-information-message</a></p></td>
+<td><p>Справка о расчетах ФСС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-read-receipt">urn:document:fss-sedo-billing-information-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-exchange-error">urn:document:fss-sedo-billing-information-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id46">
+<h3>Уведомление о прекращении отпуска по уходу за ребенком до полутора лет<a class="headerlink" href="#id46" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-baby-care-vacation-close-notice">urn:docflow:fss-sedo-baby-care-vacation-close-notice</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-request">urn:document:fss-sedo-baby-care-vacation-close-notice-request</a></p></td>
+<td><p>Запрос на отправку сообщения «Уведомление о прекращении отпуска по уходу за ребенком до полутора лет»</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-reception-result">urn:document:fss-sedo-baby-care-vacation-close-notice-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-result-document">urn:document:fss-sedo-baby-care-vacation-close-notice-result-document</a></p></td>
+<td><p>Уведомление о прекращении отпуска по уходу за ребенком до полутора лет</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt">urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-error-message">urn:document:fss-sedo-baby-care-vacation-close-notice-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-exchange-error">urn:document:fss-sedo-baby-care-vacation-close-notice-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с порталом СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id47">
+<h3>Сведения о зарплате сотрудника<a class="headerlink" href="#id47" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-employee-salary-information">urn:docflow:fss-sedo-employee-salary-information</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-request">urn:document:fss-sedo-employee-salary-information-request</a></p></td>
+<td><p>Запрос на отправку запроса сведений о зарплате сотрудника</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-reception-result">urn:document:fss-sedo-employee-salary-information-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-result-document">urn:document:fss-sedo-employee-salary-information-result-document</a></p></td>
+<td><p>Результат обработки запроса сведений о зарплате сотрудника</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-read-receipt">urn:document:fss-sedo-employee-salary-information-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-error-message">urn:document:fss-sedo-employee-salary-information-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-exchange-error">urn:document:fss-sedo-employee-salary-information-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id48">
+<h3>Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству<a class="headerlink" href="#id48" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-proactive-process-events-notification">urn:docflow:fss-sedo-proactive-process-events-notification</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-request-message">urn:document:fss-sedo-proactive-process-events-notification-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message">urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message</a></p></td>
+<td><p>Документ «Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству»</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-exchange-error">urn:document:fss-sedo-proactive-process-events-notification-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id49">
+<h3>Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки<a class="headerlink" href="#id49" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-proactive-expire-notice">urn:docflow:fss-sedo-proactive-expire-notice</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-request-message">urn:document:fss-sedo-proactive-expire-notice-request-message</a></p></td>
+<td><p>Запрос на получение документа</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-document">urn:document:fss-sedo-proactive-expire-notice-document</a></p></td>
+<td><p>Документ уведомления</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-read-receipt">urn:document:fss-sedo-proactive-expire-notice-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-exchange-error">urn:document:fss-sedo-proactive-expire-notice-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id50">
+<h3>Обращение СФР к страхователю<a class="headerlink" href="#id50" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-appeal">urn:docflow:fss-sedo-appeal</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-request-message">urn:document:fss-sedo-appeal-request-message</a></p></td>
+<td><p>Запрос на получение документа</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-document">urn:document:fss-sedo-appeal-document</a></p></td>
+<td><p>Документ письма</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-read-receipt">urn:document:fss-sedo-appeal-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-exchange-error">urn:document:fss-sedo-appeal-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-attachment">urn:document:sedo-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id51">
+<h3>Ответ страхователя на обращение СФР<a class="headerlink" href="#id51" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-appeal-reply">urn:docflow:fss-sedo-appeal-reply</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-request">urn:document:fss-sedo-appeal-reply-request</a></p></td>
+<td><p>Запрос на отправку сообщения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-reception-result">urn:document:fss-sedo-appeal-reply-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-result-document">urn:document:fss-sedo-appeal-reply-result-document</a></p></td>
+<td><p>Сообщение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-read-receipt">urn:document:fss-sedo-appeal-reply-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-error-message">urn:document:fss-sedo-appeal-reply-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-exchange-error">urn:document:fss-sedo-appeal-reply-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-attachment">urn:document:fss-sedo-appeal-reply-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id52">
+<h3>Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами<a class="headerlink" href="#id52" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-disability-children-demand">urn:docflow:fss-sedo-disability-children-demand</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-request">urn:document:fss-sedo-disability-children-demand-request</a></p></td>
+<td><p>Запрос на отправку сообщения</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-reception-result">urn:document:fss-sedo-disability-children-demand-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-result-document">urn:document:fss-sedo-disability-children-demand-result-document</a></p></td>
+<td><p>Сообщение</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-read-receipt">urn:document:fss-sedo-disability-children-demand-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-error-message">urn:document:fss-sedo-disability-children-demand-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-exchange-error">urn:document:fss-sedo-disability-children-demand-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:sedo-attachment">urn:document:sedo-attachment</a></p></td>
+<td><p>Вложение</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id53">
+<h3>Широковещательное сообщение СЭДО от СФР<a class="headerlink" href="#id53" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-broadcast-message">urn:docflow:fss-sedo-broadcast-message</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-broadcast-message-document">urn:document:fss-sedo-broadcast-message-document</a></p></td>
+<td><p>Широковещательное сообщение СЭДО от СФР</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id54">
+<h3>Запрос платежных реквизитов<a class="headerlink" href="#id54" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-payment-details-demand">urn:docflow:fss-sedo-payment-details-demand</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-request-message">urn:document:fss-sedo-payment-details-demand-request-message</a></p></td>
+<td><p>Запрос на получение документов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-document">urn:document:fss-sedo-payment-details-demand-document</a></p></td>
+<td><p>Документ с запросом платежных реквизитов</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-read-receipt">urn:document:fss-sedo-payment-details-demand-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-exchange-error">urn:document:fss-sedo-payment-details-demand-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id55">
+<h3>Ответ на запрос платежных реквизитов<a class="headerlink" href="#id55" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:fss-sedo-payment-details-demand-reply">urn:docflow:fss-sedo-payment-details-demand-reply</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-request">urn:document:fss-sedo-payment-details-demand-reply-request</a></p></td>
+<td><p>Запрос на отправку ответа на запрос платежных реквизитов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-reception-result">urn:document:fss-sedo-payment-details-demand-reply-reception-result</a></p></td>
+<td><p>Результат отправки сообщения на портал</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-result-document">urn:document:fss-sedo-payment-details-demand-reply-result-document</a></p></td>
+<td><p>Результат ответа на запрос платежных реквизитов</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-read-receipt">urn:document:fss-sedo-payment-details-demand-reply-read-receipt</a></p></td>
+<td><p>Отметка о прочтении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-exchange-error">urn:document:fss-sedo-payment-details-demand-reply-exchange-error</a></p></td>
+<td><p>Ошибка взаимодействия с СЭДО</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-error-message">urn:document:fss-sedo-payment-details-demand-reply-error-message</a></p></td>
+<td><p>Ошибка обработки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id56">
+<h2>ЦБ РФ<a class="headerlink" href="#id56" title="Ссылка на этот заголовок"></a></h2>
+<section id="id57">
+<h3>Отчетность в ЦБ РФ (документообороты после 01.01.2020)<a class="headerlink" href="#id57" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:cbrf-report">urn:docflow:cbrf-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:cbrf-report-report-v2">urn:document:cbrf-report-report-v2</a></p></td>
+<td><p>Отчет</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:cbrf-report-esod-receipt">urn:document:cbrf-report-esod-receipt</a></p></td>
+<td><p>Результат приема отчета</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:cbrf-report-status-info">urn:document:cbrf-report-status-info</a></p></td>
+<td><p>Технологический документ</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:cbrf-report-processing-status">urn:document:cbrf-report-processing-status</a></p></td>
+<td><p>Результат обработки отчета</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:cbrf-report-processing-error-protocol">urn:document:cbrf-report-processing-error-protocol</a></p></td>
+<td><p>Протокол с перечнем ошибок, возникшими при проверке отчета</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id58">
+<h3>Отчетность в ЦБ РФ (документообороты до 01.01.2020)<a class="headerlink" href="#id58" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота <a class="reference external" href="urn:docflow:cbrf-report">urn:docflow:cbrf-report</a>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:cbrf-report">urn:document:cbrf-report</a></p></td>
+<td><p>Отчет</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:cbrf-report-reception-result">urn:document:cbrf-report-reception-result</a></p></td>
+<td><p>Сообщение о приеме</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:cbrf-report-processing-result">urn:document:cbrf-report-processing-result</a></p></td>
+<td><p>Результат обработки</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id59">
+<h2>МВД<a class="headerlink" href="#id59" title="Ссылка на этот заголовок"></a></h2>
+<section id="id60">
+<h3>Уведомление в МВД<a class="headerlink" href="#id60" title="Ссылка на этот заголовок"></a></h3>
+<p>Тип документооборота: <a class="reference external" href="urn:docflow:mvd-notification">urn:docflow:mvd-notification</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 20.0%" />
+<col style="width: 80.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Urn</p></th>
+<th class="head"><p>Комментарий (согласно нормативным документам)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:mvd-notification-epgu-notification">urn:document:mvd-notification-epgu-notification</a></p></td>
+<td><p>Уведомление в МВД</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:mvd-notification-description">urn:document:mvd-notification-description</a></p></td>
+<td><p>Описание уведомления</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:mvd-notificaiton-epgu-receipt">urn:document:mvd-notificaiton-epgu-receipt</a></p></td>
+<td><p>Квитанция о получении</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:mvd-notification-epgu-protocol">urn:document:mvd-notification-epgu-protocol</a></p></td>
+<td><p>Результат обработки уведомления:</p></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Положительный результат: уведомление принято в МВД</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>Отрицательный результат: уведомление не принято в МВД</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><ul class="simple">
+<li><p>Детализированный отказ: уведомление не принято в МВД. Содержит причину отказа</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><ul class="simple">
+<li><p>Недетализированный отказ: уведомление не принято в МВД. Не содержит причину отказа</p></li>
+</ul>
+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html" class="btn btn-neutral float-left" title="Типы документооборотов" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html" class="btn btn-neutral float-right" title="Типы DraftsBuilder" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

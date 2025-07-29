@@ -1,0 +1,264 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Методы для работы с учетными записями &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Методы для работы с организациями" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html" />
+    <link rel="prev" title="Работа с учетными записями" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Работа с учетными записями</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Методы для работы с учетными записями</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-all">Получение списка всех доступных учетных записей</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Создание новой учетной записи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-account">Получение учетной записи по идентификатору</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-users">Получение списка пользователей учетной записи</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Удаление учетной записи</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html">Методы для работы с организациями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%B5%D1%80%D1%82%D0%BE%D0%B2.html">Методы для работы с сертификатами учетных записей</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%B4%D0%BE%D0%B2%D0%B5%D1%80%D0%B5%D0%BD%D0%BD%D0%BE%D1%81%D1%82%D0%B5%D0%B9.html">Методы для работы с доверенностями</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%82%D0%B0%D0%B1%D0%BB%D0%B8%D1%86%D1%8B%20%D0%BE%D1%82%D1%87%D0%B5%D1%82%D0%BD%D0%BE%D1%81%D1%82%D0%B8.html">Методы для работы с таблицей отчетности</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html">Методы для работы со справочниками</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D1%82%D1%80%D1%83%D0%B4%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html">Методы для работы с сотрудниками</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Работа с учетными записями</a></li>
+      <li class="breadcrumb-item active">Методы для работы с учетными записями</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/accounts/методы API для учеток.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Методы для работы с учетными записями<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p>Подробная спецификация методов представлена в swagger в разделе <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=get&amp;path=%2Fv1">Accounts</a>.</p>
+<p>Список доступных методов:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2">Получение списка всех доступных учетных записей</a></p></li>
+<li><p><a class="reference internal" href="#id3">Создание новой учетной записи</a></p></li>
+<li><p><a class="reference internal" href="#id4">Получение учетной записи по идентификатору</a></p></li>
+<li><p><a class="reference internal" href="#id5">Получение списка пользователей учетной записи</a></p></li>
+<li><p><a class="reference internal" href="#id6">Удаление учетной записи</a></p></li>
+</ul>
+<section id="rst-markup-all">
+<span id="id2"></span><h2>Получение списка всех доступных учетных записей<a class="headerlink" href="#rst-markup-all" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=get&amp;path=%2Fv1">GET All</a></p>
+<p>Метод вернет список доступных учетных записей авторизованного пользователя. Пользователь определяется по <a class="reference internal" href="../auth_oidc/index.html"><span class="doc">Access Token</span></a> из запроса.</p>
+<p>Администратор всегда получит данные по всем учетным записям. Если подключен <a class="reference internal" href="../scenarios/org/mpr.html#rst-markup-mpr"><span class="std std-ref">многопользовательский режим</span></a>, то пользователи получат данные только по тем учетным записям, в которые у них есть доступ.</p>
+<p>Для пользователей Компаний-Партнеров и партнеров УЦ учетные записи фильтруются по переданному в запросе <a class="reference internal" href="../auth_oidc/index.html"><span class="doc">api-key</span></a>. Таким образом, пользователи получат данные по тем учетным записям, к которым у них есть доступ.</p>
+<p>В ответ на вызов метода можно получить актуальную информацию по каждой учетной записи:</p>
+<ul>
+<li><p>сведения о головной организации: ИНН, КПП, наименование;</p></li>
+<li><p>список продуктов Контура, к которым пользователь имеет доступ;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">role</span></code> – роль пользователя в данной учетной записи: администратор, пользователь, генеральный директор;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> – наименование учетной записи;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abonent-Id</span></code> – идентификатор группы учетных записей;</p></li>
+<li><p>разрешения для пользователя из запроса:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">has-web-access</span></code> — флаг доступа в веб-интерфейс Контур.Экстерн. Если вернулось значение <em>true</em>, то пользователь имеет доступ в веб-интерфейс Контур.Экстерна;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">is-demand-recipient</span></code> – флаг получателя требований. Если вернулось значение <em>true</em>, то пользователь может получать требования из ФНС;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">can-add-organizations</span></code> – флаг добавления дочерних организаций. Если вернулось значение <em>true</em>, то пользователь может добавлять дочерние организации в учетную запись .</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id3">
+<h2>Создание новой учетной записи<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=post&amp;path=%2Fv1">POST Account</a></p>
+<p>С помощью данного метода можно создавать новые учетные записи. Организация, данные которой переданы в запросе, будет считаться головной.</p>
+<p>Для пользователей сервисов Компаний-Партнеров можно создать учетную запись, если организации этих пользователей еще не зарегистрированы в Контур.Экстерне.</p>
+</section>
+<section id="rst-markup-account">
+<span id="id4"></span><h2>Получение учетной записи по идентификатору<a class="headerlink" href="#rst-markup-account" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D">GET Account</a></p>
+<p>Метод вернет сведения об учетной записи по идентификатору <code class="docutils literal notranslate"><span class="pre">accountId</span></code>.</p>
+</section>
+<section id="rst-markup-users">
+<span id="id5"></span><h2>Получение списка пользователей учетной записи<a class="headerlink" href="#rst-markup-users" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fusers">GET Users</a></p>
+<p>Метод вернет всех пользователей для указанной учетной записи. Метод доступен только для администраторов. В ответ метод вернет каждого пользователя столько раз, ко скольким учетным записям он имеет доступ.</p>
+<p>По пользователю метод вернет всю доступную и актуальную информацию:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">login</span></code> – логин пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fio</span></code> – ФИО пользователя;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">login-certificates</span></code> – сертификаты для авторизации и их отпечатки.</p></li>
+</ul>
+</section>
+<section id="id6">
+<h2>Удаление учетной записи<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=delete&amp;path=%2Fv1%2F%7BaccountId%7D">DELETE Account</a></p>
+<p>Метод удаляет указанную учетную запись.</p>
+<p>Для пользователей сервисов Компаний-Партнеров можно удалить учетную запись, которую ранее создали самостоятельно.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Работа с учетными записями" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html" class="btn btn-neutral float-right" title="Методы для работы с организациями" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

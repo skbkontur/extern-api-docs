@@ -1,0 +1,691 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Методы для работы с DraftsBuilder &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Сервис контентов" href="../contents/index.html" />
+    <link rel="prev" title="Конструктор черновиков (DraftsBuilder)" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Конструктор черновиков (DraftsBuilder)</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Методы для работы с DraftsBuilder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-createdb">Создание DraftsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Получение DraftsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Получение метаинформации DraftsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Редактирование DraftsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Редактирование метаинформации DraftsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-builddb">Сборка содержимого DraftsBuilder в черновик</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Проверка статуса сборки</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Удаление DraftsBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id12">Методы для работы с документами DraftsBuilder</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Получение списка документов</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-createdocdb">Создание документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Получение информации о документе</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Получение метаинформации документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">Редактирование документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Редактирование метаинформации документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#draftbuilder">Удаление документа в DraftBuilder</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id19">Методы для работы с файлами</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Получение списка всех файлов документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-createfiledb">Создание файла в документе</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Получение файла по идентификатору</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Редактирование файла в документе</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Получение подписи к файлу</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id25">Получение метаинформации файла</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Редактирование меты файла</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Удаление файла документа</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deprecated">Получение содержимого файла (deprecated)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+      <li class="breadcrumb-item active">Методы для работы с DraftsBuilder</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/builder/методы билдера.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id2">
+<h1><a class="toc-backref" href="#id28" role="doc-backlink">Методы для работы с DraftsBuilder</a><a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h1>
+<p>Подробная спецификация методов показана в Swagger в разделе <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts">Черновики и конструктор черновиков (draftsbuilder)</a>.</p>
+<nav class="contents" id="id3">
+<p class="topic-title">Список доступных методов</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id2" id="id28">Методы для работы с DraftsBuilder</a></p>
+<ul>
+<li><p><a class="reference internal" href="#rst-markup-createdb" id="id29">Создание DraftsBuilder</a></p></li>
+<li><p><a class="reference internal" href="#id5" id="id30">Получение DraftsBuilder</a></p></li>
+<li><p><a class="reference internal" href="#id6" id="id31">Получение метаинформации DraftsBuilder</a></p></li>
+<li><p><a class="reference internal" href="#id7" id="id32">Редактирование DraftsBuilder</a></p></li>
+<li><p><a class="reference internal" href="#id8" id="id33">Редактирование метаинформации DraftsBuilder</a></p></li>
+<li><p><a class="reference internal" href="#rst-markup-builddb" id="id34">Сборка содержимого DraftsBuilder в черновик</a></p></li>
+<li><p><a class="reference internal" href="#id10" id="id35">Проверка статуса сборки</a></p></li>
+<li><p><a class="reference internal" href="#id11" id="id36">Удаление DraftsBuilder</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id12" id="id37">Методы для работы с документами DraftsBuilder</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id13" id="id38">Получение списка документов</a></p></li>
+<li><p><a class="reference internal" href="#rst-markup-createdocdb" id="id39">Создание документа</a></p></li>
+<li><p><a class="reference internal" href="#id15" id="id40">Получение информации о документе</a></p></li>
+<li><p><a class="reference internal" href="#id16" id="id41">Получение метаинформации документа</a></p></li>
+<li><p><a class="reference internal" href="#id17" id="id42">Редактирование документа</a></p></li>
+<li><p><a class="reference internal" href="#id18" id="id43">Редактирование метаинформации документа</a></p></li>
+<li><p><a class="reference internal" href="#draftbuilder" id="id44">Удаление документа в DraftBuilder</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#id19" id="id45">Методы для работы с файлами</a></p>
+<ul>
+<li><p><a class="reference internal" href="#id20" id="id46">Получение списка всех файлов документа</a></p></li>
+<li><p><a class="reference internal" href="#rst-markup-createfiledb" id="id47">Создание файла в документе</a></p></li>
+<li><p><a class="reference internal" href="#id22" id="id48">Получение файла по идентификатору</a></p></li>
+<li><p><a class="reference internal" href="#id23" id="id49">Редактирование файла в документе</a></p></li>
+<li><p><a class="reference internal" href="#id24" id="id50">Получение подписи к файлу</a></p></li>
+<li><p><a class="reference internal" href="#id25" id="id51">Получение метаинформации файла</a></p></li>
+<li><p><a class="reference internal" href="#id26" id="id52">Редактирование меты файла</a></p></li>
+<li><p><a class="reference internal" href="#id27" id="id53">Удаление файла документа</a></p></li>
+<li><p><a class="reference internal" href="#deprecated" id="id54">Получение содержимого файла (deprecated)</a></p></li>
+</ul>
+</li>
+</ul>
+</nav>
+<section id="rst-markup-createdb">
+<span id="id4"></span><h2><a class="toc-backref" href="#id29" role="doc-backlink">Создание DraftsBuilder</a><a class="headerlink" href="#rst-markup-createdb" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders">POST CreateDraftsBuilder</a></p>
+<p>Метод создает шаблон черновика. В результате метод вернет идентификатор созданного DraftsBuilder и все его содержимое.</p>
+<p><strong>Параметры Тела запроса</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">sender</span></code> — информация об отправителе;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">payer</span></code> — информация о налогоплательщике, организации, за которую отправляется отчет;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">recipient</span></code> — информация о получателе отчетности, налоговом органе;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-type</span></code> — <a class="reference internal" href="../specification/%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html"><span class="doc">тип DraftsBuilder</span></a>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-data</span></code>  — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.</p>
+<blockquote>
+<div><p>Параметры Builder-data в зависимости от типа DraftsBuilder:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-0-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-0-0-0" name="0-0" role="tab" tabindex="0">тип fns534-inventory</button><button aria-controls="panel-0-0-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-1" name="0-1" role="tab" tabindex="-1">тип fns534-letter</button><button aria-controls="panel-0-0-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-0-0-2" name="0-2" role="tab" tabindex="-1">тип business-registration</button></div><div aria-labelledby="tab-0-0-0" class="sphinx-tabs-panel" id="panel-0-0-0" name="0-0" role="tabpanel" tabindex="0"><p>Тип DraftsBuilder fns534-inventory предназначен для формирования черновика описи, чтобы отправить в ИФНС запрошенные документы к входящему требованию или поясняющие документы к отправленному отчету.</p>
+<blockquote>
+<div><p>Если входящее требование было получено (или исходный отчет был отправлен) через Контур.Экстерн или API, то заполните только параметр <code class="docutils literal notranslate"><span class="pre">related-document</span></code>. Черновик описи (ответа на требование) будет сформирован при помощи DraftsBuilder и после отправки превратится в документооборот с типом <a class="reference external" href="urn:docflow:fns534-inventory">urn:docflow:fns534-inventory</a>.</p>
+<p>Если исходный отчет отправлен через стороннего оператора ЭДО — то заполните только параметр <code class="docutils literal notranslate"><span class="pre">id-file-osn</span></code>. Черновик описи будет сформирован при помощи DraftsBuilder и после отправки превратиться в документооборот с типом <a class="reference external" href="urn:docflow:fns534-submission">urn:docflow:fns534-submission</a>.</p>
+</div></blockquote>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">related-document</span></code> — связанный документ (требование или отчет), отправленный через Контур.Экстерн (или API), на который формируется опись:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">related-docflow-id</span></code> — идентификатор связанного документооборота;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">related-document-id</span></code> — идентификатор документа в связанном документообороте.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id-file-osn</span></code> — идентификатор файла основания — отчета, отправленного через другого оператора ЭДО. Нужно передать значение поля ИдФайл из xml-файла отчета. Данный идентификатор будет подставлен в поле ИдФайлОсн описи. Например, для отчета НДС поле ИдФайл = «NO_NDS_0007_0007_7381415822111135111_20180810_d229fcba-3747-4ce0-bb6d-7a2f220b07da».</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../_downloads/775b3f20cccf1fd45e1ff98c8f1af4af/%D0%BC%D0%B5%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20DraftsBuilder%20%D1%82%D0%B8%D0%BF%D0%B0%20inventory.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">Request</span> <span class="pre">Body</span> <span class="pre">для</span> <span class="pre">создания</span> <span class="pre">DraftsBuilder</span> <span class="pre">Ответа</span> <span class="pre">на</span> <span class="pre">требование</span></code></a></p>
+</div><div aria-labelledby="tab-0-0-1" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-1" name="0-1" role="tabpanel" tabindex="0"><p>Тип DraftsBuilder fns534-letter предназначен для формирования письма в ФНС с обращением и приложенными файлами.</p>
+<p>При создании DraftsBuilder в теле запроса обязательно заполните параметр <code class="docutils literal notranslate"><span class="pre">region</span></code> в соответствии со справочником «Субъекты Российской Федерации».</p>
+<p>Если требуется отправить ответ на входящее письмо ФНС, то заполните параметр <code class="docutils literal notranslate"><span class="pre">related-document</span></code>.</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">related-document</span></code> — связанный документ;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">related-docflow-id</span></code> — идентификатор связанного документооборота;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">related-document-id</span></code> — идентификатор документа в связанном документообороте.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">additional-certificates</span></code> — список сертификатов подписантов. Сертификат должен быть передан в формате base64;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subject</span></code> — тема письма;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">address</span></code> — адрес налогоплательщика:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">index</span></code> — индекс;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">region</span></code> — регион;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">district</span></code> — район;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">city</span></code> — город;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">settlement</span></code> — населенный пункт;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">street</span></code> — улица;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">house</span></code> — дом;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">building</span></code> — корпус;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">flat</span></code> — квартира.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<blockquote>
+<div><p><a class="reference download internal" download="" href="../_downloads/6b2a2eb61cb14bf0e24bec659bc9798d/%D0%BC%D0%B5%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20DraftsBuilder%20%D1%82%D0%B8%D0%BF%D0%B0%20letter.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">Request</span> <span class="pre">Body</span> <span class="pre">для</span> <span class="pre">создания</span> <span class="pre">DraftsBuilder</span> <span class="pre">для</span> <span class="pre">письма</span> <span class="pre">в</span> <span class="pre">ФНС</span></code></a>.</p>
+</div></blockquote>
+</div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">registration-info</span></code> — сведения для регистрации бизнеса:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">application-code</span></code> — код заявления по справочнику СФРД. Enums:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>Р24001</strong> — Заявление о внесении изменений в сведения об индивидуальном предпринимателе, содержащиеся в ЕГРИП;</p></li>
+<li><p><strong>Р24002</strong> — Заявление об изменении сведений о крестьянском (фермерском) хозяйстве в ЕГРИП;</p></li>
+<li><p><strong>Р26001</strong> — Заявление о государственной регистрации прекращения физическим лицом деятельности в качестве индивидуального предпринимателя в связи с принятием им решения о прекращении данной деятельности;</p></li>
+<li><p><strong>Р11001</strong> — Заявление о государственной регистрации юридического лица;</p></li>
+<li><p><strong>Р12001</strong> — Заявление о регистрации юридического лица при реорганизации;</p></li>
+<li><p><strong>Р12003</strong> — Уведомление о начале реорганизации;</p></li>
+<li><p><strong>Р16002</strong> — Заявление о ликвидации унитарного предприятия в связи с продажей его имущества.</p></li>
+<li><p><strong>Р26002</strong> — Заявление о ликвидации крестьянского (фермерского) хозяйства;</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">applicant-infos</span></code> — информация о заявителе;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ip-info</span></code> — информация об ИП;</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ogrn-ip</span></code> — ОГРНИП.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ul-info</span></code> — информация о ЮЛ:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ogrn</span></code> — ОГРН.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> — название организации</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">paper-documents-delivery-type</span></code> — признак наличия запроса о предоставлении документов отправителю в письменном (бумажном) виде. Enums:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>ToApplicant</strong> — выдать документы лично заявителю;</p></li>
+<li><p><strong>ByPost</strong> — выслать документы по почте;</p></li>
+<li><p><strong>No</strong> — если не требуется предоставления документов в письменном (бумажном) виде.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">additional-certificates</span></code> — список сертификатов подписантов, когда заявление подано от нескольких заявителей (для ЮЛ). Сертификат должен быть передан в формате base64.</p></li>
+</ul>
+<p><a class="reference download internal" download="" href="../_downloads/74604bd8005c9bfe5ca5d55607598abf/%D0%BC%D0%B5%D1%82%D0%B0%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BE%D0%B7%D0%B4%D0%B0%D0%BD%D0%B8%D1%8F%20DraftsBuilder%20%D1%82%D0%B8%D0%BF%D0%B0%20business-registration.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">Request</span> <span class="pre">Body</span> <span class="pre">для</span> <span class="pre">создания</span> <span class="pre">DraftsBuilder</span> <span class="pre">для</span> <span class="pre">регистрации</span> <span class="pre">бизнеса</span></code></a></p>
+</div></div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h2><a class="toc-backref" href="#id30" role="doc-backlink">Получение DraftsBuilder</a><a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D">GET GetDraftsBuilder</a></p>
+<p>Метод помогает просмотреть содержимое созданного DraftsBuilder. Метод вернет метаинформацию и текущий статус DraftsBuilder (new, building, finished).</p>
+</section>
+<section id="id6">
+<h2><a class="toc-backref" href="#id31" role="doc-backlink">Получение метаинформации DraftsBuilder</a><a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta">GET GetDraftsBuilderMeta</a></p>
+<p>Метод возвращает только метаинформацию DraftsBuilder без статуса.</p>
+</section>
+<section id="id7">
+<h2><a class="toc-backref" href="#id32" role="doc-backlink">Редактирование DraftsBuilder</a><a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D">PUT UpdateDraftsBuilder</a></p>
+<p>Метод обновляет DraftsBuilder и его метаинформацию на переданные в запросе. Если DraftsBuilder с переданным <code class="docutils literal notranslate"><span class="pre">draftsBuilderId</span></code> не найден, метод создаст его.</p>
+</section>
+<section id="id8">
+<h2><a class="toc-backref" href="#id33" role="doc-backlink">Редактирование метаинформации DraftsBuilder</a><a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fmeta">PUT UpdateDraftsBuilderMeta</a></p>
+<p>Метод обновляет метаинформацию DraftsBuilder.</p>
+</section>
+<section id="rst-markup-builddb">
+<span id="id9"></span><h2><a class="toc-backref" href="#id34" role="doc-backlink">Сборка содержимого DraftsBuilder в черновик</a><a class="headerlink" href="#rst-markup-builddb" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fbuild">POST BuildDrafts</a></p>
+<p>Чтобы завершить создание черновика описи необходимо привести все переданные данные к установленному формату. Сборку черновиков нужно запускать, когда добавлены все файлы документов, необходимые для отправки отчета в налоговый орган. Если после сборки доложить в черновик новый документ, файл описи станет недействительным.</p>
+<p>В результате работы метод вернет информацию о выполнении сборки, которая содержит: идентификатор <code class="docutils literal notranslate"><span class="pre">TaskId</span></code>, состояние сборки, результат, сообщение об ошибке.</p>
+<p>Когда запускается сборка DraftsBuilder, на него ставится <a class="reference internal" href="../scenarios/device_api/loks.html"><span class="doc">блокировка</span></a>. После успешного завершения сборки нельзя вносить изменения в DraftBuilder. Если необходимо повторно загрузить документы, нужно создать и наполнить новый DraftBuilder.</p>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>Во время сборки документы проходят проверки. Если документы в билдере не корректные, то это не будет являться ошибкой сборки, метод вернет ответ <code class="docutils literal notranslate"><span class="pre">202</span> <span class="pre">Accepted</span></code>. Документы с ошибками будут перечислены в модели <code class="docutils literal notranslate"><span class="pre">error-drafts-builder-documents</span></code>. Данные документы необходимо исправить, повторно создать DraftBuilder, загрузить исправленные файлы и повторить сборку. Если хотя бы один документ корректный — будет создан черновик.</p>
+</div>
+<p>Время сборки зависит от количества и размера файлов. Отследить состояние сборки черновиков можно при помощи метода <code class="docutils literal notranslate"><span class="pre">GetBuildResult</span></code> по полученному идентификатору задачи <code class="docutils literal notranslate"><span class="pre">TaskId</span></code> и идентификатору <code class="docutils literal notranslate"><span class="pre">DraftsBuilderId</span></code>.</p>
+<p><strong>Параметры запроса</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">deferred</span></code> — флаг <a class="reference internal" href="../recommendations.html#rst-markup-deferred"><span class="std std-ref">асинхронного выполнения запроса</span></a>. Принимает только значение <em>true</em>. При таком значении запрос будет выполнен асинхронно: будет создана задача, статус выполнения которой можно посмотреть по <code class="docutils literal notranslate"><span class="pre">task-id</span></code>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>Значение флага <em>false</em> для синхронного вызова метода устарело и больше не используется в методах API. При таком значении вернется ошибка 400 BadRequest.</p>
+</div>
+<p><strong>Возможные коды ответов</strong></p>
+<ul class="simple">
+<li><p>202 Accepted — поставлена задача на сборку DraftsBuilder в черновик, результаты сборки можно получить в задаче по TaskId;</p></li>
+<li><p>400 BadRequest — указаны некорректные входные данные или передано значение флага асинхронного вызова метода deferred — false.</p></li>
+</ul>
+</section>
+<section id="id10">
+<h2><a class="toc-backref" href="#id35" role="doc-backlink">Проверка статуса сборки</a><a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Ftasks%2F%7BapiTaskId%7D">GET GetBuildResult</a></p>
+<p>По переданным идентификаторам <code class="docutils literal notranslate"><span class="pre">TaskId</span></code> и <code class="docutils literal notranslate"><span class="pre">DraftsBuilderId</span></code> метод возвращает:</p>
+<ul class="simple">
+<li><p>статус сборки;</p></li>
+<li><p>идентификаторы черновиков, в каждом из которых будет находиться xml-файл описи, файлы, сообщение о представительстве (если есть).</p></li>
+</ul>
+<p>Когда сборка завершится, значение статуса будет succeed. Если хотя бы в одном документе произошла ошибка, статус сборки вернется также со значением succeed, а документ будет записан в список ошибочных (<code class="docutils literal notranslate"><span class="pre">error-drafts-builder-documents</span></code>). Идентификаторы сформированных без ошибок черновиков будут в списке <code class="docutils literal notranslate"><span class="pre">draft-ids</span></code>.</p>
+</section>
+<section id="id11">
+<h2><a class="toc-backref" href="#id36" role="doc-backlink">Удаление DraftsBuilder</a><a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=delete&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D">DELETE RemoveDraftsBuilder</a></p>
+<p>Метод удаляет DraftsBuilder и все его содержимое.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id12">
+<h1><a class="toc-backref" href="#id37" role="doc-backlink">Методы для работы с документами DraftsBuilder</a><a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h1>
+<section id="id13">
+<h2><a class="toc-backref" href="#id38" role="doc-backlink">Получение списка документов</a><a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments">GET GetDraftsBuilderDocuments</a></p>
+<p>По идентификатору <code class="docutils literal notranslate"><span class="pre">DraftsBuilderId</span></code> метод находит список созданных в нем документов, для каждого возвращается: идентификатор документа, идентификатор DraftsBuilder, метаинформация.</p>
+</section>
+<section id="rst-markup-createdocdb">
+<span id="id14"></span><h2><a class="toc-backref" href="#id39" role="doc-backlink">Создание документа</a><a class="headerlink" href="#rst-markup-createdocdb" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments">POST CreateDraftsBuilderDocument</a></p>
+<p>Чтобы добавить файлы, необходимо сначала добавить для них контейнер — документ. Вызывайте столько раз, сколько отдельных документов-контейнеров нужно создать.</p>
+<p><strong>Параметры Тела запроса (Request Body)</strong></p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-data</span></code> — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.</p>
+<blockquote>
+<div><p>Параметры Builder-data в зависимости от типа DraftsBuilder:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-1-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-1-1-0" name="1-0" role="tab" tabindex="0">тип fns534-inventory</button><button aria-controls="panel-1-1-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-1" name="1-1" role="tab" tabindex="-1">тип fns534-letter</button><button aria-controls="panel-1-1-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-1-1-2" name="1-2" role="tab" tabindex="-1">тип business-registration</button></div><div aria-labelledby="tab-1-1-0" class="sphinx-tabs-panel" id="panel-1-1-0" name="1-0" role="tabpanel" tabindex="0"><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">claim-item-number</span></code> — номер пункта требования, под которым документ указан в требовании в виде 1.ХХ или 2.ХХ;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">label-for-grouping</span></code> — метка группы документов для разделения по разным описям.</p>
+<blockquote>
+<div><p>Иногда ФНС просит, чтобы налогоплательщик прислал определенные документы в разных описях. По данной метке документы будут разделены в разные черновики с разными файлами описи. В параметре можно передать любую строку, главное — для одной группы указывать одну и ту же строку. Значение null также является меткой.</p>
+<p><strong>Пример</strong>: для документа1 параметр не передан, для документа2 значение параметра «группа 1». Документы будут добавлены в разные черновики и будет сформировано две описи. Если параметр не передавать для всех документов, будет создан один черновик и один файл описи (<a class="reference internal" href="../scenarios/device_api/DraftsBuilder.html#rst-markup-db-restricting"><span class="std std-ref">в соответствии с ограничениями на размер и количество файлов</span></a>).</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scanned-document-name</span></code> — название отсканированного документа;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> — тип документа. Enums: <strong>formalized, scanned, warrant</strong>;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-processing</span></code> — условия для немедленной обработки документа:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">total-file-count</span></code> — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве или размере файлов в документе.</p>
+<blockquote>
+<div><p>После начала обработки документ и его файлы будут заблокированы для изменений.</p>
+<p>Рекомендуется выставлять, если документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Пример Request Body для создания документа</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;claim-item-number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1.00&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;label-for-grouping&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;scanned-document-name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Имя документа.pdf&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;scanned&quot;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-1" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-1" name="1-1" role="tabpanel" tabindex="0"><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code> — тип документа. Enums: <strong>warrant, attachment, letter</strong> . Необязательный параметр, так как DraftsBuilder автоматически определит тип документа по загруженному файлу. Если файл определить не получится, то по умолчанию DraftsBuilder установит значение attachment. Если в запросе передать type и его значение не совпадет с типом документа, который определит автоматически DraftsBuilder, сервис вернет ошибку 400 BadRequest;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">background-processing</span></code> — условия для немедленной обработки документа:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">total-file-count</span></code> — указание количества файлов в документе. Когда в документ будет добавлено указанное количество файлов, начнется обработка этого документа. Это позволяет перенести шаг подготовки документа на этап загрузки других документов, что существенно ускоряет сборку черновиков при большом количестве или размере файлов в документе.</p>
+<blockquote>
+<div><p>После начала обработки документ и его файлы будут заблокированы для изменений.</p>
+<p>Рекомендуется выставлять, если документ уже не будет изменен до запуска сборки DraftsBuilder в черновики. Если хотя бы один документ был подготовлен с неправильными данными, то нужно будет пересоздать DraftsBuilder целиком.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Пример Request Body для создания документа</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;letter&quot;</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-1-2" class="sphinx-tabs-panel" hidden="true" id="panel-1-1-2" name="1-2" role="tabpanel" tabindex="0"><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">svdreg-code</span></code> — код СВДРЕГ;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">signers</span></code> — данные каждого подписанта:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fio</span></code> — ФИО каждого заявителя.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Пример Request Body для создания документа</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;svdreg-code&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;011011&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;signers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">         </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;fio&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;surname&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Иванов&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Иван&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;patronymic&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Иванович&quot;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">         </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id15">
+<h2><a class="toc-backref" href="#id40" role="doc-backlink">Получение информации о документе</a><a class="headerlink" href="#id15" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D">GET GetDraftsBuilderDocument</a></p>
+<p>Метод возвращает всю информацию о документе по его идентификатору.</p>
+</section>
+<section id="id16">
+<h2><a class="toc-backref" href="#id41" role="doc-backlink">Получение метаинформации документа</a><a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta">GET GetDraftsBuilderDocumentMeta</a></p>
+<p>Метод возвращает метаинформацию документа по его идентификатору.</p>
+</section>
+<section id="id17">
+<h2><a class="toc-backref" href="#id42" role="doc-backlink">Редактирование документа</a><a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D">PUT UpdateDraftsBuilderDocument</a></p>
+<p>Метод обновляет документ и его метаинформацию на переданные в запросе. Если документ с переданным <code class="docutils literal notranslate"><span class="pre">documentId</span></code> в DraftBuilder не найден, метод создаст его.</p>
+</section>
+<section id="id18">
+<h2><a class="toc-backref" href="#id43" role="doc-backlink">Редактирование метаинформации документа</a><a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fmeta">PUT UpdateDraftsBuilderDocumentMeta</a></p>
+<p>Метод обновляет метаинформацию документа.</p>
+</section>
+<section id="draftbuilder">
+<h2><a class="toc-backref" href="#id44" role="doc-backlink">Удаление документа в DraftBuilder</a><a class="headerlink" href="#draftbuilder" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=delete&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D">DELETE RemoveDraftsBuilderDocument</a></p>
+<p>Метод удаляет документ по его идентификатору в заданном DraftBuilder.</p>
+</section>
+</section>
+<hr class="docutils" />
+<section id="id19">
+<h1><a class="toc-backref" href="#id45" role="doc-backlink">Методы для работы с файлами</a><a class="headerlink" href="#id19" title="Ссылка на этот заголовок"></a></h1>
+<section id="id20">
+<h2><a class="toc-backref" href="#id46" role="doc-backlink">Получение списка всех файлов документа</a><a class="headerlink" href="#id20" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles">GET GetDraftsBuilderDocumentFiles</a></p>
+<p>По идентификатору DraftsBuilder и документу в нем метод находит список добавленных файлов.</p>
+</section>
+<section id="rst-markup-createfiledb">
+<span id="id21"></span><h2><a class="toc-backref" href="#id47" role="doc-backlink">Создание файла в документе</a><a class="headerlink" href="#rst-markup-createfiledb" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles">POST CreateDraftsBuilderDocumentFile</a></p>
+<p>Метод создает файл в документе. Вызывайте столько раз, сколько файлов нужно положить в документ-контейнер.</p>
+<p><strong>Параметры Тела запроса (Request Body)</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">content-id</span></code> — идентификатор контента в сервисе контентов;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64-signature-content</span></code> — контент подписи файла в формате base64;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meta</span></code> — метаинформация файла:</p>
+<blockquote>
+<div><ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">file-name</span></code> — полное имя файла;</p>
+<blockquote>
+<div><p>Для файла доверенности, который прилагается к банковской гарантии, имя должно соответствовать <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=8&amp;documentId=335100">формату</a> (см. Сведения об уполномоченном представителе Банка (Гаранта) (СвПред). Имя файла документа, подтверждающего полномочия представителя). Иначе метод вернет ошибку 400.</p>
+</div></blockquote>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">builder-data</span></code> — данные для указанного типа DraftsBuilder. Состав полей будет отличаться для каждого типа DraftsBuilder.</p>
+<blockquote>
+<div><p>Параметры builder-data в зависимости от типа DraftsBuilder:</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-2-0" aria-selected="true" class="sphinx-tabs-tab" id="tab-2-2-0" name="2-0" role="tab" tabindex="0">тип fns534-inventory</button><button aria-controls="panel-2-2-1" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-1" name="2-1" role="tab" tabindex="-1">тип fns534-letter</button><button aria-controls="panel-2-2-2" aria-selected="false" class="sphinx-tabs-tab" id="tab-2-2-2" name="2-2" role="tab" tabindex="-1">тип business-registration</button></div><div aria-labelledby="tab-2-2-0" class="sphinx-tabs-panel" id="panel-2-2-0" name="2-0" role="tabpanel" tabindex="0"><p><code class="docutils literal notranslate"><span class="pre">scanned-file-order</span></code> — порядковый номер файла в многостраничном документе. Если документ одностраничный, то файл будет один и передавать в параметре «1» не обязательно. Пример использования параметра: «3» будет означать, что данный файл — третья страница в документе.</p>
+<p><strong>Пример Request Body для создания файла</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1fa932c7-84c2-4f20-acc5-56917ba85aaa&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;base64-signature-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;file-name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Имя документа.pdf&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;scanned-file-order&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-1" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-1" name="2-1" role="tabpanel" tabindex="0"><p><code class="docutils literal notranslate"><span class="pre">attachment-file-order</span></code> — порядковый номер файла в многостраничном документе.</p>
+<p><strong>Пример Request Body для создания файла</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1fa932c7-84c2-4f20-acc5-56917ba85aaa&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;base64-signature-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;file-name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Имя документа.pdf&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">         </span><span class="nt">&quot;attachment-file-order&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3&quot;</span>
+<span class="w">      </span><span class="p">}</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-2-2" class="sphinx-tabs-panel" hidden="true" id="panel-2-2-2" name="2-2" role="tabpanel" tabindex="0"><p>Для DraftsBuilder типа business-registration параметр builder-data не передается.</p>
+<p><strong>Пример Request Body для создания файла</strong>:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+<span class="w">   </span><span class="nt">&quot;content-id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1fa932c7-84c2-4f20-acc5-56917ba85aaa&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;base64-signature-content&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MIINFQYJKoZIhvcNAQcCoIINBjCCDQI...u5yhEBC9oMu/oLG0hL66DVA/09vGdg=&quot;</span><span class="p">,</span>
+<span class="w">   </span><span class="nt">&quot;meta&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;file-name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;AnyFileName.pdf&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;builder-data&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+<span class="w">   </span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></div>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id22">
+<h2><a class="toc-backref" href="#id48" role="doc-backlink">Получение файла по идентификатору</a><a class="headerlink" href="#id22" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D">GET GetDraftsBuilderDocumentFile</a></p>
+<p>Метод возвращает всю информацию о файле по его идентификатору.</p>
+</section>
+<section id="id23">
+<h2><a class="toc-backref" href="#id49" role="doc-backlink">Редактирование файла в документе</a><a class="headerlink" href="#id23" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D">PUT UpdateDraftsBuilderDocumentFile</a></p>
+<p>Метод обновляет файл и подпись в документе на переданные в запросе. Если файл с переданным <code class="docutils literal notranslate"><span class="pre">fileId</span></code> в документе не найден, метод создаст его.</p>
+</section>
+<section id="id24">
+<h2><a class="toc-backref" href="#id50" role="doc-backlink">Получение подписи к файлу</a><a class="headerlink" href="#id24" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fsignature">GET GetDraftsBuilderDocumentFileSignatureContent</a></p>
+<p>Метод возвращает подпись контрагента, если она была приложена к файлу, в формате base64.</p>
+</section>
+<section id="id25">
+<h2><a class="toc-backref" href="#id51" role="doc-backlink">Получение метаинформации файла</a><a class="headerlink" href="#id25" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta">GET GetDraftsBuilderDocumentFileMeta</a></p>
+<p>Метод возвращает метаинформацию файла.</p>
+</section>
+<section id="id26">
+<h2><a class="toc-backref" href="#id52" role="doc-backlink">Редактирование меты файла</a><a class="headerlink" href="#id26" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=put&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta">PUT UpdateDraftsBuilderDocumentFileMeta</a></p>
+<p>Метод обновляет метаинформацию файла.</p>
+</section>
+<section id="id27">
+<h2><a class="toc-backref" href="#id53" role="doc-backlink">Удаление файла документа</a><a class="headerlink" href="#id27" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=delete&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D">DELETE RemoveDraftsBuilderDocumentFile</a></p>
+<p>Метод удаляет файл в документе DraftsBilder по его идентификатору.</p>
+</section>
+<section id="deprecated">
+<h2><a class="toc-backref" href="#id54" role="doc-backlink">Получение содержимого файла (deprecated)</a><a class="headerlink" href="#deprecated" title="Ссылка на этот заголовок"></a></h2>
+<p>Метод: <a class="reference external" href="https://developer.kontur.ru/doc/extern.drafts/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fcontent">GET GetDraftsBuilderDocumentFileContent</a></p>
+<div class="admonition attention">
+<p class="admonition-title">Внимание</p>
+<p><strong>Метод устарел.</strong> Вместо него используйте <a class="reference internal" href="../scenarios/device_api/content.html"><span class="doc">Сервис контентов</span></a>. Идентификатор контента лежит в параметре <code class="docutils literal notranslate"><span class="pre">content-id</span></code>.</p>
+</div>
+<p>Метод возвращает содержимое файла в формате base64. Максимальный размер возвращаемого контента 32 МБ для тестовой и 64 МБ для рабочей площадки.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="Конструктор черновиков (DraftsBuilder)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../contents/index.html" class="btn btn-neutral float-right" title="Сервис контентов" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

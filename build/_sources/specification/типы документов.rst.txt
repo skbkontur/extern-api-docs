@@ -1,0 +1,914 @@
+Типы документов
+===============
+
+.. important:: Документы, помеченные "*" формирует оператор ЭДО при отправке документооборота.  
+
+.. _rst-markup-type_document:
+
+ФНС
+---
+
+Декларация и 2-НДФЛ
++++++++++++++++++++
+
+Тип документооборота urn:docflow:fns534-report.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+
+   "urn:document:fns534-report","Налоговая декларация или бухгалтерская отчетность (установленный формат).","Декларация"
+   "urn:document:fns534-report-description*","Служебный документ, в котором передается описание декларации (установленный формат).","Описание"
+   "urn:document:fns534-report-warrant","Информационное сообщение о доверенности уполномоченного лица (установленный формат).","Доверенность"
+   "urn:document:fns534-report-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-report-acceptance-result-positive","Квитанция о приеме налоговой декларации (установленный формат).","КвитанцияОПриеме"
+   "urn:document:fns534-report-acceptance-result-negative","Уведомление об отказе в приеме налоговой декларации (установленный формат).","УведомлениеОбОтказе"
+   "urn:document:fns534-report-processing-result-ok","Извещение о вводе декларации в информационную систему налогового органа (установленный формат).","ИзвещениеОВводе"
+   "urn:document:fns534-report-processing-result-precise","Уведомление о необходимости внесения уточнений (установленный формат).","УведомлениеОбУточнении"
+   "urn:document:fns534-report-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-report-acceptance-result-2ndfl-protocol","Протокол приема сведений о доходах физических лиц от налоговых агентов (установленный формат).","ПротоколПриема2НДФЛ"
+   "urn:document:fns534-report-acceptance-result-2ndfl-registry","Реестр сведений о доходах физических лиц (установленный формат).","РеестрПринятыхДокументов"
+   "urn:document:fns534-report-attachment","Неформализованное приложение или формализованное приложение (установленный формат).","Приложение"
+
+ИОН
++++
+
+Тип документооборота urn:docflow:fns534-ion.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-ion-request","Запрос на предоставление информации (установленный формат).","Запрос"
+   "urn:document:fns534-ion-date-confirmation*","Подтверждение даты отправки (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-ion-description*","Служебный документ, в котором передается описание запроса (установленный формат).","Описание"
+   "urn:document:fns534-ion-acceptance-result-positive","Квитанция о приеме (установленный формат).","КвитанцияОПриеме"
+   "urn:document:fns534-ion-acceptance-result-negative","Уведомление, содержащее отказ абоненту в предоставлении запрошенных сведений с описанием выявленных ошибок и причин отказа в приеме (установленный формат).","УведомлениеОбОтказе"
+   "urn:document:fns534-ion-response","Документ, содержащий запрошенный абонентом документ (установленный формат) и/или Уведомление об отказе, как ответ об отсутствии данных по запрашиваемому абоненту (установленный формат).","Ответ"
+   "urn:document:fns534-ion-warrant","Информационное сообщение о доверенности уполномоченного лица (установленный формат).","Доверенность"
+   "urn:document:fns534-ion-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+
+Письмо в ФНС
+++++++++++++
+
+Тип документооборота urn:docflow:fns534-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-letter","Текст обращения (установленный формат).","Обращение"
+   "urn:document:fns534-letter-descriptiont*","Служебный документ, в котором передается описание (установленный формат).","Описание"
+   "urn:document:fns534-letter-attachment","Неформализованное приложение к письму.","Приложение"
+   "urn:document:fns534-letter-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-letter-decline-notice","Уведомление об отказе в приеме обращения (установленный формат).","УведомлениеОбОтказе"
+   "urn:document:fns534-letter-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-letter-warrant","Информационное сообщение о доверенности уполномоченного лица (установленный формат).","Доверенность"
+
+Письмо из ФНС	
++++++++++++++
+
+Тип документооборота urn:docflow:fns534-cu-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-cu-letter","Текст письма (установленный формат).","Письмо"
+   "urn:document:fns534-cu-letter-description","Служебный документ, в котором передается описание (установленный формат).","Описание"
+   "urn:document:fns534-cu-letter-attachment","Неформализованное приложение к письму.","Приложение"
+   "urn:document:fns534-cu-letter-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-cu-letter-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+
+Представление
++++++++++++++
+
+Тип документооборота urn:docflow:fns534-submission.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-submission-message","Документ (установленный формат).","Представление"
+   "urn:document:fns534-submission-description*","Служебный документ, в котором передается описание документа представление (установленный формат).","Описание"
+   "urn:document:fns534-submission-attachment","Документы, которые могут идти в составе с основным документом.","Приложение"
+   "urn:document:fns534-submission-warrant","Информационное сообщение о доверенности уполномоченного лица (установленный формат).","Доверенность"
+   "urn:document:fns534-submission-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-submission-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-submission-acceptance-result-positive","Квитанция о приеме налоговой декларации (установленный формат).","КвитанцияОПриеме"
+   "urn:document:fns534-submission-acceptance-result-negative","Уведомление об отказе в приеме налоговой декларации (установленный формат).","УведомлениеОбОтказе"
+
+Документ (Требование)	
++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fns534-demand.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-demand","Файл-описание к требованиям (установленный формат).","Документ"
+   "urn:document:fns534-demand-description","Служебный документ, в котором передается описание документа (установленный формат).","Описание"
+   "urn:document:fns534-demand-attachment","Требование.","Приложение"
+   "urn:document:fns534-demand-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-demand-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-demand-acceptance-result-negative","Уведомление об отказе в приеме документа (установленный формат).","УведомлениеОбОтказе"
+   "urn:document:fns534-demand-acceptance-result-positive","Квитанция о приеме документа (установленный формат).","КвитанцияОПриеме"
+
+Опись (Ответ на требование)
++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fns534-inventory.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-inventory-message","Документ (установленный формат).","Представление"
+   "urn:document:fns534-inventory-description*","Служебный документ, в котором передается описание документа представление (установленный формат).","Описание"
+   "urn:document:fns534-inventory-attachment","Документы, которые могут идти в составе с основным документом.","Приложение"
+   "urn:document:fns534-inventory-warrant","Информационное сообщение о представительстве уполномоченного лица (установленный формат).","Доверенность"
+   "urn:document:fns534-inventory-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-inventory-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-inventory-acceptance-result-positive","Квитанция о приеме налоговой декларации (установленный формат).","КвитанцияОПриеме"
+   "urn:document:fns534-inventory-acceptance-result-negative","Уведомление об отказе в приеме налоговой декларации (установленный формат).","УведомлениеОбОтказе"
+
+Заявление
++++++++++
+
+Тип документооборота urn:docflow:fns534-application.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fns534-application","Заявление российского покупателя о ввозе товаров и уплате косвенных налогов (установленный формат).","Заявление"
+   "urn:document:fns534-application-description*","Служебный документ, в котором передается описание заявления (установленный формат).","Описание"
+   "urn:document:fns534-application-warrant","Информационное сообщение о доверенности уполномоченного лица (установленный формат).","Доверенность"
+   "urn:document:fns534-application-date-confirmation*","Подтверждение даты отправки документа (установленный формат).","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-application-acceptance-result-negative","Уведомление об отказе в приеме заявления (установленный формат).","УведомлениеОбОтказе"
+   "urn:document:fns534-application-acceptance-result-positive","Квитанция о приеме заявления (установленный формат).","КвитанцияОПриеме"
+   "urn:document:fns534-application-receipt","Извещение о получении документа его получателем (установленный формат).","ИзвещениеОПолучении"
+   "urn:document:fns534-application-processing-result-positive","Сообщение о проставлении отметки налогового органа (установленный формат).","СообщениеОПростОтметки"
+   "urn:document:fns534-application-processing-result-negative","Уведомление об отказе в проставлении на заявлении о ввозе товаров и уплате косвенных налогов отметки налогового органа об уплате косвенных налогов (установленный формат).","УведомлениеОбОтказеОтметки"
+
+Регистрация бизнеса
++++++++++++++++++++
+
+Тип документооборота urn:docflow:business-registration.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:business-registration-inventory","Служебный документ, в котором передается описание документа (установленный формат)","Опись представляемого пакета документов"
+   "urn:document:business-registration-duty","Документ об уплате государственной пошлины","Госпошлина"
+   "urn:document:business-registration-application","Заявление о государственной регистрации юридического лица, физического лица в качестве индивидуального предпринимателя","Заявление по установленной форме"
+   "urn:document:business-registration-application-usn","Заявление о переходе на упрощенную систему налогообложения (форма №26.2-1)","Заявление о переходе на УСН"
+   "urn:document:business-registration-founding-document","Учредительный документ","Учредительный документ"
+   "urn:document:business-registration-founding-document-correction","Изменения в учредительный документ","Изменения в учредительный документ"
+   "urn:document:business-registration-attachment","Документы, необходимые для государственной регистрации","Иные документы"
+   "**Ответные документы**","",""
+   "urn:document:business-registration-check-protocol","Протокол с информацией о выявленных несоответствиях форматно-логического контроля","Сообщение о невозможности обработки электронных документов"
+   "urn:document:business-registration-receipt","Расписка о принятии заявления","Расписка в получении налоговым (регистрирующим) органом документов в электронном виде"
+   "urn:document:business-registration-acceptance-result-negative","Решение об отказе в регистрации","Решение об отказе в государственной регистрации"
+   "urn:document:business-registration-registration-notice","Уведомление о постановке на учёт","Уведомление о постановке на учет в качестве индивидуального предпринимателя в налоговом органе"
+   "urn:document:business-registration-registration-certificate","Свидетельство о постановке на учет","Свидетельство о постановке на учет в налоговом органе"
+   "urn:document:business-registration-deregistration-notice","Уведомление о снятии с учета","Уведомление о снятии с учета в налоговом органе"
+   "urn:document:business-registration-egrip-extract","Выписка или лист записи ЕГРИП","Выписка или лист записи ЕГРИП"
+   "urn:document:business-registration-egrul-extract","Выписка или лист записи ЕГРЮЛ","Выписка или лист записи ЕГРЮЛ"
+   "urn:document:business-registration-decline-notice","Уведомление об оставлении документов без рассмотрения","Уведомление об оставлении документов без рассмотрения"
+   "urn:document:business-registration-acceptance-result-suspension","Решение о приостановлении регистрации","Решение о приостановлении государственной регистрации"
+   "urn:document:business-registration-cu-letter","Информационное письмо", "Информационное письмо"
+   "urn:document:business-registration-incoming-attachment", "Любое приложение, которое содержит дополнительные сведения от ФНС", "Иные документы"
+
+Массовая рассылка от ФНС
+++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fns534-cu-broadcast.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+
+   "urn:document:error", "Сообщение об ошибке от КО", "СообщениеОбОшибке"
+   "urn:document:fns534-cu-broadcast","Неформализованный текст информационной рассылки налогового органа","Рассылка"
+   "urn:document:fns534-cu-broadcast-attachment","Неформализованное приложение к рассылке","Приложение"
+   "urn:document:fns534-cu-broadcast-date-confirmation*","Подтверждение даты отправки рассылки (установленный формат)","ПодтверждениеДатыОтправки"
+   "urn:document:fns534-cu-broadcast-description*","Служебный документ, в котором передается описание (установленный формат)","Описание"
+   "urn:document:error-description-for-abonent","Описание действий для абонента для решения причины ошибки",""
+
+ПФР
+---
+
+Сведения ПФР
+++++++++++++
+
+Тип документооборота urn:docflow:pfr-report.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+
+   "urn:document:pfr-report","Пачка или пачки отчетности (установленный формат)","Тип пачки"
+   "urn:document:pfr-report-description","Описание передаваемых сведений (установленный формат)","ОписаниеСведений"
+   "urn:document:pfr-report-attachment","Неформализованное приложение к сведениям","СведенияПриложение"
+   "urn:document:pfr-report-acknowledgement","уведомление о доставке сведений в орган ПФР (установленный формат)","ПодтверждениеПолучения"
+   "urn:document:pfr-report-protocol","Протокол входного контроля, содержит информацию о том, приняты отправленные сведения или нет (установленный формат)","Протокол"
+   "urn:document:pfr-report-protocol-appendix","Приложение к протоколу (обычно это результаты проверки проверочных программ ПФР)","ПротоколПриложение"
+   "urn:document:pfr-report-error-description","Описание ошибки, возникшей в ходе ДО","описаниеОшибки"
+
+Сведения ПФР (для ЭДОК)
++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:pfr-report.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+
+   "urn:document:pfr-report-report-v2","Отчет с подписью формата XMLDSig для отправки в ЭДОК","Отчетность"
+   "urn:document:pfr-package-description", "Описание пакета", "Опись содержания пакета (ОСП)"
+   "urn:document:pfr-report-attachment","Неформализованное приложение к пакету","Приложение"
+   "urn:document:pfr-report-acknowledgement-v2","Подтверждение доставки пакета в ЭДОК","Уведомление о доставке"
+   "urn:document:pfr-report-decline-notice","Отказ в приеме пакета по технологическим причинам","Уведомление об отказе в приеме пакета"
+   "urn:document:pfr-report-protocol-check","Результат успешно пройденных проверок","Унифицированный протокол проверок"
+   "urn:document:pfr-report-protocol-refinement-notice","Результат выявленных ошибок при проверке отчетности","Уведомление об устранении ошибок и (или) несоответствий"
+   "urn:document:pfr-report-protocol-appendix","Приложение к протоколу (к Positive либо Suppositive)","Приложение"
+   "urn:document:pfr-report-protocol-refinement-notice-receipt","Подтверждение получения уведомления об устранении ошибок и (или) несоответствий оператором","Уведомление о доставке"
+
+Письмо в ПФР	
+++++++++++++
+Тип документооборота urn:docflow:pfr-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:pfr-letter","Текст письма","Письмо"
+   "urn:document:pfr-letter-description","Описание передаваемого письма (установленный формат)","ОписаниеПисьма"
+   "urn:document:pfr-letter-attachment","Произвольное приложение к письму","ПисьмоПриложение"
+   "urn:document:pfr-letter-transport-info","Транспортная информация о передаваемом письме (установленный формат)","ТранспортнаяИнформация"
+   "urn:document:pfr-letter-letter-acknowledgement","Документ, подтверждающий получение письма и приложений к нему УПФР","ПодтверждениеПолучения"
+   "urn:document:pfr-letter-error-description","Описание ошибки, возникшей в ходе ДО","описаниеОшибки"
+
+Письмо из ПФР	
++++++++++++++
+
+Тип документооборота urn:docflow:pfr-cu-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:pfr-cu-letter","Текст письма","Письмо"
+   "urn:document:pfr-cu-letter-description","Описание передаваемого письма (установленный формат)","ОписаниеПисьма"
+   "urn:document:pfr-cu-letter-attachment","Произвольное приложение к письму","ПисьмоПриложение"
+   "urn:document:pfr-cu-letter-transport-info","Транспортная информация о передаваемом письме (установленный формат)","ТранспортнаяИнформация"
+   "urn:document:pfr-cu-letter-letter-acknowledgement","Документ, подтверждающий получение письма и приложений к нему абонентом","ПодтверждениеПолучения"
+   "urn:document:pfr-cu-letter-error-description","Описание ошибки, возникшей в ходе ДО","описаниеОшибки"
+
+
+Уточнение платежей	
+++++++++++++++++++
+
+Тип документооборота urn:docflow:pfr-ios.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:pfr-ios-request","Документ с запросом информации по платежам в орган ПФР (установленный формат)","Запрос"
+   "urn:document:pfr-ios-description","Описание передаваемого запроса (установленный формат)","ОписаниеЗапроса"
+   "urn:document:pfr-ios-request-acknowledgement","Подтвержение получения запроса УПФР","ПодтверждениеПолучения"
+   "urn:document:pfr-ios-response","Ответ на запрос информации по платежам в орган ПФР, в котором указано, удалось предоставить запрашиваемую информацию или нет","Ответ"
+   "urn:document:pfr-ios-response-attachment","Приложение к документу ответ: если ответ положительный, то в нем содержится информация о платежах в орган ПФР; если ответ отрицательный, то в нем содержится описание причины, по которой не удалось предоставить запрашиваемую информацию","ОтветПриложение"
+   "urn:document:pfr-ios-error-description","Описание ошибки, возникшей в ходе ДО","описаниеОшибки"
+
+Служебный документ ПФР
+++++++++++++++++++++++
+
+Тип документооборота urn:docflow:pfr-ancillary.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:pfr-ancillary-document","Служебный документ","Служебный документ"
+   "urn:document:pfr-ancillary-attachment","Не формализованное приложение в пакете","Приложение"
+   "urn:document:pfr-ancillary-delivery-notice","Подтверждение доставки пакета в ЭДОК","Уведомление о доставке"
+   "urn:document:pfr-ancillary-rejection-notice","Отказ в приеме пакета","Уведомление об отказе в приеме пакета "
+   "urn:document:pfr-ancillary-reception-result-positive","Положительный результат рассмотрения","Уведомление о результате рассмотрения"
+   "urn:document:pfr-ancillary-reception-result-negative","Результат рассмотрения с перечнем выявленных ошибок в предоставленном документе","Уведомление о результате рассмотрения"
+   "urn:document:pfr-ancillary-reception-result-receipt","Подтверждение получения результата рассмотрения оператором","Уведомление о доставке"
+
+
+СФР
+---
+
+Отчетность в СФР
+++++++++++++++++
+
+Тип документооборота urn:docflow:sfr-report
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:sfr-report-report-document", "Отчет", ""
+   "urn:document:sfr-report-attachment", "Приложение", ""
+   "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
+   "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
+   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
+   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
+   "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
+   "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
+   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
+
+Росстат
+-------
+
+.. _rst-markup-stat-report-type-document:
+
+Отчет в Росстат
++++++++++++++++
+
+Тип документооборота urn:docflow:stat-report.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:stat-report","Отчет, направляемый в ТОГС (установленный формат)","Отчет"
+   "urn:document:stat-report-description*","Служебный документ, в котором передается описание отчета (установленный формат)","ОписаниеОтчета"
+   "urn:document:stat-report-date-confirmation*","Подтверждение даты отправки документа (установленный формат)","ПодтверждениеОператора"
+   "urn:document:stat-report-report-attachment","Неформализованное приложение к отчету","ПриложениеПисьма"
+   "urn:document:stat-report-receipt","Извещение о получении документа его получателем (установленный формат)","ИзвещениеОПолучении"
+   "urn:document:stat-report-protocol-v2-positive","Уведомление о принятии отчета ТОГСом","УведомлениеОПриемеВОбработку"
+   "urn:document:stat-report-protocol-v2-negative","Уведомление об отказе в принятии отчета ТОГСом","УведомлениеОНесоответствииФормату"
+   "urn:document:stat-report-protocol-v2-precise","Уведомление о наличии несоответствий в предоставленном отчете и необходимости его повторной отправки","УведомлениеОбУточнении"
+   "urn:document:stat-report-protocol-v2-reject","Уведомление о невозможности принятия отчета по причине его сдачи другим способом отчетности","уведомлениеОбОтклонении"
+
+.. _rst-markup-stat-letter-documents:
+
+Письмо в Росстат
+++++++++++++++++
+
+Тип документооборота urn:docflow:stat-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:stat-letter","Неформализованный текст письма","Письмо"
+   "urn:document:stat-letter-description*","Служебный документ, в котором передается описание письма (установленный формат)","ОписаниеПисьма"
+   "urn:document:stat-letter-attachment","Неформализованное приложение к письму","ПриложениеПисьма"
+   "urn:document:stat-letter-receipt","Извещение о получении письма его получателем (установленный формат)","ИзвещениеОПолучении"
+   "urn:document:stat-letter-confirmation*","Подтверждение даты отправки письма (установленный формат)","ПодтверждениеОператора"
+   
+Письмо из Росстата
+++++++++++++++++++
+
+Тип документооборота urn:docflow:stat-cu-letter.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:stat-cu-letter","Неформализованный текст письма","Письмо"
+   "urn:document:stat-cu-letter-attachment","Неформализованное приложение к письму","ПриложениеПисьма"
+   "urn:document:stat-cu-letter-receipt","Извещение о получении письма его получателем (установленный формат)","ИзвещениеОПолучении"
+   "urn:document:stat-cu-letter-confirmation","Подтверждение даты получения письма (установленный формат)","ПодтверждениеОператора"
+   "urn:document:stat-cu-letter-description*","Служебный документ, в котором передается описание письма (установленный формат)","ОписаниеПисьма"
+
+Массовая рассылка из Росстата
++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:stat-cu-broadcast.
+ 
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+
+   "urn:document:stat-cu-broadcast-letter","Неформализованный текст информационной рассылки","Рассылка"
+   "urn:document:stat-cu-broadcast-description","Служебный документ, в котором передается описание рассылки (установленный формат)","ОписаниеПисьма"
+   "urn:document:stat-cu-broadcast-attachment","Неформализованное приложение к рассылке","ПриложениеПисьма"
+   "urn:document:stat-cu-broadcast-confirmation","Подтверждение даты получения рассылки (установленный формат)","ПодтверждениеОператора"
+   
+.. _rst-markup-typedocumentFSS:
+
+ФСС
+---
+
+Расчёт 4-ФСС
++++++++++++++
+
+Тип документооборота urn:docflow:fss-report.
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 20 80 20
+   
+   "urn:document:fss-report","Исходный отчет с присоединенной подписью","Файл Расчета"
+   "urn:document:fss-report-date-confirmation","Подтверждение спецоператора (не утверждено форматом, формирует Контур.Экстерн при отправке из веб-приложения, юридической силы не имеет)","<нет соответствия>"
+   "urn:document:fss-report-error","Сообщение об ошибке при проверке отчета, возможные типы указаны на Портале ФСС (ошибки на стадии криптографических проверок)","<нет соответствия>"
+   "urn:document:fss-report-error-receipt","Сообщение об ошибке при проверке отчета (ошибки форматно-логического контроля)","Квитанция о получении Расчета с ошибками"
+   "urn:document:fss-report-receipt","Квитанция","Квитанция о получении Расчета"
+  
+
+Подтверждение основного вида экономической деятельности
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-oved-confirmation.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-oved-confirmation-request", "Запрос на отправку Заявления на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-request-fuf", "Заявление на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-attachment", "Приложение (пояснительная записка)"
+      "urn:document:fss-sedo-oved-confirmation-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-oved-confirmation-result-document", "Уведомление об изменении статуса запроса на подтверждение основного вида экономической деятельности"
+      "urn:document:fss-sedo-oved-confirmation-read-receipt", "Отметка о прочтении пользователем"
+      "urn:document:fss-sedo-oved-confirmation-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-oved-confirmation-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document", "Уведомление о размере страховых взносов юридического лица"
+
+
+Подписка оператора на документооборот с ФСС по абоненту
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-provider-subscription.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-provider-subscription-subscribe-request-for-registration-number","Подписка оператора на страхователя для получения документов из СЭДО"
+      "urn:document:fss-sedo-provider-subscription-unsubscribe-request-for-registration-number","Отписка оператора на страхователя для прекращения получения документов из СЭДО"
+      "urn:document:fss-sedo-provider-subscription-receipt","Результат приёма запроса порталом"
+      "urn:document:fss-sedo-provider-subscription-subscribe-result","Результат подписки оператора на страхователя"
+      "urn:document:fss-sedo-provider-subscription-error-message","Ошибка обработки документа"
+      "urn:document:fss-sedo-provider-subscription-exchange-error","Ошибка взаимодействия с СЭДО"
+
+Реестр ПВСО
++++++++++++
+
+Тип документооборота urn:docflow:fss-sick-report.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sick-report","Реестр больничных листов с присоединённой подписью"
+      "urn:document:fss-sick-report-date-confirmation","Подтверждение спецоператора"
+      "urn:document:fss-sick-report-error","Сообщение об ошибке при проверке реестра"
+      "urn:document:fss-sick-report-error-receipt","Сообщение об ошибке при проверке реестра"
+      "urn:document:fss-sick-report-receipt","Квитанция"
+
+Извещение о прямых выплатах мер социального обеспечения
++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-pvso-notification.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-pvso-notification-request-message", "Запрос на получение контента извещения ПВСО"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с извещением ПВСО"
+      "urn:document:fss-sedo-pvso-notification-notification-message", "Извещение ПВСО"
+      "urn:document:fss-sedo-pvso-notification-receipt-notification-message", "Извещение о прочтении сообщения страхователем"
+      "urn:document:fss-sedo-pvso-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
+      "urn:document:fss-sedo-pvso-notification-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-pvso-notification-error-message", "Ошибка обработки документа"
+      "urn:document:fss-sedo-pvso-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+
+Уведомления об изменении статуса электронного больничного листа
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-sick-report-change-notification.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-sick-report-change-notification-request-message", "Запрос на получение контента уведомления об изменении статуса ЭЛН"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с уведомлением об изменении статуса ЭЛН"
+      "urn:document:fss-sedo-sick-report-change-notification-notification-message", "Уведомление об изменении статуса ЭЛН"
+      "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-message", "Извещение о прочтении сообщения страхователем"
+      "urn:document:fss-sedo-sick-report-change-notification-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения от СЭДО"
+      "urn:document:fss-sedo-sick-report-change-notification-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-sick-report-change-notification-error-message", "Ошибка обработки документа"
+      "urn:document:fss-sedo-sick-report-change-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+
+Запрос недостающих сведений для назначения пособия ФСС
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-proactive-payments-demand.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-demand-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с запросом недостающих сведений"
+      "urn:document:fss-sedo-proactive-payments-demand-demand-message", "Документ запроса"
+      "urn:document:fss-sedo-proactive-payments-demand-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-payments-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-proactive-payments-reply.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-reply-request", "Запрос на отправку сведений"
+      "urn:document:fss-sedo-proactive-payments-reply-receipt", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-proactive-payments-reply-response-result", "Результат обработки запроса"
+      "urn:document:fss-sedo-proactive-payments-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-payments-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Выплата пособия
++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-proactive-payments-benefit.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-payments-benefit-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ выплаты пособия"
+      "urn:document:fss-sedo-proactive-payments-benefit-benefit-message", "Документ с выплатами"
+      "urn:document:fss-sedo-proactive-payments-benefit-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-payments-benefit-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-proactive-payments-benefit-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Сведения о застрахованном лице
+++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-insured-person-registration.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-insured-person-registration-request", "Запрос на регистрацию сведений"
+      "urn:document:fss-sedo-insured-person-registration-receipt", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-insured-person-registration-response-result", "Результат регистрации сведений"
+      "urn:document:fss-sedo-insured-person-registration-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-insured-person-registration-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-insured-person-registration-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+
+Информация о несоответствии сведений о застрахованном лице
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-insured-person-mismatch.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-insured-person-mismatch-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с информацией о несоответствии сведений о застрахованном лице"
+      "urn:document:fss-sedo-insured-person-mismatch-mismatch-message", "Документ с информацией"
+      "urn:document:fss-sedo-insured-person-mismatch-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-insured-person-mismatch-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-insured-person-mismatch-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Инициация выплат пособия
+++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-benefit-payment-initiation.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-benefit-payment-initiation-request", "Запрос на отправку сообщения «Инициация выплаты пособия»"
+      "urn:document:fss-sedo-benefit-payment-initiation-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-benefit-payment-initiation-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-document", "Сообщение «Результат обработки сообщения инициации выплат ФСС»"
+      "urn:document:fss-sedo-benefit-payment-initiation-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-benefit-payment-initiation-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+
+Уведомление о статусе выплаты пособия
++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-benefit-payment-status-notice.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-benefit-payment-status-notice-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-response", "Исходный документ ответа на запрос, содержит документ с уведомлением о статусе выплаты пособия"
+      "urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message", "Документ «Уведомление о статусе выплаты пособия»"
+      "urn:document:fss-sedo-benefit-payment-status-notice-error-message", "Ошибка обработки" 
+      "urn:document:fss-sedo-benefit-payment-status-notice-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+
+Запрос регистрации или отзыва доверенности ФСС
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-warrant-management.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-warrant-management-request-message", "SOAP-сообщение на отправку создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-request-document", "Исходный документ создания или отзыва доверенности ФСС до формирования SOAP-сообщения"
+      "urn:document:fss-warrant-management-error-message", "Ошибка в ходе данного документооборота"
+      "urn:document:fss-warrant-management-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-warrant-management-reception-result", "Результат отправки сообщения на портал СЭДО"
+      "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-read-receipt", "Отметка о прочтении"
+
+
+Требование ФСС
+++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-demand-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с требованием ФСС"
+      "urn:document:fss-sedo-demand-demand-message", "Документ с требованием ФСС"
+      "urn:document:fss-sedo-demand-receipt-notification-message", "Извещение о прочтении сообщения страхователя"
+      "urn:document:fss-sedo-demand-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения"
+      "urn:document:fss-sedo-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-demand-error-message", "Ошибка в ходе данного документооборота"
+      "urn:document:fss-sedo-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+      "urn:document:sedo-application", "Приложение к вложению"
+      "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
+
+Ответ на требование ФСС
++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-demand-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-demand-reply-request", "Запрос на отправку ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-reception-result", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-demand-reply-result-document", "Результат обработки ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-demand-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-demand-reply-attachment", "Приложение"
+
+
+Запрос на формирование справки о расчетах ФСС
++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-billing-information-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-billing-information-demand-request", "Запрос на отправку сведений"
+      "urn:document:fss-sedo-billing-information-demand-reception-result", "Результат приема запроса порталом"
+      "urn:document:fss-sedo-billing-information-demand-result-document", "Результат обработки запроса справки о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-billing-information-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-billing-information-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+      "urn:document:sedo-application", "Приложение к вложению"
+      "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
+
+
+Справка о расчетах ФСС
+++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-billing-information
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-billing-information-request-message", "Запрос на получение документов"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ со справкой о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-billing-information-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Уведомление о прекращении отпуска по уходу за ребенком до полутора лет
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-baby-care-vacation-close-notice
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-request", "Запрос на отправку сообщения «Уведомление о прекращении отпуска по уходу за ребенком до полутора лет»"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-result-document", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-baby-care-vacation-close-notice-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
+
+Сведения о зарплате сотрудника
+++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-employee-salary-information
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-employee-salary-information-request", "Запрос на отправку запроса сведений о зарплате сотрудника"
+      "urn:document:fss-sedo-employee-salary-information-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-employee-salary-information-result-document", "Результат обработки запроса сведений о зарплате сотрудника"
+      "urn:document:fss-sedo-employee-salary-information-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-employee-salary-information-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-employee-salary-information-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:fss-sedo-proactive-process-events-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-process-events-notification-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message", "Документ «Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству»"
+      "urn:document:fss-sedo-proactive-process-events-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-proactive-expire-notice
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-proactive-expire-notice-request-message", "Запрос на получение документа"
+      "urn:document:fss-sedo-proactive-expire-notice-document", "Документ уведомления"
+      "urn:document:fss-sedo-proactive-expire-notice-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-expire-notice-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Обращение СФР к страхователю
+++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-appeal
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-appeal-request-message", "Запрос на получение документа"
+      "urn:document:fss-sedo-appeal-document", "Документ письма"
+      "urn:document:fss-sedo-appeal-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-appeal-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+
+Ответ страхователя на обращение СФР
++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-appeal-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-appeal-reply-request", "Запрос на отправку сообщения"
+      "urn:document:fss-sedo-appeal-reply-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-appeal-reply-result-document", "Сообщение"
+      "urn:document:fss-sedo-appeal-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-appeal-reply-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-appeal-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-appeal-reply-attachment", "Вложение"
+
+Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-disability-children-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-disability-children-demand-request", "Запрос на отправку сообщения"
+      "urn:document:fss-sedo-disability-children-demand-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-disability-children-demand-result-document", "Сообщение"
+      "urn:document:fss-sedo-disability-children-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-disability-children-demand-error-message", "Ошибка обработки"
+      "urn:document:fss-sedo-disability-children-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+
+Широковещательное сообщение СЭДО от СФР
++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-broadcast-message
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-broadcast-message-document", "Широковещательное сообщение СЭДО от СФР"
+
+Запрос платежных реквизитов
++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-payment-details-demand
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-payment-details-demand-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-payment-details-demand-document", "Документ с запросом платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-payment-details-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на запрос платежных реквизитов
+++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-payment-details-demand-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-payment-details-demand-reply-request", "Запрос на отправку ответа на запрос платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-reply-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-payment-details-demand-reply-result-document", "Результат ответа на запрос платежных реквизитов"
+      "urn:document:fss-sedo-payment-details-demand-reply-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-payment-details-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-payment-details-demand-reply-error-message", "Ошибка обработки"
+
+ЦБ РФ
+-----
+
+Отчетность в ЦБ РФ (документообороты после 01.01.2020)
+++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:cbrf-report.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:cbrf-report-report-v2","Отчет"
+      "urn:document:cbrf-report-esod-receipt","Результат приема отчета"
+      "urn:document:cbrf-report-status-info","Технологический документ"
+      "urn:document:cbrf-report-processing-status","Результат обработки отчета"
+      "urn:document:cbrf-report-processing-error-protocol","Протокол с перечнем ошибок, возникшими при проверке отчета"
+
+Отчетность в ЦБ РФ (документообороты до 01.01.2020)
++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота urn:docflow:cbrf-report.
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:cbrf-report","Отчет"
+      "urn:document:cbrf-report-reception-result","Сообщение о приеме"
+      "urn:document:cbrf-report-processing-result","Результат обработки"
+
+МВД
+---
+
+Уведомление в МВД
++++++++++++++++++
+
+Тип документооборота: urn:docflow:mvd-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:mvd-notification-epgu-notification", "Уведомление в МВД"
+      "urn:document:mvd-notification-description", "Описание уведомления"
+      "urn:document:mvd-notificaiton-epgu-receipt", "Квитанция о получении"
+      "urn:document:mvd-notification-epgu-protocol", "Результат обработки уведомления:"
+         * Положительный результат: уведомление принято в МВД
+         * Отрицательный результат: уведомление не принято в МВД
+            * Детализированный отказ: уведомление не принято в МВД. Содержит причину отказа
+            * Недетализированный отказ: уведомление не принято в МВД. Не содержит причину отказа

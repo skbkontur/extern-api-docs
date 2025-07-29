@@ -1,0 +1,393 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Контракты для формирования документов в черновике &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Работа с учетными записями" href="../accounts/index.html" />
+    <link rel="prev" title="Примеры файлов отчетов" href="files-for-examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Тестовые данные</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="files-for-examples.html">Примеры файлов отчетов</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Контракты для формирования документов в черновике</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#json">Пример JSON для заявления на подключение к ЭДОК</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Пример JSON для подписок в СЭДО СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#rst-markup-contracts-fns534-ion">Пример JSON для ИОН запросов</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">ИОН 3 – Перечень налоговых деклараций (расчетов) и бухгалтерской отчетности</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">ИОН 4 – Акт сверки принадлежности сумм денежных средств</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">ИОН 5 – Справка об исполнении налогоплательщиком обязанности по уплате налогов, сборов, пеней, штрафов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">ИОН 6 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">ИОН 7 – Справка о наличии по состоянию на дату формирования справки сальдо ЕНС налогоплательщика</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">ИОН 8 – Сведения о наличии (отсутствии) задолженности в размере отрицательного сальдо ЕНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">ИОН 9 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП (агрегированные данные)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Тестовые данные</a></li>
+      <li class="breadcrumb-item active">Контракты для формирования документов в черновике</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/test/contracts.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Контракты для формирования документов в черновике<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>В данном разделе представлены примеры контрактов, которые вы можете передать в <a class="reference internal" href="../drafts/DraftDocumentBuildController.html"><span class="doc">методах формирования ИОН, заявления на подключение к ЭДОК, подписок в СЭДО СФР</span></a> в качестве тестовых данных. Данные примеры не универсальны, их необходимо адаптировать под конкретный случай.</p>
+</div>
+<section id="json">
+<h2>Пример JSON для заявления на подключение к ЭДОК<a class="headerlink" href="#json" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/30b81f135f2adef92b673c5bdbc2a2c7/%D0%97%D0%B0%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%20%D0%AD%D0%94%D0%9E%D0%9A%20%D0%98%D0%9F.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">файла</span> <span class="pre">заявления</span> <span class="pre">на</span> <span class="pre">подключение</span> <span class="pre">к</span> <span class="pre">ЭДОК</span> <span class="pre">ИП</span></code></a></p></li>
+<li><p><a class="reference download internal" download="" href="../_downloads/c914b34d3e92d3d109ec1772e1f6bcd2/%D0%97%D0%B0%D1%8F%D0%B2%D0%BB%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BD%D0%B0%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%BA%20%D0%AD%D0%94%D0%9E%D0%9A%20%D0%AE%D0%9B.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">файла</span> <span class="pre">заявления</span> <span class="pre">на</span> <span class="pre">подключение</span> <span class="pre">к</span> <span class="pre">ЭДОК</span> <span class="pre">ЮЛ</span></code></a></p></li>
+</ul>
+</section>
+<section id="id2">
+<h2>Пример JSON для подписок в СЭДО СФР<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Для подписки оператора по РНС необходимо указать параметр <code class="docutils literal notranslate"><span class="pre">subscription-type</span></code>, который может принимать значения:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">subscribe</span></code> — в случае, если нужно подписаться на уведомления;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unsubscribe</span></code> —  в случае, если необходимо отписаться от уведомлений.</p></li>
+</ul>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/847d6901fad413ef9568a9c5f111196a/abonent_subscription_for_snils.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">подписки</span> <span class="pre">страхователя</span> <span class="pre">по</span> <span class="pre">сотруднику</span></code></a></p></li>
+</ul>
+</section>
+<section id="rst-markup-contracts-fns534-ion">
+<span id="id3"></span><h2>Пример JSON для ИОН запросов<a class="headerlink" href="#rst-markup-contracts-fns534-ion" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>С 1 января 2023 ФНС перестала принимать следующие ИОН запросы:</p>
+<ul class="simple">
+<li><p>ИОН 1 – Справка о состоянии расчетов по налогам, сборам, пеням и штрафам (Форма N39-1).</p></li>
+<li><p>ИОН 2 – Выписка операций по расчетам с бюджетом.</p></li>
+</ul>
+</div>
+<ul class="simple">
+<li><p><a class="reference internal" href="#id4">ИОН 3 – Перечень налоговых деклараций (расчетов) и бухгалтерской отчетности</a></p></li>
+<li><p><a class="reference internal" href="#id5">ИОН 4 – Акт сверки принадлежности сумм денежных средств</a></p></li>
+<li><p><a class="reference internal" href="#id6">ИОН 5 – Справка об исполнении налогоплательщиком обязанности по уплате налогов, сборов, пеней, штрафов</a></p></li>
+<li><p><a class="reference internal" href="#id7">ИОН 6 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП</a></p></li>
+<li><p><a class="reference internal" href="#id8">ИОН 7 – Справка о наличии по состоянию на дату формирования справки сальдо ЕНС налогоплательщика</a></p></li>
+<li><p><a class="reference internal" href="#id9">ИОН 8 – Сведения о наличии (отсутствии) задолженности в размере отрицательного сальдо ЕНС</a></p></li>
+<li><p><a class="reference internal" href="#id10">ИОН 9 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП (агрегированные данные)</a></p></li>
+</ul>
+<p>Для каждого JSON обязательные поля:</p>
+<ul>
+<li><p>version – версия. Принимает значение 3.</p></li>
+<li><p>ФормОтв – формат предоставления ответа. Может принимать следующие значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 – в формате RTF;</p></li>
+<li><p>2 – в формате XML;</p></li>
+<li><p>4 – в формате PDF.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<section id="id4">
+<h3>ИОН 3 – Перечень налоговых деклараций (расчетов) и бухгалтерской отчетности<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<p>Формируется из базы инспекции и содержит регистрационные номера отчетов. Если отчет есть в перечне, значит он принят.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/d9214ee7834dfc1fb36419a25404c57c/ion3.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН3</span></code></a></p></li>
+</ul>
+<p><strong>Обязательные поля:</strong></p>
+<ul>
+<li><p>ДатаНач – начальная дата периода по запросу информации.</p></li>
+<li><p>ДатаКон – конечная дата периода по запросу информации. Период, за который запрашивается услуга, должен находиться в пределах одного календарного года.</p>
+<blockquote>
+<div><p>Например, если налогоплательщик хочет получить выписку за период с 20.10.2010 по 02.02.2011, то необходимо будет сформировать два запроса: за период с 20.10.2010 по 31.12.2010 гг. и с 01.01.2011 по 02.02.2011 гг. Значение ГГГГ в элементе &lt;ДатаКон&gt; должно совпадать со значением ГГГГ в элементе &lt;ДатаНач&gt;.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id5">
+<h3>ИОН 4 – Акт сверки принадлежности сумм денежных средств<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит подробную информацию по каждому из запрашиваемых налогов о суммах платежей, задолженностей, штрафов. Позволяет увидеть сальдо на начало проверяемого периода.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/845c9491acc4076c520972c0a268bc9f/ion4.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН4</span></code></a></p></li>
+</ul>
+<p><strong>Обязательные поля:</strong></p>
+<ul>
+<li><p>ПрКБК – признак КБК. Принимает значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 – запрос по всем КБК;</p></li>
+<li><p>2 – запрос по определенным КБК. Список КБК указывается в поле ЗапрКБК.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ЗапрКБК – запрос по КБК, можно указать список кодов КБК для запроса. Заполняется, если поле ПрКБК имеет значение 2.</p></li>
+<li><p>ДатаНач – начальная дата периода по запросу информации.</p></li>
+<li><p>ДатаКон – конечная дата периода по запросу информации. Период, за который запрашивается услуга, должен находиться в пределах одного календарного года.</p>
+<blockquote>
+<div><p>Например, если налогоплательщик хочет получить выписку за период с 20.10.2010 по 02.02.2011, то необходимо будет сформировать два запроса: за период с 20.10.2010 по 31.12.2010 гг. и с 01.01.2011 по 02.02.2011 гг. Значение ГГГГ в элементе &lt;ДатаКон&gt; должно совпадать со значением ГГГГ в элементе &lt;ДатаНач&gt;.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id6">
+<h3>ИОН 5 – Справка об исполнении налогоплательщиком обязанности по уплате налогов, сборов, пеней, штрафов<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит информацию по организации в целом о наличии неисполненных обязанностей по данным всех инспекций ФНС.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/4bd0242fb5327ecc930a96b9cadc9cc4/ion5.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН5</span></code></a></p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>ИОН 6 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит информацию, на какие обязательства компании распределены средства с единого налогового платежа.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/95576a2385b71041a60629d387d691ae/ion6.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН6</span></code></a></p></li>
+</ul>
+<p><strong>Обязательные поля:</strong></p>
+<ul>
+<li><p>ДатаНач – начальная дата периода по запросу информации.</p></li>
+<li><p>ДатаКон – конечная дата периода по запросу информации. Период, за который запрашивается услуга, должен находиться в пределах одного календарного года.</p>
+<blockquote>
+<div><p>Например, если налогоплательщик хочет получить выписку за период с 20.10.2010 по 02.02.2011, то необходимо будет сформировать два запроса: за период с 20.10.2010 по 31.12.2010 гг. и с 01.01.2011 по 02.02.2011 гг. Значение ГГГГ в элементе &lt;ДатаКон&gt; должно совпадать со значением ГГГГ в элементе &lt;ДатаНач&gt;.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id8">
+<h3>ИОН 7 – Справка о наличии по состоянию на дату формирования справки сальдо ЕНС налогоплательщика<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит информацию о разнице между суммой единого налогового платежа и совокупной обязанностью компании с детализацией баланса.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/f77d3414b48b82f1019a6a9c2a178fe8/ion7.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН7</span></code></a></p></li>
+</ul>
+<p>Если ДеталНачСумм=1 или ИнфПрНач = 1, то можно запросить справку по определенным КБК, ОКТМО и КПП. Для этого заполните следующие поля:</p>
+<ul>
+<li><p>ПрКБК - признак КБК. Принимает значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 - запрос по всем КБК;</p></li>
+<li><p>2 - запрос по определенным КБК. Список КБК указывается в поле ЗапрКБК.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ЗапрКБК - запрос по КБК, можно указать список кодов КБК для запроса. Заполняется, если поле ПрКБК имеет значение 2.</p></li>
+<li><p>ПрОКТМО - признак ОКТМО. Принимает значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 - запрос по всем ОКТМО;</p></li>
+<li><p>2 - запрос по определенным ОКТМО. Список ОКТМО необходимо указать в поле ПеречОКТМО.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ПеречОКТМО - запрос по ОКТМО, можно указать список ОКТМО для запроса. Заполняется, если поле ПрОКТМО имеет значение 2.</p></li>
+<li><p>ПрКПП - признак КПП. Принимает значения:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>1 - запрос по всем КПП;</p></li>
+<li><p>2 - запрос по определенным КПП. Список КПП необходимо указать в поле ПеречКПП.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>ПеречКПП - запрос по КПП, можно указать список КПП для запроса. Заполняется, если поле ПрКПП имеет значение 2.</p></li>
+</ul>
+</section>
+<section id="id9">
+<h3>ИОН 8 – Сведения о наличии (отсутствии) задолженности в размере отрицательного сальдо ЕНС<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит информацию о наличии неисполненной обязанности по уплате налогов, сборов, пеней, штрафов, процентов, входяших в состав ЕНП.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/e88f1c32b5e46c5b5e9d44c86ce7498c/ion8.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН8</span></code></a></p></li>
+</ul>
+<p><strong>Обязательные поля:</strong></p>
+<ul>
+<li><p>ДатаНач – начальная дата периода по запросу информации.</p></li>
+<li><p>ДатаКон – конечная дата периода по запросу информации. Период, за который запрашивается услуга, должен находиться в пределах одного календарного года.</p>
+<blockquote>
+<div><p>Например, если налогоплательщик хочет получить выписку за период с 20.10.2010 по 02.02.2011, то необходимо будет сформировать два запроса: за период с 20.10.2010 по 31.12.2010 гг. и с 01.01.2011 по 02.02.2011 гг. Значение ГГГГ в элементе &lt;ДатаКон&gt; должно совпадать со значением ГГГГ в элементе &lt;ДатаНач&gt;.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id10">
+<h3>ИОН 9 – Справка о принадлежности сумм денежных средств, перечисленных в качестве ЕНП (агрегированные данные)<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<p>Содержит информацию, на какие платежи распределены деньги с ЕНС.</p>
+<ul class="simple">
+<li><p><a class="reference download internal" download="" href="../_downloads/a4c96864831af617fbc877b6db1300ca/ion9.json"><code class="xref download docutils literal notranslate"><span class="pre">пример</span> <span class="pre">JSON</span> <span class="pre">для</span> <span class="pre">формирования</span> <span class="pre">ИОН9</span></code></a></p></li>
+</ul>
+<p><strong>Обязательные поля:</strong></p>
+<ul>
+<li><p>ДатаНач – начальная дата периода по запросу информации.</p></li>
+<li><p>ДатаКон – конечная дата периода по запросу информации. Период, за который запрашивается услуга, должен находиться в пределах одного календарного года.</p>
+<blockquote>
+<div><p>Например, если налогоплательщик хочет получить выписку за период с 20.10.2010 по 02.02.2011, то необходимо будет сформировать два запроса: за период с 20.10.2010 по 31.12.2010 гг. и с 01.01.2011 по 02.02.2011 гг. Значение ГГГГ в элементе &lt;ДатаКон&gt; должно совпадать со значением ГГГГ в элементе &lt;ДатаНач&gt;.</p>
+</div></blockquote>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="files-for-examples.html" class="btn btn-neutral float-left" title="Примеры файлов отчетов" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../accounts/index.html" class="btn btn-neutral float-right" title="Работа с учетными записями" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

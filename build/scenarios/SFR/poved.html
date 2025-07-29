@@ -1,0 +1,298 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Подтверждение основного вида экономической деятельности &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../_static/favicon2.ico"/>
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="МЧД СФР" href="mchd_sfr.html" />
+    <link rel="prev" title="Заявление на подключение к электронному документообороту с СФР" href="zped.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">СФР</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sfr.html">Отправка отчетности в СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="zped.html">Заявление на подключение к электронному документообороту с СФР</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Подтверждение основного вида экономической деятельности</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Отправка ПОВЭД</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Получение результата обработки ПОВЭД</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mchd_sfr.html">МЧД СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FSS/index.html">Проактивные выплаты</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="index.html">СФР</a></li>
+      <li class="breadcrumb-item active">Подтверждение основного вида экономической деятельности</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scenarios/SFR/poved.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id3">
+<h1>Подтверждение основного вида экономической деятельности<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h1>
+<p>Организации-страхователи отправляют подтверждение основного вида экономической деятельности (ПОВЭД) раз в год – до 15 апреля включительно. На основании полученных данных СФР определяет тариф страховых взносов на страхование от несчастных случаев на производстве и профзаболеваний.</p>
+<p>Через API Контур.Экстерн можно отправить документы в СФР (тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-oved-confirmation">urn:docflow:fss-sedo-oved-confirmation</a>) и получить результаты обработки Фондом. Информацию об установленной ставке можно узнать в <a class="reference external" href="https://lk.fss.ru/">Личном кабинете страхователя</a> или на сайте <a class="reference external" href="https://www.gosuslugi.ru/">Госуслуг</a> в течение 2 недель с момента отправки.</p>
+<p>Документооборот ПОВЭД включает в себя несколько <a class="reference internal" href="../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html#rst-markup-type-messages-sedo-poved"><span class="std std-ref">типов сообщений</span></a>:</p>
+<ul class="simple">
+<li><p>15 — Заявление на подтверждение основного вида экономической деятельности.</p></li>
+<li><p>16 — Уведомлние об изменении статуса на подтверждение основного вида экономической деятельности.</p></li>
+<li><p>31 — Уведомление о размере страховых взносов юридического лица.</p></li>
+</ul>
+<p><strong>Особенности документооборота</strong></p>
+<ul class="simple">
+<li><p>Все отправляемые документы являются SOAP-запросами.</p></li>
+<li><p>Запросы должны быть подписаны подписью в формате <a class="reference internal" href="../../manuals/xmldsig.html"><span class="doc">XMLDsig</span></a>.</p></li>
+<li><p>Уведомление о размере страховых взносов юридического лица поступает отдельным документом <a class="reference external" href="urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document">urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document</a>.</p></li>
+<li><p>На одно отправленное заявление на ПОВЭД может поступить несколько Уведомлений об изменении статуса на ПОВЭД.</p></li>
+</ul>
+<section id="id4">
+<h2>Отправка ПОВЭД<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Предупреждение</p>
+<p>С 1 ноября 2024 года СФР не принимает отчетность с регистрационным номером ФСС. ПОВЭД необходимо запрашивать с единым регистрационным номером (ЕРН).</p>
+<p>В API Контур.Экстерна укажите ЕРН в поле <code class="docutils literal notranslate"><span class="pre">registration-number-sfr</span></code>.</p>
+</div>
+<ol class="arabic">
+<li><p>Создайте черновик: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-createdraft"><span class="std std-ref">POST Create draft</span></a>. При создании черновика в теле запроса обязательно укажите:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>в <code class="docutils literal notranslate"><span class="pre">payer</span></code> параметр <code class="docutils literal notranslate"><span class="pre">registration-number-sfr</span></code>;</p></li>
+<li><p>в <code class="docutils literal notranslate"><span class="pre">recipient</span></code> параметр <code class="docutils literal notranslate"><span class="pre">fss-code</span></code>;</p></li>
+<li><p>в <code class="docutils literal notranslate"><span class="pre">additional-info</span></code> параметр <code class="docutils literal notranslate"><span class="pre">machine-readable-warrant-id</span></code> – укажите идентификатор машиночиамой доверенности, если отправляете отчет через уполномоченного представителя.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Загрузите файл документа в <a class="reference internal" href="../device_api/content.html#rst-markup-load"><span class="std std-ref">Сервис контентов</span></a>.</p></li>
+<li><p>Создайте документ в черновике: <a class="reference internal" href="../../drafts/DraftDocumentsController.html#rst-markup-adddocument"><span class="std std-ref">POST Add Document</span></a>. При создании укажите ссылку на документ в виде идентификатора из Сервиса контентов.</p></li>
+<li><p>Возьмите идентификатор контента для подписания из метаинформации ответа метода <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">Document</span></code> в поле <code class="docutils literal notranslate"><span class="pre">data-to-sign-content-id</span></code> и получите данные через <a class="reference internal" href="../device_api/content.html#rst-markup-load"><span class="std std-ref">Сервис контентов</span></a>.</p></li>
+<li><p>Подпишите эти данные необработанной (raw) подписью.</p></li>
+<li><p>Приложите подпись к документу: <a class="reference internal" href="../../drafts/DraftSignaturesController.html#rst-markup-addsignature"><span class="std std-ref">POST Add signature</span></a>.</p></li>
+<li><p>Запустите последовательность методов: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a> -&gt; <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-prepare"><span class="std std-ref">POST Prepare</span></a> -&gt; <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-send"><span class="std std-ref">POST Send</span></a>, когда черновик будет готов. Укажите для каждого метода флаг <code class="docutils literal notranslate"><span class="pre">deferred</span> <span class="pre">=</span> <span class="pre">true</span></code> для отложенного выполнения задач.</p></li>
+<li><p>Проверьте статус выполнения задач для методов <code class="docutils literal notranslate"><span class="pre">Check</span></code>, <code class="docutils literal notranslate"><span class="pre">Prepare</span></code>, <code class="docutils literal notranslate"><span class="pre">Send</span></code>: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-drafttasks"><span class="std std-ref">GET DraftTask</span></a>. Если задача по методу <code class="docutils literal notranslate"><span class="pre">Send</span></code> завершился успешно, то в ответе вернется информация о созданном документообороте (ДО).</p></li>
+</ol>
+</section>
+<section id="id5">
+<h2>Получение результата обработки ПОВЭД<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h2>
+<p>Работа с отправленным документооборотом состоит из трех этапов:</p>
+<ol class="arabic simple">
+<li><p>Получение документооборота.</p></li>
+<li><p>Отправка запроса на получение входящих документов от СФР.</p></li>
+<li><p>Отправка отметки о прочтении на поступившие документы от СФР.</p></li>
+</ol>
+<p>Статусы и порядок документооборота смотрите в <a class="reference internal" href="../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-fss-sedo-oved-confirmation"><span class="std std-ref">спецификации</span></a>.</p>
+<section id="id6">
+<h3>Получение документооборота<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Для получения результат обработки найдите документооборот:</p>
+<ol class="arabic simple">
+<li><p>Запросите документооборот по его идентификатору <code class="docutils literal notranslate"><span class="pre">docflowId</span></code>: <a class="reference internal" href="../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">GET Docflow</span></a>.</p></li>
+<li><p>Если идентификатор <code class="docutils literal notranslate"><span class="pre">docflowId</span></code> был утерян или неизвестен, то запросите список всех документооборотов учетной записи: <a class="reference internal" href="../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dcs"><span class="std std-ref">GET Docflows</span></a>. В запросе укажите фильтр <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">urn:docflow:fss-sedo-oved-confirmation</span></code>.</p></li>
+</ol>
+<p>Запрашивайте документооборот и проверяйте статус до тех пор, пока он не станет <strong>succesful</strong>. Проверить статус можно в параметре <code class="docutils literal notranslate"><span class="pre">success-state</span></code>.</p>
+</section>
+<section id="id7">
+<h3>Отправка запроса на получение входящих документов от СФР<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<p>Для получения документов от СФР необходимо сформировать, подписать и отправить запрос на получение входящих документов. Для этого используйте методы генерации запроса в СФР:</p>
+<ol class="arabic simple">
+<li><p>Создайте запрос на получение документов от СФР: <a class="reference internal" href="../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sedo"><span class="std std-ref">POST GenerateDocumentsRequest</span></a>. В запросе укажите <code class="docutils literal notranslate"><span class="pre">docflowId</span></code> отправленного документооборота. В ответе метод вернет шаблон запроса и хэш для подписи.</p></li>
+<li><p>Подпишите хэш, который вернется в параметре <code class="docutils literal notranslate"><span class="pre">DataToSign</span></code> в формате byte[].</p></li>
+<li><p>Добавьте необработанную подпись к запросу: <a class="reference internal" href="../../dc/sedo-request-methods.html#rst-markup-sedosavedocuments"><span class="std std-ref">PUT SaveDocumentsRequestSignature</span></a>.</p></li>
+<li><p>Отправьте запрос на получение документов в СФР: <a class="reference internal" href="../../dc/sedo-request-methods.html#rst-markup-sedosavedocuments"><span class="std std-ref">POST SendDocumentsRequest</span></a>.</p></li>
+</ol>
+<p>Результат обработки ПОВЭД поступит в виде документа  <a class="reference external" href="urn:document:fss-sedo-oved-confirmation-result-document">urn:document:fss-sedo-oved-confirmation-result-document</a> в отправленном документообороте.</p>
+</section>
+<section id="id8">
+<h3>Отправка отметки о прочтении на поступившие документы от СФР<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<p>Нужно отправить отметку о прочтении на поступившие документы от СФР.</p>
+<ol class="arabic">
+<li><p>Найдите в поле <code class="docutils literal notranslate"><span class="pre">documents</span></code> полученного ДО документ <a class="reference external" href="urn:document:fss-sedo-oved-confirmation-result-document">urn:document:fss-sedo-oved-confirmation-result-document</a>.</p></li>
+<li><p>Чтобы получить файл документа, возьмите идентификатор <code class="docutils literal notranslate"><span class="pre">content-id</span></code> в метаинформации документа, в модели <code class="docutils literal notranslate"><span class="pre">docflow-document-contents</span></code> и скачайте документ из <a class="reference internal" href="../device_api/content.html#rst-markup-dowload"><span class="std std-ref">Сервиса контентов</span></a>.</p></li>
+<li><p>Создайте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Сгенерирйте ответный документ: <a class="reference internal" href="../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-post-reply-doc"><span class="std std-ref">POST CreateReplyDocument</span></a>. Используйте идентификатор найденного документа для поля <code class="docutils literal notranslate"><span class="pre">documentId</span></code>. Укажите в поле <code class="docutils literal notranslate"><span class="pre">documentType</span></code> тип документа для нужного ДО из таблицы ниже.</p></li>
+<li><p>Перейдите по ссылке из поля <code class="docutils literal notranslate"><span class="pre">links</span></code> в параметре <code class="docutils literal notranslate"><span class="pre">rel</span></code>, содержащей тип нужного ответного документа.</p></li>
+</ol>
+<p>Тип ответного документа для генерации отметки о прочтении <a class="reference external" href="urn:document:fss-sedo-oved-confirmation-read-receipt">urn:document:fss-sedo-oved-confirmation-read-receipt</a>.</p>
+</div></blockquote>
+</li>
+</ol>
+<p>Подписывать «Отметку о прочтении» не нужно.</p>
+<ol class="arabic simple" start="4">
+<li><p>Отправьте ответный документ: <a class="reference internal" href="../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-sendreply"><span class="std std-ref">POST SendReplyDocument</span></a>. После отправки отметки о прочтении статус документооборота поменяется на <strong>finished</strong>.</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="zped.html" class="btn btn-neutral float-left" title="Заявление на подключение к электронному документообороту с СФР" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="mchd_sfr.html" class="btn btn-neutral float-right" title="МЧД СФР" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

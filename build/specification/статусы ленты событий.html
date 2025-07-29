@@ -1,0 +1,711 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Статусы ленты событий &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../_static/favicon2.ico"/>
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../genindex.html" />
+    <link rel="search" title="Поиск" href="../search.html" />
+    <link rel="next" title="Тестовые данные" href="../test/index.html" />
+    <link rel="prev" title="Типы сообщений СЭДО" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Спецификация</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html">Типы документооборотов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.html">Типы документов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20DraftsBuilder.html">Типы DraftsBuilder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html">Статусы и порядок документооборотов</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%81%D0%BE%D1%81%D1%82%D0%BE%D1%8F%D0%BD%D0%B8%D1%8F%20%D0%94%D0%9E.html">Состояния документооборота</a></li>
+<li class="toctree-l2"><a class="reference internal" href="%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html">Типы сообщений СЭДО</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Статусы ленты событий</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">ФНС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Декларация и 2-НДФЛ</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">ИОН</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Письмо в ФНС</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#c">Письмо из ФНC</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Представления</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Документ (Требование)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Заявление</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">ПФР</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Сведения ПФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">Письмо в ПФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id12">Письмо из ПФР</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Росстат</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Отчет</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id15">Письмо в Росстат</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Письмо из Росстата</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id17">ФСС</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Расчет по форме 4-ФСС</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Спецификация</a></li>
+      <li class="breadcrumb-item active">Статусы ленты событий</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/specification/статусы ленты событий.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1>Статусы ленты событий<a class="headerlink" href="#id1" title="Ссылка на этот заголовок"></a></h1>
+<p id="rst-markup-event-state">Поле new-state в модели ApiEvent транслирует статусы ленты событий для каждого типа документооборота.</p>
+<section id="id2">
+<h2>ФНС<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<section id="id3">
+<h3>Декларация и 2-НДФЛ<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:report">urn:transaction:report</a></p></td>
+<td><p>Декларация</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:report-receipt">urn:transaction:report-receipt</a></p></td>
+<td><p>Подтверждение о получении отчета налоговым органом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-cu">urn:transaction:receipt-date-confirmation-cu</a></p></td>
+<td><p>Получено подтверждение даты отправки налоговым органом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result-positive">urn:transaction:acceptance-result-positive</a></p></td>
+<td><p>Отчет принят налоговым органом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:acceptance-result-negative">urn:transaction:acceptance-result-negative</a></p></td>
+<td><p>Отчет отклонен налоговым органом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:processing-result-ok">urn:transaction:processing-result-ok</a></p></td>
+<td><p>Отчет обработан успешно</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:processing-result-precise">urn:transaction:processing-result-precise</a></p></td>
+<td><p>Отчет принят, но требует уточнений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result-2ndfl">urn:transaction:acceptance-result-2ndfl</a></p></td>
+<td><p>Отчет 2-НДФЛ принят</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id4">
+<h3>ИОН<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:request">urn:transaction:request</a></p></td>
+<td><p>Отправка ИОН-запроса</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-request-cu">urn:transaction:receipt-request-cu</a></p></td>
+<td><p>Запрос пришел в инспекцию</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-abonent">urn:transaction:receipt-date-confirmation-abonent</a></p></td>
+<td><p>Получено подтверждение даты отправки абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-cu">urn:transaction:receipt-date-confirmation-cu</a></p></td>
+<td><p>Получено подтверждение даты отправки инспекцией</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:acceptance-result-positive">urn:transaction:acceptance-result-positive</a></p></td>
+<td><p>Запрос принят инспекцией</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result-negative">urn:transaction:acceptance-result-negative</a></p></td>
+<td><p>Запрос не принят инспекцией</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-abonent">urn:transaction:receipt-acceptance-result-abonent</a></p></td>
+<td><p>Подтверждение о получении результатов приема запроса абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-provider">urn:transaction:receipt-acceptance-result-provider</a></p></td>
+<td><p>Подтверждение о получении результатов приема запроса спецоператором</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:response">urn:transaction:response</a></p></td>
+<td><p>Ответ на запрос</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-response-abonent">urn:transaction:receipt-response-abonent</a></p></td>
+<td><p>Подтверждение о получении ответа абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-response-provider">urn:transaction:receipt-response-provider</a></p></td>
+<td><p>Подтверждение о получении ответа спецоператором</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id5">
+<h3>Письмо в ФНС<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:respondent-letter">urn:transaction:respondent-letter</a></p></td>
+<td><p>Письмо</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-abonent">urn:transaction:receipt-date-confirmation-abonent</a></p></td>
+<td><p>Получено подтверждение даты отправки абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-cu">urn:transaction:receipt-cu</a></p></td>
+<td><p>Письмо пришло в инспекцию</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:decline">urn:transaction:decline</a></p></td>
+<td><p>В обработке письма отказано</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-abonent">urn:transaction:receipt-acceptance-result-abonent</a></p></td>
+<td><p>Подтверждение о получении результатов приема запроса абонентом</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c">
+<h3>Письмо из ФНC<a class="headerlink" href="#c" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:cu-letter">urn:transaction:cu-letter</a></p></td>
+<td><p>Письмо от инспекции</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:date-confirmation">urn:transaction:date-confirmation</a></p></td>
+<td><p>Подтверждение даты получения письма спецоператором</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:letter-receipt-abonent">urn:transaction:letter-receipt-abonent</a></p></td>
+<td><p>Получение письма абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:cu-group-letter">urn:transaction:cu-group-letter</a></p></td>
+<td><p>Групповая рассылка от инспекции</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:group-letter-receipt-abonent">urn:transaction:group-letter-receipt-abonent</a></p></td>
+<td><p>Получение групповой рассылки абонентом</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id6">
+<h3>Представления<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Описи и представления, включая ответ на требование.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:message">urn:transaction:message</a></p></td>
+<td><p>Отправка представления</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-cu">urn:transaction:receipt-cu</a></p></td>
+<td><p>Представление пришло в инспекцию</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-abonent">urn:transaction:receipt-date-confirmation-abonent</a></p></td>
+<td><p>Получено подтверждение даты отправки абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-cu">urn:transaction:receipt-date-confirmation-cu</a></p></td>
+<td><p>Получено подтверждение даты отправки инспекцией</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:acceptance-result-positive">urn:transaction:acceptance-result-positive</a></p></td>
+<td><p>Представление принято инспекцией</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result-negative">urn:transaction:acceptance-result-negative</a></p></td>
+<td><p>Представление не принято инспекцией</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-provider">urn:transaction:receipt-acceptance-result-provider</a></p></td>
+<td><p>Подтверждение о получении результатов приема представления спецоператором</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-abonent">urn:transaction:receipt-acceptance-result-abonent</a></p></td>
+<td><p>Подтверждение о получении результатов приема представления абонентом</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id7">
+<h3>Документ (Требование)<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:document">urn:transaction:document</a></p></td>
+<td><p>Требование</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:date-confirmation">urn:transaction:date-confirmation</a></p></td>
+<td><p>Подтверждение даты получения требования спецоператором</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-abonent">urn:transaction:receipt-abonent</a></p></td>
+<td><p>Подтверждение прочтения требования абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receiption-result-abonent-positive">urn:transaction:receiption-result-abonent-positive</a></p></td>
+<td><p>Отправка квитанциии на требование. Абонент согласен с требованием и будет отвечать на него</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receiption-result-abonent-negative">urn:transaction:receiption-result-abonent-negative</a></p></td>
+<td><p>Отправка отказа на требование. Абонент не согласен с требованием, причины отказа регламентированы</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receiption-result-cu">urn:transaction:receiption-result-cu</a></p></td>
+<td><p>Подтверждение получения квитанции/отказа инспекцией</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id8">
+<h3>Заявление<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:application">urn:transaction:application</a></p></td>
+<td><p>Заявление</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-cu">urn:transaction:receipt-cu</a></p></td>
+<td><p>Заявление пришло в инспекцию</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-date-confirmation-abonent">urn:transaction:receipt-date-confirmation-abonent</a></p></td>
+<td><p>Получено подтверждение даты отправки абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result-positive">urn:transaction:acceptance-result-positive</a></p></td>
+<td><p>Заявление принято инспекцией</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:acceptance-result-negative">urn:transaction:acceptance-result-negative</a></p></td>
+<td><p>Заявление не принято инспекцией</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-acceptance-result-abonent">urn:transaction:receipt-acceptance-result-abonent</a></p></td>
+<td><p>Подтверждение о получении результатов приема заявления абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:processing-result-v2-positive">urn:transaction:processing-result-v2-positive</a></p></td>
+<td><p>Заявление обработано успешно</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:processing-result-v2-negative">urn:transaction:processing-result-v2-negative</a></p></td>
+<td><p>Получен отказ в проставлении отметки инспекции на заявлении</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:receipt-processing-result-v2-abonent">urn:transaction:receipt-processing-result-v2-abonent</a></p></td>
+<td><p>Подтверждение получения результатов обработки заявления абонентом</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id9">
+<h2>ПФР<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<section id="id10">
+<h3>Сведения ПФР<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:report">urn:transaction:report</a></p></td>
+<td><p>Отчет</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:report-acknowledgement">urn:transaction:report-acknowledgement</a></p></td>
+<td><p>Отчет доставлен в УПФР</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-positive">urn:transaction:protocol-positive</a></p></td>
+<td><p>Отчет принят УПФР</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:protocol-negative">urn:transaction:protocol-negative</a></p></td>
+<td><p>Отчет не принят УПФР</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-receipt">urn:transaction:protocol-receipt</a></p></td>
+<td><p>Подтверждение получения протокола абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:report-upfr-error">urn:transaction:report-upfr-error</a></p></td>
+<td><p>Ошибка обработки отчета на стороне приемного комплекса УПФР</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id11">
+<h3>Письмо в ПФР<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:respondent-letter">urn:transaction:respondent-letter</a></p></td>
+<td><p>Письмо в УПФР</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:respondent-letter-receipt">urn:transaction:respondent-letter-receipt</a></p></td>
+<td><p>Письмо доставлено в УПФР</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:respondent-upfr-error">urn:transaction:respondent-upfr-error</a></p></td>
+<td><p>Ошибка от УПФР при приеме письма</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id12">
+<h3>Письмо из ПФР<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:cu-letter">urn:transaction:cu-letter</a></p></td>
+<td><p>Письмо от УПФР</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:cu-letter-receipt">urn:transaction:cu-letter-receipt</a></p></td>
+<td><p>Письмо прочитано абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:cu-upfr-error">urn:transaction:cu-upfr-error</a></p></td>
+<td><p>Ошибка от УПФР при приеме квитанции на письмо</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id13">
+<h2>Росстат<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<section id="id14">
+<h3>Отчет<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:report">urn:transaction:report</a></p></td>
+<td><p>Отчет Росстат</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:stat-report-receipt-report-cu">urn:transaction:stat-report-receipt-report-cu</a></p></td>
+<td><p>Подтверждение доставки отчета до ТОГС. Отчет Извещение</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-receipt-abonent">urn:transaction:protocol-receipt-abonent</a></p></td>
+<td><p>Подтверждение получения протокола абонентом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:protocol-v2-receipt-abonent">urn:transaction:protocol-v2-receipt-abonent</a></p></td>
+<td><p>Подтверждение получения протокола абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-v2-success">urn:transaction:protocol-v2-success</a></p></td>
+<td><p>Отчет принят ТОГСом</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:protocol-v2-fail">urn:transaction:protocol-v2-fail</a></p></td>
+<td><p>Отчет не принят ТОГСом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-v2-conditional-success">urn:transaction:protocol-v2-conditional-success</a></p></td>
+<td><p>Отчет принят, но требует уточнений</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:protocol-fail">urn:transaction:protocol-fail</a></p></td>
+<td><p>Отчет не принят ТОГСом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:protocol-success">urn:transaction:protocol-success</a></p></td>
+<td><p>Отчет принят ТОГСом</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id15">
+<h3>Письмо в Росстат<a class="headerlink" href="#id15" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:letter-respondent">urn:transaction:letter-respondent</a></p></td>
+<td><p>Письмо в ТОГС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-letter-cu">urn:transaction:receipt-letter-cu</a></p></td>
+<td><p>Подтверждение доставки письма до ТОГСа</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="id16">
+<h3>Письмо из Росстата<a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:letter-cu">urn:transaction:letter-cu</a></p></td>
+<td><p>Письмо из ТОГС</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:receipt-letter-abonent">urn:transaction:receipt-letter-abonent</a></p></td>
+<td><p>Подтверждение получения письма абонентом</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:letter-timeconf">urn:transaction:letter-timeconf</a></p></td>
+<td><p>Подтверждение даты получения письма спецоператором</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="id17">
+<h2>ФСС<a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h2>
+<section id="id18">
+<h3>Расчет по форме 4-ФСС<a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h3>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 33.3%" />
+<col style="width: 66.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Статус</p></th>
+<th class="head"><p>Описание</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:report">urn:transaction:report</a></p></td>
+<td><p>Отправка файла</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:acceptance-result">urn:transaction:acceptance-result</a></p></td>
+<td><p>Файл доставлен на портал ФСС</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:processing-result-negative">urn:transaction:processing-result-negative</a></p></td>
+<td><p>Ошибка на стадиях расшифровки файла или форматного контроля</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:transaction:processing-result-suppositive">urn:transaction:processing-result-suppositive</a></p></td>
+<td><p>Ошибка на стадии логического контроля</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:transaction:processing-result-positive">urn:transaction:processing-result-positive</a></p></td>
+<td><p>Сформирована квитанция</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html" class="btn btn-neutral float-left" title="Типы сообщений СЭДО" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../test/index.html" class="btn btn-neutral float-right" title="Тестовые данные" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

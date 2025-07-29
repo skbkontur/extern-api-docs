@@ -1,0 +1,110 @@
+{
+	"info": {
+		"_postman_id": "a24e22e2-3410-4042-8c55-17db1213f21a",
+		"name": "authorization code flow",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET AuthorizationEndpoint",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
+				"url": {
+					"raw": "http://identity.kontur.ru/connect/authorize?response_type=code&client_id=&redirect_uri=http://localhost&scope=openid extern.api&state=123",
+					"protocol": "http",
+					"host": [
+						"identity",
+						"kontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "client_id",
+							"value": ""
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost"
+						},
+						{
+							"key": "scope",
+							"value": "openid extern.api"
+						},
+						{
+							"key": "state",
+							"value": "123"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST TokenEndpoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "123",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "http://localhost",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://identity.kontur.ru/connect/token",
+					"protocol": "https",
+					"host": [
+						"identity",
+						"kontur",
+						"ru"
+					],
+					"path": [
+						"connect",
+						"token"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

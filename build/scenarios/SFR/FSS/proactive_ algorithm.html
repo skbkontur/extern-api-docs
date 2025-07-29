@@ -1,0 +1,488 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Работа с входящими документооборотами &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon2.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" />
+    <link rel="next" title="Требования СФР" href="demand_sfr.html" />
+    <link rel="prev" title="Работа с исходящими документооборотами" href="proactive_isch.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">СФР</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sfr.html">Отправка отчетности в СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zped.html">Заявление на подключение к электронному документообороту с СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../poved.html">Подтверждение основного вида экономической деятельности</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mchd_sfr.html">МЧД СФР</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Проактивные выплаты</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="proactiv.html">Порядок взаимодействия по схеме проактивных выплат</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sedo-subscription.html">Подписки СЭДО СФР на получение входящих документооборотов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sedo-fss.html">Извещения ПВСО</a></li>
+<li class="toctree-l4"><a class="reference internal" href="proactive_isch.html">Работа с исходящими документооборотами</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Работа с входящими документооборотами</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demand_sfr.html">Требования СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sverka_s_sfr.html">Сверка с СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification_SEDO.html">Уведомление о непоступлении ответа в срок</a></li>
+<li class="toctree-l4"><a class="reference internal" href="letter_sfr.html">Письма СФР</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">СФР</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Проактивные выплаты</a></li>
+      <li class="breadcrumb-item active">Работа с входящими документооборотами</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/scenarios/SFR/FSS/proactive_ algorithm.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rst-markup-proactive-algorithm">
+<span id="id1"></span><h1>Работа с входящими документооборотами<a class="headerlink" href="#rst-markup-proactive-algorithm" title="Ссылка на этот заголовок"></a></h1>
+<p id="rst-markup-sedo-incoming-dc">Работа с входящими документооборотами от СФР состоит из нескольких этапов:</p>
+<ol class="arabic simple">
+<li><p>Поиск входящих документооборотов от СФР.</p></li>
+<li><p>Запрос на получение документов в СФР.</p></li>
+<li><p>Отправка ответных документов.</p></li>
+</ol>
+<p><strong>Особенности документооборотов в СЭДО</strong></p>
+<ul class="simple">
+<li><p>Для получения документов от СФР нужно выполнить <a class="reference internal" href="sedo-subscription.html"><span class="doc">подписку оператора на организацию по РНС</span></a>.</p></li>
+<li><p>Входящие документообороты от СФР в статусе <strong>received</strong> не содержат документов. Чтобы их получить и поменять статус документооборотов, нужно сформировать запрос на получение документов.</p></li>
+<li><p>Все отправляемые в СЭДО документы являются SOAP-запросами.</p></li>
+<li><p>Запросы должны быть подписаны подписью в формате <a class="reference internal" href="../../../manuals/xmldsig.html"><span class="doc">XMLDsig</span></a>.</p></li>
+</ul>
+<section id="id2">
+<h2>Поиск входящих документооборотов от СФР<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Найдите входящие документообороты от СФР: <a class="reference internal" href="../../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dcs"><span class="std std-ref">GET Docflows</span></a>. В запросе укажите фильтр <code class="docutils literal notranslate"><span class="pre">type</span></code> и тип нужного ДО согласно <a class="reference internal" href="../../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-pvso"><span class="std std-ref">спецификации</span></a>, например, <code class="docutils literal notranslate"><span class="pre">type=fss-sedo-pvso-notification&amp;type=fss-sedo-sick-report-change-notification&amp;type=fss-sedo-error</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Важно</p>
+<p>В результатах поиска не будет документооборотов с типами <code class="docutils literal notranslate"><span class="pre">fss-sedo-*</span></code>, если их тип не был указан в параметре <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p>
+</div>
+<p>Новые документообороты будут отображаться в статусе <strong>received</strong>. Для получения документов и смены статуса ДО нужно отправить запрос на получение документов от СФР. Далее работайте с каждым ДО по отдельности.</p>
+</section>
+<section id="id3">
+<h2>Запрос на получение документов от СФР<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h2>
+<p>Если в веб-интерфейсе Контур.Экстерн, в Реквизитах плательщика выбран способ получения входящих документов из СЭДО автоматически с помощью сертификата оператора, то запросы на получения документов через API отправлять не нужно. Входящие документы автоматически будут подгружены в документообороты и в них будут ссылки на reply.</p>
+<p>В остальных случаях для получения документов от СФР нужно сформировать, подписать и отправить запрос. Для этого используйте <a class="reference internal" href="../../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sedo"><span class="std std-ref">методы генерации запроса в СЭДО СФР</span></a>:</p>
+<ol class="arabic simple">
+<li><p>Создайте запрос на получение документов от СФР: <a class="reference internal" href="../../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sedo"><span class="std std-ref">POST GenerateDocumentsRequest</span></a>. В запросе укажите id найденного входящего документооборота. В ответе метод вернет шаблон запроса и хэш для подписи.</p></li>
+<li><p>Подпишите хэш, который вернется в параметре <code class="docutils literal notranslate"><span class="pre">DataToSign</span></code> в формате byte[].</p></li>
+<li><p>Добавьте необработанную подпись к запросу: <a class="reference internal" href="../../../dc/sedo-request-methods.html#rst-markup-sedosavedocuments"><span class="std std-ref">PUT SaveDocumentsRequestSignature</span></a>.</p></li>
+<li><p>Отправьте запрос на получение документов в СФР: <a class="reference internal" href="../../../dc/sedo-request-methods.html#rst-markup-sedosavedocuments"><span class="std std-ref">POST SendDocumentsRequest</span></a>.</p></li>
+</ol>
+<p>Когда СФР обработает запрос, он отправит запрошенный документ и статус ДО поменяется:</p>
+<ol class="arabic">
+<li><p>Для следующих документооборотов документы появятся только во входящих ДО:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference external" href="urn:docflow:fss-sedo-pvso-notification">urn:docflow:fss-sedo-pvso-notification</a> – извещение ПВСО;</p></li>
+<li><p><a class="reference external" href="urn:docflow:fss-sedo-sick-report-change-notification">urn:docflow:fss-sedo-sick-report-change-notification</a> – уведомление об изменении статуса ЭЛН;</p></li>
+<li><p><a class="reference external" href="urn:docflow:fss-sedo-demand">urn:docflow:fss-sedo-demand</a> – требование СФР.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Статус ДО поменяется на <strong>response-arrived</strong>. Для данных документооборотов <strong>потребуется отправка ответных документов</strong>: «Отметка о прочтении» и «Извещение о прочтении».</p>
+<ol class="arabic simple" start="2">
+<li><p>Для остальных входящих документооборотов статус поменяется на <strong>response-arrived</strong>. Документы будут только во входящем ДО. Для данных документооборотов <strong>потребуется отправка ответного документа</strong> «Отметка о прочтении».</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Рекомендуем для дальнейшей работы каждый документооборот вычитать отдельно методом <a class="reference internal" href="../../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">GET Docflow</span></a>.</p>
+</div>
+</section>
+<section id="rst-markup-reply-docs">
+<span id="id4"></span><h2>Отправка ответных документов<a class="headerlink" href="#rst-markup-reply-docs" title="Ссылка на этот заголовок"></a></h2>
+<section id="id5">
+<h3>Отметка о прочтении<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<ol class="arabic simple">
+<li><p>Найдите в поле <code class="docutils literal notranslate"><span class="pre">documents</span></code> полученного ДО документ с соответствующим типом:</p></li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 48.3%" />
+<col style="width: 51.7%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Документооборот</p></th>
+<th class="head"><p>Тип документа</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-warrant-management">urn:docflow:fss-warrant-management</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-warrant-management-response-message">urn:document:fss-warrant-management-response-message</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-reply">urn:docflow:fss-sedo-proactive-payments-reply</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-response-result">urn:document:fss-sedo-proactive-payments-reply-response-result</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-insured-person-registration">urn:docflow:fss-sedo-insured-person-registration</a></p></td>
+<td><p><a class="reference external" href="urn:document:urn:document:fss-sedo-insured-person-registration-response-result">urn:document:urn:document:fss-sedo-insured-person-registration-response-result</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-benefit-payment-initiation">urn:docflow:fss-sedo-benefit-payment-initiation</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-result-document">urn:document:fss-sedo-benefit-payment-initiation-result-document</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-demand-reply">urn:docflow:fss-sedo-demand-reply</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-result-document">urn:document:fss-sedo-demand-reply-result-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-billing-information-demand">urn:docflow:fss-sedo-billing-information-demand</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-result-document">urn:document:fss-sedo-billing-information-demand-result-document</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-baby-care-vacation-close-notice">urn:docflow:fss-sedo-baby-care-vacation-close-notice</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-result-document">urn:document:fss-sedo-baby-care-vacation-close-notice-result-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-pvso-notification">urn:docflow:fss-sedo-pvso-notification</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-notification-message">urn:document:fss-sedo-pvso-notification-notification-message</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-sick-report-change-notification">urn:docflow:fss-sedo-sick-report-change-notification</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-notification-message">urn:document:fss-sedo-sick-report-change-notification-notification-message</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-insured-person-mismatch">urn:docflow:fss-sedo-insured-person-mismatch</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-mismatch-message">urn:document:fss-sedo-insured-person-mismatch-mismatch-message</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-benefit">urn:docflow:fss-sedo-proactive-payments-benefit</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-benefit-message">urn:document:fss-sedo-proactive-payments-benefit-benefit-message</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-proactive-payments-demand">urn:docflow:fss-sedo-proactive-payments-demand</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-demand-message">urn:document:fss-sedo-proactive-payments-demand-demand-message</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-demand">urn:docflow:fss-sedo-demand</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-demand-message">urn:document:fss-sedo-demand-message</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-billing-information">urn:docflow:fss-sedo-billing-information</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-message">urn:document:fss-sedo-billing-information-message</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-employee-salary-information">urn:docflow:fss-sedo-employee-salary-information</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-employee-salary-information-result-document">urn:document:fss-sedo-employee-salary-information-result-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-benefit-payment-status-notice">urn:docflow:fss-sedo-benefit-payment-status-notice</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message">urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-proactive-process-events-notification">urn:docflow:fss-sedo-proactive-process-events-notification</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message">urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-proactive-expire-notice">urn:docflow:fss-sedo-proactive-expire-notice</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-document">urn:document:fss-sedo-proactive-expire-notice-document</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-appeal">urn:docflow:fss-sedo-appeal</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-appeal-document">urn:document:fss-sedo-appeal-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-appeal-reply">urn:docflow:fss-sedo-appeal-reply</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-result-document">urn:document:fss-sedo-appeal-reply-result-document</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-oved-confirmation">urn:docflow:fss-sedo-oved-confirmation</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-result-document">urn:document:fss-sedo-oved-confirmation-result-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-disability-children-demand">urn:docflow:fss-sedo-disability-children-demand</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-result-document">urn:document:fss-sedo-disability-children-demand-result-document</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:docflow:fss-sedo-payment-details-demand">urn:docflow:fss-sedo-payment-details-demand</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-document">urn:document:fss-sedo-payment-details-demand-document</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:docflow:fss-sedo-payment-details-demand-reply">urn:docflow:fss-sedo-payment-details-demand-reply</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-result-document">urn:document:fss-sedo-payment-details-demand-reply-result-document</a></p></td>
+</tr>
+</tbody>
+</table>
+<ol class="arabic" start="2">
+<li><p>Чтобы получить файл документа, возьмите идентификатор <code class="docutils literal notranslate"><span class="pre">content-id</span></code> в метаинформации документа, в модели <code class="docutils literal notranslate"><span class="pre">docflow-document-contents</span></code> и скачайте документ из <a class="reference internal" href="../../device_api/content.html#rst-markup-dowload"><span class="std std-ref">Сервиса контентов</span></a>.</p></li>
+<li><p>Создайте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Сгенерирйте ответный документ: <a class="reference internal" href="../../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-post-reply-doc"><span class="std std-ref">POST CreateReplyDocument</span></a>. Используйте идентификатор найденного документа для поля <code class="docutils literal notranslate"><span class="pre">documentId</span></code>. Укажите в поле <code class="docutils literal notranslate"><span class="pre">documentType</span></code> тип документа для нужного ДО из таблицы ниже.</p></li>
+<li><p>Перейдите по ссылке из поля <code class="docutils literal notranslate"><span class="pre">links</span></code> в параметре <code class="docutils literal notranslate"><span class="pre">rel</span></code>, содержащей тип нужного ответного документа.</p></li>
+</ol>
+<p>Типы ответных документов для генерации отметки о прочтении:</p>
+</div></blockquote>
+</li>
+</ol>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40.0%" />
+<col style="width: 60.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Тип входящего документа</p></th>
+<th class="head"><p>Тип ответного документа</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-warrant-management-response-message">urn:document:fss-warrant-management-response-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-warrant-management-response-read-receipt">urn:document:fss-warrant-management-response-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-response-result">urn:document:fss-sedo-proactive-payments-reply-response-result</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-reply-read-receipt">urn:document:fss-sedo-proactive-payments-reply-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:urn:document:fss-sedo-insured-person-registration-response-result">urn:document:urn:document:fss-sedo-insured-person-registration-response-result</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-registration-read-receipt">urn:document:fss-sedo-insured-person-registration-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-result-document">urn:document:fss-sedo-benefit-payment-initiation-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-initiation-read-receipt">urn:document:fss-sedo-benefit-payment-initiation-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-result-document">urn:document:fss-sedo-demand-reply-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-demand-reply-read-receipt">urn:document:fss-sedo-demand-reply-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-result-document">urn:document:fss-sedo-billing-information-demand-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-demand-read-receipt">urn:document:fss-sedo-billing-information-demand-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-result-document">urn:document:fss-sedo-baby-care-vacation-close-notice-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt">urn:document:fss-sedo-baby-care-vacation-close-notice-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-notification-message">urn:document:fss-sedo-pvso-notification-notification-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-pvso-notification-receipt">urn:document:fss-sedo-pvso-notification-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-notification-message">urn:document:fss-sedo-sick-report-change-notification-notification-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-sick-report-change-notification-receipt">urn:document:fss-sedo-sick-report-change-notification-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-mismatch-message">urn:document:fss-sedo-insured-person-mismatch-mismatch-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-insured-person-mismatch-receipt-receipt">urn:document:fss-sedo-insured-person-mismatch-receipt-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-benefit-message">urn:document:fss-sedo-proactive-payments-benefit-benefit-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-benefit-receipt">urn:document:fss-sedo-proactive-payments-benefit-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-demand-message">urn:document:fss-sedo-proactive-payments-demand-demand-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-payments-demand-receipt">urn:document:fss-sedo-proactive-payments-demand-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-demand-message">urn:document:fss-sedo-demand-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-demand-read-receipt">urn:document:fss-sedo-demand-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-message">urn:document:fss-sedo-billing-information-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-billing-information-read-receipt">urn:document:fss-sedo-billing-information-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message">urn:document:fss-sedo-benefit-payment-status-notice-benefit-status-notice-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-benefit-payment-status-notice-receipt">urn:document:fss-sedo-benefit-payment-status-notice-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message">urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-process-events-notification-read-receipt">urn:document:fss-sedo-proactive-process-events-notification-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-document">urn:document:fss-sedo-proactive-expire-notice-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-proactive-expire-notice-read-receipt">urn:document:fss-sedo-proactive-expire-notice-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-document">urn:document:fss-sedo-appeal-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-appeal-read-receipt">urn:document:fss-sedo-appeal-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-result-document">urn:document:fss-sedo-appeal-reply-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-appeal-reply-read-receipt">urn:document:fss-sedo-appeal-reply-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-result-document">urn:document:fss-sedo-oved-confirmation-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-oved-confirmation-read-receipt">urn:document:fss-sedo-oved-confirmation-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-result-document">urn:document:fss-sedo-disability-children-demand-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-disability-children-demand-read-receipt">urn:document:fss-sedo-disability-children-demand-read-receipt</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-document">urn:document:fss-sedo-payment-details-demand-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-read-receipt">urn:document:fss-sedo-payment-details-demand-read-receipt</a></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-result-document">urn:document:fss-sedo-payment-details-demand-reply-result-document</a></p></td>
+<td><p><a class="reference external" href="urn:document:fss-sedo-payment-details-demand-reply-read-receipt">urn:document:fss-sedo-payment-details-demand-reply-read-receipt</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>Подписывать «Отметку о прочтении» не нужно.</p>
+<ol class="arabic simple" start="4">
+<li><p>Отправьте ответный документ: <a class="reference internal" href="../../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-sendreply"><span class="std std-ref">POST SendReplyDocument</span></a>. После отправки отметки о прочтении статус документооборота поменяется на <strong>finished</strong>.</p></li>
+</ol>
+</section>
+<section id="id6">
+<h3>Извещение о прочтении<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Помимо отметки о прочтении для документооборотов <a class="reference external" href="urn:docflow:fss-sedo-pvso-notification">urn:docflow:fss-sedo-pvso-notification</a>, <a class="reference external" href="urn:docflow:fss-sedo-sick-report-change-notification">urn:docflow:fss-sedo-sick-report-change-notification</a> и <a class="reference external" href="urn:docflow:fss-sedo-demand">urn:docflow:fss-sedo-demand</a> нужно дополнительно создать, подписать и отправить в СФР ответный документ «Извещение о прочтении».</p>
+<ol class="arabic">
+<li><p>Создайте ответный документ. Это можно сделать несколькими способами:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Сгенерируйте ответный документ: <a class="reference internal" href="../../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-post-reply-doc"><span class="std std-ref">POST CreateReplyDocument</span></a>. При запросе указывает в поле <code class="docutils literal notranslate"><span class="pre">documentType</span></code> тип документа, который имеет вид <code class="docutils literal notranslate"><span class="pre">fss-sedo-*-receipt-notification-message</span></code>, где * - наименование документооборота.</p></li>
+<li><p>Перейдите по ссылке из поля <code class="docutils literal notranslate"><span class="pre">links</span></code> в параметре <code class="docutils literal notranslate"><span class="pre">rel</span></code>, содержащей тип нужного ответного документа.</p></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Возьмите контент подписи из метаинформации созданного документа в параметре <code class="docutils literal notranslate"><span class="pre">data-to-sign</span></code>.</p></li>
+<li><p>Подпишите эти данные необработанной (raw) подписью.</p></li>
+<li><p>Добавьте подпись к ответному документу: <a class="reference internal" href="../../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-replisignature"><span class="std std-ref">PUT ReplyDocumentSignature</span></a>.</p></li>
+<li><p>Отправьте ответный документ: <a class="reference internal" href="../../../dc/%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B9%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82.html#rst-markup-sendreply"><span class="std std-ref">POST SendReplyDocument</span></a>. После отправки отметки о прочтении  статус документооборота поменяется на <strong>finished</strong>.</p></li>
+</ol>
+<p>Результат принятия извещения о прочтения появится в текущем и во входящем документообороте <a class="reference external" href="urn:docflow:fss-sedo-receipt-notification-result">urn:docflow:fss-sedo-receipt-notification-result</a> – результат подтверждения прочтения.</p>
+</section>
+</section>
+<section id="id7">
+<h2>Работа с ошибками<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<p>Если в ходе документооборота с СЭДО СФР появится ошибка, то она может поступить в виде документа в исходном ДО. В этом случае статус документооборота поменяется на <strong>finished</strong>. Типы документов об ошибке будут иметь вид <code class="docutils literal notranslate"><span class="pre">fss-sedo-*-exchange-error</span></code>, где * - <a class="reference internal" href="../../../specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%B2.html#rst-markup-typedocumentfss"><span class="std std-ref">наименование документооборота</span></a>.</p>
+</section>
+<section id="id8">
+<h2>Тестирование сценариев<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<p>Если для тестирования вы используете сертификаты Контура, то они уже готовы для работы с СЭДО. Если вы используете другие сертификаты, то сертификаты удостоверяющих центров должны быть добавлены в список доверенных сертификатов со стороны СФР.</p>
+<p>Для удобства тестирования сценариев работы в СЭДО СФР используйте коллекцию Postman:</p>
+<p><a class="reference download internal" download="" href="../../../_downloads/55908a1912718c39bedf0e9334fe29e4/%D0%A0%D0%B0%D0%B1%D0%BE%D1%82%D0%B0_%D1%81_%D0%B2%D1%85%D0%BE%D0%B4%D1%8F%D1%89%D0%B8%D0%BC%D0%B8_%D0%B4%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%BE%D0%BE%D0%B1%D0%BE%D1%80%D0%BE%D1%82%D0%B0%D0%BC%D0%B8_postman_collection.json"><code class="xref download docutils literal notranslate"><span class="pre">Коллекция</span> <span class="pre">Postman</span> <span class="pre">для</span> <span class="pre">работы</span> <span class="pre">с</span> <span class="pre">входящими</span> <span class="pre">документооборотами</span></code></a>.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="proactive_isch.html" class="btn btn-neutral float-left" title="Работа с исходящими документооборотами" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="demand_sfr.html" class="btn btn-neutral float-right" title="Требования СФР" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

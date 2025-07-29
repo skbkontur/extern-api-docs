@@ -1,0 +1,523 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>История изменений API &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="_static/favicon2.ico"/>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=38da9577"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/translations.js?v=cd1d70c9"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="genindex.html" />
+    <link rel="search" title="Поиск" href="search.html" />
+    <link rel="next" title="Модели сотрудничества" href="models_of_cooperation.html" />
+    <link rel="prev" title="API Контур Экстерна" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="scenarios/index.html">Сценарии</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">История изменений API</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/release notes.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api">
+<h1>История изменений API<a class="headerlink" href="#api" title="Ссылка на этот заголовок"></a></h1>
+<section id="id7">
+<h2>Июнь 2025<a class="headerlink" href="#id7" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Поддержали работу с документооборотами <a class="reference internal" href="specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sedo"><span class="std std-ref">Запрос платежных реквизитов</span></a> и <a class="reference internal" href="specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sedo"><span class="std std-ref">Ответ на запрос платежных реквизитов</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id8">
+<h2>Апрель 2025<a class="headerlink" href="#id8" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Сделали код СФР не обязательным. Теперь при сдаче отчетов ЕФС-1, АДВ-1,2,3 и УПУП можно не указывать код контролирующего органа, достаточно указать единый регистрационный номер (ЕРН).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id9">
+<h2>Март 2025<a class="headerlink" href="#id9" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Поддержали работу с документооборотом <a class="reference internal" href="scenarios/SFR/FSS/letter_sfr.html#rst-markup-letter-sfr"><span class="std std-ref">Широковещательные сообщения СЭДО</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id10">
+<h2>Февраль 2025<a class="headerlink" href="#id10" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Поддержали в <a class="reference internal" href="drafts/DraftDocumentBuildController.html"><span class="doc">методах формирования файлов</span></a> генерацию новой версии ИОН по новому контракту. В разделе Тестовые данные добавлены <a class="reference internal" href="test/contracts.html#rst-markup-contracts-fns534-ion"><span class="std std-ref">файлы новой версии контрактов</span></a>.</p></li>
+<li><p>Поддержали работу с документооборотом Заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами (<a class="reference external" href="urn:docflow:fss-sedo-disability-children-demand">urn:docflow:fss-sedo-disability-children-demand</a>).</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id11">
+<h2>Декабрь 2024<a class="headerlink" href="#id11" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Поддержали работу с <a class="reference internal" href="scenarios/SFR/FSS/letter_sfr.html"><span class="doc">письмами из СФР</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id12">
+<h2>Ноябрь 2024<a class="headerlink" href="#id12" title="Ссылка на этот заголовок"></a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><p>Поддержали работу с документооборотом <a class="reference internal" href="scenarios/SFR/FSS/notification_SEDO.html#rst-markup-nitification-sedo"><span class="std std-ref">Уведомление о непоступлении ответа в срок</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</section>
+<section id="id13">
+<h2>Октябрь 2024<a class="headerlink" href="#id13" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>С 1 ноября 2024 года СФР перестает принимать отчетность с регистрационными номерами ФСС и ПФР. Следующие отчеты необходимо подавать с единым регистрационным номером (ЕРН):</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="scenarios/SFR/sfr.html"><span class="doc">ЕФС-1</span></a>;</p></li>
+<li><p><a class="reference internal" href="scenarios/SFR/zped.html"><span class="doc">ЗПЭД</span></a>;</p></li>
+<li><p><a class="reference internal" href="scenarios/SFR/FSS/proactive_isch.html"><span class="doc">Проактивные выплаты</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Поддержали 323 – 329, 333 – 336 <a class="reference internal" href="specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D1%81%D0%BE%D0%BE%D0%B1%D1%89%D0%B5%D0%BD%D0%B8%D0%B9%20%D0%A1%D0%AD%D0%94%D0%9E.html#rst-markup-type-messages-sedo"><span class="std std-ref">типы сообщений</span></a> в документообороте Требование СФР.</p></li>
+<li><p>Добавили метод <a class="reference internal" href="accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html#rst-markup-control-code"><span class="std std-ref">Получение контролирующего органа по коду</span></a> для работы со справочниками.</p></li>
+</ul>
+</section>
+<section id="id14">
+<h2>Август 2024<a class="headerlink" href="#id14" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Добавили методы для работы со <a class="reference internal" href="accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html#rst-mrkup-handbooks"><span class="std std-ref">справочниками контролирующих органов и КНД</span></a>.</p></li>
+</ul>
+</section>
+<section id="id15">
+<h2>Июль 2024<a class="headerlink" href="#id15" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>Поддержали работу с новым алгоритмом шифрованиям по <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=9&amp;documentId=388001">ГОСТу 34.12-2018</a> и <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=9&amp;documentId=383534">ГОСТу 34.13-2018</a> для документов ФНС. Для работы с новым алгоритмом обновите программное обеспечение для работы с электронными подписями до версий:</p>
+<blockquote>
+<div><ul>
+<li><p>КриптоПРО 5.0 R2;</p></li>
+<li><p>Контур.Плагин 4.4;</p></li>
+<li><p>Рутокен 3.0.</p>
+<blockquote>
+<div><p>Обновить программное обеспечение можно с помощью сервиса <a class="reference external" href="https://help.kontur.ru/">Контур.Диагностика</a>.</p>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Добавили метод для <a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-patch-docflow"><span class="std std-ref">изменения реквизитов документооборота</span></a>.</p></li>
+<li><p>Добавили метод для <a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-patch-docunent"><span class="std std-ref">изменения реквизитов документа требования</span></a>.</p></li>
+</ul>
+</section>
+<section id="id16">
+<h2>Май 2023<a class="headerlink" href="#id16" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Поддержали работу с документооборотом Сведения о зарплате (<a class="reference external" href="urn:docflow:fss-sedo-employee-salary-information">urn:docflow:fss-sedo-employee-salary-information</a>).</p></li>
+</ul>
+</section>
+<section id="id17">
+<h2>Апрель 2023<a class="headerlink" href="#id17" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Добавили методы для просмотра <a class="reference internal" href="scenarios/org/rp.html"><span class="doc">реквизитов плательщика</span></a> и пользователей <a class="reference internal" href="scenarios/org/mpr.html"><span class="doc">многопользовательского режима</span></a>.</p></li>
+<li><p>Поддержали работу с <a class="reference internal" href="specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-sfr"><span class="std std-ref">новым документооборотом в СФР</span></a>.</p></li>
+</ul>
+</section>
+<section id="id18">
+<h2>Январь 2023<a class="headerlink" href="#id18" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>Поддержали <span class="xref std std-doc">работу</span> с новыми документооборотами СЭДО:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>требования ФСС (<a class="reference external" href="urn:docflow:fss-sedo-demand">urn:docflow:fss-sedo-demand</a>);</p></li>
+<li><p>ответ на требование ФСС (<a class="reference external" href="urn:docflow:fss-sedo-demand-reply">urn:docflow:fss-sedo-demand-reply</a>);</p></li>
+<li><p>результат ответа на требование ФСС (<a class="reference external" href="urn:docflow:fss-sedo-demand-reply-result">urn:docflow:fss-sedo-demand-reply-result</a>);</p></li>
+<li><p>запрос на формирование справки о расчетах ФСС (<a class="reference external" href="urn:docflow:fss-sedo-billing-information-demand">urn:docflow:fss-sedo-billing-information-demand</a>);</p></li>
+<li><p>результат обработки запроса справки о расчетах ФСС (<a class="reference external" href="urn:docflow:fss-sedo-billing-information-demand-result">urn:docflow:fss-sedo-billing-information-demand-result</a>);</p></li>
+<li><p>справка о расчетах ФСС (<a class="reference external" href="urn:docflow:fss-sedo-billing-information">urn:docflow:fss-sedo-billing-information</a>);</p></li>
+<li><p>уведомление о прекращении отпуска по уходу за ребенком до полутора лет (<a class="reference external" href="urn:docflow:fss-sedo-baby-care-vacation-close-notice">urn:docflow:fss-sedo-baby-care-vacation-close-notice</a>).</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id19">
+<h2>Сентябрь 2022<a class="headerlink" href="#id19" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Добавили <a class="reference internal" href="scenarios/device_api/general_drafts.html"><span class="doc">возможность</span></a> передавать созданные в API черновики в веб-интерфейс Контур.Экстерна.</p></li>
+</ul>
+</section>
+<section id="id20">
+<h2>Июль 2022<a class="headerlink" href="#id20" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Поддержали работу с <span class="xref std std-doc">машиночитаемой доверенностью в ФСС</span>. Алгоритм работы в API смотрите в <span class="xref std std-doc">статье</span>.</p></li>
+</ul>
+</section>
+<section id="id21">
+<h2>Июнь 2022<a class="headerlink" href="#id21" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Поддержали в методе <a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dcs"><span class="std std-ref">Получение списка документооборотов</span></a> поиск документооборотов описи <a class="reference external" href="urn:docflow:fns534-inventory">urn:docflow:fns534-inventory</a> через фильтр <code class="docutils literal notranslate"><span class="pre">type</span></code>.</p></li>
+</ul>
+</section>
+<section id="id22">
+<h2>Май 2022<a class="headerlink" href="#id22" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>Сделали обязательным <a class="reference internal" href="recommendations.html#rst-markup-deferred"><span class="std std-ref">асинхронное выполнение запросов</span></a> для методов:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><a class="reference internal" href="drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">проверки</span></a>, <a class="reference internal" href="drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-prepare"><span class="std std-ref">подготовки</span></a>, <a class="reference internal" href="drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-send"><span class="std std-ref">отправки</span></a> черновика;</p></li>
+<li><p><a class="reference internal" href="drafts/DraftDocumentsController.html#rst-markup-draft-print"><span class="std std-ref">печати документа в черновике</span></a>;</p></li>
+<li><p><a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-dcprint"><span class="std std-ref">печати документа в документообороте</span></a>;</p></li>
+<li><p><a class="reference internal" href="builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-builddb"><span class="std std-ref">сборки DraftsBuilder в черновик</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id23">
+<h2>Апрель 2022<a class="headerlink" href="#id23" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Добавили новый тип DraftsBuilder для работы с <a class="reference internal" href="scenarios/FNS/fns-letter.html"><span class="doc">письмами ФНС</span></a> в конструкторе черновиков.</p></li>
+</ul>
+</section>
+<section id="id24">
+<h2>Январь 2022<a class="headerlink" href="#id24" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Поддержали сценарий работы с <a class="reference internal" href="scenarios/SFR/FSS/index.html"><span class="doc">Проактивными выплатами</span></a>.</p></li>
+</ul>
+</section>
+<section id="id25">
+<h2>Ноябрь 2021<a class="headerlink" href="#id25" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>В метаинформации документооборота 4-ФСС (модель FssReportRequisites) добавили новое поле <code class="docutils literal notranslate"><span class="pre">sender-certificate-thumbprint</span></code>. Поле возвращает отпечаток сертификата, которым был подписан отчет.</p></li>
+<li><p>В метаинформации документооборота требований (модель DemandAttachmentRequisites) добавили новые поля:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">tax-department-name</span></code> — наименование налогового органа;</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tax-event-name</span></code> — наименование мероприятия налогового контроля.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Обновление в Extern Test Tools:</strong></p>
+<ul class="simple">
+<li><p>Добавили <a class="reference external" href="https://developer.kontur.ru/doc/extern.test.tools/method?type=post&amp;path=%2Ftest-tools%2Fv1%2Fgenerate-incoming-stat-letter">метод для генерации входящих писем Росстат</a>.</p></li>
+</ul>
+</section>
+<section id="id26">
+<h2>Октябрь 2021<a class="headerlink" href="#id26" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Исправлены ошибки по определению признаков зашифрованности <code class="docutils literal notranslate"><span class="pre">encrypted</span></code> и сжатости <code class="docutils literal notranslate"><span class="pre">compressed</span></code> контента для документов ПФР.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h2>Август 2021<a class="headerlink" href="#id27" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>В методах по работе с документооборотом в API добавлен новый метод <a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-savedecryptcontent"><span class="std std-ref">Сохранения расшифрованного контента в документ</span></a>.</p></li>
+</ul>
+</section>
+<section id="id28">
+<h2>Март 2021<a class="headerlink" href="#id28" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Исправлена ошибка 500, которая появлялась при попытке печати приложений в письмах от ПФР в формате ods/excel. Теперь API возвращает ошибку 400 PrintUnsupported.</p></li>
+<li><p>Для поручений, которые приходят вместе с требованиями от ФНС, добавлена возможность распознавания корректного КНД из файла. Чтобы отличить поручение от требования добавлено новое поле <code class="docutils literal notranslate"><span class="pre">demand_knd</span></code> (модели DemandAttachmentRequisites и RecognizedMeta), в котором будет лежать КНД поручения. Чтобы поле заполнилось нужно вызвать метод <a class="reference internal" href="dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-document-recognize"><span class="std std-ref">Распознавания требования</span></a>.</p></li>
+</ul>
+</section>
+<section id="id29">
+<h2>Февраль 2021<a class="headerlink" href="#id29" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Новый документооборот для отправки писем в Росстат, подробнее в статье <a class="reference internal" href="scenarios/Rosstat/stat-letter.html"><span class="doc">Отправка писем в Росстат</span></a>.</p></li>
+<li><p>В метаинформации документоооборота письма в ФНС (модель LetterDescription) добавлено новое поле <code class="docutils literal notranslate"><span class="pre">sender-inn</span></code>.</p></li>
+<li><p>В метаинформации документоооборота письма из ФНС (модель CuLetterDescription) добавлено новое поле <code class="docutils literal notranslate"><span class="pre">recipient-inn</span></code>.</p></li>
+</ul>
+</section>
+<section id="id30">
+<h2>Декабрь 2020<a class="headerlink" href="#id30" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>В документации появилась новая <a class="reference internal" href="manuals/cryptography.html"><span class="doc">cтатья по криптографии</span></a>.</p></li>
+<li><p>Исправлена ошибка при отправке Заявления на подключение к ЭДОК.</p></li>
+<li><p>В методе распознавания требования добавлена проверка, что файл требования в формате pdf.</p></li>
+<li><p>В метаинформации документооборота требования (модель DemandDescription) добавлено новое поле <code class="docutils literal notranslate"><span class="pre">sent-on-report-filename</span></code> — имя файла отчета, на которое сформировано требование.</p></li>
+<li><p>В метаинформации документооборота 4-ФСС (модель FssReportDescription) добавлено новое поле <code class="docutils literal notranslate"><span class="pre">correction-number</span></code> — номер корректировки.</p></li>
+</ul>
+<p><strong>Обновления в Extern Test Tools:</strong></p>
+<ul class="simple">
+<li><p>Поддержан новый способ <a class="reference internal" href="auth_oidc/index.html"><span class="doc">аутентификации по протоколу OpenId Connect</span></a>. Рекомендуется выполнять запросы при помощи Postman. Старый способ аутентификации через auth.sid будет поддерживаться для реализованных интеграций.</p></li>
+</ul>
+</section>
+<section id="id31">
+<h2>Ноябрь 2020<a class="headerlink" href="#id31" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Для устаревших методов по получению зашифрованного и расшифрованного контента введены ограничения на размер запрашиваемого контента: 32 МБ на тестовой и 64 МБ на рабочей площадке. Для получения больших контентов вместо старых методов рекомендуется использовать Сервис контентов.</p></li>
+<li><p>В свойствах документа документа в документообороте реализован новый вспомогательный параметр SupportPrint (модель DocflowDocumentDescription), который поможет определить возможность печати документа. Параметр может иметь одно из трех значений: Yes, No, Unknown. Подробнее в статье <a class="reference internal" href="scenarios/device_api/print.html"><span class="doc">Печать</span></a>.</p></li>
+</ul>
+</section>
+<section id="id32">
+<h2>Октябрь 2020<a class="headerlink" href="#id32" title="Ссылка на этот заголовок"></a></h2>
+<p>Новый способ <a class="reference internal" href="auth_oidc/index.html"><span class="doc">аутентификации по протоколу OpenId Connect</span></a>. Старый способ аутентификации через auth.sid будет поддерживаться для реализованных интеграций.</p>
+</section>
+<section id="id33">
+<h2>Сентябрь 2020<a class="headerlink" href="#id33" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Новый вид <a class="reference internal" href="specification/%D1%82%D0%B8%D0%BF%D1%8B%20%D0%94%D0%9E.html#rst-markup-cbrf"><span class="std std-ref">документооборота с ЦБ РФ</span></a>. Доступен только для получения списка документооборотов. Отправить документы в ЦБ РФ можно в веб-интерфейсе Экстерна.</p></li>
+<li><p>API теперь поддерживает новые формы заявления регистрации бизнеса. Полный список кодов заявлений описан в методе <a class="reference internal" href="builder/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D0%B1%D0%B8%D0%BB%D0%B4%D0%B5%D1%80%D0%B0.html#rst-markup-createdb"><span class="std std-ref">Создания DraftsBuilder</span></a> (параметр application-code).</p></li>
+</ul>
+<p><strong>Обновления в Extern Test Tools:</strong></p>
+<ul class="simple">
+<li><p>Исправлена ошибка экранирования кавычек, из-за которой в некоторых случаях могло некорректно сформироваться входящее требование.</p></li>
+</ul>
+</section>
+<section id="id34">
+<h2>Август 2020<a class="headerlink" href="#id34" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>В методах API добавлен <strong>новый метод проверки требований</strong>. Метод помогает определить корректность поступившего требования. Если требование не прошло проверки, будут сформированы коды ошибок, которые нужно использовать при формировании уведомления об отказе. Подробнее в инструкции <a class="reference internal" href="scenarios/FNS/demand/check-demand.html#rst-markup-fns-check-demand"><span class="std std-ref">Проверка требований</span></a>.</p></li>
+<li><p>Настроено корректное отображение размера расшифрованного контента документа в поле decrypted-content-size.</p></li>
+<li><p>Исправлена ошибка печати документов из документооборота ПОВЭД: в печатной форме отчета корректно проставляется дата отчета и наименование организации.</p></li>
+</ul>
+</section>
+<section id="id35">
+<h2>Июнь 2020<a class="headerlink" href="#id35" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>В методах API добавлена возможность формирования подписи xmlDsig для подписания <span class="xref std std-doc">отчета СЗВ-ТД и заявления на подключение к ЭДОК в ПФР</span>. Подробное описание в документации: <a class="reference internal" href="manuals/xmldsig.html"><span class="doc">Подпись XMLDsig для отчетов в ПФР</span></a>.</p></li>
+</ul>
+</section>
+<section id="id36">
+<h2>Май 2020<a class="headerlink" href="#id36" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>Добавили в <a class="reference internal" href="drafts/DraftDocumentBuildController.html"><span class="doc">методы формирования файлов</span></a> в черновике возможность генерации заявления на подключение к ЭДОК. Достаточно передать валидный JSON контракт, метод сгенерирует контент файла и положит его в документ черновика.</p></li>
+<li><p>О штампах в печатных формах:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Внесли правки в печати штампов на отчетах.</p></li>
+<li><p>Добавили в штампы помимо названия инспекции ее код.</p></li>
+<li><p>Добавили штампы в печатные формы отчета 2-НДФЛ.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>В печатных формах добавили указание общего количества страниц.</p></li>
+<li><p>В документации добавили новый раздел <a class="reference internal" href="howto/index.html"><span class="doc">Начало работы с API</span></a>.</p></li>
+</ul>
+</section>
+<section id="id37">
+<h2>Апрель 2020<a class="headerlink" href="#id37" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Доработали <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows">поиск документооборотов</a>: теперь можно запрашивать сразу несколько типов в параметре type. Например, type=fns534-report&amp;type=pfr-report.</p></li>
+<li><p>Новый вид отчетности в ПФР: отправка отчета СЗВ-ТД и готового заявления на подключение к ЭДОК.</p></li>
+<li><p>Добавили в description документооборота ИНН-КПП реорганизованных и ликвидированных организаций, которые лежат внутри отчетов по таким организациям.</p></li>
+</ul>
+</section>
+<section id="id38">
+<h2>Март 2020<a class="headerlink" href="#id38" title="Ссылка на этот заголовок"></a></h2>
+<ul class="simple">
+<li><p>Добавили возможность асинхронной печати документов, теперь можно ставить задачи на печать (Tasks).</p></li>
+<li><p>Исправили появление дублей в документообороте Росстата.</p></li>
+<li><p>Добавили ссылки в документообороте 4-ФСС, которые ведут в веб-интерфейс Экстерна.</p></li>
+<li><p>Добавили проверку сертификата подписи при отправке ответных документов ФНС: ИНН в сертификате подписи должен быть равен ИНН в поле Sender.</p></li>
+</ul>
+</section>
+<section id="id39">
+<h2>Февраль 2020<a class="headerlink" href="#id39" title="Ссылка на этот заголовок"></a></h2>
+<ul>
+<li><p>Изменили <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=get&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows">поиск документооборотов</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>теперь в общий список не будут попадать документообороты регистрации бизнеса. Чтобы получить документообороты по данному типу нужно передать параметр <code class="docutils literal notranslate"><span class="pre">type</span> <span class="pre">=</span> <span class="pre">business-registration</span></code>;</p></li>
+<li><p>добавили новый тип документооборота с ФСС — Подтверждение основного вида экономической деятельности (ПОВЭД). Данный тип документооборота можно только получить. Отправить электронную форму ПОВЭД можно только в Экстерне.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Научились распознавать срок ответа на требование из PDF файла требования ФНС. Метод распознавания требования <a class="reference external" href="https://developer.kontur.ru/doc/extern.docflows/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Frecognize">POST Recognize</a>.</p></li>
+<li><p>Исправили текст сообщений об ошибках отправки черновика (<a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2F%7BdraftId%7D%2Fsend">Send</a>) для случаев, когда указан неверный тип контента или некорректный ip-адрес.</p></li>
+<li><p>Исправили ошибку генерации ответного документа (reply document), у которого нет печатной формы.</p></li>
+<li><p>В документации добавили статью по работе с методами <a class="reference internal" href="dc/%D0%BB%D0%B5%D0%BD%D1%82%D0%B0%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9%20%D0%94%D0%9E.html#rst-markup-events"><span class="std std-ref">ленты событий</span></a>, также описаны <a class="reference internal" href="specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%BB%D0%B5%D0%BD%D1%82%D1%8B%20%D1%81%D0%BE%D0%B1%D1%8B%D1%82%D0%B8%D0%B9.html"><span class="doc">Статусы ленты событий</span></a>.</p></li>
+<li><p>Добавили новые методы по работе с контентом, см. раздел в swagger <a class="reference external" href="https://developer.kontur.ru/doc/extern/method?type=post&amp;path=%2Fv1%2F%7BaccountId%7D%2Fcontents">сервис контентов</a>:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Реализована работа с большими файлами документов документооборотов: методы позволяют скачивать контент любого размера.</p></li>
+<li><p>В модели документооборотов, созданных от 02.02.2020, добавлены идентификаторы контентов документов.</p></li>
+<li><p>В методах по работе с контентами файлов можно передавать только идентификатор контента, например, для печати документа.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</section>
+<section id="id40">
+<h2>Январь 2020<a class="headerlink" href="#id40" title="Ссылка на этот заголовок"></a></h2>
+<p><strong>Обновления в API Контур.Экстерна:</strong></p>
+<ul class="simple">
+<li><p>Добавили уведомления в ленту событий по документооборотам ФСС и ПФР.</p></li>
+<li><p>Добавили контентам документов описание состояния: сжат, зашифрован, расшифрован и т.д. Ранее описание состояния было только у документа и могло быть некорректным.</p></li>
+<li><p>Исправили ошибку при создании черновика: для ИП не обязательно заполнение Payer.Organization.</p></li>
+</ul>
+<p><strong>Обновления в Extern Test Tools:</strong></p>
+<ul class="simple">
+<li><p>В методах генерации требований и писем добавили поле ifnsCode, что позволит тестировать получение требований от разных ИФНС.</p></li>
+</ul>
+<hr class="docutils" />
+<p>Ранее мы не вели практику написания изменений в API, поэтому обновлений за 2018-2019 год нет.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="API Контур Экстерна" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="models_of_cooperation.html" class="btn btn-neutral float-right" title="Модели сотрудничества" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

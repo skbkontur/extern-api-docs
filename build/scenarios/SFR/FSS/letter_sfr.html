@@ -1,0 +1,259 @@
+
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Письма СФР &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a26a8363" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=556afa7a" />
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+
+  
+    <link rel="shortcut icon" href="../../../_static/favicon2.ico"/>
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=38da9577"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/translations.js?v=cd1d70c9"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../../search.html" />
+    <link rel="next" title="Порядок работы с черновиками" href="../../../drafts/work-order-drafts.html" />
+    <link rel="prev" title="Уведомление о непоступлении ответа в срок" href="notification_SEDO.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            extern-api
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" aria-label="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">СФР</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../sfr.html">Отправка отчетности в СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../zped.html">Заявление на подключение к электронному документообороту с СФР</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../poved.html">Подтверждение основного вида экономической деятельности</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../mchd_sfr.html">МЧД СФР</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">Проактивные выплаты</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="proactiv.html">Порядок взаимодействия по схеме проактивных выплат</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sedo-subscription.html">Подписки СЭДО СФР на получение входящих документооборотов</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sedo-fss.html">Извещения ПВСО</a></li>
+<li class="toctree-l4"><a class="reference internal" href="proactive_isch.html">Работа с исходящими документооборотами</a></li>
+<li class="toctree-l4"><a class="reference internal" href="proactive_%20algorithm.html">Работа с входящими документооборотами</a></li>
+<li class="toctree-l4"><a class="reference internal" href="demand_sfr.html">Требования СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sverka_s_sfr.html">Сверка с СФР</a></li>
+<li class="toctree-l4"><a class="reference internal" href="notification_SEDO.html">Уведомление о непоступлении ответа в срок</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Письма СФР</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Сценарии</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">СФР</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Проактивные выплаты</a></li>
+      <li class="breadcrumb-item active">Письма СФР</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/scenarios/SFR/FSS/letter_sfr.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="rst-markup-letter-sfr">
+<span id="id1"></span><h1>Письма СФР<a class="headerlink" href="#rst-markup-letter-sfr" title="Ссылка на этот заголовок"></a></h1>
+<p>Через API Контур.Экстерн можно обмениваться письмами с СФР. Взаимодействие состоит из трех документооборотов:</p>
+<ul class="simple">
+<li><p>широковещательные сообщения СЭДО (тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-broadcast-message">urn:docflow:fss-sedo-broadcast-message</a>);</p></li>
+<li><p>обращение СФР к страхователю (тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-appeal">urn:docflow:fss-sedo-appeal</a>);</p></li>
+<li><p>ответ страхователя на обращение СФР (тип документооборота <a class="reference external" href="urn:docflow:fss-sedo-appeal-reply">urn:docflow:fss-sedo-appeal-reply</a>).</p></li>
+</ul>
+<section id="id2">
+<h2>Широковещательные сообщения СЭДО<a class="headerlink" href="#id2" title="Ссылка на этот заголовок"></a></h2>
+<p>Широковещательные сообщения СЭДО – это общедоступные рассылки от СФР, которые массово отправляют всем работодателям. Такие рассылки не требуют ответа или каких-то действий со стороны работодателя.</p>
+<p><strong>Особенности</strong></p>
+<ul class="simple">
+<li><p>Документооборот поступает в статусе finished.</p></li>
+<li><p>Для получения документов от СФР не нужно выполнять  <a class="reference internal" href="sedo-subscription.html"><span class="doc">подписку оператора на организацию по РНС</span></a>.</p></li>
+<li><p>В метаинформации документооброта возвращается дата, до которой актуально широковещательное сообщение. Параметр <code class="docutils literal notranslate"><span class="pre">relevance-date</span></code>.</p></li>
+</ul>
+<section id="id3">
+<h3>Получение широковещательных сообщений СЭДО<a class="headerlink" href="#id3" title="Ссылка на этот заголовок"></a></h3>
+<p>Найдите входящий документооборот от СФР: <a class="reference internal" href="../../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dcs"><span class="std std-ref">GET Docflows</span></a>. В запросе укажите фильтр <code class="docutils literal notranslate"><span class="pre">type=fss-sedo-broadcast-message</span></code>.</p>
+<p>Документооборот Широковещательные сообщения СЭДО поступает в статусе <strong>finished</strong> с готовым документом рассылки.</p>
+</section>
+</section>
+<section id="id4">
+<h2>Обращение СФР к страхователю<a class="headerlink" href="#id4" title="Ссылка на этот заголовок"></a></h2>
+<p>СФР может с помощью писем информировать работодателя или запрашивать дополнительную информацию. Инициатором обмена писем является СФР. Работодатель может отвечать только на входящие письма.</p>
+<p>Если ответ работодателя принят СФР, то повторно прислать ответ на это же письмо нельзя. Если ответ работодателя не принят СФР, то ответ нужно исправить и отправить в СФР повторно.</p>
+<p><strong>Особенности</strong></p>
+<ul class="simple">
+<li><p>Для получения документов от СФР нужно выполнить <a class="reference internal" href="sedo-subscription.html"><span class="doc">подписку оператора на организацию по РНС</span></a>.</p></li>
+<li><p>Все отправляемые в СЭДО документы являются SOAP-запросами.</p></li>
+<li><p>Запросы должны быть подписаны подписью в формате <a class="reference internal" href="../../../manuals/xmldsig.html"><span class="doc">XMLDsig</span></a>.</p></li>
+<li><p>Приложения к письму нужно указывать в формате base64 в основном файле ответа, в тегах <code class="docutils literal notranslate"><span class="pre">appealFile</span></code>. <a class="reference download internal" download="" href="../../../_downloads/c0eee0257294a764e68f897a21f4b20d/%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D1%80%20%D0%BE%D1%82%D0%B2%D0%B5%D1%82%D0%B0%20%D1%81%D1%82%D1%80%D0%B0%D1%85%D0%BE%D0%B2%D0%B0%D1%82%D0%B5%D0%BB%D1%8F%20%D0%BD%D0%B0%20%D0%BE%D0%B1%D1%80%D0%B0%D1%89%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%A1%D0%A4%D0%A0.xml"><code class="xref download docutils literal notranslate"><span class="pre">Пример</span> <span class="pre">файла</span></code></a>.</p></li>
+<li><p>Результат приема ответа на письмо нужно смотреть в документе Результат отправки сообщения (<a class="reference external" href="urn:document:fss-sedo-appeal-reply-reception-result">urn:document:fss-sedo-appeal-reply-reception-result</a>).</p></li>
+</ul>
+<section id="id5">
+<h3>Получение обращения СФР к страхователю<a class="headerlink" href="#id5" title="Ссылка на этот заголовок"></a></h3>
+<p>Документооборот Обращение СФР к страхователю <a class="reference external" href="urn:docflow:fss-sedo-appeal">urn:docflow:fss-sedo-appeal</a> поступает в статусе <strong>received</strong> и не содержит документ с письмом. Для получения документа нужно сформировать запрос на получение документов, подробнее об этом в статье <a class="reference internal" href="proactive_%20algorithm.html"><span class="doc">Работа с входящими документооборотами</span></a>. После получения запроса СФР направит документ с письмом. На поступивший документ нужно отправить <a class="reference internal" href="proactive_%20algorithm.html#rst-markup-reply-docs"><span class="std std-ref">Отметку о прочтении</span></a>.</p>
+<p>Статусы документооборота и порядок взаимодействия описаны в <a class="reference internal" href="../../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-fss-sedo-appeal"><span class="std std-ref">спецификации</span></a>.</p>
+</section>
+<section id="id6">
+<h3>Отправка ответа страхователя на обращение СФР<a class="headerlink" href="#id6" title="Ссылка на этот заголовок"></a></h3>
+<p>Ответ страхователя на образение СФР является отдельным документооборотом <a class="reference external" href="urn:docflow:fss-sedo-appeal-reply">urn:docflow:fss-sedo-appeal-reply</a>. Статусы и порядок взаимодействия описаны в <a class="reference internal" href="../../../specification/%D1%81%D1%82%D0%B0%D1%82%D1%83%D1%81%D1%8B%20%D0%94%D0%9E.html#rst-markup-fss-sedo-appeal-reply"><span class="std std-ref">спецификации</span></a>.</p>
+<p>Алгоритм работы с методами для создание и отправки ответа на требование смотрите в статье <a class="reference internal" href="proactive_isch.html"><span class="doc">Работа с исходящими документооборотами</span></a>.</p>
+<p>После отправки ответа на обращение поступит результат обработки, тип документа <a class="reference external" href="urn:document:fss-sedo-appeal-reply-reception-result">urn:document:fss-sedo-appeal-reply-reception-result</a>. На него необходимо отправить отметку о прочтении, чтобы документооборот перешел в статус <strong>Завершен</strong>. Подробнее об этом читайте в статье Работа с входящими документооборотами, в разделе <a class="reference internal" href="proactive_%20algorithm.html#rst-markup-reply-docs"><span class="std std-ref">Отметка о прочтении</span></a>.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="notification_SEDO.html" class="btn btn-neutral float-left" title="Уведомление о непоступлении ответа в срок" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../../../drafts/work-order-drafts.html" class="btn btn-neutral float-right" title="Порядок работы с черновиками" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>
