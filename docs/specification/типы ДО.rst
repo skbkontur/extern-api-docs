@@ -111,6 +111,6 @@
 
 .. csv-table:: 
    :header: "Urn", "Тип документооборота"
-   :widths: 20 40
+   :widths: 20 30
 
    "urn:docflow:mvd-notification", "Уведомление в МВД" 
