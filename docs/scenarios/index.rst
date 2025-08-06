@@ -39,7 +39,10 @@
 
 .. toctree::
    :titleonly:
-   :incudehidden:
+   :includehidden:
 
    MVD/index
 
+.. toctree::
+   :titlesonly:
+   :includehidden:

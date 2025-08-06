@@ -1013,5 +1013,5 @@
 
 Процесс изменения статуса:
 
-..image:: /_static/status-mvd-notification.png
+.. image:: /_static/status-mvd-notification.png
    :width: 600px
