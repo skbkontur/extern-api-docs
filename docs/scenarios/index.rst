@@ -38,7 +38,7 @@
    SFR/index
 
 .. toctree::
-   :titleonly:
+   :titlesonly:
    :includehidden:
 
    MVD/index
