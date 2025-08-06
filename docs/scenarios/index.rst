@@ -42,7 +42,3 @@
    :includehidden:
 
    MVD/index
-
-.. toctree::
-   :titlesonly:
-   :includehidden:
