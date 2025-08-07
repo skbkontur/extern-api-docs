@@ -2,6 +2,7 @@
 .. _`GET ControlUnits`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Fcontrol-units
 .. _`GET ListKND`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Ffns-forms
 .. _`GET ControlCode`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Fcontrol-units%2F%7Bcode%7D
+.. _`GET Handbooks`: https://developer.testkontur.ru/doc/extern/method?type=get&path=/v1/handbooks/%7BhandbookType%7D
 
 .. _rst-mrkup-handbooks:
 
@@ -43,4 +44,22 @@
 
 Метод: `GET ControlCode`_
 
-Метод вернет информацию о контролирующем органе по его коду. 
+Метод вернет информацию о контролирующем органе по его коду.
+
+Получение справочника из списка
+-------------------------------
+
+Метод: `GET Handbooks`_
+
+Метод вернет выбранный справочник из Единой системы нормативной справочной информации (ЕСНСИ). Информация из справочников нужна, чтобы заполнить черновик перед отправкой уведомления в МВД.
+
+Какие справочники есть:
+* Гражданство 
+* Профессии. Виды деятельности. Специальности
+* Регионы 
+* Трудовые уведомления. Иностранные граждане без оформления разрешительных документов 
+* Трудовые уведомления. Статусы работодателя по договору 
+* Трудовые уведомления. Статусы работодателя по выплате ВКС 
+* Коды ОКВЭД
+
+.. _rst-markup-handbooks:
