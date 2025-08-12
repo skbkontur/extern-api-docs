@@ -2,7 +2,7 @@
 .. _`GET ControlUnits`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Fcontrol-units
 .. _`GET ListKND`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Ffns-forms
 .. _`GET ControlCode`: https://developer.kontur.ru/doc/extern/method?type=get&path=%2Fv1%2Fhandbooks%2Fcontrol-units%2F%7Bcode%7D
-.. _`GET Handbooks`: https://developer.testkontur.ru/doc/extern/method?type=get&path=/v1/handbooks/%7BhandbookType%7D
+.. _`GET Handbooks`: https://developer.kontur.ru/doc/extern/method?type=get&path=/v1/handbooks/%7BhandbookType%7D
 
 .. _rst-mrkup-handbooks:
 
