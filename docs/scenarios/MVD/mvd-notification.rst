@@ -70,7 +70,7 @@ API Госуслуг определяет срок жизни подписи к 
     * в ``recipient`` параметр ``mvd-code`` – укажите код отделения МВД для отправки уведомления в МВД. Список кодов: :ref:`GET ControlUnits<rst-mrkup-handbooks>`.
     * сведения по сотруднику из справочников МВД: :ref:`GET Handbooks<rst-markup-handbooks>`.
 
-3. Загрузите в сервис контентов подписанный файл уведомления: :ref:`POST Upload<_rst-markup-put-content>`.
+3. Загрузите в сервис контентов подписанный файл уведомления: :ref::`POST Upload<rst-markup-post-content>`.
 4. Создайте документ в черновике :ref:`POST Add Document<rst-markup-addDocument>`. В теле запроса передайте идентификатор загруженного контента ``content-id``.
 5. Проверьте черновик перед отправкой: :ref:`POST Check<rst-markup-check>`. Без проверки черновик нельзя отредактировать для отправки в МВД.
 6. Подготовьте черновик для добавления подписи: :ref:`PATCH DataToSign<rst-markup-datatosign>`.
