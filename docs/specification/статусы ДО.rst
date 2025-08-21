@@ -990,3 +990,91 @@
 
 .. image:: /_static/fss-sedo-payment-details-demand-reply.png
    :width: 600px
+
+Сведения для оплаты отпуска застрахованного лица
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+      "urn:docflow-common-status:sent", "Отправлен", "Отправлен запрос на отправку сведений для оплаты отпуска застрахованных лиц"
+      "urn:docflow-common-status:delivered", "Доставлен", "Получен ответ от портала и результат обработки сведений"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен результат рассмотрения сведений"
+      "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении или получена ошибка"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_additional_vacation_statement.png
+   :width: 600px
+
+Запрос недостающих документов для оплаты отпуска застрахованного лица
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement-need-doc
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+      "urn:docflow-common-status:received", "Получен", "Получены данные для генерации запроса на получение документа"
+      "urn:docflow-common-status:arrived", "Получен", "Отправлен запрос на получение недостающих документов для оплаты отпуска застрахованного лица"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен документ с запросом на получение недостающих документов для оплаты отпуска застрахованного лица"
+      "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении или получена ошибка получения документа"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_additional_vacation_statement_need_doc.png
+   :width: 600px
+
+Направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement-docs
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+      "urn:docflow-common-status:sent", "Отправлен", "Отправлен запрос на отправку сообщения"
+      "urn:docflow-common-status:delivered", "Доставлен", "Получен ответ портала на запрос"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен результат обработки"
+      "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении или получена ошибка"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_additional_vacation_statement_docs.png
+   :width: 600px
+
+МВД
+---
+
+.. _rst-markup_mvd:
+
+Уведомление в МВД
++++++++++++++++++
+
+Тип документооборота: urn:docflow:mvd-notification
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 20 10 50
+
+      "urn:docflow-common-status:sent", "Отправлен", "Отправлено уведомление в МВД"
+      "urn:docflow-common-status:delivered", "Доставлен", "Поступила квитанция о получении от МВД"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Пришел результат обработки от МВД"
+
+Процесс изменения статуса:
+
+.. image:: /_static/status-mvd-notification.png
+   :width: 600px

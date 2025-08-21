@@ -46,7 +46,7 @@ OpenID Провайдер сначала отправит конечного п�
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
     GET /connect/authorize
         ?response_type=code
@@ -60,7 +60,7 @@ OpenID Провайдер сначала отправит конечного п�
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     HTTP/1.1 302 Found
     Location: https://www.example.com
@@ -93,7 +93,7 @@ OpenID Провайдер вернет в ответ Access Token.
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
     POST /connect/token HTTP/1.1
     Host: identity.kontur.ru
@@ -107,7 +107,7 @@ OpenID Провайдер вернет в ответ Access Token.
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     200 OK
     Content-type: application/json

@@ -92,6 +92,9 @@
    "urn:docflow:fss-sedo-broadcast-message", "Широковещательное сообщение СЭДО от СФР"
    "urn:docflow:fss-sedo-payment-details-demand", "Запрос платежных реквизитов"
    "urn:docflow:fss-sedo-payment-details-demand-reply", "Ответ на запрос платежных реквизитов"
+   "urn:docflow:fss-sedo-additional-vacation-statement", "Сведения для оплаты отпуска застрахованного лица"
+   "urn:docflow:fss-sedo-additional-vacation-statement-need-doc", "Запрос недостающих документов для оплаты отпуска застрахованного лица"
+   "urn:docflow:fss-sedo-additional-vacation-statement-docs", "Направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица"
 
 .. _rst-markup-cbrf:
 
@@ -103,3 +106,14 @@
    :widths: 20 40
 
    "urn:docflow:cbrf-report", "Отчетность в ЦБ РФ"
+
+.. _rst-markup-mvd:
+
+МВД
+---
+
+.. csv-table:: 
+   :header: "Urn", "Тип документооборота"
+   :widths: 20 30
+
+   "urn:docflow:mvd-notification", "Уведомление в МВД" 

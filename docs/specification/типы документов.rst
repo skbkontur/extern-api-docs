@@ -13,6 +13,10 @@
 
 Тип документооборота urn:docflow:fns534-report.
 
+.. |br| raw:: html
+
+    <br />
+
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
    :widths: 20 80 20
@@ -861,6 +865,53 @@
       "urn:document:fss-sedo-payment-details-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:fss-sedo-payment-details-demand-reply-error-message", "Ошибка обработки"
 
+Сведения для оплаты отпуска застрахованного лица
+++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-additional-vacation-statement-request", "Запрос на отправку сведений для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-additional-vacation-statement-received-document", "Результат обработки сведений для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-result-document", "Результат рассмотрения сведений для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-additional-vacation-statement-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-additional-vacation-statement-error-message", "Ошибка обработки"
+
+Запрос недостающих документов для оплаты отпуска застрахованного лица
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement-need-doc
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-additional-vacation-statement-need-doc-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-additional-vacation-statement-need-doc-document", "Документ запроса недостающих документов для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-need-doc-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-additional-vacation-statement-need-doc-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-additional-vacation-statement-docs
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:fss-sedo-additional-vacation-statement-docs-request", "Запрос на отправку направления дополнительных документов по сведениям для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-docs-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-additional-vacation-statement-docs-result-document", "Результат обработки сведений для оплаты отпуска застрахованного лица"
+      "urn:document:fss-sedo-additional-vacation-statement-docs-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-additional-vacation-statement-docs-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-additional-vacation-statement-docs-error-message", "Ошибка обработки"
+
 ЦБ РФ
 -----
 
@@ -891,3 +942,21 @@
       "urn:document:cbrf-report","Отчет"
       "urn:document:cbrf-report-reception-result","Сообщение о приеме"
       "urn:document:cbrf-report-processing-result","Результат обработки"
+
+МВД
+---
+
+Уведомление в МВД
++++++++++++++++++
+
+Тип документооборота: urn:docflow:mvd-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 20 80
+
+      "urn:document:mvd-notification-epgu-notification", "Уведомление в МВД"
+      "urn:document:mvd-notification-description", "Описание уведомления"
+      "urn:document:mvd-notificaiton-epgu-receipt", "Квитанция о получении"
+      "urn:document:mvd-notification-epgu-protocol", "Результат обработки уведомления может быть положительный или отрицательный. |br| Отрицательный результат может содержать: |br|- Детализированный отказ: уведомление не принято в МВД. Содержит причину отказа. |br|- Недетализированный отказ: уведомление не принято в МВД. Не содержит причину отказа"
+   

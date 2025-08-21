@@ -6,6 +6,7 @@
 .. _`DELETE Organization`: https://developer.kontur.ru/doc/extern/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D
 .. _`POST UpdateSigner`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D%2Fupdate-signer
 .. _`POST ControlUnitSubscriptions`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D%2Fcontrol-unit-subscriptions
+.. _`POST Gosuslugi Auth`: https://developer.kontur.ru/doc/extern/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Forganizations%2F%7BorgId%7D%2Fgosuslugi-auth
 
 Методы для работы с организациями
 =================================
@@ -23,6 +24,7 @@
 * `Поиск подписок на контролирующие органы`_
 * `Редактирование организации`_
 * `Удаление организации`_
+* `Авторизация на Госуслугах`_
 
 Получение списка доступных организаций
 --------------------------------------
@@ -84,3 +86,23 @@
 * если организация ликвидирована по данным ЕГРЮЛ.
 
 В рамках :ref:`многопользовательского режима<rst-markup-mpr>` администратор может удалить организацию из структуры для всех пользователей. Дополнительный пользователь может удалить организацию только у себя.
+
+.. _rst-markup-gosuslugiauth:
+
+Авторизация на Госуслугах
+-------------------------
+
+Метод `POST Gosuslugi Auth`_
+
+Метод получает токен доступа для указанной организации. API Контур.Экстерна сохраняет его для передачи в следующих запроса к API Госуслуг. Это нужно для отправки уведомлений в МВД.
+
+**Тело запроса**
+
+* ``gosuslugi-uid`` — API-ключ сотрудника из Госуслуг.
+* ``base64-signature-content`` — файл подписи API-ключа в формате base64.
+
+**Как создать файл подписи**
+    1. Создайте файл с расширением .txt в формате UTF-8 без BOM. Например, api_key.txt
+    2. Скопируйте в файл API-ключ сотрудника и сохраните его.
+    3. Выполните подписание для создания открепленной подписи в формате PKCS#7 с расширением .p7s. Сертификат для подписания должен включать ИНН организации, на сотрудника которой выдан API-ключ.
+    4. Сконвертируйте полученный файл подписи в формат base64 и укажите его в теле запроса. Срок жизни файла подписи после отправки запроса составляет 18 часов.

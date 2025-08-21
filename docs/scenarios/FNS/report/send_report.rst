@@ -81,7 +81,7 @@
 
         Пример запроса POST CreateDraft
 
-    .. code-block:: http
+    .. code-block:: text
 
         POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts HTTP/1.1
         Host: extern-api.testkontur.ru
@@ -117,7 +117,7 @@
 
         Ответ POST CreateDraft
 
-    .. code-block:: http
+    .. code-block:: text
    
         HTTP/1.1 201 Created
         Content-Type: application/json; charset=utf-8
@@ -161,7 +161,7 @@
 
 Запрос POST UploadContent
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/contents HTTP/1.1
     Authorization: Bearer <token>
@@ -175,7 +175,7 @@
 
 Ответ POST UploadContent
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 201 Created
     Content-Type: application/json; charset=utf-8
@@ -189,7 +189,7 @@
 
 Запрос POST Add Document
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents HTTP/1.1
     Authorization: Bearer <token>
@@ -208,7 +208,7 @@
 
         Ответ POST Add Document
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
@@ -248,7 +248,7 @@
 
 Запрос POST AddSignature
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/documents/ea7cdf3e-6f80-4b94-be0d-e36f1ff84d8e/signatures HTTP/1.1
     Host: extern-api.testkontur.ru
@@ -268,7 +268,7 @@
 
         Ответ POST AddSignature
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
@@ -301,7 +301,7 @@
 
 Запрос POST Check
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/check?deferred=true HTTP/1.1
     Authorization: Bearer <token>
@@ -310,7 +310,7 @@
 
 Ответ POST Check
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8  
@@ -325,7 +325,7 @@
 
 Запрос POST Prepare
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/prepare?deferred=true HTTP/1.1
     Authorization: Bearer <token>
@@ -334,7 +334,7 @@
 
 Ответ POST Prepare
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -349,7 +349,7 @@
 
 Запрос POST Send
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/send?deferred=true HTTP/1.1
     Authorization: Bearer <token>
@@ -358,7 +358,7 @@
 
 Ответ POST Send
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 200 OK
     
@@ -372,7 +372,7 @@
 
 Запрос GET TaskId
 
-.. code-block:: json
+.. code-block:: text
 
     GET /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/tasks/4e686a8a-5dce-4dd0-ba51-d474cc0e20b1 HTTP/1.1
     Authorization: Bearer <token>
@@ -382,7 +382,7 @@
 
 Ответ GET TaskId
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json; charset=utf-8
@@ -406,7 +406,7 @@
 
 Запрос GET TaskId
 
-.. code-block:: json
+.. code-block:: text
 
     GET /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/tasks/cace972c-b3b5-420c-ac4f-c7074080ec48 HTTP/1.1
     Authorization: Bearer <token>
@@ -421,7 +421,7 @@
 
         Ответ GET TaskId
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
@@ -451,7 +451,7 @@
 
 Запрос GET TaskId
 
-.. code-block:: json
+.. code-block:: text
 
     GET /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/drafts/57a3c02c-45bd-48f2-9d68-bfaac4a7bb26/tasks/8be51112-d4ee-4c8c-8bc6-7cd46e369a68 HTTP/1.1
     Authorization: Bearer <token>
@@ -466,7 +466,7 @@
 
         Ответ GET TaskId
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8

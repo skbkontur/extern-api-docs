@@ -11,7 +11,10 @@
     * urn:docflow:fss-sedo-billing-information-demand – запрос на формирование справки о расчетах СФР;
     * urn:docflow:fss-sedo-baby-care-vacation-close-notice – уведомление о прекращении отпуска по уходу за ребенком до полутора лет;
     * urn:docflow:fss-sedo-appeal-reply – ответ страхователя на обращение СФР;
-    * urn:docflow:fss-sedo-disability-children-demand – заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами.
+    * urn:docflow:fss-sedo-disability-children-demand – заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами;
+    * urn:docflow:fss-sedo-additional-vacation-statement – сведения для оплаты отпуска застрахованного лица;
+    * urn:docflow:fss-sedo-additional-vacation-statement-docs – направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица.
+
 
 Далее для каждого документооборота создайте черновик и отправьте его. 
 

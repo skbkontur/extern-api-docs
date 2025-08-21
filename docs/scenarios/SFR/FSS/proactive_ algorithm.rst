@@ -102,6 +102,9 @@
    "urn:docflow:fss-sedo-disability-children-demand", "urn:document:fss-sedo-disability-children-demand-result-document"
    "urn:docflow:fss-sedo-payment-details-demand", "urn:document:fss-sedo-payment-details-demand-document"
    "urn:docflow:fss-sedo-payment-details-demand-reply", "urn:document:fss-sedo-payment-details-demand-reply-result-document"
+   "urn:docflow:fss-sedo-additional-vacation-statement", "urn:document:fss-sedo-additional-vacation-statement-result-document"
+   "urn:docflow:fss-sedo-additional-vacation-statement-need-doc", "urn:document:fss-sedo-additional-vacation-statement-need-doc-document"
+   "urn:docflow:fss-sedo-additional-vacation-statement-docs", "urn:document:fss-sedo-additional-vacation-statement-docs-result-document"
 
 2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -139,6 +142,9 @@
     "urn:document:fss-sedo-disability-children-demand-result-document", "urn:document:fss-sedo-disability-children-demand-read-receipt"
     "urn:document:fss-sedo-payment-details-demand-document", "urn:document:fss-sedo-payment-details-demand-read-receipt"
     "urn:document:fss-sedo-payment-details-demand-reply-result-document", "urn:document:fss-sedo-payment-details-demand-reply-read-receipt"
+    "urn:document:fss-sedo-additional-vacation-statement-result-document", "urn:document:fss-sedo-additional-vacation-statement-read-receipt"
+    "urn:document:fss-sedo-additional-vacation-statement-need-doc-document", "urn:document:fss-sedo-additional-vacation-statement-need-doc-read-receipt"
+    "urn:document:fss-sedo-additional-vacation-statement-docs-result-document", "urn:document:fss-sedo-additional-vacation-statement-docs-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 

@@ -47,7 +47,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
     POST /connect/deviceauthorization HTTP/1.1
     Host: identity.kontur.ru
@@ -59,7 +59,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json
@@ -108,9 +108,9 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
-    POST /connect/tokenHTTP/1.1
+    POST/connect/tokenHTTP/1.1
     Host: identity.kontur.ru
     Content-type: application/x-www-form-urlencoded
     
@@ -122,7 +122,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json

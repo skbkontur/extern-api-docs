@@ -18,7 +18,7 @@
 **Алгоритм создания и отправки черновика подписок**
 
 #. Создать черновик. Метод `POST Create draft`_. В метаинформации черновика необходимо заполнить поле ``registration-number-fss`` — регистрационный номер, по которому производится подписка.
-#. Создать документ в черновике по :doc:`json контракту</manuals/contracts>`. Метод :doc:`POST BuildDocumentContent</drafts/DraftDocumentBuildController>`. В ответе метод возвращает информацию о документе.
+#. Создать документ в черновике по :ref:`json контракту<rst-markup-edok-example-contract>`. Метод :doc:`POST BuildDocumentContent</drafts/DraftDocumentBuildController>`. В ответе метод возвращает информацию о документе.
 #. Проверить черновик `POST Check`_. 
 #. Подготовить черновик `POST Prepare`_.
 #. Отправить черновик `POST Send`_.
