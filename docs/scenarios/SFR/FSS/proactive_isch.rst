@@ -3,15 +3,18 @@
 
 В схеме проактивных выплат работодатель направляет в СФР следующие исходящие документообороты:
     
-    * urn:docflow:fss-sedo-insured-person-registration – сведения о застрахованных лицах;
-    * urn:docflow:fss-sedo-proactive-payments-reply – ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения;
-    * urn:docflow:fss-sedo-benefit-payment-initiation – инициация выплат пособия;
-    * urn:docflow:fss-warrant-management – запрос на регистрацию и отзыв доверенности СФР;
-    * urn:docflow:fss-sedo-demand-reply – ответ на требование СФР;
-    * urn:docflow:fss-sedo-billing-information-demand – запрос на формирование справки о расчетах СФР;
-    * urn:docflow:fss-sedo-baby-care-vacation-close-notice – уведомление о прекращении отпуска по уходу за ребенком до полутора лет;
-    * urn:docflow:fss-sedo-appeal-reply – ответ страхователя на обращение СФР;
-    * urn:docflow:fss-sedo-disability-children-demand – заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами.
+    * urn:docflow:fss-sedo-insured-person-registration — сведения о застрахованных лицах;
+    * urn:docflow:fss-sedo-proactive-payments-reply — ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения;
+    * urn:docflow:fss-sedo-benefit-payment-initiation — инициация выплат пособия;
+    * urn:docflow:fss-warrant-management — запрос на регистрацию и отзыв доверенности СФР;
+    * urn:docflow:fss-sedo-demand-reply — ответ на требование СФР;
+    * urn:docflow:fss-sedo-billing-information-demand — запрос на формирование справки о расчетах СФР;
+    * urn:docflow:fss-sedo-baby-care-vacation-close-notice — уведомление о прекращении отпуска по уходу за ребенком до полутора лет;
+    * urn:docflow:fss-sedo-appeal-reply — ответ страхователя на обращение СФР;
+    * urn:docflow:fss-sedo-disability-children-demand — заявление о возмещении расходов на оплату дополнительных выходных дней для ухода за детьми-инвалидами;
+    * urn:docflow:fss-sedo-additional-vacation-statement — сведения для оплаты отпуска застрахованного лица;
+    * urn:docflow:fss-sedo-additional-vacation-statement-docs — направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица.
+
 
 Далее для каждого документооборота создайте черновик и отправьте его. 
 
@@ -35,7 +38,7 @@
     
     a. в ``payer`` параметр ``registration-number-sfr``;
     b. в ``recipient`` параметр ``fss-code``;
-    c. в ``additional-info`` параметр ``machine-readable-warrant-id`` – укажите идентификатор машиночиамой доверенности, если отправляете отчет через уполномоченного представителя.
+    c. в ``additional-info`` параметр ``machine-readable-warrant-id`` — укажите идентификатор машиночиамой доверенности, если отправляете отчет через уполномоченного представителя.
 
 2. Загрузите файл документа в :ref:`Сервис контентов<rst-markup-load>`.
 3. Создайте документ в черновике: :ref:`POST Add Document<rst-markup-addDocument>`. При создании укажите ссылку на документ в виде идентификатора из :ref:`Сервиса контентов<rst-markup-load>`.

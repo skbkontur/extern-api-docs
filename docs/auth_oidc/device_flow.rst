@@ -33,9 +33,9 @@
 
 Content-Type: application/x-www-form-unlencoded
 
-* ``client_id`` – сервисное имя, выдается вместе с api-key;
-* ``client_secret`` – api-key;
-* ``scope`` – область действия токена. Укажите значение: extern.api.
+* ``client_id`` — сервисное имя, выдается вместе с api-key;
+* ``client_secret`` — api-key;
+* ``scope`` — область действия токена. Укажите значение: extern.api.
 
 **Ответ**
 
@@ -47,7 +47,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
     POST /connect/deviceauthorization HTTP/1.1
     Host: identity.kontur.ru
@@ -59,7 +59,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json
@@ -96,11 +96,11 @@ Content-Type: application/x-www-form-unlencoded
 
 Content-Type: application/x-www-form-unlencoded
 
-* ``grant_type`` – тип аутентификации. Укажите значение: ``urn:ietf:params:oauth:grant-type:device_code``;
-* ``client_id`` – сервисное имя, выдается вместе с api-key;
-* ``client_secret`` – api-key;
-* ``scope`` – область действия токена. Укажите значение: ``extern.api``;
-* ``device_code`` – полученный код.
+* ``grant_type`` — тип аутентификации. Укажите значение: ``urn:ietf:params:oauth:grant-type:device_code``;
+* ``client_id`` — сервисное имя, выдается вместе с api-key;
+* ``client_secret`` — api-key;
+* ``scope`` — область действия токена. Укажите значение: ``extern.api``;
+* ``device_code`` — полученный код.
 
 **Ответ**
 
@@ -108,9 +108,9 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример запроса**
 
-.. code-block:: http
+.. code-block:: text
 
-    POST /connect/tokenHTTP/1.1
+    POST/connect/tokenHTTP/1.1
     Host: identity.kontur.ru
     Content-type: application/x-www-form-urlencoded
     
@@ -122,7 +122,7 @@ Content-Type: application/x-www-form-unlencoded
 
 **Пример ответа**
 
-.. code-block:: http
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/json

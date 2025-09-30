@@ -119,7 +119,7 @@
 
 Запрос GET Docflow
 
-.. code-block:: json
+.. code-block:: text
 
     GET /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/docflows/351b56d1-5d81-4086-8763-0dd3ce55bcd4 HTTP/1.1
     Authorization: Bearer <token>
@@ -133,7 +133,7 @@
 
         Ответ GET Docflow
 
-    .. code-block:: http
+    .. code-block:: text
 
         {
         "id": "351b56d1-5d81-4086-8763-0dd3ce55bcd4",
@@ -698,7 +698,7 @@
 
 Запрос GET Download
 
-.. code-block:: json
+.. code-block:: text
 
     GET /v1/c5217c6d-a8fd-4acf-997c-6da64a9b5f74/contents/56e689da-6826-4c54-8251-4ddb94ef40ed HTTP/1.1
     Authorization: Bearer <token>
@@ -706,7 +706,7 @@
 
 Ответ GET Dowload
 
-.. code-block:: json
+.. code-block:: text
 
     HTTP/1.1 200 OK
     Content-Type: application/octet-stream
@@ -718,7 +718,7 @@
 
 Запрос POST CreateReplyDocument
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/generate-reply?documentType=fns534-report-receipt HTTP/1.1
     X-Kontur-Apikey: ****
@@ -737,7 +737,7 @@
 
         Ответ POST CreateReplyDocument
 
-    .. code-block:: http
+    .. code-block:: text
 
         {
             "id": "9ae00ec3-9b23-48d7-a417-368e24f1c6ca",
@@ -774,7 +774,7 @@
 
 Запрос PUT ReplyDocumentSignature
 
-.. code-block:: json
+.. code-block:: text
 
     PUT /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/signature HTTP/1.1
     Authorization: Bearer <token>
@@ -793,7 +793,7 @@
 
         Ответ PUT ReplyDocumentSignature
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
@@ -835,7 +835,7 @@
 
 Запрос POST SendReplyDocument
 
-.. code-block:: json
+.. code-block:: text
 
     POST /v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/send HTTP/1.1
     Host: extern-api.testkontur.ru
@@ -855,7 +855,7 @@
 
         Ответ POST SendReplyDocument
 
-    .. code-block:: http
+    .. code-block:: text
 
         HTTP/1.1 200 OK
         Content-Type: application/json; charset=utf-8
