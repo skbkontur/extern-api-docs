@@ -20,8 +20,6 @@
 .. _`GET DemandsAssigness`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2Fdemands-assignees
 .. _`POST DecryptContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypt-content
 .. _`POST ConfirmContentDecryption`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fconfirm-content-decryption
-.. _`PATCH DataToSign`: здесь будет ссылка после релиза
-
 
 Методы для работы с документооборотами
 ======================================
@@ -889,12 +887,12 @@ C помощью этого метода можно получить отдел�
 
 Метод позволяет изменить следующие реквизиты документа требования: 
 
-* ``comment`` – комментарий;
-* ``labels`` – метка;
-* ``demand-number`` – номер требования;
-* ``assignees`` – ответственный;
-* ``demand-status`` – статус требования;
-* ``demand-date`` – дата требования.
+* ``comment`` — комментарий;
+* ``labels`` — метка;
+* ``demand-number`` — номер требования;
+* ``assignees`` — ответственный;
+* ``demand-status`` — статус требования;
+* ``demand-date`` — дата требования.
 
 Получение связанных документооборотов
 -------------------------------------

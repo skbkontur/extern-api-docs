@@ -19,7 +19,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
 
    "urn:document:fns534-report","Налоговая декларация или бухгалтерская отчетность (установленный формат).","Декларация"
    "urn:document:fns534-report-description*","Служебный документ, в котором передается описание декларации (установленный формат).","Описание"
@@ -41,7 +41,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-ion-request","Запрос на предоставление информации (установленный формат).","Запрос"
    "urn:document:fns534-ion-date-confirmation*","Подтверждение даты отправки (установленный формат).","ПодтверждениеДатыОтправки"
@@ -59,7 +59,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-letter","Текст обращения (установленный формат).","Обращение"
    "urn:document:fns534-letter-descriptiont*","Служебный документ, в котором передается описание (установленный формат).","Описание"
@@ -76,7 +76,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-cu-letter","Текст письма (установленный формат).","Письмо"
    "urn:document:fns534-cu-letter-description","Служебный документ, в котором передается описание (установленный формат).","Описание"
@@ -91,7 +91,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-submission-message","Документ (установленный формат).","Представление"
    "urn:document:fns534-submission-description*","Служебный документ, в котором передается описание документа представление (установленный формат).","Описание"
@@ -109,7 +109,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-demand","Файл-описание к требованиям (установленный формат).","Документ"
    "urn:document:fns534-demand-description","Служебный документ, в котором передается описание документа (установленный формат).","Описание"
@@ -126,7 +126,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-inventory-message","Документ (установленный формат).","Представление"
    "urn:document:fns534-inventory-description*","Служебный документ, в котором передается описание документа представление (установленный формат).","Описание"
@@ -144,7 +144,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fns534-application","Заявление российского покупателя о ввозе товаров и уплате косвенных налогов (установленный формат).","Заявление"
    "urn:document:fns534-application-description*","Служебный документ, в котором передается описание заявления (установленный формат).","Описание"
@@ -163,7 +163,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:business-registration-inventory","Служебный документ, в котором передается описание документа (установленный формат)","Опись представляемого пакета документов"
    "urn:document:business-registration-duty","Документ об уплате государственной пошлины","Госпошлина"
@@ -193,7 +193,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
 
    "urn:document:error", "Сообщение об ошибке от КО", "СообщениеОбОшибке"
    "urn:document:fns534-cu-broadcast","Неформализованный текст информационной рассылки налогового органа","Рассылка"
@@ -212,7 +212,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
 
    "urn:document:pfr-report","Пачка или пачки отчетности (установленный формат)","Тип пачки"
    "urn:document:pfr-report-description","Описание передаваемых сведений (установленный формат)","ОписаниеСведений"
@@ -229,7 +229,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
 
    "urn:document:pfr-report-report-v2","Отчет с подписью формата XMLDSig для отправки в ЭДОК","Отчетность"
    "urn:document:pfr-package-description", "Описание пакета", "Опись содержания пакета (ОСП)"
@@ -247,7 +247,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:pfr-letter","Текст письма","Письмо"
    "urn:document:pfr-letter-description","Описание передаваемого письма (установленный формат)","ОписаниеПисьма"
@@ -263,7 +263,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:pfr-cu-letter","Текст письма","Письмо"
    "urn:document:pfr-cu-letter-description","Описание передаваемого письма (установленный формат)","ОписаниеПисьма"
@@ -280,7 +280,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:pfr-ios-request","Документ с запросом информации по платежам в орган ПФР (установленный формат)","Запрос"
    "urn:document:pfr-ios-description","Описание передаваемого запроса (установленный формат)","ОписаниеЗапроса"
@@ -296,7 +296,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:pfr-ancillary-document","Служебный документ","Служебный документ"
    "urn:document:pfr-ancillary-attachment","Не формализованное приложение в пакете","Приложение"
@@ -317,17 +317,17 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:sfr-report-report-document", "Отчет", ""
    "urn:document:sfr-report-attachment", "Приложение", ""
    "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
    "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
-   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
-   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
+   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. |br| **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
+   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. |br| **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
    "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
    "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
-   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
+   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. |br| **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
 
 Росстат
 -------
@@ -341,7 +341,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:stat-report","Отчет, направляемый в ТОГС (установленный формат)","Отчет"
    "urn:document:stat-report-description*","Служебный документ, в котором передается описание отчета (установленный формат)","ОписаниеОтчета"
@@ -362,7 +362,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:stat-letter","Неформализованный текст письма","Письмо"
    "urn:document:stat-letter-description*","Служебный документ, в котором передается описание письма (установленный формат)","ОписаниеПисьма"
@@ -377,7 +377,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:stat-cu-letter","Неформализованный текст письма","Письмо"
    "urn:document:stat-cu-letter-attachment","Неформализованное приложение к письму","ПриложениеПисьма"
@@ -392,7 +392,7 @@
  
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
 
    "urn:document:stat-cu-broadcast-letter","Неформализованный текст информационной рассылки","Рассылка"
    "urn:document:stat-cu-broadcast-description","Служебный документ, в котором передается описание рассылки (установленный формат)","ОписаниеПисьма"
@@ -411,7 +411,7 @@
 
 .. csv-table:: 
    :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 20 80 20
+   :widths: 70 40 10
    
    "urn:document:fss-report","Исходный отчет с присоединенной подписью","Файл Расчета"
    "urn:document:fss-report-date-confirmation","Подтверждение спецоператора (не утверждено форматом, формирует Контур.Экстерн при отправке из веб-приложения, юридической силы не имеет)","<нет соответствия>"
@@ -427,7 +427,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-oved-confirmation-request", "Запрос на отправку Заявления на подтверждение основного вида экономической деятельности"
       "urn:document:fss-sedo-oved-confirmation-request-fuf", "Заявление на подтверждение основного вида экономической деятельности"
@@ -447,7 +447,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-provider-subscription-subscribe-request-for-registration-number","Подписка оператора на страхователя для получения документов из СЭДО"
       "urn:document:fss-sedo-provider-subscription-unsubscribe-request-for-registration-number","Отписка оператора на страхователя для прекращения получения документов из СЭДО"
@@ -463,7 +463,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sick-report","Реестр больничных листов с присоединённой подписью"
       "urn:document:fss-sick-report-date-confirmation","Подтверждение спецоператора"
@@ -478,7 +478,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-pvso-notification-request-message", "Запрос на получение контента извещения ПВСО"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с извещением ПВСО"
@@ -497,7 +497,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-sick-report-change-notification-request-message", "Запрос на получение контента уведомления об изменении статуса ЭЛН"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с уведомлением об изменении статуса ЭЛН"
@@ -516,7 +516,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-proactive-payments-demand-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с запросом недостающих сведений"
@@ -532,7 +532,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-proactive-payments-reply-request", "Запрос на отправку сведений"
       "urn:document:fss-sedo-proactive-payments-reply-receipt", "Результат приема запроса порталом"
@@ -548,7 +548,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-proactive-payments-benefit-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ выплаты пособия"
@@ -564,7 +564,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-insured-person-registration-request", "Запрос на регистрацию сведений"
       "urn:document:fss-sedo-insured-person-registration-receipt", "Результат приема запроса порталом"
@@ -581,7 +581,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-insured-person-mismatch-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с информацией о несоответствии сведений о застрахованном лице"
@@ -597,7 +597,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-benefit-payment-initiation-request", "Запрос на отправку сообщения «Инициация выплаты пособия»"
       "urn:document:fss-sedo-benefit-payment-initiation-reception-result", "Результат отправки сообщения на портал"
@@ -614,7 +614,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-benefit-payment-status-notice-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-response", "Исходный документ ответа на запрос, содержит документ с уведомлением о статусе выплаты пособия"
@@ -630,7 +630,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-warrant-management-request-message", "SOAP-сообщение на отправку создания или отзыва доверенности ФСС"
       "urn:document:fss-warrant-management-request-document", "Исходный документ создания или отзыва доверенности ФСС до формирования SOAP-сообщения"
@@ -648,7 +648,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-demand-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с требованием ФСС"
@@ -669,7 +669,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-demand-reply-request", "Запрос на отправку ответа на требование ФСС"
       "urn:document:fss-sedo-demand-reply-reception-result", "Результат приема запроса порталом"
@@ -687,7 +687,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-billing-information-demand-request", "Запрос на отправку сведений"
       "urn:document:fss-sedo-billing-information-demand-reception-result", "Результат приема запроса порталом"
@@ -708,7 +708,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-billing-information-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ со справкой о расчетах ФСС"
@@ -723,7 +723,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-baby-care-vacation-close-notice-request", "Запрос на отправку сообщения «Уведомление о прекращении отпуска по уходу за ребенком до полутора лет»"
       "urn:document:fss-sedo-baby-care-vacation-close-notice-reception-result", "Результат отправки сообщения на портал"
@@ -739,7 +739,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-employee-salary-information-request", "Запрос на отправку запроса сведений о зарплате сотрудника"
       "urn:document:fss-sedo-employee-salary-information-reception-result", "Результат отправки сообщения на портал"
@@ -755,7 +755,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-proactive-process-events-notification-request-message", "Запрос на получение документов"
       "urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message", "Документ «Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству»"
@@ -768,7 +768,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-proactive-expire-notice-request-message", "Запрос на получение документа"
       "urn:document:fss-sedo-proactive-expire-notice-document", "Документ уведомления"
@@ -782,7 +782,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-appeal-request-message", "Запрос на получение документа"
       "urn:document:fss-sedo-appeal-document", "Документ письма"
@@ -797,7 +797,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-appeal-reply-request", "Запрос на отправку сообщения"
       "urn:document:fss-sedo-appeal-reply-reception-result", "Результат отправки сообщения на портал"
@@ -814,7 +814,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-disability-children-demand-request", "Запрос на отправку сообщения"
       "urn:document:fss-sedo-disability-children-demand-reception-result", "Результат отправки сообщения на портал"
@@ -831,7 +831,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-broadcast-message-document", "Широковещательное сообщение СЭДО от СФР"
 
@@ -842,7 +842,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-payment-details-demand-request-message", "Запрос на получение документов"
       "urn:document:fss-sedo-payment-details-demand-document", "Документ с запросом платежных реквизитов"
@@ -856,7 +856,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-payment-details-demand-reply-request", "Запрос на отправку ответа на запрос платежных реквизитов"
       "urn:document:fss-sedo-payment-details-demand-reply-reception-result", "Результат отправки сообщения на портал"
@@ -872,7 +872,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-additional-vacation-statement-request", "Запрос на отправку сведений для оплаты отпуска застрахованного лица"
       "urn:document:fss-sedo-additional-vacation-statement-reception-result", "Результат отправки сообщения на портал"
@@ -889,7 +889,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-additional-vacation-statement-need-doc-request-message", "Запрос на получение документов"
       "urn:document:fss-sedo-additional-vacation-statement-need-doc-document", "Документ запроса недостающих документов для оплаты отпуска застрахованного лица"
@@ -903,7 +903,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 60 60
 
       "urn:document:fss-sedo-additional-vacation-statement-docs-request", "Запрос на отправку направления дополнительных документов по сведениям для оплаты отпуска застрахованного лица"
       "urn:document:fss-sedo-additional-vacation-statement-docs-reception-result", "Результат отправки сообщения на портал"
@@ -922,7 +922,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 30 50
 
       "urn:document:cbrf-report-report-v2","Отчет"
       "urn:document:cbrf-report-esod-receipt","Результат приема отчета"
@@ -937,7 +937,7 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 35 50
 
       "urn:document:cbrf-report","Отчет"
       "urn:document:cbrf-report-reception-result","Сообщение о приеме"
@@ -953,10 +953,10 @@
 
 .. csv-table::
    :header: "Urn", "Комментарий (согласно нормативным документам)"
-   :widths: 20 80
+   :widths: 50 60
 
       "urn:document:mvd-notification-epgu-notification", "Уведомление в МВД"
       "urn:document:mvd-notification-description", "Описание уведомления"
-      "urn:document:mvd-notificaiton-epgu-receipt", "Квитанция о получении"
+      "urn:document:mvd-notification-epgu-receipt", "Квитанция о получении"
       "urn:document:mvd-notification-epgu-protocol", "Результат обработки уведомления может быть положительный или отрицательный. |br| Отрицательный результат может содержать: |br|- Детализированный отказ: уведомление не принято в МВД. Содержит причину отказа. |br|- Недетализированный отказ: уведомление не принято в МВД. Не содержит причину отказа"
    

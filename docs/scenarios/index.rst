@@ -37,7 +37,7 @@
    
    SFR/index
 
-.. toctree::  
+.. toctree::
    :titlesonly:
    :includehidden:
 

@@ -54,9 +54,9 @@
 
 1. Для следующих документооборотов документы появятся только во входящих ДО: 
 
-    * urn:docflow:fss-sedo-pvso-notification – извещение ПВСО;
-    * urn:docflow:fss-sedo-sick-report-change-notification – уведомление об изменении статуса ЭЛН;
-    * urn:docflow:fss-sedo-demand – требование СФР.
+    * urn:docflow:fss-sedo-pvso-notification — извещение ПВСО;
+    * urn:docflow:fss-sedo-sick-report-change-notification — уведомление об изменении статуса ЭЛН;
+    * urn:docflow:fss-sedo-demand — требование СФР.
 
 Статус ДО поменяется на **response-arrived**. Для данных документооборотов **потребуется отправка ответных документов**: "Отметка о прочтении" и "Извещение о прочтении".
 
@@ -166,7 +166,7 @@
 4. Добавьте подпись к ответному документу: :ref:`PUT ReplyDocumentSignature<rst-markup-repliSignature>`.
 5. Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки отметки о прочтении  статус документооборота поменяется на **finished**. 
 
-Результат принятия извещения о прочтения появится в текущем и во входящем документообороте urn:docflow:fss-sedo-receipt-notification-result – результат подтверждения прочтения.
+Результат принятия извещения о прочтения появится в текущем и во входящем документообороте urn:docflow:fss-sedo-receipt-notification-result — результат подтверждения прочтения.
 
 Работа с ошибками
 -----------------

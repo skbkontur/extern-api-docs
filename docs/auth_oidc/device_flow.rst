@@ -33,9 +33,9 @@
 
 Content-Type: application/x-www-form-unlencoded
 
-* ``client_id`` – сервисное имя, выдается вместе с api-key;
-* ``client_secret`` – api-key;
-* ``scope`` – область действия токена. Укажите значение: extern.api.
+* ``client_id`` — сервисное имя, выдается вместе с api-key;
+* ``client_secret`` — api-key;
+* ``scope`` — область действия токена. Укажите значение: extern.api.
 
 **Ответ**
 
@@ -96,11 +96,11 @@ Content-Type: application/x-www-form-unlencoded
 
 Content-Type: application/x-www-form-unlencoded
 
-* ``grant_type`` – тип аутентификации. Укажите значение: ``urn:ietf:params:oauth:grant-type:device_code``;
-* ``client_id`` – сервисное имя, выдается вместе с api-key;
-* ``client_secret`` – api-key;
-* ``scope`` – область действия токена. Укажите значение: ``extern.api``;
-* ``device_code`` – полученный код.
+* ``grant_type`` — тип аутентификации. Укажите значение: ``urn:ietf:params:oauth:grant-type:device_code``;
+* ``client_id`` — сервисное имя, выдается вместе с api-key;
+* ``client_secret`` — api-key;
+* ``scope`` — область действия токена. Укажите значение: ``extern.api``;
+* ``device_code`` — полученный код.
 
 **Ответ**
 

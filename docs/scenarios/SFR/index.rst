@@ -8,7 +8,6 @@
    :includehidden:
 
    sfr
-   zped
    poved
    mchd_sfr
    FSS/index
