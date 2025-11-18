@@ -712,9 +712,12 @@
 
       "urn:document:fss-sedo-billing-information-request-message", "Запрос на получение документов"
       "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ со справкой о расчетах ФСС"
-      "urn:document:fss-sedo-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-billing-information-message", "Справка о расчетах ФСС"
       "urn:document:fss-sedo-billing-information-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-billing-information-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:sedo-attachment", "Вложение"
+      "urn:document:sedo-application", "Приложение к вложению"
+      "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
 
 Уведомление о прекращении отпуска по уходу за ребенком до полутора лет
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -759,6 +762,7 @@
 
       "urn:document:fss-sedo-proactive-process-events-notification-request-message", "Запрос на получение документов"
       "urn:document:fss-sedo-proactive-process-events-notification-proactive-process-events-notification-message", "Документ «Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству»"
+      "urn:document:fss-sedo-proactive-process-events-notification-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-proactive-process-events-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 Уведомление о том, что ответ на запрос недостающих сведений не поступил в установленные сроки
