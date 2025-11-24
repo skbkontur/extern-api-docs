@@ -69,7 +69,9 @@
 - urn:docflow:fss-sedo-employee-salary-information,
 - urn:docflow:fss-sedo-proactive-process-events-notification,
 - urn:docflow:fss-sedo-oved-confirmation,
-- urn:docflow:fns534-inventory.
+- urn:docflow:fns534-inventory,
+- urn:docflow:fss-sedo-judicial-restriction,
+- urn:docflow:fss-sedo-judicial-restriction-reply.
 
 
 Сценарии, в которых можно использовать списки документооборотов:
