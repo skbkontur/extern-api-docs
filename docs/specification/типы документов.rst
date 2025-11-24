@@ -916,6 +916,35 @@
       "urn:document:fss-sedo-additional-vacation-statement-docs-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:fss-sedo-additional-vacation-statement-docs-error-message", "Ошибка обработки"
 
+Запрос информации о судебном ограничении
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-judicial-restriction
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 60 60
+
+      "urn:document:fss-sedo-payment-details-demand-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-payment-details-demand-document", "Документ запроса информации о судебном ограничении"
+      "urn:document:fss-sedo-judicial-restriction-abonent-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-payment-details-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
+
+Ответ на запрос информации о судебном ограничении
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-judicial-restriction-reply
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 60 60
+
+      "urn:document:fss-sedo-judicial-restriction-reply-request", "Запрос на отправку ответа на запрос информации о судебном ограничении"
+      "urn:document:fss-sedo-judicial-restriction-reply-reception-result", "Результат отправки сообщения на портал"
+      "urn:document:fss-sedo-judicial-restriction-reply-result-document", "Результат ответа на запрос информации о судебном ограничении"
+      "urn:document:fss-sedo-judicial-restriction-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
+      "urn:document:fss-sedo-judicial-restriction-reply-error-message", "Ошибка обработки"
+
 ЦБ РФ
 -----
 

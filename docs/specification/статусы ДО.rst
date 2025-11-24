@@ -1054,6 +1054,49 @@
 .. image:: /_static/fss_sedo_additional_vacation_statement_docs.png
    :width: 600px
 
+Запрос информации о судебном ограничении
+++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-judicial-restriction
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 30 10 50
+
+      "urn:docflow-common-status:received", "Получен", "Получены данные для генерации запроса на получение документа"
+      "urn:docflow-common-status:arrived", "Получен", "СФР получен запрос на получение документа"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен документ с запросом информации о судебном ограничении"
+      "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении пользователем или получена ошибка получения документа"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_judicial_restriction.png
+   :width: 600px
+
+
+Ответ на запрос информации о судебном ограничении
++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-judicial-restriction-reply
+
+Возможные статусы:
+
+.. csv-table::
+   :header: "Urn", "Короткое имя", "Комментарий"
+   :widths: 30 10 50
+
+      "urn:docflow-common-status:sent", "Отправлен", "Отправлен запрос на отправку сообщения"
+      "urn:docflow-common-status:delivered", "Доставлен", "Получен ответ портала на запрос"
+      "urn:docflow-common-status:response-arrived", "Получен ответ", "Получен результат ответа на запрос информации о судебном ограничении"
+      "urn:docflow-common-status:finished", "Завершен", "Отправлена отметка о прочтении пользователем или получена ошибка"
+
+Процесс изменения статуса:
+
+.. image:: /_static/fss_sedo_judicial_restriction_reply.png
+   :width: 600px
+
 МВД
 ---
 

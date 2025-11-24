@@ -106,11 +106,11 @@
    "urn:docflow:fss-sedo-additional-vacation-statement-need-doc", "urn:document:fss-sedo-additional-vacation-statement-need-doc-document"
    "urn:docflow:fss-sedo-additional-vacation-statement-docs", "urn:document:fss-sedo-additional-vacation-statement-docs-result-document"
 
-2. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
+1. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
-3. Создайте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:
+2. Создайте ответный документ «Отметка о прочтении» к полученным документам. Это можно сделать несколькими способами:
 
-    a. Сгенерирйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО из таблицы ниже.
+    a. Сгенерируйте ответный документ: :ref:`POST CreateReplyDocument<rst-markup-post-reply-doc>`. Используйте идентификатор найденного документа для поля ``documentId``. Укажите в поле ``documentType`` тип документа для нужного ДО из таблицы ниже.
     b. Перейдите по ссылке из поля ``links`` в параметре ``rel``, содержащей тип нужного ответного документа. 
 
     Типы ответных документов для генерации отметки о прочтении:
@@ -148,7 +148,7 @@
 
 Подписывать «Отметку о прочтении» не нужно.
 
-4. Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки отметки о прочтении статус документооборота поменяется на **finished**.
+1. Отправьте ответный документ: :ref:`POST SendReplyDocument<rst-markup-sendreply>`. После отправки отметки о прочтении статус документооборота поменяется на **finished**.
 
 Извещение о прочтении
 ~~~~~~~~~~~~~~~~~~~~~
