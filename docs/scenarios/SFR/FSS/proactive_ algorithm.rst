@@ -105,6 +105,8 @@
    "urn:docflow:fss-sedo-additional-vacation-statement", "urn:document:fss-sedo-additional-vacation-statement-result-document"
    "urn:docflow:fss-sedo-additional-vacation-statement-need-doc", "urn:document:fss-sedo-additional-vacation-statement-need-doc-document"
    "urn:docflow:fss-sedo-additional-vacation-statement-docs", "urn:document:fss-sedo-additional-vacation-statement-docs-result-document"
+   "urn:docflow:fss-sedo-proactive-salary-notification", "urn:document:fss-sedo-proactive-salary-notification-document"
+   "urn:docflow:fss-sedo-judicial-restriction", "urn:document:fss-sedo-judicial-restriction-document"
 
 1. Чтобы получить файл документа, возьмите идентификатор ``content-id`` в метаинформации документа, в модели ``docflow-document-contents`` и скачайте документ из :ref:`Сервиса контентов<rst-markup-dowload>`.
 
@@ -145,6 +147,8 @@
     "urn:document:fss-sedo-additional-vacation-statement-result-document", "urn:document:fss-sedo-additional-vacation-statement-read-receipt"
     "urn:document:fss-sedo-additional-vacation-statement-need-doc-document", "urn:document:fss-sedo-additional-vacation-statement-need-doc-read-receipt"
     "urn:document:fss-sedo-additional-vacation-statement-docs-result-document", "urn:document:fss-sedo-additional-vacation-statement-docs-read-receipt"
+    "urn:document:fss-sedo-proactive-salary-notification-document", "urn:document:fss-sedo-proactive-salary-notification-abonent-read-receipt"
+    "urn:document:fss-sedo-judicial-restriction-document", "urn:document:fss-sedo-judicial-restriction-abonent-read-receipt"
 
 Подписывать «Отметку о прочтении» не нужно.
 

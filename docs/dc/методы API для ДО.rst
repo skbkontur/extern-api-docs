@@ -70,6 +70,7 @@
 - urn:docflow:fss-sedo-proactive-process-events-notification,
 - urn:docflow:fss-sedo-oved-confirmation,
 - urn:docflow:fns534-inventory,
+- urn:docflow:fss-sedo-proactive-salary-notification,
 - urn:docflow:fss-sedo-judicial-restriction,
 - urn:docflow:fss-sedo-judicial-restriction-reply.
 

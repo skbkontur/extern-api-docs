@@ -35,6 +35,7 @@
    "300 – 312, |br| 323 – 329, |br| 333 – 336", "Требование СФР", "urn:docflow:fss-sedo-demand"
    "313, 315", "Ответ на требование СФР", "urn:docflow:fss-sedo-demand-reply"
    "320 – 321", "Сведения о зарплате сотрудника", "urn:docflow:fss-sedo-employee-salary-information"
+   "322", "Сведения, необходимые для исчисления страхователем первых 3 дней пособия по временной нетрудоспособности ", "urn:docflow:fss-sedo-proactive-salary-notification"
    "700", "Запрос информации о судебном ограничении", "urn:docflow:fss-sedo-judicial-restriction"
    "701", "Ответ на запрос информации о судебном ограничении", "urn:docflow:fss-sedo-judicial-restriction-reply"
    "1001", "Обращение СФР к страхователю", "urn:docflow:fss-sedo-appeal"

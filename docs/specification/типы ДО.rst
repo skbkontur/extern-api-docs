@@ -95,6 +95,7 @@
    "urn:docflow:fss-sedo-additional-vacation-statement", "Сведения для оплаты отпуска застрахованного лица"
    "urn:docflow:fss-sedo-additional-vacation-statement-need-doc", "Запрос недостающих документов для оплаты отпуска застрахованного лица"
    "urn:docflow:fss-sedo-additional-vacation-statement-docs", "Направление дополнительных документов по сведениям для оплаты отпуска застрахованного лица"
+   "urn:docflow:fss-sedo-proactive-salary-notification", "Сведения, необходимые для исчисления страхователем первых 3 дней пособия по временной нетрудоспособности"
    "urn:docflow:fss-sedo-judicial-restriction", "Запрос информации о судебном ограничении"
    "urn:docflow:fss-sedo-judicial-restriction-reply", "Ответ на запрос информации о судебном ограничении"
    

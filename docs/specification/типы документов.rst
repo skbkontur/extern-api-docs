@@ -916,6 +916,20 @@
       "urn:document:fss-sedo-additional-vacation-statement-docs-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:fss-sedo-additional-vacation-statement-docs-error-message", "Ошибка обработки"
 
+Сведения, необходимые для исчисления страхователем первых 3 дней пособия по временной нетрудоспособности 
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Тип документооборота: urn:docflow:fss-sedo-proactive-salary-notification
+
+.. csv-table::
+   :header: "Urn", "Комментарий (согласно нормативным документам)"
+   :widths: 60 60
+
+      "urn:document:fss-sedo-proactive-salary-notification-request-message", "Запрос на получение документов"
+      "urn:document:fss-sedo-proactive-salary-notification-document", "Документ сведений, необходимых для исчисления страхователем первых 3 дней пособия по временной нетрудоспособности"
+      "urn:document:fss-sedo-proactive-salary-notification-abonent-read-receipt", "Отметка о прочтении"
+      "urn:document:fss-sedo-proactive-salary-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
+
 Запрос информации о судебном ограничении
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
