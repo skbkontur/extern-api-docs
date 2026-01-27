@@ -113,12 +113,12 @@
 
 * Поддержали :doc:`работу</scenarios/SFR/FSS/proactive_ algorithm>` с новыми документооборотами СЭДО:
 
-    - требования ФСС (urn:docflow:fss-sedo-demand);
-    - ответ на требование ФСС (urn:docflow:fss-sedo-demand-reply);
-    - результат ответа на требование ФСС (urn:docflow:fss-sedo-demand-reply-result);
-    - запрос на формирование справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand);
-    - результат обработки запроса справки о расчетах ФСС (urn:docflow:fss-sedo-billing-information-demand-result);
-    - справка о расчетах ФСС (urn:docflow:fss-sedo-billing-information);
+    - требования СФР (urn:docflow:fss-sedo-demand);
+    - ответ на требование СФР (urn:docflow:fss-sedo-demand-reply);
+    - результат ответа на требование СФР (urn:docflow:fss-sedo-demand-reply-result);
+    - запрос на формирование справки о расчетах СФР (urn:docflow:fss-sedo-billing-information-demand);
+    - результат обработки запроса справки о расчетах СФР (urn:docflow:fss-sedo-billing-information-demand-result);
+    - справка о расчетах СФР (urn:docflow:fss-sedo-billing-information);
     - уведомление о прекращении отпуска по уходу за ребенком до полутора лет (urn:docflow:fss-sedo-baby-care-vacation-close-notice).
 
 Сентябрь 2022
@@ -129,7 +129,7 @@
 Июль 2022
 ---------
 
-* Поддержали работу с :doc:`машиночитаемой доверенностью в ФСС</scenarios/SFR/mchd_sfr>`. Алгоритм работы в API смотрите в :doc:`статье</scenarios/SFR/FSS/proactive_ algorithm>`. 
+* Поддержали работу с :doc:`машиночитаемой доверенностью в СФР</scenarios/SFR/mchd_sfr>`. Алгоритм работы в API смотрите в :doc:`статье</scenarios/SFR/FSS/proactive_ algorithm>`. 
 
 Июнь 2022
 ---------

@@ -47,36 +47,14 @@
 
 Метод GET Docflows по умолчанию без фильтров возвращает не все типы документооборотов. Следующие документообороты можно получить только при указании в  фильтре ``type``:
 
-- urn:docflow:business-registration,
-- urn:docflow:fns534-cu-broadcast,
-- urn:docflow:stat-cu-broadcast,
-- urn:docflow:fss-sedo-provider-subscription,
-- urn:docflow:fss-sedo-pvso-notification,
-- urn:docflow:fss-sedo-sick-report-change-notification,
-- urn:docflow:fss-sedo-proactive-payments-demand,
-- urn:docflow:fss-sedo-proactive-payments-reply,
-- urn:docflow:fss-sedo-proactive-payments-benefit,
-- urn:docflow:fss-sedo-insured-person-registration,
-- urn:docflow:fss-sedo-insured-person-mismatch,
-- urn:docflow:fss-sedo-benefit-payment-initiation,
-- urn:docflow:fss-sedo-benefit-payment-status-notice,
-- urn:docflow:fss-warrant-management,
-- urn:docflow:fss-sedo-demand,
-- urn:docflow:fss-sedo-demand-reply,
-- urn:docflow:fss-sedo-billing-information-demand,
-- urn:docflow:fss-sedo-billing-information,
-- urn:docflow:fss-sedo-baby-care-vacation-close-notice,
-- urn:docflow:fss-sedo-employee-salary-information,
-- urn:docflow:fss-sedo-proactive-process-events-notification,
-- urn:docflow:fss-sedo-oved-confirmation,
-- urn:docflow:fns534-inventory,
-- urn:docflow:fss-sedo-proactive-salary-notification,
-- urn:docflow:fss-sedo-judicial-restriction,
-- urn:docflow:fss-sedo-judicial-restriction-reply.
+- urn:docflow:business-registration – регистрация бизнеса,
+- urn:docflow:fns534-cu-broadcast – массовая рассылка от ФНС,
+- urn:docflow:fns534-inventory – опись, ответ на требование ФНС,
+- urn:docflow:stat-cu-broadcast – массовая рассылка из Росстат,
+- документообороты для СФР с типами fss-sedo-*, посмотреть список можно в :ref:`спецификации<rst-markup-typeDo-sedo>`.
 
-
-Сценарии, в которых можно использовать списки документооборотов:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Сценарии, в которых можно использовать списки документооборотов
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * узнавать о входящих документооборотах;
 * следить за статусом исходящих документооборотов;

@@ -34,15 +34,6 @@
 
 .. _rst-markup-sfr:
 
-СФР
----
-
-.. csv-table:: 
-   :header: "Urn", "Тип документооборота"
-   :widths: 35 40
-
-   "urn:docflow:sfr-report", "Отчетность в Социальный фонд России"
-
 Росстат
 -------
 
@@ -57,7 +48,7 @@
 
 .. _rst-markup-typeDo-sedo:
 
-ФСС
+СФР
 ---
 
 .. csv-table:: 
@@ -65,23 +56,24 @@
    :widths: 30 40
 
    "urn:docflow:fss-report", "Расчет по форме 4-ФСС"
+   "urn:docflow:sfr-report", "Отчетность в Социальный фонд России"
    "urn:docflow:fss-sedo-oved-confirmation", "Подтверждение основного вида экономической деятельности"
    "urn:docflow:fss-sedo-sick-report-change-notification", "Уведомление об изменении статуса электронного больничного листа"
    "urn:docflow:fss-sedo-pvso-notification", "Извещение о прямых выплатах мер социального обеспечения"
    "urn:docflow:fss-sedo-provider-subscription","Подписка оператора на организацию по РНС"
    "urn:docflow:fss-sick-report", "Реестр ПВСО (прямых выплат страхового обеспечения)"
-   "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия ФСС"
+   "urn:docflow:fss-sedo-proactive-payments-demand","Запрос недостающих сведений для назначения пособия СФР"
    "urn:docflow:fss-sedo-proactive-payments-reply","Ответ на запрос проверки, подтверждения, корректировки сведений проактивной выплаты страхового обеспечения"
    "urn:docflow:fss-sedo-proactive-payments-benefit","Выплата пособия"
    "urn:docflow:fss-sedo-insured-person-registration","Сведения о застрахованном лице"
    "urn:docflow:fss-sedo-insured-person-mismatch","Информация о несоответствии сведений о застрахованном лице"
    "urn:docflow:fss-sedo-benefit-payment-initiation","Инициация выплаты пособия"
    "urn:docflow:fss-sedo-benefit-payment-status-notice", "Уведомление о статусе выплаты пособия"
-   "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности ФСС"
-   "urn:docflow:fss-sedo-demand", "Требование ФСС"
-   "urn:docflow:fss-sedo-demand-reply", "Ответ на требование ФСС"
-   "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах ФСС"
-   "urn:docflow:fss-sedo-billing-information", "Справка о расчетах ФСС"
+   "urn:docflow:fss-warrant-management", "Запрос регистрации или отзыва доверенности СФР"
+   "urn:docflow:fss-sedo-demand", "Требование СФР"
+   "urn:docflow:fss-sedo-demand-reply", "Ответ на требование СФР"
+   "urn:docflow:fss-sedo-billing-information-demand", "Запрос на формирование справки о расчетах СФР"
+   "urn:docflow:fss-sedo-billing-information", "Справка о расчетах СФР"
    "urn:docflow:fss-sedo-baby-care-vacation-close-notice", "Уведомление о прекращении отпуска по уходу за ребенком до полутора лет"
    "urn:docflow:fss-sedo-employee-salary-information", "Сведения о зарплате сотрудника"
    "urn:docflow:fss-sedo-proactive-process-events-notification","Информирование о событиях по проактивному процессу по временной нетрудоспособности и материнству"

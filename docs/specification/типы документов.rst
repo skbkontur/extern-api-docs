@@ -307,28 +307,6 @@
    "urn:document:pfr-ancillary-reception-result-receipt","Подтверждение получения результата рассмотрения оператором","Уведомление о доставке"
 
 
-СФР
----
-
-Отчетность в СФР
-++++++++++++++++
-
-Тип документооборота urn:docflow:sfr-report
-
-.. csv-table:: 
-   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
-   :widths: 70 40 10
-   
-   "urn:document:sfr-report-report-document", "Отчет", ""
-   "urn:document:sfr-report-attachment", "Приложение", ""
-   "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
-   "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
-   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. |br| **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
-   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. |br| **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
-   "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
-   "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
-   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. |br| **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
-
 Росстат
 -------
 
@@ -401,7 +379,7 @@
    
 .. _rst-markup-typedocumentFSS:
 
-ФСС
+СФР
 ---
 
 Расчёт 4-ФСС
@@ -419,6 +397,24 @@
    "urn:document:fss-report-error-receipt","Сообщение об ошибке при проверке отчета (ошибки форматно-логического контроля)","Квитанция о получении Расчета с ошибками"
    "urn:document:fss-report-receipt","Квитанция","Квитанция о получении Расчета"
   
+Отчетность в СФР
+++++++++++++++++
+
+Тип документооборота urn:docflow:sfr-report
+
+.. csv-table:: 
+   :header: "Urn", "Комментарий (согласно нормативным документам)", "Имя (согласно нормативным документам)"
+   :widths: 70 40 10
+   
+   "urn:document:sfr-report-report-document", "Отчет", ""
+   "urn:document:sfr-report-attachment", "Приложение", ""
+   "urn:document:sfr-report-package-description", "Описание пакета", "ОСП"
+   "urn:document:sfr-report-acknowledgement", "Уведомление о доставке", "УОД"
+   "urn:document:sfr-report-protocol-check", "**Для ЕФС-1:** Протокол проверки. |br| **Для АДВ-1,2,3:** Уведомление о регистрации в системе индивидуального персонифицированного учета", "УППО"
+   "urn:document:sfr-report-protocol-refinement-notice", "**Для ЕФС-1:** Уведомление об устранении ошибок и (или) несоответствий. |br| **Для АДВ-1,2,3:** Решение об отказе в регистрации зарегистрированного лица или Протокол проверки", "УУОН-ПУ"
+   "urn:document:sfr-report-decline-notice", "Уведомление об отказе в приеме пакета", "УОПП"
+   "urn:document:sfr-report-impossible-delivery-notice", "Уведомление о невозможности доставки документа", "УОНД"
+   "urn:document:sfr-report-protocol-refinement-notice-receipt", "**Для ЕФС-1:** Уведомление о доставке. Отправляется в ответ на уведомление об устранении ошибок и (или) несоответствий и протокола проверки. |br| **Для АДВ-1,2,3:** Уведомление о доставке. Отправляется в ответ на уведомление о регистрации в системе индивидуального персонифицированного учета или общий протокол. Или решение об отказе в регистрации зарегистрированного лица", "УОД"
 
 Подтверждение основного вида экономической деятельности
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -440,7 +436,7 @@
       "urn:document:fss-sedo-oved-confirmation-insurance-premiums-amount-notification-document", "Уведомление о размере страховых взносов юридического лица"
 
 
-Подписка оператора на документооборот с ФСС по абоненту
+Подписка оператора на документооборот с СФР по абоненту
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-provider-subscription.
@@ -509,7 +505,7 @@
       "urn:document:fss-sedo-sick-report-change-notification-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 
-Запрос недостающих сведений для назначения пособия ФСС
+Запрос недостающих сведений для назначения пособия СФР
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-proactive-payments-demand.
@@ -602,7 +598,7 @@
       "urn:document:fss-sedo-benefit-payment-initiation-request", "Запрос на отправку сообщения «Инициация выплаты пособия»"
       "urn:document:fss-sedo-benefit-payment-initiation-reception-result", "Результат отправки сообщения на портал"
       "urn:document:fss-sedo-benefit-payment-initiation-read-receipt", "Отметка о прочтении"
-      "urn:document:fss-sedo-benefit-payment-initiation-result-document", "Сообщение «Результат обработки сообщения инициации выплат ФСС»"
+      "urn:document:fss-sedo-benefit-payment-initiation-result-document", "Сообщение «Результат обработки сообщения инициации выплат СФР"
       "urn:document:fss-sedo-benefit-payment-initiation-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-benefit-payment-initiation-exchange-error", "Ошибка взаимодействия с порталом СЭДО"
 
@@ -623,7 +619,7 @@
       "urn:document:fss-sedo-benefit-payment-status-notice-exchange-error", "Ошибка взаимодействия с СЭДО"
 
 
-Запрос регистрации или отзыва доверенности ФСС
+Запрос регистрации или отзыва доверенности СФР
 ++++++++++++++++++++++++++++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-warrant-management.
@@ -632,16 +628,16 @@
    :header: "Urn", "Комментарий (согласно нормативным документам)"
    :widths: 60 60
 
-      "urn:document:fss-warrant-management-request-message", "SOAP-сообщение на отправку создания или отзыва доверенности ФСС"
-      "urn:document:fss-warrant-management-request-document", "Исходный документ создания или отзыва доверенности ФСС до формирования SOAP-сообщения"
+      "urn:document:fss-warrant-management-request-message", "SOAP-сообщение на отправку создания или отзыва доверенности СФР"
+      "urn:document:fss-warrant-management-request-document", "Исходный документ создания или отзыва доверенности СФР до формирования SOAP-сообщения"
       "urn:document:fss-warrant-management-error-message", "Ошибка в ходе данного документооборота"
       "urn:document:fss-warrant-management-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:fss-warrant-management-reception-result", "Результат отправки сообщения на портал СЭДО"
-      "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности ФСС"
+      "urn:document:fss-warrant-management-response-message", "Результат обработки создания или отзыва доверенности СФР"
       "urn:document:fss-warrant-management-read-receipt", "Отметка о прочтении"
 
 
-Требование ФСС
+Требование СФР
 ++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-demand
@@ -651,8 +647,8 @@
    :widths: 60 60
 
       "urn:document:fss-sedo-demand-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с требованием ФСС"
-      "urn:document:fss-sedo-demand-demand-message", "Документ с требованием ФСС"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ с требованием СФР"
+      "urn:document:fss-sedo-demand-demand-message", "Документ с требованием СФР"
       "urn:document:fss-sedo-demand-receipt-notification-message", "Извещение о прочтении сообщения страхователя"
       "urn:document:fss-sedo-demand-receipt-notification-receipt-message", "Результат подтверждения прочтения сообщения"
       "urn:document:fss-sedo-demand-read-receipt", "Отметка о прочтении"
@@ -662,7 +658,7 @@
       "urn:document:sedo-application", "Приложение к вложению"
       "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
 
-Ответ на требование ФСС
+Ответ на требование СФР
 +++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-demand-reply
@@ -671,16 +667,16 @@
    :header: "Urn", "Комментарий (согласно нормативным документам)"
    :widths: 60 60
 
-      "urn:document:fss-sedo-demand-reply-request", "Запрос на отправку ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-request", "Запрос на отправку ответа на требование СФР"
       "urn:document:fss-sedo-demand-reply-reception-result", "Результат приема запроса порталом"
-      "urn:document:fss-sedo-demand-reply-result-document", "Результат обработки ответа на требование ФСС"
+      "urn:document:fss-sedo-demand-reply-result-document", "Результат обработки ответа на требование СФР"
       "urn:document:fss-sedo-demand-reply-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-demand-reply-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:fss-sedo-demand-reply-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-demand-reply-attachment", "Приложение"
 
 
-Запрос на формирование справки о расчетах ФСС
+Запрос на формирование справки о расчетах СФР
 +++++++++++++++++++++++++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-billing-information-demand
@@ -691,8 +687,8 @@
 
       "urn:document:fss-sedo-billing-information-demand-request", "Запрос на отправку сведений"
       "urn:document:fss-sedo-billing-information-demand-reception-result", "Результат приема запроса порталом"
-      "urn:document:fss-sedo-billing-information-demand-result-document", "Результат обработки запроса справки о расчетах ФСС"
-      "urn:document:fss-sedo-billing-information-demand-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:fss-sedo-billing-information-demand-result-document", "Результат обработки запроса справки о расчетах СФР"
+      "urn:document:fss-sedo-billing-information-demand-billing-information-message", "Справка о расчетах СФР"
       "urn:document:fss-sedo-billing-information-demand-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-billing-information-demand-error-message", "Ошибка обработки"
       "urn:document:fss-sedo-billing-information-demand-exchange-error", "Ошибка взаимодействия с СЭДО"
@@ -701,7 +697,7 @@
       "urn:document:sedo-application-printed-form", "Печатная форма приложения к вложению"
 
 
-Справка о расчетах ФСС
+Справка о расчетах СФР
 ++++++++++++++++++++++
 
 Тип документооборота urn:docflow:fss-sedo-billing-information
@@ -711,8 +707,8 @@
    :widths: 60 60
 
       "urn:document:fss-sedo-billing-information-request-message", "Запрос на получение документов"
-      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ со справкой о расчетах ФСС"
-      "urn:document:fss-sedo-billing-information-billing-information-message", "Справка о расчетах ФСС"
+      "urn:document:sedo-message-responce", "Исходный документ ответа на запрос, содержит документ со справкой о расчетах СФР"
+      "urn:document:fss-sedo-billing-information-billing-information-message", "Справка о расчетах СФР"
       "urn:document:fss-sedo-billing-information-read-receipt", "Отметка о прочтении"
       "urn:document:fss-sedo-billing-information-exchange-error", "Ошибка взаимодействия с СЭДО"
       "urn:document:sedo-attachment", "Вложение"
