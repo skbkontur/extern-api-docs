@@ -10,3 +10,4 @@
    get_report
    filenameFNS
    rnpt
+   spot
