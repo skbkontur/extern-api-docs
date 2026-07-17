@@ -1,5 +1,5 @@
 .. _`в справке`: https://www.diadoc.ru/docs/faq/faq-127
-.. _`документы, представленные в виде скан-образа`: https://normativ.kontur.ru/document?moduleId=1&documentId=291280&rangeId=180910
+.. _`документы, представленные в виде скан-образа`: https://normativ.kontur.ru/document?moduleId=1&documentId=500563
 .. _`справке`: https://www.diadoc.ru/docs/faq/faq-127
 
 DraftsBuilder

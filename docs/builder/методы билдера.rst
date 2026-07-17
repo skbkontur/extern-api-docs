@@ -24,6 +24,7 @@
 .. _`PUT UpdateDraftsBuilderDocumentFileMeta`: https://developer.kontur.ru/doc/extern.drafts/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D%2Fmeta
 .. _`DELETE RemoveDraftsBuilderDocumentFile`: https://developer.kontur.ru/doc/extern.drafts/method?type=delete&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ffiles%2F%7BfileId%7D
 .. _`формату`: https://normativ.kontur.ru/document?moduleId=8&documentId=335100
+.. _`POST PrepareDraftsBuilder`: https://developer.kontur.ru/doc/extern.drafts/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdrafts%2Fbuilders%2F%7BdraftsBuilderId%7D%2Fdocuments%2Fprepare
 
 Методы для работы с DraftsBuilder
 =================================
@@ -163,6 +164,17 @@
 Метод: `PUT UpdateDraftsBuilderMeta`_
 
 Метод обновляет метаинформацию DraftsBuilder.
+
+.. _rst-markp-preparebud:
+
+Проверка документов в DraftsBuilder
+-------------------------------------
+
+Метод: `POST PrepareDraftsBuilder`_
+
+Метод проверяет все документы в DraftsBuilder для описи и приводит файлы к установленному формату. В результате метод вернет идентификатор задачи подготовки документов.
+
+Дальнейшая сборка DraftsBuilder возможна при наличии как минимум одного корректного документа.
 
 .. _rst-markup-buildDB:
 
