@@ -219,3 +219,17 @@
    "urn:transaction:processing-result-negative", "Ошибка на стадиях расшифровки файла или форматного контроля"
    "urn:transaction:processing-result-suppositive", "Ошибка на стадии логического контроля"
    "urn:transaction:processing-result-positive", "Сформирована квитанция"
+
+ Запрос на регистрацию или отзыв доверенности СФР
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. csv-table::
+   :header: "Статус", "Описание"
+   :widths: 20 40
+
+   "urn:transaction:fss-warrant-management-request", "Запрос на регистрацию или отзыв доверенности"
+   "urn:transaction:fss-warrant-management-response", "Подтверждение от СЭДО о получении запроса"
+   "urn:transaction:fss-warrant-management-error", "Ошибка в ходе документооборота"
+   "urn:transaction:fss-warrant-management-result-positive", "Запрос принят"
+   "urn:transaction:fss-warrant-management-result-negative", "Запрос отклонен"
+   "urn:transaction:fss-warrant-management-abonent-read-receipt", "Отметка о прочтении"  
