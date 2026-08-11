@@ -1,0 +1,2679 @@
+{
+	"info": {
+		"_postman_id": "7fa3dab4-199c-4efd-a8a4-69f25754beca",
+		"name": "Работа с исходящими документооборотами",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "39191371"
+	},
+	"item": [
+		{
+			"name": "Создание черновика",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"payer\": {\n    \"inn\": \"6076120154\",\n    \"organization\": {\n      \"kpp\": \"607603001\"\n    },\n    \"registration-number-fss\": \"9903150771\"\n  },\n  \"recipient\": {\n    \"fss-code\": \"SEDO-TEST\"\n  },\n  \"sender\": {\n    \"inn\": \"6076120154\",\n    \"is-representative\": \"false\",\n    \"kpp\": \"607603001\",\n    \"certificate\": {\n      \"content\": \"MIIJlDC...2JqnVqXE=\"\n    },\n    \"ipaddress\": \"8.8.8.8\"\n  }\n}",
+					"options": {
+						"raw": {
+							"headerFamily": "json",
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/:accountId/drafts",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"drafts"
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Черновик успешно создан",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\",\n  \"docflow-id\": \"<string>\",\n  \"docflows\": [\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  ],\n  \"documents\": [\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  ],\n  \"meta\": {\n    \"payer\": {\n      \"inn\": \"<string>\",\n      \"name\": \"<string>\",\n      \"organization\": {\n        \"kpp\": \"<string>\"\n      },\n      \"registration-number-fss\": \"<string>\",\n      \"registration-number-pfr\": \"<string>\",\n      \"registration-number-sfr\": \"<string>\",\n      \"okpo\": \"<string>\",\n      \"ogrn\": \"<string>\",\n      \"snils\": \"<string>\"\n    },\n    \"recipient\": {\n      \"ifns-code\": \"<string>\",\n      \"mri-code\": \"<string>\",\n      \"togs-code\": \"<string>\",\n      \"upfr-code\": \"<string>\",\n      \"sfr-code\": \"<string>\",\n      \"fss-code\": \"<string>\",\n      \"registration-ifns-code\": \"<string>\"\n    },\n    \"sender\": {\n      \"inn\": \"<string>\",\n      \"is-representative\": \"<boolean>\",\n      \"kpp\": \"<string>\",\n      \"name\": \"<string>\",\n      \"certificate\": {\n        \"content\": \"<string>\"\n      },\n      \"ipaddress\": \"<string>\"\n    },\n    \"related-document\": {\n      \"related-docflow-id\": \"<uuid>\",\n      \"related-document-id\": \"<uuid>\"\n    },\n    \"additional-info\": {\n      \"subject\": \"<string>\",\n      \"additional-certificates\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"original-drafts-builder-id\": \"<string>\",\n      \"pfr-letter-type\": \"<string>\",\n      \"machine-readable-warrant-id\": \"<string>\",\n      \"parent-machine-readable-warrant-id\": \"<string>\"\n    }\n  },\n  \"status\": \"transferred-to-web\",\n  \"links\": [\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  ]\n}"
+				},
+				{
+					"name": "Некорректные входные данные",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"payer\": {\n    \"inn\": \"<string>\",\n    \"organization\": {\n      \"kpp\": \"<string>\"\n    },\n    \"registration-number-pfr\": \"<string>\",\n    \"registration-number-sfr\": \"<string>\",\n    \"registration-number-fss\": \"<string>\",\n    \"okpo\": \"<string>\",\n    \"ogrn\": \"<string>\",\n    \"snils\": \"<string>\"\n  },\n  \"recipient\": {\n    \"ifns-code\": \"<string>\",\n    \"mri-code\": \"<string>\",\n    \"togs-code\": \"<string>\",\n    \"upfr-code\": \"<string>\",\n    \"fss-code\": \"<string>\",\n    \"registration-ifns-code\": \"<string>\",\n    \"sfr-code\": \"<string>\"\n  },\n  \"sender\": {\n    \"inn\": \"<string>\",\n    \"is-representative\": \"<boolean>\",\n    \"kpp\": \"<string>\",\n    \"certificate\": {\n      \"content\": \"<string>\"\n    },\n    \"ipaddress\": \"<string>\"\n  },\n  \"related-document\": {\n    \"related-docflow-id\": \"<uuid>\",\n    \"related-document-id\": \"<uuid>\"\n  },\n  \"additional-info\": {\n    \"subject\": \"<string>\",\n    \"additional-certificates\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"pfr-letter-type\": \"<string>\",\n    \"machine-readable-warrant-id\": \"<string>\",\n    \"parent-machine-readable-warrant-id\": \"<string>\"\n  },\n  \"draft-options\": {\n    \"generate-warrant\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Инициализация загрузки контента",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"content-type": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Range",
+						"value": "bytes 0-936/937",
+						"description": "|"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/octet-stream",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/Users/panshina.oli/Downloads/Сведения_о_застрахованном_Иванов_Иван.xml"
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/:accountId/contents",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"contents"
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						}
+					]
+				},
+				"description": "Метод инициализирует загрузку контента.\r\n            \r\nЗагрузка осуществляется по частям с использованием заголовка Content-Range.\r\nМаксимально допустимый размер одной части - 64 Мбайт.\r\n            \r\nЗаголовок Content-Type отвечает за тип сохраняемого контента, если он не передан, будет использовано значение по\r\nумолчанию application-octet/stream."
+			},
+			"response": [
+				{
+					"name": "Инициализирована загрузка контента по частям. В ответе содержится идентификатор контента. Необходимо продолжить загрузку.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\"\n}"
+				},
+				{
+					"name": "Загрузка контента завершена. В ответе содержится идентификатор загруженного контента.",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\"\n}"
+				},
+				{
+					"name": "Некорректные входные данные",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<string>"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Создание документа в черновике",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"content-id\": \"0b66f9b6-e508-4615-8435-4ab72dd2bed7\",\n}",
+					"options": {
+						"raw": {
+							"headerFamily": "json",
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"drafts",
+						":draftId",
+						"documents"
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						},
+						{
+							"key": "draftId",
+							"value": "5344977e-90cd-4fba-a6c2-4eebfca784dc",
+							"description": "(Required) Идентификатор черновика"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Документ успешно создан в черновике",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\",\n  \"decrypted-content-link\": {\n    \"href\": \"<uri>\",\n    \"rel\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"templated\": \"<boolean>\"\n  },\n  \"encrypted-content-link\": {\n    \"href\": \"<uri>\",\n    \"rel\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"templated\": \"<boolean>\"\n  },\n  \"signature-content-link\": {\n    \"href\": \"<uri>\",\n    \"rel\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"templated\": \"<boolean>\"\n  },\n  \"signatures\": [\n    {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"signature-certificate-thumbprint\": \"<string>\",\n      \"content-link\": {\n        \"href\": \"<uri>\",\n        \"rel\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"profile\": \"<string>\",\n        \"templated\": \"<boolean>\"\n      },\n      \"links\": [\n        {\n          \"href\": \"<uri>\",\n          \"rel\": \"<string>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        {\n          \"href\": \"<uri>\",\n          \"rel\": \"<string>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      ],\n      \"signer-type\": \"cu-representative\"\n    },\n    {\n      \"id\": \"<uuid>\",\n      \"title\": \"<string>\",\n      \"signature-certificate-thumbprint\": \"<string>\",\n      \"content-link\": {\n        \"href\": \"<uri>\",\n        \"rel\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"profile\": \"<string>\",\n        \"templated\": \"<boolean>\"\n      },\n      \"links\": [\n        {\n          \"href\": \"<uri>\",\n          \"rel\": \"<string>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        {\n          \"href\": \"<uri>\",\n          \"rel\": \"<string>\",\n          \"name\": \"<string>\",\n          \"title\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      ],\n      \"signer-type\": \"organization-representative\"\n    }\n  ],\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"properties\": {\n      \"exa\": \"<string>\",\n      \"tempor8c0\": \"<string>\"\n    },\n    \"original-drafts-builder\": {\n      \"file-id\": \"<uuid>\",\n      \"document-id\": \"<uuid>\"\n    }\n  },\n  \"contents\": [\n    {\n      \"content-id\": \"<uuid>\",\n      \"encrypted\": \"<boolean>\"\n    },\n    {\n      \"content-id\": \"<uuid>\",\n      \"encrypted\": \"<boolean>\"\n    }\n  ],\n  \"data-to-sign-content-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Некорректные входные данные",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"signature\": \"<string>\",\n  \"content-id\": \"<string>\",\n  \"description\": {\n    \"type\": \"<string>\",\n    \"filename\": \"<string>\",\n    \"content-type\": \"<string>\",\n    \"svdreg-code\": \"<string>\",\n    \"original-filename\": \"<string>\",\n    \"is-document-encrypted\": \"<boolean>\"\n  }\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Получение контента по идентификатору",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Range",
+						"value": "bytes=0-1024"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"contents",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						},
+						{
+							"key": "id",
+							"value": "a983d62b-bb0a-44e8-bced-4e24705d62da",
+							"description": "(Required) Идентификатор контента"
+						}
+					]
+				},
+				"description": "Метод инициализирует скачивание контента по частям.\r\nЗапрашиваемый байтовый диапазон необходимо передать в заголовке Range, максимально допустимый размер диапазона - 64 Мбайт."
+			},
+			"response": [
+				{
+					"name": "Скачивание контента успешно завершено. Ответ содержит контент запрошенного ресурса.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Type",
+							"value": "<string>",
+							"description": {
+								"content": "",
+								"type": "text/plain"
+							}
+						}
+					],
+					"cookie": [],
+					"body": "<string>"
+				},
+				{
+					"name": "Скачивание части контента завершена. Ответ содержит контент запрошенного ресурса.",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Partial Content",
+					"code": 206,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Range",
+							"value": "<string>",
+							"description": {
+								"content": "",
+								"type": "text/plain"
+							}
+						},
+						{
+							"key": "Content-Type",
+							"value": "<string>",
+							"description": {
+								"content": "",
+								"type": "text/plain"
+							}
+						}
+					],
+					"cookie": [],
+					"body": "<string>"
+				},
+				{
+					"name": "Некорректные входные данные",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Range",
+								"value": "<string>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/contents/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"contents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Создание подписи документа в черновике",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"base64-content\": \"MIAGCSq...AAAA==\",\n  \"is-third-party-signature\": false\n}",
+					"options": {
+						"raw": {
+							"headerFamily": "json",
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"drafts",
+						":draftId",
+						"documents",
+						":documentId",
+						"signatures"
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						},
+						{
+							"key": "draftId",
+							"value": "5344977e-90cd-4fba-a6c2-4eebfca784dc",
+							"description": "(Required) Идентификатор черновика"
+						},
+						{
+							"key": "documentId",
+							"value": "a1fde295-cb87-4ba5-9b16-41abeb23c113",
+							"description": "(Required) Идентификатор документа в черновике"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Подпись документа успешно добавлена",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\",\n  \"title\": \"<string>\",\n  \"signature-certificate-thumbprint\": \"<string>\",\n  \"content-link\": {\n    \"href\": \"<uri>\",\n    \"rel\": \"<string>\",\n    \"name\": \"<string>\",\n    \"title\": \"<string>\",\n    \"profile\": \"<string>\",\n    \"templated\": \"<boolean>\"\n  },\n  \"links\": [\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    {\n      \"href\": \"<uri>\",\n      \"rel\": \"<string>\",\n      \"name\": \"<string>\",\n      \"title\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  ],\n  \"signer-type\": \"cu-local-representative\"\n}"
+				},
+				{
+					"name": "Некорректные входные данные",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"base64-content\": \"<string>\",\n  \"is-third-party-signature\": false\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/documents/:documentId/signatures",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"documents",
+								":documentId",
+								"signatures"
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								},
+								{
+									"key": "documentId"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Отправка документов черновика",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": {
+						"key": "X-Kontur-Apikey",
+						"value": "{{apiKey}}",
+						"in": "header"
+					}
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"v1",
+						":accountId",
+						"drafts",
+						":draftId",
+						"send"
+					],
+					"query": [
+						{
+							"key": "deferred",
+							"value": "false",
+							"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+						},
+						{
+							"key": "force",
+							"value": "false",
+							"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+						}
+					],
+					"variable": [
+						{
+							"key": "accountId",
+							"value": "c3217c6d-a8fd-4acf-987c-6da64a9b5f74",
+							"description": "(Required) Идентификатор учетной записи"
+						},
+						{
+							"key": "draftId",
+							"value": "5344977e-90cd-4fba-a6c2-4eebfca784dc",
+							"description": "(Required) Идентификатор черновика"
+						}
+					]
+				},
+				"description": "Метод отправляет проверенный и подготовленный черновик в контролирующий орган. В результате успешной отправки будет создан документооборот. Проверка и подготовка черновика будут выполнены перед отправкой, если соответствующие методы не вызвались ранее."
+			},
+			"response": [
+				{
+					"name": "Отправка черновика началась, результаты отправки можно получить в задаче по TaskId",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<uuid>\",\n  \"task-state\": \"running\",\n  \"task-type\": \"<string>\",\n  \"task-result\": {\n    \"id\": \"<uuid>\",\n    \"organization-id\": \"<uuid>\",\n    \"type\": \"<string>\",\n    \"status\": \"<string>\",\n    \"success-state\": \"<string>\",\n    \"description\": {\n      \"original-draft-id\": \"<string>\",\n      \"requisites\": {\n        \"comment\": {\n          \"text\": \"<string>\",\n          \"color\": \"none\"\n        }\n      }\n    },\n    \"documents\": [\n      {\n        \"id\": \"<uuid>\",\n        \"description\": {\n          \"type\": \"<string>\",\n          \"filename\": \"<string>\",\n          \"content-type\": \"<string>\",\n          \"decrypted-content-size\": \"<string>\",\n          \"encrypted-content-size\": \"<string>\",\n          \"compressed\": \"<boolean>\",\n          \"requisites\": {},\n          \"related-docflows-count\": \"<string>\",\n          \"support-recognition\": \"<boolean>\",\n          \"encrypted-certificates\": [\n            {\n              \"serial-number\": \"<string>\"\n            },\n            {\n              \"serial-number\": \"<string>\"\n            }\n          ],\n          \"support-print\": \"unknown\"\n        },\n        \"content\": {\n          \"decrypted\": {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          \"encrypted\": {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          \"docflow-document-contents\": [\n            {\n              \"content-id\": \"<uuid>\",\n              \"encrypted\": \"<boolean>\",\n              \"compressed\": \"<boolean>\",\n              \"compression-type\": \"gzip\"\n            },\n            {\n              \"content-id\": \"<uuid>\",\n              \"encrypted\": \"<boolean>\",\n              \"compressed\": \"<boolean>\",\n              \"compression-type\": \"none\"\n            }\n          ]\n        },\n        \"send-date\": \"<string>\",\n        \"signatures\": [\n          {\n            \"id\": \"<uuid>\",\n            \"title\": \"<string>\",\n            \"signature-certificate-thumbprint\": \"<string>\",\n            \"content-link\": {\n              \"href\": \"<uri>\",\n              \"rel\": \"<string>\",\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"profile\": \"<string>\",\n              \"templated\": \"<boolean>\"\n            },\n            \"links\": [\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              },\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              }\n            ],\n            \"signer-type\": \"provider-representative\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"title\": \"<string>\",\n            \"signature-certificate-thumbprint\": \"<string>\",\n            \"content-link\": {\n              \"href\": \"<uri>\",\n              \"rel\": \"<string>\",\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"profile\": \"<string>\",\n              \"templated\": \"<boolean>\"\n            },\n            \"links\": [\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              },\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              }\n            ],\n            \"signer-type\": \"provider-representative\"\n          }\n        ],\n        \"links\": [\n          {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          }\n        ]\n      },\n      {\n        \"id\": \"<uuid>\",\n        \"description\": {\n          \"type\": \"<string>\",\n          \"filename\": \"<string>\",\n          \"content-type\": \"<string>\",\n          \"decrypted-content-size\": \"<string>\",\n          \"encrypted-content-size\": \"<string>\",\n          \"compressed\": \"<boolean>\",\n          \"requisites\": {},\n          \"related-docflows-count\": \"<string>\",\n          \"support-recognition\": \"<boolean>\",\n          \"encrypted-certificates\": [\n            {\n              \"serial-number\": \"<string>\"\n            },\n            {\n              \"serial-number\": \"<string>\"\n            }\n          ],\n          \"support-print\": \"yes\"\n        },\n        \"content\": {\n          \"decrypted\": {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          \"encrypted\": {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          \"docflow-document-contents\": [\n            {\n              \"content-id\": \"<uuid>\",\n              \"encrypted\": \"<boolean>\",\n              \"compressed\": \"<boolean>\",\n              \"compression-type\": \"zip\"\n            },\n            {\n              \"content-id\": \"<uuid>\",\n              \"encrypted\": \"<boolean>\",\n              \"compressed\": \"<boolean>\",\n              \"compression-type\": \"zip\"\n            }\n          ]\n        },\n        \"send-date\": \"<string>\",\n        \"signatures\": [\n          {\n            \"id\": \"<uuid>\",\n            \"title\": \"<string>\",\n            \"signature-certificate-thumbprint\": \"<string>\",\n            \"content-link\": {\n              \"href\": \"<uri>\",\n              \"rel\": \"<string>\",\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"profile\": \"<string>\",\n              \"templated\": \"<boolean>\"\n            },\n            \"links\": [\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              },\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              }\n            ],\n            \"signer-type\": \"cu-local-representative\"\n          },\n          {\n            \"id\": \"<uuid>\",\n            \"title\": \"<string>\",\n            \"signature-certificate-thumbprint\": \"<string>\",\n            \"content-link\": {\n              \"href\": \"<uri>\",\n              \"rel\": \"<string>\",\n              \"name\": \"<string>\",\n              \"title\": \"<string>\",\n              \"profile\": \"<string>\",\n              \"templated\": \"<boolean>\"\n            },\n            \"links\": [\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              },\n              {\n                \"href\": \"<uri>\",\n                \"rel\": \"<string>\",\n                \"name\": \"<string>\",\n                \"title\": \"<string>\",\n                \"profile\": \"<string>\",\n                \"templated\": \"<boolean>\"\n              }\n            ],\n            \"signer-type\": \"cu-local-representative\"\n          }\n        ],\n        \"links\": [\n          {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          },\n          {\n            \"href\": \"<uri>\",\n            \"rel\": \"<string>\",\n            \"name\": \"<string>\",\n            \"title\": \"<string>\",\n            \"profile\": \"<string>\",\n            \"templated\": \"<boolean>\"\n          }\n        ]\n      }\n    ],\n    \"links\": [\n      {\n        \"href\": \"<uri>\",\n        \"rel\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"profile\": \"<string>\",\n        \"templated\": \"<boolean>\"\n      },\n      {\n        \"href\": \"<uri>\",\n        \"rel\": \"<string>\",\n        \"name\": \"<string>\",\n        \"title\": \"<string>\",\n        \"profile\": \"<string>\",\n        \"templated\": \"<boolean>\"\n      }\n    ],\n    \"send-date\": \"<dateTime>\",\n    \"last-change-date\": \"<string>\"\n  },\n  \"error\": {\n    \"id\": \"<string>\",\n    \"status-code\": \"request-timeout\",\n    \"message\": \"<string>\",\n    \"track-id\": \"<string>\",\n    \"properties\": {\n      \"sint__\": \"<string>\",\n      \"nisi_8c\": \"<string>\"\n    }\n  },\n  \"progress\": \"<string>\"\n}"
+				},
+				{
+					"name": "Переданы некорректные входные данные или передано значение флага deferred - false",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"permanent-redirect\",\n  \"message\": \"<string>\",\n  \"track-id\": \"<string>\",\n  \"properties\": {\n    \"cillum_6f\": \"<string>\",\n    \"esse7\": \"<string>\"\n  }\n}"
+				},
+				{
+					"name": "Не авторизован",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Unauthorized",
+					"code": 401,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Нет доступа к ресурсу",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Не найден один из требуемых ресурсов",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				},
+				{
+					"name": "Произошла внутренняя ошибка",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "<API Key>",
+								"description": "Added as a part of security scheme: apikey"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/v1/:accountId/drafts/:draftId/send?deferred=false&force=false",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"v1",
+								":accountId",
+								"drafts",
+								":draftId",
+								"send"
+							],
+							"query": [
+								{
+									"key": "deferred",
+									"value": "false",
+									"description": "Флаг отложенного вызова метода. Необходимо использовать значение true. Значение false для синхронного вызова устарело"
+								},
+								{
+									"key": "force",
+									"value": "false",
+									"description": "Флаг отправки в ПФР отчета с ошибками. Default = false"
+								}
+							],
+							"variable": [
+								{
+									"key": "accountId"
+								},
+								{
+									"key": "draftId"
+								}
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": \"<string>\",\n  \"status-code\": \"<integer>\",\n  \"message\": \"<string>\",\n  \"trace-id\": \"<string>\"\n}"
+				}
+			]
+		}
+	]
+}

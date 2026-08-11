@@ -1,0 +1,33 @@
+{
+  "sender": {
+    "inn": "662909960905",
+    "certificate": {
+      "content": "MIIJcDCCCR2gAwIBAgIQAdCFAEO...MYE3Xk="
+    },
+    "is-representative": false,
+    "ipaddress ": "8.8.8.8"
+  },
+  "payer": {
+    "inn": "662909960905"
+  },
+  "recipient": {
+    "registration-ifns-code": "0007"
+  },
+  "builder-type": "urn:drafts-builder:business-registration",
+  "builder-data": {
+    "registration-info": {
+      "application-code": "Р21001",
+      "applicant-infos":
+        {
+          "inn": "855691531561",
+          "fio": {
+            "surname": "Фамилия",
+            "name": "Имя",
+            "patronymic": "Отчество"
+          },
+          "email": "e-mail@email.ru"
+        }
+    },
+    "paper-documents-delivery-type": "No"
+  }
+}

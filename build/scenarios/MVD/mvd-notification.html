@@ -1,0 +1,321 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="ru" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Отправка уведомлений в МВД &mdash; документация extern-api 1.1</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon2.ico"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/sphinx_highlight.js"></script>
+        <script src="../../_static/translations.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Алфавитный указатель" href="../../genindex.html" />
+    <link rel="search" title="Поиск" href="../../search.html" />
+    <link rel="next" title="Порядок работы с черновиками" href="../../drafts/work-order-drafts.html" />
+    <link rel="prev" title="МВД" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../../index.html" class="icon icon-home"> extern-api
+          </a>
+              <div class="version">
+                1.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Поиск в документации" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Меню навигации">
+              <p class="caption" role="heading"><span class="caption-text">История изменений</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../release%20notes.html">История изменений API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Подготовка</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../models_of_cooperation.html">Модели сотрудничества</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../capabilites_api.html">Возможности API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../howto/index.html">Начало работы с API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../recommendations.html">Рекомендации по работе c API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../auth_oidc/index.html">Аутентификация OpenID Connect</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Работа с API</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Сценарии</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../device_api/index.html">Устройство и особенности API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../org/index.html">Организации и учетные записи</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../FNS/index.html">ФНС</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Rosstat/index.html">Росстат</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SFR/index.html">СФР</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">МВД</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Отправка уведомлений в МВД</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Что нужно для отправки уведомлений</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Как происходит взаимодействие</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Как работать с результатами приема</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api">Алгоритм работы с методами API</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/work-order-drafts.html">Порядок работы с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/work-order-do.html">Порядок работы с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../specification/index.html">Спецификация</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../test/index.html">Тестовые данные</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Методы API</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../accounts/index.html">Работа с учетными записями</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../drafts/index.html">Работа с черновиками</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dc/index.html">Работа с документооборотами</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../inventories/index.html">Представление документов к требованиям</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../builder/index.html">Конструктор черновиков (DraftsBuilder)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contents/index.html">Сервис контентов</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Дополнительно</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../manuals/index.html">Справка</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../SDK.html">SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contacts.html">Контакты</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Меню навигации для мобильных устройств" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">extern-api</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Навигация по страницам">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Сценарии</a> &raquo;</li>
+          <li><a href="index.html">МВД</a> &raquo;</li>
+      <li>Отправка уведомлений в МВД</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/scenarios/MVD/mvd-notification.rst.txt" rel="nofollow"> Просмотреть исходный код страницы</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id2">
+<h1>Отправка уведомлений в МВД<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h1>
+<p>С 23 июня 2024 года работодатели должны уведомлять МВД в течение трех рабочих дней о заключении или расторжении договоров с иностранцами, а также при выплате зарплаты высококвалифицированным иностранным специалистам раз в квартал. Приказ МВД РФ от <a class="reference external" href="https://normativ.kontur.ru/document?moduleId=1&amp;documentId=472735">16.05.2024 N 260</a>.</p>
+<p>Через API Контур.Экстерн можно отправить следующие формы уведомлений:</p>
+<ul class="simple">
+<li><p>Уведомление о приеме на работу иностранного сотрудника.</p></li>
+<li><p>Уведомление об увольнении иностранного сотрудника.</p></li>
+<li><p>Уведомление о выплатах высококвалифицированных специалистов (ВКС).</p></li>
+</ul>
+<section id="id3">
+<h2>Что нужно для отправки уведомлений<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<p>Руководителю организации нужно создать личный кабинет организации на Госуслугах, чтобы отчитываться в МВД по иностранцам и ВКС. Далее руководитель должен добавить ответственного сотрудника за работу и выдать ему доверенность, а также выбрать систему для документооборота — Контур.МВД.</p>
+<p>Сотрудник со свой стороны должен подтвердить добавление себя как сотрудника в личном кабинете организации на Госуслугах. Контролирующий орган присвоит ему личный идентификатор — API-ключ на Госуслугах состоящий из 32 символов. Этот API-ключ нужен для получения токена, чтобы API Контур.Экстерн мог использовать его при работе с уведомлениями.</p>
+<p>Настроить организацию и добавить сотрудника можно <a class="reference external" href="https://support.kontur.ru/extern/51677-nastrojka_otpravki_uvedomlenij_v_mvd_po_api">по инструкции</a>.</p>
+</section>
+<section id="id4">
+<h2>Как происходит взаимодействие<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<img alt="../../_images/mvd-notification-schema.png" src="../../_images/mvd-notification-schema.png" />
+<p>Интеграционный модуль должен запросить токен для авторизации на ответственного сотрудника с помощью метода <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html#rst-markup-gosuslugiauth"><span class="std std-ref">POST Gosuslugi Auth</span></a>. Он нужен для подготовки черновика, его отправки и получения детализированного результата.</p>
+<p>Токен (Access Token) — идентификатор с коротким периодом времени действия для авторизации сотрудника на Госуслугах. API Контур.Экстерн сохраняет токен себе и периодически обновляет его, пока действителен файл подписи.</p>
+<p>Файл подписи — это файл в формате PKCS#7 с расширением .p7s, который нужно создать путем подписания API-ключа сотрудника. Может быть сформирован только сертификатом с ИНН организации, на сотрудника которой выдан API-ключ. Для работы с методом авторизации нужно перевести файл в формат base64.</p>
+<p>API Госуслуг определяет срок жизни подписи к API-ключу — 18 часов, а потому нужно периодически указывать новый файл подписи в параметрах к методу. В интеграции важно учесть периодичность запросов к методу для авторизации с Госуслугами.</p>
+<p>После создания черновика нужно подготовить его для отправки в МВД. Для этого был добавлен метод <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-datatosign"><span class="std std-ref">PATCH DataToSign</span></a>, который добавляет в черновик идентификатор уведомления — OrderId. Черновик нельзя менять после добавления идентификатора, а случае изменений, повторно отправить запрос на подготовку черновика. Подробнее на странице Алгоритм работы с методами API.</p>
+</section>
+<section id="id5">
+<h2>Как работать с результатами приема<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
+<p>После приема уведомления МВД возвращает результат: положительный или отрицательный. Документ <code class="docutils literal notranslate"><span class="pre">urn:document:mvd-notification-epgu-protocol</span></code> всегда есть для положительного результата и детализированного отрицательного результата.</p>
+<ul>
+<li><p>Положительный результат — уведомление принято. Документ можно получить с любого действующего или истекшего токена среди добавленных сотрудников организации.</p></li>
+<li><p>Отрицательный результат — уведомление не принято. Результат бывает двух видов:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Детализированный отказ в приеме уведомления. Можно получить с действующего токена сотрудника, который отправил уведомление.</p></li>
+<li><p>Недетализированный отказ в приеме уведомления. Не содержит в документообороте документа <code class="docutils literal notranslate"><span class="pre">urn:document:mvd-notification-epgu-protocol</span></code>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Для получения детализированного отказа обновите токен сотрудника, который отправил уведомление. После этого отправьте повторный запрос на получение результата обработки уведомления.</p>
+</section>
+<section id="api">
+<h2>Алгоритм работы с методами API<a class="headerlink" href="#api" title="Permalink to this heading"></a></h2>
+<section id="id6">
+<h3>Отправка уведомления<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<ol class="arabic">
+<li><p>Получите токен: <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html#rst-markup-gosuslugiauth"><span class="std std-ref">POST Gosuslugi Auth</span></a>. Укажите в теле запроса:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p><code class="docutils literal notranslate"><span class="pre">gosuslugi-uid</span></code> — API-ключ сотрудника из Госуслуг.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">base64-signature-content</span></code> — файл подписи API-ключа в формате base64.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Создайте файл с расширением .txt в формате UTF-8 без BOM. Например, api_key.txt</p></li>
+<li><p>Скопируйте в файл API-ключ сотрудника и сохраните его.</p></li>
+<li><p>Выполните подписание для создания открепленной подписи в формате PKCS#7 с расширением .p7s. Сертификат для подписания должен включать ИНН организации, на сотрудника которой выдан API-ключ.</p></li>
+<li><p>Сконвертируйте полученный файл подписи в формат base64 и укажите его в теле запроса. Срок жизни файла подписи после отправки запроса составляет 18 часов.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p>Создайте черновик: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-createdraft"><span class="std std-ref">POST Create Draft</span></a>. При создании черновика в теле запроса обязательно укажите:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>в <code class="docutils literal notranslate"><span class="pre">recipient</span></code> параметр <code class="docutils literal notranslate"><span class="pre">mvd-code</span></code> – укажите код отделения МВД для отправки уведомления в МВД. Список кодов: <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html#rst-mrkup-handbooks"><span class="std std-ref">GET ControlUnits</span></a>.</p></li>
+<li><p>сведения по сотруднику из справочников МВД: <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html#rst-markup-handbooks"><span class="std std-ref">GET Handbooks</span></a>.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Укажите в уведомлении сведения по сотруднику из справочников МВД: <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D1%81%D0%BF%D1%80%D0%B0%D0%B2%D0%BE%D1%87%D0%BD%D0%B8%D0%BA%D0%BE%D0%B2.html#rst-markup-handbooks"><span class="std std-ref">GET Handbooks</span></a>.</p></li>
+<li><p>Загрузите в сервис контентов подписанный файл уведомления: <a class="reference internal" href="../../contents/content_methods.html#rst-markup-post-content"><span class="std std-ref">POST Upload</span></a>.</p></li>
+<li><p>Создайте документ в черновике <a class="reference internal" href="../../drafts/DraftDocumentsController.html#rst-markup-adddocument"><span class="std std-ref">POST Add Document</span></a>. В теле запроса передайте идентификатор загруженного контента <code class="docutils literal notranslate"><span class="pre">content-id</span></code>.</p></li>
+<li><p>Проверьте черновик перед отправкой: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a>. Без проверки черновик нельзя отредактировать для отправки в МВД.</p></li>
+<li><p>Подготовьте черновик для добавления подписи: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-datatosign"><span class="std std-ref">PATCH DataToSign</span></a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>API Контур.Экстерн добавит в черновик идентификатор уведомления — <code class="docutils literal notranslate"><span class="pre">OrderId</span></code> и вернет идентификатор контента для подписания <code class="docutils literal notranslate"><span class="pre">DecryptedContentId</span></code>. Черновик нельзя менять после добавления <code class="docutils literal notranslate"><span class="pre">OrderId</span></code>, а случае изменений, нужно повторно отправить запрос на подготовку черновика.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Получите контент для подписания <a class="reference internal" href="../../contents/content_methods.html#rst-markup-get-content"><span class="std std-ref">GET Download</span></a>. В запросе укажите идентификатор контента для подписания из предыдущего шага.</p></li>
+<li><p>Добавьте подпись в черновик уведомления: <a class="reference internal" href="../../drafts/DraftSignaturesController.html#rst-markup-addsignature"><span class="std std-ref">POST Add Signature</span></a>.</p></li>
+<li><p>Запустите последовательность методов, когда черновик будет готов к отправке: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-check"><span class="std std-ref">POST Check</span></a> -&gt; <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-prepare"><span class="std std-ref">POST Prepare</span></a> -&gt; <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-send"><span class="std std-ref">POST Send</span></a>.</p>
+<ol class="loweralpha simple">
+<li><p>Укажите флаг deferred = true для отложенного выполнения задач.</p></li>
+<li><p>Каждый из методов возвращает task-id для отслеживания выполнения задачи.</p></li>
+</ol>
+</li>
+<li><p>Проверяйте результат выполнения задачи: <a class="reference internal" href="../../drafts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D1%8B%20%D1%81%20%D1%87%D0%B5%D1%80%D0%BD%D0%BE%D0%B2%D0%B8%D0%BA%D0%B0%D0%BC%D0%B8.html#rst-markup-drafttasks"><span class="std std-ref">GET DraftTask</span></a>. Запрашивайте результат, пока статус не станет Success.</p></li>
+</ol>
+</section>
+<section id="id7">
+<h3>Получение статуса уведомления<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<p>Получите статус уведомления: <a class="reference internal" href="../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">GET Docflow</span></a>.</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p>Положительный результат: уведомление принято. Обновите информацию в своей информационной системе.</p></li>
+<li><p>Отрицательный результат:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Детализированный отказ. Уведомление не принято. Обновите информацию в своей информационной системе и подайте уведомление повторно с учетом исправления причин отказа.</p></li>
+<li><p>Недетализированный отказ. Уведомление не принято.</p></li>
+</ol>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+<div class="admonition note">
+<p class="admonition-title">Примечание</p>
+<p>Как получить детализированный отказ:</p>
+<ol class="arabic simple">
+<li><p>Повторно получите действующий токен <a class="reference internal" href="../../accounts/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%BE%D1%80%D0%B3%D0%B0%D0%BD%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D0%B9.html#rst-markup-gosuslugiauth"><span class="std std-ref">POST Gosuslugi Auth</span></a> на сотрудника организации.</p></li>
+<li><p>Получите повторно статус уведомления: <a class="reference internal" href="../../dc/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B%20API%20%D0%B4%D0%BB%D1%8F%20%D0%94%D0%9E.html#rst-markup-get-dc"><span class="std std-ref">GET Docflow</span></a>.</p></li>
+</ol>
+</div>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Нижняя область">
+        <a href="index.html" class="btn btn-neutral float-left" title="МВД" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Предыдущая</a>
+        <a href="../../drafts/work-order-drafts.html" class="btn btn-neutral float-right" title="Порядок работы с черновиками" accesskey="n" rel="next">Следующая <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p></p>
+  </div>
+
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+ <script type="text/javascript">
+ 	document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.toggle').forEach(item => {
+        const switcher = document.createElement('div');
+        switcher.classList.add('switcher');
+        switcher.addEventListener('click', () => {
+          item.classList.toggle('open');
+        })
+        item.appendChild(switcher);
+      });
+    })
+    /*
+    $(document).ready(function() {
+        $(".toggle > *").hide();
+        $(".toggle .header").show();
+        $(".toggle .header").click(function() {
+            $(this).parent().children().not(".header").toggle(400);
+            $(this).parent().children(".header").toggleClass("open");
+        })
+    });
+    */
+</script>
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+  (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+  m[i].l=1*new Date();
+  for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+  k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+  (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+  ym(92390594, "init", {
+       clickmap:true,
+       trackLinks:true,
+       accurateTrackBounce:true,
+       webvisor:true
+  });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/92390594" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sedoAppealResponse xmlns="http://www.fss.ru/integration/types/sedo/arm/v01">
+    <appealUuid xmlns="">EB228FF1-BECB-1488-AE4B-9525D22BB686</appealUuid>
+    <appealTitle xmlns="">заголовок письма</appealTitle>
+    <appealBody xmlns="">текст сообщения</appealBody>
+    <appealFile xmlns="">
+        <content xmlns="">data:text/plain;base64,c29tZVRleHQ=</content>
+        <fileName xmlns="">text.txt)</fileName>
+    </appealFile>
+</sedoAppealResponse>

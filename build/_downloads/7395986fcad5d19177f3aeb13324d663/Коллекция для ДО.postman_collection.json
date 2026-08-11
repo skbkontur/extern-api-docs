@@ -1,0 +1,239 @@
+{
+	"info": {
+		"_postman_id": "2782f183-784b-4ff4-b8b3-1e5d027cd5d1",
+		"name": "Работа с документооборотом",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Получение документооборота",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Скачать контент документа из документооборота",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/contents/9089d7cf-58d0-4739-ba3f-110ecd4180d7",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"contents",
+						"9089d7cf-58d0-4739-ba3f-110ecd4180d7"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Создание ответного документа",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"certificate-base64\": \"MIIJcDCCCR2gAwIBAgIQAdCFAEOrPJJKYFuNhmHkPjAKBggqhQMHAQEDAjCB/jEeMBwGCSqGSIb3DQEJARYPbm9yZXBseUB0ZXN0LnJ1MRgwFgYFKoUDZAESDTAwMDAwMDAwMDAwMDAxGjAYBggqhQMDgQMBARIMMDAwMDAwMDAwMDAwMQswCQYDVQQGEwJSVTESMBAGA1UECAwJNjYg0KHQstCeMRMwEQYDVQQHDArQldCx0YPRgNCzMRkwFwYDVQQJDBDRg9C7LiDQnC4sINC0LiA1MQ0wCwYDVQQLDATQo9CmMSIwIAYDVQQKDBnQntCe0J4gItCQ0LLRgtC+0YLQtdGB0YIiMSIwIAYDVQQDDBnQntCe0J4gItCQ0LLRgtC+0YLQtdGB0YIiMB4XDTIwMDExNTA3NTcxMloXDTIxMDQxNTA4MDcxMFowggIlMRgwFgYIKoUDA4ENAQESCjAwMDAwMDAwMTIxMDAuBgkqhkiG9w0BCQIMITc3NTc0MjQ4NjAtNjgwMzQ1NTY1LTAyOTQ3ODkwMTY0MjE+MDwGCSqGSIb3DQEJARYvOGZmN2ViNmQtZjc3NS00MTlmLTg3YTUtYzFhOWUwM2Y2M2EzQGRvbWFpbi5jb20xGjAYBggqhQMDgQMBARIMMDA3NzU3NDI0ODYwMRYwFAYFKoUDZAMSCzI5NDc4OTAxNjQyMRgwFgYFKoUDZAESDTExNDEzMTY0NDU5MDcxHTAbBgNVBAwMFNCh0L/QtdGG0LjQsNC70LjRgdGCMRswGQYDVQQLDBLQlNCf0J8uINCj0KAuINCe0KAxJzAlBgNVBAoMHtCe0J7QniAn0JHQsNC70LDQvdGBINCf0LvRjtGBJzEfMB0GA1UECQwW0YPQuy4g0J3QvtCy0LDRjywg0LQuMTETMBEGA1UEBwwK0J/QtdGA0LzRjDEzMDEGA1UECAwqNjYg0KHQstC10YDQtNC70L7QstGB0LrQsNGPINC+0LHQu9Cw0YHRgtGMMQswCQYDVQQGEwJSVTEsMCoGA1UEKgwj0JPQtdC+0YDQs9C40Lkg0K3Qu9GM0LTQsNGA0L7QstC40YcxFTATBgNVBAQMDNCc0LDRgNC60L7QsjEnMCUGA1UEAwwe0J7QntCeICfQkdCw0LvQsNC90YEg0J/Qu9GO0YEnMGYwHwYIKoUDBwEBAQEwEwYHKoUDAgIkAAYIKoUDBwEBAgIDQwAEQKteB7hYTm7elcTx5h2QX9Kg0YNAM0UOZssSSdI3lKn/uJH6Fvx4hy8LYHxrfXTIwGGt+yE+tt7aKNTf1gF7QHOjggVEMIIFQDAOBgNVHQ8BAf8EBAMCBPAwWAYDVR0RBFEwT4EvOGZmN2ViNmQtZjc3NS00MTlmLTg3YTUtYzFhOWUwM2Y2M2EzQGRvbWFpbi5jb22kHDAaMRgwFgYIKoUDA4ENAQESCjAwMDAwMDAwMTIwEwYDVR0gBAwwCjAIBgYqhQNkcQEwQQYDVR0lBDowOAYIKwYBBQUHAwIGByqFAwICIgYGCCsGAQUFBwMEBgcqhQMDBwgBBggqhQMDBwEBAQYGKoUDAwcBMIHGBggrBgEFBQcBAQSBuTCBtjBgBggrBgEFBQcwAoZUaHR0cDovL3VjLWF1dG90ZXN0LTEyLnNhbmRib3gubG9jYWwvYWlhLzBiNmRjNmI0OTY0MjhiYWFkNWQ1ZTY3ZGFmMWM3MWVkNGU0NzhmYTQuY3J0MFIGCCsGAQUFBzAChkZodHRwOi8vdWMtYXV0b3Rlc3QtMTIvYWlhLzBiNmRjNmI0OTY0MjhiYWFkNWQ1ZTY3ZGFmMWM3MWVkNGU0NzhmYTQuY3J0MCsGA1UdEAQkMCKADzIwMjAwMTE1MDc1NzExWoEPMjAyMTA0MTUwODA3MTBaMIIBMwYFKoUDZHAEggEoMIIBJAwrItCa0YDQuNC/0YLQvtCf0YDQviBDU1AiICjQstC10YDRgdC40Y8gNC4wKQxTItCj0LTQvtGB0YLQvtCy0LXRgNGP0Y7RidC40Lkg0YbQtdC90YLRgCAi0JrRgNC40L/RgtC+0J/RgNC+INCj0KYiINCy0LXRgNGB0LjQuCAyLjAMT9Ch0LXRgNGC0LjRhNC40LrQsNGCINGB0L7QvtGC0LLQtdGC0YHRgtCy0LjRjyDihJYg0KHQpC8xMjQtMzU3MCDQvtGCIDE0LjEyLjIwMTgMT9Ch0LXRgNGC0LjRhNC40LrQsNGCINGB0L7QvtGC0LLQtdGC0YHRgtCy0LjRjyDihJYg0KHQpC8xMjgtMjk4MyDQvtGCIDE4LjExLjIwMTYwNgYFKoUDZG8ELQwrItCa0YDQuNC/0YLQvtCf0YDQviBDU1AiICjQstC10YDRgdC40Y8gNC4wKTCBtQYDVR0fBIGtMIGqMFqgWKBWhlRodHRwOi8vdWMtYXV0b3Rlc3QtMTIuc2FuZGJveC5sb2NhbC9jZHAvMGI2ZGM2YjQ5NjQyOGJhYWQ1ZDVlNjdkYWYxYzcxZWQ0ZTQ3OGZhNC5jcmwwTKBKoEiGRmh0dHA6Ly91Yy1hdXRvdGVzdC0xMi9jZHAvMGI2ZGM2YjQ5NjQyOGJhYWQ1ZDVlNjdkYWYxYzcxZWQ0ZTQ3OGZhNC5jcmwwggE+BgNVHSMEggE1MIIBMYAUC23GtJZCi6rV1eZ9rxxx7U5Hj6ShggEFpIIBATCB/jEeMBwGCSqGSIb3DQEJARYPbm9yZXBseUB0ZXN0LnJ1MRgwFgYFKoUDZAESDTAwMDAwMDAwMDAwMDAxGjAYBggqhQMDgQMBARIMMDAwMDAwMDAwMDAwMQswCQYDVQQGEwJSVTESMBAGA1UECAwJNjYg0KHQstCeMRMwEQYDVQQHDArQldCx0YPRgNCzMRkwFwYDVQQJDBDRg9C7LiDQnC4sINC0LiA1MQ0wCwYDVQQLDATQo9CmMSIwIAYDVQQKDBnQntCe0J4gItCQ0LLRgtC+0YLQtdGB0YIiMSIwIAYDVQQDDBnQntCe0J4gItCQ0LLRgtC+0YLQtdGB0YIighA8C+gA1qloqE/q4e55QKJqMB0GA1UdDgQWBBS3Spm2focL2WKHTbDqe9JX/k2UizAKBggqhQMHAQEDAgNBAPqo6bMcngEmp/UV5ftLpwgLR36tvT4OEwYTy70aG5jNdlzfHufAP57tNQzTwNRsAZ8sYpQYKykqopO+/MYE3Xk=\"\r\n}"
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/generate-reply?documentType=fns534-report-receipt",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"7b9edebc-32bc-4317-b4a4-abbc26fe3663",
+						"documents",
+						"70c3746a-28c0-441c-ad5d-cb585cf5ed22",
+						"generate-reply"
+					],
+					"query": [
+						{
+							"key": "documentType",
+							"value": "fns534-report-receipt"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Добавление подписи к ответному документу",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/C:/Users/buravova/Desktop/IZ_IVNOSRCHIS_0007_0007_7757424860680345565_20200421_e6abd9111944426e9956138cbfe16bfc.xml (1).sig"
+					}
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/signature",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"7b9edebc-32bc-4317-b4a4-abbc26fe3663",
+						"documents",
+						"70c3746a-28c0-441c-ad5d-cb585cf5ed22",
+						"replies",
+						"9ae00ec3-9b23-48d7-a417-368e24f1c6ca",
+						"signature"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Отправка ответного документа",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Authorization}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sender-ip\": \"8.8.8.8\"\r\n}"
+				},
+				"url": {
+					"raw": "https://extern-api.testkontur.ru/v1/bd0cd3f6-315d-4f03-a9cc-3507f63265ed/docflows/7b9edebc-32bc-4317-b4a4-abbc26fe3663/documents/70c3746a-28c0-441c-ad5d-cb585cf5ed22/replies/9ae00ec3-9b23-48d7-a417-368e24f1c6ca/send",
+					"protocol": "https",
+					"host": [
+						"extern-api",
+						"testkontur",
+						"ru"
+					],
+					"path": [
+						"v1",
+						"bd0cd3f6-315d-4f03-a9cc-3507f63265ed",
+						"docflows",
+						"7b9edebc-32bc-4317-b4a4-abbc26fe3663",
+						"documents",
+						"70c3746a-28c0-441c-ad5d-cb585cf5ed22",
+						"replies",
+						"9ae00ec3-9b23-48d7-a417-368e24f1c6ca",
+						"send"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

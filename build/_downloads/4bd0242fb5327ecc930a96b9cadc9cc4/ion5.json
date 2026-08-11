@@ -1,0 +1,17 @@
+{
+  "version": "3",
+  "data": {
+    "ФормОтв": 4
+  },
+  "additional-org-info": {
+    "document-sender": {
+      "sender-full-name": "Налогоплательщик"
+    },
+    //Тип подписанта: chief - руководитель, representative - представитель
+    "signer-type": "chief",
+    "taxpayer": {
+      "taxpayer-chief-fio": "ФИО руководителя",
+      "taxpayer-full-name": "Налогоплательщик"
+    }
+  }
+}

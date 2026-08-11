@@ -1,0 +1,129 @@
+.. _`POST CreateReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fgenerate-reply
+.. _`GET ReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D
+.. _`PUT ReplyDocumentContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcontent
+.. _`PUT ReplyDocumentSignature`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
+.. _`POST SendReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsend
+.. _`POST SignReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`POST SignConfirmReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+.. _`GET GetDocflowReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+
+.. _`POST GeneratePfrReply`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-generate-reply
+.. _`GET GetPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D
+.. _`PUT SavePfrReplyDocumentDecryptedContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fdecrypted-content
+.. _`PUT SavePfrReplyDocumentSignature`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fdocuments%2F%7BreplyDocumentId%7D%2Fsignature
+.. _`POST SendPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fsend
+.. _`POST SignPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`GET GetDocflowPfrReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`POST SignConfirmPfrReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BdocflowId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fpfr-replies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+
+Методы для работы с ответными документами
+=========================================
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+Документооборот подразумевает под собой последовательный обмен определенными документами согласно регламенту. Поэтому в ответ на получаемые от контролирующего органа документы необходимо отправлять определенные ответные документы, нагляднее в разделе :doc:`Статусы и порядок документооборотов</specification/статусы ДО>`. Методы данного раздела позволяют формировать и работать с подобными технологическими документами. Также необходимые ссылки для формирования нужных документов будут появляться в работе с методом :ref:`Получения документооборота <rst-markup-get-dc>`.
+
+Список методов для работы с ответными документами в ФНС и Росстат:
+
+* `Генерация ответного документа`_
+* `Просмотр документа`_
+* `Редактирование контента документа`_
+* `Добавление подписи документа`_
+* `Отправка ответного документа`_
+* `Подписание ответного документа сертификатом`_
+* `Подтверждение подписания ответного документа`_
+* `Проверка статуса задачи подписания ответного документа по TaskId`_
+
+.. _rst-markup-post-reply-doc:
+
+Методы для работы с ответными документами в ФНС и Росстат
+---------------------------------------------------------
+
+.. _rst-markup-CreateReplyDocument:
+
+Генерация ответного документа 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST CreateReplyDocument`_
+
+Метод позволяет сгенерировать ответный документ в документооборотах ФНС, СФР и Росстата. 
+
+Ответный документ — это  xml-файл документа установленного формата. Он создается в ответ на конкретный документ, поступивший налогоплательщику от ФНС. В методе необходимо указать тип документа, который нужно сгенерировать. Чтобы понять, какой именно :doc:`тип документа</specification/типы документов>` нужно сформировать, см. :doc:`/specification/статусы ДО`.
+
+**Параметры запроса:**
+
+* ``accountId`` — идентификатор учетной записи;
+* ``docflowId`` — идентификатор документооборота;
+* ``documentId`` — идентификатор главного документа в документообороте;
+* ``documentType`` — :doc:`тип генерируемого документа</specification/типы документов>`. Нужно указывать без “urn:document:”. Пример: documentType = fns534-report-receipt;
+* ``declineNoticeErrorCode`` — коды ошибок, выявленные в процессе :ref:`проверки требования<rst-markup-fns-check-demand>`. Поле используется только для генерации уведомления об отказе в документообороте требования ФНС (documentType = fns534-demand-acceptance-result-negative). В запросе можно передать несколько кодов, например, ``declineNoticeErrorCode=0300300001&declineNoticeErrorCode=040010000``;
+* ``request`` — параметры для генерации ответного документа:
+
+   * ``certificate-base64`` (string) — сертификат в формате base64.
+
+В ответе метод возвращает модель ответного документа. Контент можно будет скачать по идентификатору из сервиса контентов. Также в ответе метода доступна печатная форма сгенерированного документа.
+
+**Возможные коды ответов:**
+
+- 400 - Передан один или несколько неизвестных :ref:`кодов ошибок для создания уведомления об отказе<rst-markup-check-demand>`.
+- 400 - Создание ответного документа недоступно для этого документа.
+- 400 - Ответный документ уже отправлен для этого документа, его можно посмотреть в :ref:`документообороте<rst-markup-get-dc>`.
+- 400 - Передан сертификат не в формате base64.
+- 400 - Данные, переданные в параметре certificate-base64, не удалось преобразовать в сертификат.
+- 400 - Передан невалидный сертификат.
+- 400 - Передан неквалифицированный сертификат.
+- 400 - Передан сертификат, принадлежащий ликвидированной организации.
+- 400 - ИНН в сертификате не соответствует ИНН отправителя.
+- 404 - Организация не найдена.
+- 404 - Документооборот не найден.
+- 404 - Документ не найден.
+- 500 - Произошла внутренняя ошибка.
+
+Просмотр документа 
+~~~~~~~~~~~~~~~~~~
+
+Метод: `GET ReplyDocument`_
+
+С помощью данного метода можно получить все данные и контенты ответного документа, сгенерированного в методе выше.
+
+Редактирование контента документа
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `PUT ReplyDocumentContent`_
+
+.. _rst-markup-repliSignature:
+
+Добавление подписи документа
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `PUT ReplyDocumentSignature`_
+
+.. _rst-markup-sendreply:
+
+Отправка ответного документа
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SendReplyDocument`_
+
+Отправка в контролирующий орган ответного документа с электронной подписью абонента под ним.
+
+Подписание ответного документа сертификатом
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignReplyDocument`_
+
+
+Подтверждение подписания ответного документа
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `POST SignConfirmReplyDocument`_
+
+
+Проверка статуса задачи подписания ответного документа по TaskId
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Метод: `GET GetDocflowReplyDocumentTask`_
+
+

@@ -1,0 +1,197 @@
+.. _`InventoriesDocflows`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories
+.. _`GET GetAllInventoryDocflows`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories
+.. _`GET GetOneInventoryDocflow`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D
+.. _`GET GetEncryptedDocumentContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fencrypted-content
+.. _`GET GetDecryptedDocumentContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
+.. _`GET InventoryDocflowDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`GET GetSignatureContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fsignatures%2F%7BsignatureId%7D%2Fcontent
+.. _`POST InitDecryptDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypt-content
+.. _`PUT InventoryDecryptedContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fdecrypted-content
+.. _`POST ConfirmationDecryptDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fconfirm-content-decryption
+.. _`POST DocumentPrint`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fprint
+.. _`POST CreateReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Fgenerate-reply
+.. _`GET GetReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D
+.. _`PUT SaveReplyDocumentContent`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcontent
+.. _`PUT SaveReplyDocumentSignature`: https://developer.kontur.ru/doc/extern.docflows/method?type=put&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsignature
+.. _`POST SignReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign
+.. _`POST SignConfirmReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fcloud-sign-confirm
+.. _`GET DocflowReplyDocumentTask`: https://developer.kontur.ru/doc/extern.docflows/method?type=get&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Ftasks%2F%7BapiTaskId%7D
+.. _`POST SendReplyDocument`: https://developer.kontur.ru/doc/extern.docflows/method?type=post&path=%2Fv1%2F%7BaccountId%7D%2Fdocflows%2F%7BrelatedDocflowId%7D%2Fdocuments%2F%7BrelatedDocumentId%7D%2Finventories%2F%7BinventoryId%7D%2Fdocuments%2F%7BdocumentId%7D%2Freplies%2F%7BreplyId%7D%2Fsend
+
+Методы для работы с документооборотами описи
+============================================
+
+После отправки черновика ответа на требование появляется документооборот urn:docflow:fns534-inventory или Опись — ответ на требование. 
+
+В :doc:`методах для работы с документооборотом</dc/методы API для ДО>` достаточно знать идентификатор docflowId, чтобы отследить документооборот. Опись в свою очередь характеризуют три параметра, поэтому для работы с ней были реализовали отдельные методы. Параметры, которые характеризуют опись:
+
+* Идентификатор документооборота описи — inventoryId.
+* Идентификатор входящего документооборота, в ответ на которое посылается опись — relatedDocflowId.
+* Идентификатор документа из входящего документооборота, на который была отправлена опись — relatedDocumentId.
+
+Подробная спецификация методов показана в Swagger в разделе `InventoriesDocflows`_.
+
+.. contents:: Список доступных методов
+   :depth: 2
+
+.. _rst-markup-get-all-inventory:
+
+Получение всех отправленных ответов на требование
+-------------------------------------------------
+Метод: `GET GetAllInventoryDocflows`_
+
+С помощью этого метода можно получить список всех отправленных описей. Так как опись формируется в ответ на входящий документооборот, нужно знать два идентификатора: самого документооборота и документа с типом fns534-demand-attachment в нем. 
+
+В ответе метод возвращает список документооборотов с метаинформацией. Чтобы получить ограниченную выборку, можно применить различные фильтры (в теле запроса).
+
+Сценарии, в которых можно использовать списки документооборотов:
+
+* следить за статусом отправленных описей;
+* отображать пользователю списки его документооборотов, применяя различные фильтры.
+
+.. _rst-markup-get-inventory-dc:
+
+Получение документооборота ответа на требование
+-----------------------------------------------
+
+Метод: `GET GetOneInventoryDocflow`_
+
+С помощью этого метода можно получить информацию о документообороте:
+
+* текущий статус;
+* метаинформацию;
+* список документов;
+* список подписей;
+* и многое другое, полный ответ можно посмотреть в Swagger.
+
+Если текущий статус документооборота подразумевает необходимость отправки ответного документа в контролирующий орган, например, квитанцию о приеме, среди ссылок в ответе этого метода будет ссылка на :ref:`методы для работы с ответными документами к описи<rst-markup-replymethods>`.
+
+Дешифрование содержимого документа по сертификату
+-------------------------------------------------
+
+Метод: `POST InitDecryptDocument`_
+
+Подтверждение дешифрования содержимого документа
+------------------------------------------------
+
+Метод: `POST ConfirmationDecryptDocument`_
+
+Подтверждает дешифрование документа, метод возвращает ссылку на расшифрованный контент документа.
+
+Сохранение расшифрованного контента в документ документооборота
+---------------------------------------------------------------
+
+Метод: `PUT InventoryDecryptedContent`_
+
+Проверка статуса задачи по TaskId
+---------------------------------
+
+Метод: `GET InventoryDocflowDocumentTask`_
+
+Получение контента конкретной подписи под документом
+----------------------------------------------------
+
+Метод: `GET GetSignatureContent`_
+
+Чтобы получить контент подписи, необходимо передать ее идентификатор. Его можно узнать в :ref:`методе получения документооборота описи<rst-markup-get-inventory-dc>`.
+
+.. _rst-markup-inventory-print:
+
+Печать документа 
+----------------
+
+Метод: `POST DocumentPrint`_
+
+При помощи данного метода можно получить печатную форму формализованного документа в документообороте. Печать документов происходит только после проверки подписей под печатаемыми документами, тем самым подтверждается валидность и неизменность печатаемых документов.
+
+**Параметры запроса**
+
+``deferred`` — флаг :ref:`асинхронного выполнения запроса<rst-markup-print-async>`. Принимает значение *true*. Запрос будет выполнен асинхронно: будет создана задача, статус выполнения которой можно посмотреть по ``task-id``.
+
+.. warning:: Значение флага *false* для синхронного вызова метода устарело и больше не используется в методах API. При таком значении флага вернется ошибка 400 BadRequest. 
+
+**Возможные коды ответов**
+
+* 202 Accepted — поставлена задача на печать документа, результат можно получить в методе :ref:`Get DraftDocumentTask<rst-markup-DraftDocumentTask>`.
+* 400 BadRequest — печать невозможна: тип контента или тип документа не поддерживается, либо передано значение флага асинхронного вызова метода deferred — false.
+
+Получение зашифрованного контента документа (deprecated)
+--------------------------------------------------------
+
+Метод: `GET GetEncryptedDocumentContent`_
+
+.. attention:: **Метод устарел.** Вместо него используйте :doc:`Сервис контентов</scenarios/device_api/content>`. Идентификатор контента лежит в параметре content-id.
+
+Зашифрованный контент возвращается в формате base64. Чтобы получить контент, его нужно конвертировать и дешифровать при помощи закрытого ключа, на который он был зашифрован. В результате вы получите архив, который нужно разархивировать. 
+
+Максимальный размер возвращаемого контента 32 МБ для тестовой и 64 МБ для рабочей площадки.
+
+Получение расшифрованного контента документа (deprecated)
+---------------------------------------------------------
+
+Метод: `GET GetDecryptedDocumentContent`_
+
+.. attention:: **Метод устарел.** Вместо него используйте :doc:`Сервис контентов</scenarios/device_api/content>`. Идентификатор контента лежит в параметре content-id.
+
+Метод возвращает расшифрованный контент документа. Наличие расшифрованного контента возможно не для всех документов.
+
+Максимальный размер возвращаемого контента 32 МБ для тестовой и 64 МБ для рабочей площадки.
+
+.. _rst-markup-replymethods:
+
+Методы для работы с ответными документами
+=========================================
+
+На входящие документы от налогового органа налогоплательщик должен отправлять определенные ответные документы. Представленные ниже методы позволяют формировать подобные технологические документы и работать с ними. Также необходимые ссылки для формирования ответных документов будут появляться в работе с :ref:`методом получения документооборота<rst-markup-get-inventory-dc>`.
+
+Генерация ответного документа
+-----------------------------
+
+Метод: `POST CreateReplyDocument`_
+
+Метод генерирует XML-файл документа установленного формата. В результате возвращает идентификатор черновика документа. Также в ответе будет доступна и печатная форма сгенерированного документа.
+
+Просмотр ответного документа
+----------------------------
+
+Метод: `GET GetReplyDocument`_
+
+Метод возвращает всю информацию об ответном документе по его идентификатору. У каждого документа будет ссылка на контенты (зашифрованный или расшифрованный, либо оба) в текущем состоянии в соответствии с требованиями контролирующих органов.
+
+Обновление контента ответного документа
+---------------------------------------
+
+Метод: `PUT SaveReplyDocumentContent`_
+
+Метод обновляет контент ответного документа.
+
+.. _rst-markup-reply-doc-signature:
+
+Добавление подписи к ответному документу
+----------------------------------------
+
+Метод: `PUT SaveReplyDocumentSignature`_
+
+Метод сохраняет файл подписи к ответному документу.
+
+Подписание ответного документа сертификатом
+-------------------------------------------
+
+Метод: `POST SignReplyDocument`_
+
+Подтверждение подписания ответного документа
+--------------------------------------------
+
+Метод: `POST SignConfirmReplyDocument`_
+
+Отправка ответного документа
+----------------------------
+
+Метод: `POST SendReplyDocument`_
+
+Метод отправляет в контролирующий орган ответный документ с электронной подписью абонента под ним.
+
+Проверка статуса задачи ответного документа по TaskId
+-----------------------------------------------------
+
+Метод: `GET DocflowReplyDocumentTask`_
