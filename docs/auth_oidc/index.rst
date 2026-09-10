@@ -13,6 +13,7 @@
    api-key
    authorization_code_flow
    device_flow
+   client_credentials_flow
 
 Для работы с API Контур.Экстерна необходимо:
 
@@ -32,7 +33,8 @@
 * OpenID Connect поддерживает несколько способов получения токенов:
 
     * :doc:`аутентификация по коду подтверждения</auth_oidc/authorization_code_flow>` через authorization code flow;
-    * :doc:`аутентификация по веб-ссылке</auth_oidc/device_flow>` через device flow.
+    * :doc:`аутентификация по веб-ссылке</auth_oidc/device_flow>` через device flow;
+    * :doc:`аутентификация приложения</auth_oidc/client_credentials_flow>` через client credentials flow.
 
 * OpenID Connect не работает с cookies на домене конечного пользователя.
 
@@ -60,7 +62,8 @@ Access Token — некоторый идентификатор, который �
 Access Token можно получить с помощью API OpenID Провайдера. Есть несколько способов получения токенов:
 
 * :doc:`authorization code flow</auth_oidc/authorization_code_flow>` — для приложений с серверной частью; 
-* :doc:`device flow</auth_oidc/device_flow>` — для приложений, которые не имеют серверной части или напрямую взаимодействуют с API Контур.Экстерна, например, модуль 1С.
+* :doc:`device flow</auth_oidc/device_flow>` — для приложений, которые не имеют серверной части или напрямую взаимодействуют с API Контур.Экстерна, например, модуль 1С;
+* :doc:`client credentials flow</auth_oidc/client_credentials_flow>` — для взаимодействия между сервисами без участия пользователя.
 
 Для интеграции мы рекомендуем использовать **authorization code flow**.
 
